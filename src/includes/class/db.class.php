@@ -7,15 +7,21 @@ class DBAccess {
     private const USERNAME = "lzaninot";
     // dovrebbe aprire il file con la password settato com path
     // assoluta in variabile d'ambiente, da vedere meglio dopo
-    private const PASSWORD = fread(fopen($_ENV['PW_FILE']), filesize($_ENV['PW_FILE']));
+    private $pw_file;
     private const DB_NAME = "lzaninot";
     
     private $connection;
 
+    public function __construct() {
+        $pw_file = fopen($_ENV["PW_FILE"]);
+    }
+
     public function initDbConnection() {
+        $password = fread($pw_file, filesize($_ENV["PW_FILE"]));
+        // echo $password . " <- pw presa dal file " . $_ENV["PW_FILE"] . PHP_EOL;
         $this->connection = mysqli_connect(DBAccess::HOST_DB,
                                            DBAccess::USERNAME,
-                                           DBAccess::PASSWORD,
+                                           $password,
                                            DBAccess::DB_NAME);
         if(!$this->connection){
             error_log("Database not connected!!");
@@ -38,4 +44,8 @@ class DBAccess {
         $this->connection = null;
     }
 }
+
+$db = new DBAccess();
+$connection = $db->openDbConnection();
+
 ?>
