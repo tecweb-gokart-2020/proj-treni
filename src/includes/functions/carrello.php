@@ -12,7 +12,8 @@ function getSessionFromCarrello($cart_id){
         $query = "SELECT sessionID FROM carrello WHERE cartID = \"$cart_id\"";
         $queryResult = mysqli_query($connection, $query);
         $dbAccess->closeDbConnection();
-        return $queryResult;
+        $session_id = mysqli_fetch_row($queryResult);
+        return $session_id;
     }else{
         return false;
     }
