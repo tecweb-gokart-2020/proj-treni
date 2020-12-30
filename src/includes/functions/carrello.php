@@ -6,10 +6,10 @@ function getSession($cart_id){
     $reg_expr = "/^\d+$/";
     if(preg_match($reg_expr,$cart_id)!=0){
         $dbAccess = new DBAccess();
-        $dbAccess->opendbconnection();
+        $dbAccess->openDbConnection();
         $query = "SELECT sessionID FROM carrello WHERE cartID = \"$cart_id\"";
         $queryResult = mysqli_query($dbAccess->connection, $query);    
-        $dbAccess->closedbconnection();
+        $dbAccess->closeDbConnection();
         return $queryResult;
     }else{
         error_log("Invalid cartID! Must be a number");
@@ -21,7 +21,7 @@ function getProdotti($cart_id){
     $reg_expr = "/^\d+$/";
     if(preg_match($reg_expr,$cart_id)!=0){
         $dbAccess = new DBAccess();
-        $dbAccess->opendbconnection();
+        $dbAccess->openDbConnection();
         $query = "SELECT codArticolo, quantita FROM contenuto_carrello WHERE cartID = \"$cart_id\"";
         $queryResult = mysqli_query($dbAccess->connection, $query);
         $listaProdotti = array();
@@ -34,7 +34,7 @@ function getProdotti($cart_id){
                 array_push($listaProdotti,$singoloProdotto);
             }
         }
-        $dbAccess->closedbconnection();
+        $dbAccess->closeDbConnection();
         return $listaProdotti;
     }else{
         error_log("Invalid cartID! Must be a number");
