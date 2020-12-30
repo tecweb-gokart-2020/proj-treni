@@ -20,20 +20,8 @@ CREATE TABLE utente(
        FOREIGN KEY (cartID) REFERENCES carrello(cartID)
 )Engine=InnoDB;
 
-CREATE TABLE sessione_utente(
-       sessionID int PRIMARY KEY,
-       timestamp timestamp not null,
-       accountID int,
-
-       FOREIGN KEY (accountID) REFERENCES utente(ID)
-)Engine=InnoDB;
-
-
 CREATE TABLE carrello(
        cartID int PRIMARY KEY,
-       sessionID int NOT NULL,
-
-       FOREIGN KEY (sessionID) REFERENCES sessione_utente(sessionID)
 )Engine=InnoDB;
 
 
