@@ -41,4 +41,27 @@ function getCartFromAccount($accountID) {
     $db->closeDbConnection();
     return $final;
 }
+
+function check_email($email) {
+    if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if(preg_match("", $email)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function check_username($username) {
+    
+}
+
+function check_password($password) {
+    
+}
+
+function register($email, $username, $password) {
+    check_email($email);
+    check_username($username);
+    check_password($password);
+}
 ?>

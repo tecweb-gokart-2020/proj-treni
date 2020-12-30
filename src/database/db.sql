@@ -14,6 +14,7 @@ DROP TABLE IF EXISTS indirizzo;
 CREATE TABLE utente(
        ID int PRIMARY KEY,
        cartID int,
+       email varchar(16) not null,
        username varchar(16) not null,
        password varchar(10) not null,
        
