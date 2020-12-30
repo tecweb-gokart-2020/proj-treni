@@ -2,7 +2,7 @@
 require_once "../resources.php";
 use DB\DbAccess;
 
-function getSession($cart_id){
+function getSessionCarrello($cart_id){
     $reg_expr = "/^\d+$/";
     if(preg_match($reg_expr,$cart_id)!=0){
         $dbAccess = new DBAccess();
@@ -17,7 +17,7 @@ function getSession($cart_id){
     }
 }
 
-function getProdotti($cart_id){
+function getProdottiCarrello($cart_id){
     $reg_expr = "/^\d+$/";
     if(preg_match($reg_expr,$cart_id)!=0){
         $dbAccess = new DBAccess();
