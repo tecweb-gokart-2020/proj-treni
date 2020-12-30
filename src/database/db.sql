@@ -92,7 +92,7 @@ CREATE TABLE spedizione(
        stato varchar(50),
        data_prevista date,
 
-       FOREIGN KEY (orderID) REFERENCES ordine(orderID),
+       FOREIGN KEY (orderID) REFERENCES ordine(orderID)
 )Engine=InnoDB;
 
 CREATE TABLE indirizzo(
