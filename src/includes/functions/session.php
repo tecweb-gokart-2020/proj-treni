@@ -3,11 +3,11 @@ namespace SESSION;
 
 /* ritorna NULL se non c'è nessun account collegato alla sessione,
  * ritorna l'id dell'account se questo esiste */
-function getAccountID($sessionID) {
+function getAccountIDFromSession($sessionID) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
 
-    $query = "SELECT accountID FROM sessione_utente WHERE sessionID is " . $sessionID;
+    $query = "SELECT accountID FROM sessione_utente WHERE sessionID = " . $sessionID;
     $result = mysqli_query($query);
     if(mysqli_num_rows($result) == 0) {
         return NULL;
@@ -20,11 +20,11 @@ function getAccountID($sessionID) {
 /* Ritorna NULL se la sessione non ha nessun carrello associato
  * (dovrebbe essere un errore), ritorna un array con i carrelli legati
  * alla sessione altrimenti */
-function getCartID($sessionID) {
+function getCartIDFromSession($sessionID) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
     
-    $query = "SELECT cartID FROM carrello WHERE sessionID is " . $sessionID;
+    $query = "SELECT cartID FROM carrello WHERE sessionID = " . $sessionID;
     $result = mysqli_query($query);
     if(mysqli_num_rows($result) == 0) {
         return NULL;
@@ -36,7 +36,7 @@ function getCartID($sessionID) {
 
 /* Associa alla sessione $sessionID l'acocunt $accountID, se tutto va
  * bene ritorna true, altrimenti ritorna false */
-function associateAccount($sessionID, $accountID) {
+function associateSessionToAccount($sessionID, $accountID) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
 
