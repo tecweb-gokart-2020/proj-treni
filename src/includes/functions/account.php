@@ -42,26 +42,42 @@ function getCartFromAccount($accountID) {
     return $final;
 }
 
-function check_email($email) {
-    if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        if(preg_match("", $email)) {
-            return true;
-        }
-    }
-    return false;
-}
-
-function check_username($username) {
-    
-}
-
-function check_password($password) {
-    
-}
-
 function register($email, $username, $password) {
-    check_email($email);
-    check_username($username);
-    check_password($password);
+    $valid_email = check_email($email);
+    $valid_username = check_username($username);
+    $valid_password = check_password($password);
+
+    $error_str = "";
+
+    if($valid_email) {
+        
+    } else {
+        $error_str .= "Email non valida: " . $email;
+    }
+    if($valid_username) {
+        
+    } else {
+        $error_str .= " Username non valido" . $username;
+    }
+    if($valid_password) {
+        
+    } else {
+        $error_str .= "Password non valida" . $password;
+    }
+    if($error_str === "") {
+        error_log(error_str);
+        return NULL;
+    }
+
+    $cartID = $_SESSION["cartID"];
+
+    $db = new DBAccess();
+    $connection = $db->openDbConnection();
+
+    $sep = ", ";
+    $query = "INSERT INTO utente(email, username, password, cartID) VALUES " .
+           $email . $sep . $username . $sep . $password . $sep . $cartID;
+    $result = mysqli_query($query);
+    
 }
 ?>
