@@ -2,11 +2,11 @@
 namespace INDIRIZZO;
 //require_once "../resources.php";
 use DB\DbAccess;
-use function UTILITIES\isValidAddress;
+use function UTILITIES\isValidID;
 
 // Ritorna l'ID dell'account associato ad un indirizzo, null se non esiste
 function getAccountFromAddress($address_id){
-    if(isValidAddress($address_id)){
+    if(isValidID($address_id)){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT accountID FROM indirizzo WHERE addressID = \"$address_id\"";
@@ -21,7 +21,7 @@ function getAccountFromAddress($address_id){
 
 // Ritorna un array associativo con i campi presenti in un indirizzo, null se non c'è alcun indirizzo
 function getInfoFromAddress($address_id){
-    if(isValidAddress($address_id)){
+    if(isValidID($address_id)){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT username, nome, via, numero, citta, stato, comune, cap 
