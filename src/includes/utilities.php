@@ -1,16 +1,16 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'resources.php';
 namespace UTILITIES;
-
+//require_once "resources.php";
 use mysqli;
 use DB\DBAccess;
 
-function isValidCarrello($cart_id){
+function isValidID($id){
     $reg_expr = "/^\d+$/";
-    if(preg_match($reg_expr,$cart_id)!=0){
+    if(preg_match($reg_expr,$id)!=0){
         return true;
     }else{
-        error_log("Invalid cartID! Must be a number");
+        error_log("Invalid ID! Must be a number");
         return false;
     }
 }
