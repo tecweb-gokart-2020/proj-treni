@@ -42,42 +42,84 @@ function getCartFromAccount($accountID) {
     return $final;
 }
 
+/* Inserisce in database un utente con email e password specificate,
+ * fa sanity check sulle cose e dovrebbe evitare sql injection tramire
+ * mysqli_prepare. */
+/* PRE = username, email e password sono tre stringhe e la variabile
+ * $_SESSION["cartID"] è ben formata */
+/* POST = ritorna l'ID del nuovo utente se è andato tutto bene, lancia
+ * invece un'eccezione che indica cosa è andato storto altrimenti */
+
 function register($email, $username, $password) {
     $valid_email = check_email($email);
-    $valid_username = check_username($username);
-    $valid_password = check_password($password);
+    $valid_username = preg_match("/\w{3,}/", $username);
 
     $error_str = "";
 
-    if($valid_email) {
-        
-    } else {
-        $error_str .= "Email non valida: " . $email;
+    if(!$valid_email) {
+        $error_str .= "Email non valida: " . $email . PHP_EOL;
     }
-    if($valid_username) {
-        
-    } else {
-        $error_str .= " Username non valido" . $username;
+    if(username_exixst($username)) {
+        $error_str .= "Username già presente: " . $username . PHP_EOL;
     }
-    if($valid_password) {
-        
-    } else {
-        $error_str .= "Password non valida" . $password;
+    if(!$valid_username) {
+        $error_str .= "Username deve avere almeno 3 caratteri" . PHP_EOL;
     }
-    if($error_str === "") {
-        error_log(error_str);
-        return NULL;
+    if($error_str !== "") {
+        throw new Exception(error_str);
     }
 
     $cartID = $_SESSION["cartID"];
 
     $db = new DBAccess();
     $connection = $db->openDbConnection();
+    // non molto elegante
+    if ($connection->connect_error) {
+        error_log("Connection failed: " . $connection->connect_error);
+        return NULL;
+    } 
 
-    $sep = ", ";
-    $query = "INSERT INTO utente(email, username, password, cartID) VALUES " .
-           $email . $sep . $username . $sep . $password . $sep . $cartID;
-    $result = mysqli_query($query);
+    $query = "INSERT INTO utente(email, UUID, password, cartID) VALUES ?, ?, ?, ?";
+    $stmt = mysqli_prepare($connection, $query);
+
+    mysqli_stmt_bind_param($stmt, "ssssi", $ID, $email, $username, $password, $cartID);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $result);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
     
+    $db->closeDbConnection();
+    return TRUE;
+}
+
+/* PRE = UUID e password sono stringhe */ 
+/* POST = ritorna accountID se uuid era username o email di un account
+ * e la password era corretta, NULL altrimenti */
+function login($UUID, $password) {
+    $is_email = check_email($UUID);
+    $id = $is_email ? "email" : "username";
+    
+    $db = new DBAccess();
+    $connection = $db->openDbConnection();
+    // non molto elegante
+    if ($connection->connect_error) {
+        error_log("Connection failed: " . $connection->connect_error);
+        return NULL;
+    } 
+
+    $query = "SELECT ID FROM utente WHERE " . $id . " = ? AND password = ?";
+    $stmt = mysqli_prepare($connection, $query);
+
+    mysqli_stmt_bind_param($stmt, "ss", $UUID, $password);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $result);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+    
+    $db->closeDbConnection();
+    if(mysqli_stmt_fetch($stmt)) {
+        return $result;
+    };
+    return NULL;
 }
 ?>
