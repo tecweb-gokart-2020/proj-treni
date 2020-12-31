@@ -21,7 +21,7 @@ CREATE TABLE utente(
 )Engine=InnoDB;
 
 CREATE TABLE carrello(
-       cartID int PRIMARY KEY,
+       cartID int PRIMARY KEY
 )Engine=InnoDB;
 
 
