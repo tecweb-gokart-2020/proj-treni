@@ -27,7 +27,6 @@ function check_email($email) {
 function email_exixst($email) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
-
     $query = "SELECT email FROM utente WHERE email = ?";
     $stmt = mysqli_prepare($connection, $query);
 
