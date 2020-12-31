@@ -12,16 +12,16 @@ DROP TABLE IF EXISTS spedizione;
 DROP TABLE IF EXISTS indirizzo;
 
 CREATE TABLE utente(
-       ID int PRIMARY KEY,
-       cartID int,
-       username varchar(16) not null,
+       username varchar(20) PRIMARY KEY,
+       cartID int not null,
+       email varchar(100) not null,
        password varchar(10) not null,
        
        FOREIGN KEY (cartID) REFERENCES carrello(cartID)
 )Engine=InnoDB;
 
 CREATE TABLE carrello(
-       cartID int PRIMARY KEY,
+       cartID int PRIMARY KEY
 )Engine=InnoDB;
 
 
@@ -67,11 +67,11 @@ CREATE TABLE prodotto_ordinato(
 
 CREATE TABLE ordine(
        orderID int PRIMARY KEY,
-       accountID int NOT NULL,
+       username varchar(20) NOT NULL,
        data_ordine timestamp,
        total decimal,
 
-       FOREIGN KEY (accountID) REFERENCES utente(ID)
+       FOREIGN KEY (username) REFERENCES utente(username)
 )Engine=InnoDB;
 
 CREATE TABLE spedizione(
@@ -87,13 +87,16 @@ CREATE TABLE spedizione(
 
 CREATE TABLE indirizzo(
        addressID int PRIMARY KEY,
+       username varchar(20),
        nome varchar(50),
        via varchar(50),
        numero varchar(50),
        citta varchar(50),
        stato varchar(50),
        comune varchar(50),
-       cap int
+       cap int,
+
+       FOREIGN KEY (username) REFERENCES utente(username)
 )Engine=InnoDB;
 
 SET FOREIGN_KEY_CHECKS=1;
