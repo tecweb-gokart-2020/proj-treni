@@ -9,7 +9,7 @@ function getAccountFromAddress($address_id){
     if(isValidID($address_id)){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
-        $query = "SELECT accountID FROM indirizzo WHERE addressID = \"$address_id\"";
+        $query = "SELECT username FROM indirizzo WHERE addressID = \"$address_id\"";
         $queryResult = mysqli_query($connection, $query);
         $dbAccess->closeDbConnection();
         $account_id = mysqli_fetch_row($queryResult);
@@ -24,7 +24,7 @@ function getInfoFromAddress($address_id){
     if(isValidID($address_id)){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
-        $query = "SELECT username, nome, via, numero, citta, stato, comune, cap 
+        $query = "SELECT nome, via, numero, citta, stato, comune, cap 
                   FROM indirizzo WHERE addressID = \"$address_id\"";
         $queryResult = mysqli_query($connection, $query);
         $infoIndirizzo = mysqli_fetch_assoc($queryResult);
