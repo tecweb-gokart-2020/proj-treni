@@ -77,10 +77,12 @@ CREATE TABLE ordine(
 CREATE TABLE spedizione(
        shippingID int PRIMARY KEY,
        orderID int NOT NULL,
+       addressID int NOT NULL,
        stato varchar(50),
        data_prevista date,
 
-       FOREIGN KEY (orderID) REFERENCES ordine(orderID)
+       FOREIGN KEY (orderID) REFERENCES ordine(orderID),
+       FOREIGN KEY (addressID) REFERENCES indirizzo(addressID)
 )Engine=InnoDB;
 
 CREATE TABLE indirizzo(
