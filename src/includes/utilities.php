@@ -12,6 +12,24 @@ function check_email($email) {
     return false;
 }
 
+/* true se esiste, false altrimenti */
+function email_exixst($email) {
+    $db = new DBAccess();
+    $connection = $db->openDbConnection();
+
+    $query = "SELECT email FROM utente WHERE email = ?";
+    $stmt = mysqli_prepare($connection, $query);
+
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $result);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+
+    $db->closeDbConnection();
+    return (mysqli_num_rows($result) == 0);
+}
+
 /* true se esiste, false se non esiste */
 function username_exists($username) {
     $db = new DBAccess();
@@ -27,8 +45,6 @@ function username_exists($username) {
     mysqli_stmt_close($stmt);
 
     $db->closeDbConnection();
-    /* sperando che non crashi tutto perchè la connessione è stata
-     * chiusa */
     return (mysqli_num_rows($result) == 0);
 }
 ?>

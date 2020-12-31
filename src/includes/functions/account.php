@@ -56,45 +56,49 @@ function register($email, $username, $password) {
 
     $error_str = "";
 
+    /* FizzBuzz con mail e account */
     if(!$valid_email) {
         $error_str .= "Email non valida: " . $email . PHP_EOL;
+    }
+    if(!$valid_username) {
+        $error_str .= "Username deve avere almeno 3 caratteri" . PHP_EOL;
     }
     if(username_exixst($username)) {
         $error_str .= "Username già presente: " . $username . PHP_EOL;
     }
-    if(!$valid_username) {
-        $error_str .= "Username deve avere almeno 3 caratteri" . PHP_EOL;
+    if(email_exixst($email)) {
+        $error_str .= "email già presente: " . $email . PHP_EOL;
     }
     if($error_str !== "") {
         throw new Exception(error_str);
     }
 
+    // Occhio che se non è settata va tutto in mona!!
     $cartID = $_SESSION["cartID"];
 
     $db = new DBAccess();
     $connection = $db->openDbConnection();
-    // non molto elegante
     if ($connection->connect_error) {
-        error_log("Connection failed: " . $connection->connect_error);
-        return NULL;
+        throw new Exception("Connection failed: " . $connection->connect_error);
     } 
 
-    $query = "INSERT INTO utente(email, UUID, password, cartID) VALUES ?, ?, ?, ?";
+    $query = "INSERT INTO utente(email, username, password, cartID) VALUES ?, ?, ?, ?";
     $stmt = mysqli_prepare($connection, $query);
 
-    mysqli_stmt_bind_param($stmt, "ssssi", $ID, $email, $username, $password, $cartID);
+    mysqli_stmt_bind_param($stmt, "ssssi", $email, $username, $password, $cartID);
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $result);
-    mysqli_stmt_fetch($stmt);
+    $to_return = (mysqli_affected_rows($connection) == 1) ? $username : NULL;
+
     mysqli_stmt_close($stmt);
-    
     $db->closeDbConnection();
-    return TRUE;
+    
+    return $to_return;
 }
 
 /* PRE = UUID e password sono stringhe */ 
-/* POST = ritorna accountID se uuid era username o email di un account
+/* POST = ritorna username se uuid era username o email di un account
  * e la password era corretta, NULL altrimenti */
+/* Lancia eccezione se la connessione al DB non è apribile*/
 function login($UUID, $password) {
     $is_email = check_email($UUID);
     $id = $is_email ? "email" : "username";
@@ -103,11 +107,10 @@ function login($UUID, $password) {
     $connection = $db->openDbConnection();
     // non molto elegante
     if ($connection->connect_error) {
-        error_log("Connection failed: " . $connection->connect_error);
-        return NULL;
+        throw new Exception("Connection failed: " . $connection->connect_error);
     } 
 
-    $query = "SELECT ID FROM utente WHERE " . $id . " = ? AND password = ?";
+    $query = "SELECT username FROM utente WHERE " . $id . " = ? AND password = ?";
     $stmt = mysqli_prepare($connection, $query);
 
     mysqli_stmt_bind_param($stmt, "ss", $UUID, $password);
@@ -117,9 +120,6 @@ function login($UUID, $password) {
     mysqli_stmt_close($stmt);
     
     $db->closeDbConnection();
-    if(mysqli_stmt_fetch($stmt)) {
-        return $result;
-    };
-    return NULL;
+    return $result;
 }
 ?>
