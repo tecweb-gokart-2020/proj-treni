@@ -2,11 +2,11 @@
 namespace SPEDIZIONE;
 //require_once "../resources.php";
 use DB\DbAccess;
-use function UTILITIES\isValidShipping;
+use function UTILITIES\isValidID;
 
 // Ritorna lo stato di una spedizione, null se non esiste
 function getStato($shipping_id){
-    if(isValidShipping($shipping_id)){
+    if(isValidID($shipping_id)){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT stato FROM spedizione WHERE shippingID = \"$shipping_id\"";
@@ -21,7 +21,7 @@ function getStato($shipping_id){
 
 // Ritorna l'ordine associato ad una spedizione, null se non esiste
 function getOrderFromShipping($shipping_id){
-    if(isValidShipping($shipping_id)){
+    if(isValidID($shipping_id)){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT orderID FROM spedizione WHERE shippingID = \"$shipping_id\"";
@@ -36,7 +36,7 @@ function getOrderFromShipping($shipping_id){
 
 // Ritorna l'indirizzo associato ad una spedizione, null se non esiste
 function getAddressFromShipping($shipping_id){
-    if(isValidShipping($shipping_id)){
+    if(isValidID($shipping_id)){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT addressID FROM spedizione WHERE shippingID = \"$shipping_id\"";
