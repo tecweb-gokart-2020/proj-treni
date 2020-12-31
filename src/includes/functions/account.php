@@ -41,4 +41,85 @@ function getCartFromAccount($accountID) {
     $db->closeDbConnection();
     return $final;
 }
+
+/* Inserisce in database un utente con email e password specificate,
+ * fa sanity check sulle cose e dovrebbe evitare sql injection tramire
+ * mysqli_prepare. */
+/* PRE = username, email e password sono tre stringhe e la variabile
+ * $_SESSION["cartID"] è ben formata */
+/* POST = ritorna l'ID del nuovo utente se è andato tutto bene, lancia
+ * invece un'eccezione che indica cosa è andato storto altrimenti */
+
+function register($email, $username, $password) {
+    $valid_email = check_email($email);
+    $valid_username = preg_match("/\w{3,}/", $username);
+
+    $error_str = "";
+
+    /* FizzBuzz con mail e account */
+    if(!$valid_email) {
+        $error_str .= "Email non valida: " . $email . PHP_EOL;
+    }
+    if(!$valid_username) {
+        $error_str .= "Username deve avere almeno 3 caratteri" . PHP_EOL;
+    }
+    if(username_exixst($username)) {
+        $error_str .= "Username già presente: " . $username . PHP_EOL;
+    }
+    if(email_exixst($email)) {
+        $error_str .= "email già presente: " . $email . PHP_EOL;
+    }
+    if($error_str !== "") {
+        throw new Exception(error_str);
+    }
+
+    // Occhio che se non è settata va tutto in mona!!
+    $cartID = $_SESSION["cartID"];
+
+    $db = new DBAccess();
+    $connection = $db->openDbConnection();
+    if ($connection->connect_error) {
+        throw new Exception("Connection failed: " . $connection->connect_error);
+    } 
+
+    $query = "INSERT INTO utente(email, username, password, cartID) VALUES ?, ?, ?, ?";
+    $stmt = mysqli_prepare($connection, $query);
+
+    mysqli_stmt_bind_param($stmt, "ssssi", $email, $username, $password, $cartID);
+    mysqli_stmt_execute($stmt);
+    $to_return = (mysqli_affected_rows($connection) == 1) ? $username : NULL;
+
+    mysqli_stmt_close($stmt);
+    $db->closeDbConnection();
+    
+    return $to_return;
+}
+
+/* PRE = UUID e password sono stringhe */ 
+/* POST = ritorna username se uuid era username o email di un account
+ * e la password era corretta, NULL altrimenti */
+/* Lancia eccezione se la connessione al DB non è apribile*/
+function login($UUID, $password) {
+    $is_email = check_email($UUID);
+    $id = $is_email ? "email" : "username";
+    
+    $db = new DBAccess();
+    $connection = $db->openDbConnection();
+    // non molto elegante
+    if ($connection->connect_error) {
+        throw new Exception("Connection failed: " . $connection->connect_error);
+    } 
+
+    $query = "SELECT username FROM utente WHERE " . $id . " = ? AND password = ?";
+    $stmt = mysqli_prepare($connection, $query);
+
+    mysqli_stmt_bind_param($stmt, "ss", $UUID, $password);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $result);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+    
+    $db->closeDbConnection();
+    return $result;
+}
 ?>
