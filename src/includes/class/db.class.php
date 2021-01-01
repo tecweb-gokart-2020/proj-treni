@@ -16,7 +16,7 @@ class DBAccess {
     public function __construct() {
         // soluzione meno elegante: pw.txt non versionato nella cartella
         $fname = 'pw.txt';
-        $pw_file = fopen($fname);
+        $pw_file = fopen($fname, 'r');
         $pw_file_size = filesize($fname);
     }
 
