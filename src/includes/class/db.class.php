@@ -63,8 +63,4 @@ class DBAccess {
         $this->connection = null;
     }
 }
-
-$db = new DBAccess();
-$connection = $db->openDbConnection();
-
 ?>
