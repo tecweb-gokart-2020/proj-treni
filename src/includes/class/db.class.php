@@ -3,13 +3,30 @@ namespace DB;
 use mysqli;
 
 class DBAccess {
-    private const HOST_DB = "localhost";
-    private const USERNAME = $_SERVER["LOGNAME"];
-    // dovrebbe aprire il file con la password settato com path
-    // assoluta in variabile d'ambiente, da vedere meglio dopo
+    // private const HOST_DB = "localhost";
+    // private const USERNAME = $_SERVER["LOGNAME"];
     private $pw_file;
-    private const DB_NAME = $_SERVER["LOGNAME"];
-    private const PORT = 3306;
+    // private const DB_NAME = $_SERVER["LOGNAME"];
+    // private const PORT = 3306;
+
+    private function __get($constName){
+        $val = null;
+        switch($constName) {
+        case 'HOST_DB':
+            $val = 'localhost';
+            break;
+        case 'USERNAME':
+            $val = $_SERVER["LOGNAME"];
+            break;
+        case 'DB_NAME':
+            $val = $_SERVER["LOGNAME"];
+            break;
+        case 'PORT':
+            $val = 3306;
+            break;
+        }
+        return $val;
+    }
     
     private $connection;
 
@@ -20,11 +37,11 @@ class DBAccess {
 
         $password = str_replace("\n", "", fread($pw_file, $pw_file_size));
         
-        $this->connection = mysqli_connect(DBAccess::HOST_DB,
-                                           DBAccess::USERNAME,
+        $this->connection = mysqli_connect($this->HOST_DB,
+                                           $this->USERNAME,
                                            $password,
-                                           DBAccess::DB_NAME,
-                                           DBAccess::PORT);
+                                           $this->DB_NAME,
+                                           $this->PORT);
         if(!$this->connection){
             error_log("Database not connected!!");
             return false;
