@@ -39,10 +39,11 @@ CREATE TABLE prodotto(
        codArticolo int PRIMARY KEY,
        descrizione varchar(100),
        scala varchar(3),
+       amministrazione varchar(3),
        prezzo decimal,
        sconto int,
        marca varchar(20),
-       tipo varchar(20),
+       tipo ENUM ('locomotiva', 'carrozza', 'carro', 'accessorio'),
        quantita int DEFAULT 1,
 
        FOREIGN KEY (marca) REFERENCES marca(nome)

@@ -7,5 +7,8 @@ require_once("variables.php");
 require_once("class/db.class.php");
 
 // File `procedurali'
-require_once("functions/session.php");
+require_once("functions/account.php");
+require_once("functions/carrello.php");
+require_once("functions/indirizzo.php");
+require_once("functions/spedizione.php");
 ?>
