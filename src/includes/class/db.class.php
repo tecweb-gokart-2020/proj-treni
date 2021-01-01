@@ -3,7 +3,7 @@ namespace DB;
 use mysqli;
 
 class DBAccess {
-    private const HOST_DB = "localhost";
+    private const HOST_DB = "localhost:3306";
     private const USERNAME = "lzaninot";
     // dovrebbe aprire il file con la password settato com path
     // assoluta in variabile d'ambiente, da vedere meglio dopo
