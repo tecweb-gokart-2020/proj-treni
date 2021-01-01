@@ -3,26 +3,45 @@ namespace DB;
 use mysqli;
 
 class DBAccess {
-    private const HOST_DB = "localhost";
-    private const USERNAME = "lzaninot";
-    // dovrebbe aprire il file con la password settato com path
-    // assoluta in variabile d'ambiente, da vedere meglio dopo
+    // private const HOST_DB = "localhost";
+    // private const USERNAME = $_SERVER["LOGNAME"];
     private $pw_file;
-    private const DB_NAME = "lzaninot";
+    // private const DB_NAME = $_SERVER["LOGNAME"];
+    // private const PORT = 3306;
+
+    private function __get($constName){
+        $val = null;
+        switch($constName) {
+        case 'HOST_DB':
+            $val = 'localhost';
+            break;
+        case 'USERNAME':
+            $val = $_SERVER["LOGNAME"];
+            break;
+        case 'DB_NAME':
+            $val = $_SERVER["LOGNAME"];
+            break;
+        case 'PORT':
+            $val = 3306;
+            break;
+        }
+        return $val;
+    }
     
     private $connection;
 
-    public function __construct() {
-        $pw_file = fopen($_ENV["PW_FILE"]);
-    }
-
     public function initDbConnection() {
-        $password = fread($pw_file, filesize($_ENV["PW_FILE"]));
-        // echo $password . " <- pw presa dal file " . $_ENV["PW_FILE"] . PHP_EOL;
-        $this->connection = mysqli_connect(DBAccess::HOST_DB,
-                                           DBAccess::USERNAME,
+        $fname = $_SERVER['PW_FILE'];
+        $pw_file = fopen($fname, 'r');
+        $pw_file_size = filesize($fname);
+
+        $password = str_replace("\n", "", fread($pw_file, $pw_file_size));
+        
+        $this->connection = mysqli_connect($this->HOST_DB,
+                                           $this->USERNAME,
                                            $password,
-                                           DBAccess::DB_NAME);
+                                           $this->DB_NAME,
+                                           $this->PORT);
         if(!$this->connection){
             error_log("Database not connected!!");
             return false;
@@ -44,8 +63,4 @@ class DBAccess {
         $this->connection = null;
     }
 }
-
-$db = new DBAccess();
-$connection = $db->openDbConnection();
-
 ?>
