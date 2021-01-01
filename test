@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]
+  then
+    echo "help: ./test [PATH (relativa o assoluta) della cartella public_html]"
+else
+    proj_dir=$(echo $(pwd)/src)
+    public_path=$1
+    
+    cd $public_path
+    ln -s $proj_dir/index.php
+    ln -s $proj_dir/includes/
+    ln -s $proj_dir/views/
+    ln -s $proj_dir/styles/
+fi
