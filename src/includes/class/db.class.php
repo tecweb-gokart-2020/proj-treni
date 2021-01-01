@@ -13,11 +13,12 @@ class DBAccess {
     private $connection;
 
     public function __construct() {
-        $pw_file = fopen($_ENV["PW_FILE"]);
+        // soluzione meno elegante: pw.txt non versionato nella cartella
+        $pw_file = fopen('pw.txt');
     }
 
     public function initDbConnection() {
-        $password = fread($pw_file, filesize($_ENV["PW_FILE"]));
+        $password = fread($pw_file, filesize('pw.txt'));
         // echo $password . " <- pw presa dal file " . $_ENV["PW_FILE"] . PHP_EOL;
         $this->connection = mysqli_connect(DBAccess::HOST_DB,
                                            DBAccess::USERNAME,
