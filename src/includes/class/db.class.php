@@ -18,7 +18,7 @@ class DBAccess {
         $pw_file = fopen($fname, 'r');
         $pw_file_size = filesize($fname);
 
-        $password = fread($pw_file, $pw_file_size).replace("\n", "");
+        $password = str_replace("\n", "", fread($pw_file, $pw_file_size));
         error_log($password);
         
         $this->connection = mysqli_connect(DBAccess::HOST_DB,
