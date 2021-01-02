@@ -1,6 +1,6 @@
 <?php
 namespace ACCOUNT;
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'resources.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
 use mysqli;
 use Exception;
 use DB\DBAccess;
