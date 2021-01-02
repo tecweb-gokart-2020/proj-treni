@@ -10,7 +10,7 @@ function getInfoFromProdotto($cod_articolo){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT descrizione, scala, amministrazione, prezzo, sconto, marca, tipo, quantita 
-                  FROM prodotto WHERE CodArticolo = \"$cod_articolo\"";
+                  FROM prodotto WHERE CodArticolo = ?";
         $stmt = mysqli_prepare($connection, $query);
         $stmt->bind_param("i", $articolo);
         $stmt->execute();
