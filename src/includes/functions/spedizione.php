@@ -1,6 +1,6 @@
 <?php
 namespace SPEDIZIONE;
-//require_once "../resources.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'resources.php';
 use DB\DbAccess;
 use function UTILITIES\isValidID;
 
@@ -48,3 +48,5 @@ function getAddressFromShipping($shipping_id){
         return false;
     }
 }
+
+?>

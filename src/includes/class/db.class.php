@@ -1,5 +1,6 @@
 <?php
 namespace DB;
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'resources.php';
 use mysqli;
 
 class DBAccess {

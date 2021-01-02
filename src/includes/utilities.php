@@ -1,7 +1,6 @@
 <?php
 namespace UTILITIES;
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'resources.php';
-//require_once "resources.php";
 use mysqli;
 use DB\DBAccess;
 
