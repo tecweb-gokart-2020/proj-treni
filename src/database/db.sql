@@ -59,6 +59,7 @@ CREATE TABLE prodotto_ordinato(
        shippingID int,
        quantita int NOT NULL,
        stato varchar(50) DEFAULT 'Processing',
+       prezzo_netto int,
 
        PRIMARY KEY(codArticolo, orderID),
        FOREIGN KEY (codArticolo) REFERENCES Prodotto(codArticolo),
