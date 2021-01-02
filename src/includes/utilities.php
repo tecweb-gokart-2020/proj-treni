@@ -23,7 +23,7 @@ function check_email($email) {
 }
 
 /* true se esiste, false altrimenti */
-function email_exixst($email) {
+function email_exists($email) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
     $query = "SELECT email FROM utente WHERE email = ?";
