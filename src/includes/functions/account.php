@@ -1,5 +1,12 @@
 <?php
 namespace ACCOUNT;
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'resources.php';
+use mysqli;
+use Exception;
+use DB\DBAccess;
+use function UTILITIES\check_email;
+use function UTILITIES\username_exists;
+use function UTILITIES\email_exists;
 
 /* Ritorna gli ordini di un account sotto forma di array, NULL se
  * non ne ha */
@@ -8,7 +15,7 @@ function getOrdersFromAccount($accountID) {
     $connection = $db->openDbConnection();
 
     $query = "SELECT orderID FROM ordine WHERE accountID = " . $accountID;
-    $result = mysqli_query($query);
+    $result = mysqli_query($connection,$query);
     $final = mysqli_fetch_array($result, MYSQLI_NUM);
 
     $db->closeDbConnection();
@@ -22,7 +29,7 @@ function getAddressesFromAccount($accountID) {
     $connection = $db->openDbConnection();
 
     $query = "SELECT addressID FROM indirizzo WHERE accountID = " . $accountID;
-    $result = mysqli_query($query);
+    $result = mysqli_query($connection,$query);
     $final = mysqli_fetch_array($result, MYSQLI_NUM);
 
     $db->closeDbConnection();
@@ -35,7 +42,7 @@ function getCartFromAccount($accountID) {
     $connection = $db->openDbConnection();
 
     $query = "SELECT cartID FROM utente WHERE accountID = " . $accountID;
-    $result = mysqli_query($query);
+    $result = mysqli_query($connection,$query);
     $final = mysqli_fetch_array($result, MYSQLI_NUM);
 
     $db->closeDbConnection();
@@ -63,14 +70,14 @@ function register($email, $username, $password) {
     if(!$valid_username) {
         $error_str .= "Username deve avere almeno 3 caratteri" . PHP_EOL;
     }
-    if(username_exixst($username)) {
+    if(username_exists($username)) {
         $error_str .= "Username già presente: " . $username . PHP_EOL;
     }
-    if(email_exixst($email)) {
+    if(email_exists($email)) {
         $error_str .= "email già presente: " . $email . PHP_EOL;
     }
     if($error_str !== "") {
-        throw new Exception(error_str);
+        throw new Exception($error_str);
     }
 
     // Occhio che se non è settata va tutto in mona!!
