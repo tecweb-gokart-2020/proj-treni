@@ -7,9 +7,36 @@
     </head>
     <body>
 	<header>
-	    <ul class="menu">
-		<li>Link1</li>
-	    </ul>
+	    <!-- Logo -->
+		<a href="/" id="banner"><h1>TrenoGheno</h1></a>
+		<!-- Ricerca -->
+		<form id="ricercaHeader" action="" method="get">
+			<input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
+		</form>
+		<!-- Login -->
+		<a href="heh">Login</a>
+		<!-- Carrello -->
+		<a href="huh">Carrello</a>
+		<!-- Menù -->
+		<nav>
+			<ul>
+				<li>
+					<a href="">Area personale</a>
+				</li>
+				<li>
+					<a href="">Notizie</a>
+				</li>
+				<li>
+					<a href="">Prodotti</a>
+				</li>				
+				<li>
+					<a href="">Servizi</a>
+				</li>
+				<li>
+					<a href="#contatti">Contatti</a>
+				</li>
+			</ul>
+		</nav>
 	</header>
 	PAGINA DI TEST, Se vedi questo testo... BENE
 	<div class="body−container">
