@@ -6,7 +6,10 @@ if(isset($_SESSION["username"])) {
      * dopo il login) */
     
     
-    include "template/ap_navbar.html";
+    $nav_dir "template/ap_navbar.html";
+    $nav_file = fopen($nav_dir, "r");
+    $nav = fread($nav_file, filesize($nav_dir));
+    echo $nav;
     
     if(isset($_GET["addr"])) {
         $main_content = "template/indirizzi.php";
@@ -21,7 +24,7 @@ if(isset($_SESSION["username"])) {
     include "template/footer.php";
 }
 else {
-    header("Location: ../index.php", TRUE, 401);
+    header("Location: www.google.it", TRUE, 401);
     exit();
 }
 ?>
