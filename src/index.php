@@ -10,7 +10,7 @@ $pagedescription = "Descrizione della homepage";
 $_SESSION["username"] = "user";
 
 // Esempio di inclusione delle viste header, corpo di index e footer
-$area_personale_link = "views/area_presonale.php";
+$area_personale_link = "views/area_personale.php";
 $notizie_link = "";
 $prodotti_link = "";
 $servizi_link = "";
