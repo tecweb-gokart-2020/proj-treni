@@ -5,7 +5,7 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
     
-    include "template/ap_navbar.php";
+    include "template/ap_navbar.html";
     
     if(isset($_GET["addr"])) {
         $main_content = "template/indirizzi.php";
