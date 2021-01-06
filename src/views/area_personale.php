@@ -5,11 +5,14 @@ if(isset($_SESSION["username"])) {
      * invece un redirect alla home se non lo è (caso in cui l'utente
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
-    
-    // $nav_dir = "template/ap_navbar.html";
-    // $nav_file = fopen($nav_dir, "r");
-    // $nav = fread($nav_file, filesize($nav_dir));
-    // echo $nav;
+
+    $area_personale_link = "";
+    $notizie_link = "notizie.php";
+    $prodotti_link = "prodotti.php";
+    $servizi_link = "servizi.php";
+    $contatti_link = "contatti.php";
+    include "template/header.php";
+
     include "res/ap_navbar.html";
     
     if(isset($_GET["addr"])) {
