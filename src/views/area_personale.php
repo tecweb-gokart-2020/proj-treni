@@ -10,14 +10,14 @@
 // $nav = fread($nav_file, filesize($nav_dir));
     if(isset($_GET["addr"])) {
         // echo $nav;
-        echo "INDIRIZZI";
+        echo PHP_EOL . "<main> INDIRIZZI </main>" . PHP_EOL;
     }
     else if(isset($_GET["ord"])) {
         // echo $nav;
-        echo "ORDINI";
+        echo PHP_EOL . "<main> ORDINI </main>" . PHP_EOL;
     }
     else {
-        echo "INFO PERSONALI";
+        echo PHP_EOL . "<main> INFO PERSONALI </main>" . PHP_EOL;
     }
     include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 // }
