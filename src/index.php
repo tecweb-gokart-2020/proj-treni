@@ -10,6 +10,11 @@ $pagedescription = "Descrizione della homepage";
 $_SESSION["username"] = "user";
 
 // Esempio di inclusione delle viste header, corpo di index e footer
+$area_personale_link = "views/area_presonale.php";
+$notizie_link = "";
+$prodotti_link = "";
+$servizi_link = "";
+$contatti_link = "";
 include __DIR__ . DIRECTORY_SEPARATOR . "views/template/header.php";
 include __DIR__ . DIRECTORY_SEPARATOR . "views/template/footer.php";
 ?>
