@@ -4,6 +4,11 @@
      * invece un redirect alla home se non lo è (caso in cui l'utente
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
+$area_personale_link = "";
+$notizie_link = "notizie.php";
+$prodotti_link = "prodotti.php";
+$servizi_link = "servizi.php";
+$contatti_link = "contatti.php";
     include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 // $nav_dir = "res/ap_navbar.html";
 // $nav_file = fopen($nav_dir, "r");

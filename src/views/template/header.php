@@ -22,19 +22,19 @@
 		<ul>
 		    <li>
 			<!-- Test -->
-			<a href="views/area_personale.php">Area personale</a>
+			<a href="<?=$area_personale_link;?>">Area personale</a>
 		    </li>
 		    <li>
-			<a href="">Notizie</a>
+			<a href="<?=$notizie_link;?>">Notizie</a>
 		    </li>
 		    <li>
-			<a href="">Prodotti</a>
+			<a href="<?=$prodotti_link;?>">Prodotti</a>
 		    </li>				
 		    <li>
-			<a href="">Servizi</a>
+			<a href="<?=$servizi_link;?>">Servizi</a>
 		    </li>
 		    <li>
-			<a href="#contatti">Contatti</a>
+			<a href="<?=$contatti_link;?>">Contatti</a>
 		    </li>
 		</ul>
 	    </nav>
