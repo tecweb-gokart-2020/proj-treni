@@ -3,7 +3,7 @@
     <head>
 	<title><?=$pagetitle;?></title>
 	<metaname="description" content="<?=$pagedescription;?>">
-	    <linkrel="stylesheet" type="text/css" href="styles/resource.css">
+            <linkrel="stylesheet" type="text/css" href="styles/resource.css">
     </head>
     <body>
 	<header>
