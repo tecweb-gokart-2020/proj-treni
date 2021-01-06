@@ -8,6 +8,11 @@ $pagedescription = "Descrizione della homepage";
 
 // per testare finchè non è completata la funzione di login
 $_SESSION["username"] = "user";
+if(isset($_SESSION["username"])) {
+    echo "sta volta si eh";
+} else {
+    echo "come no";
+}
 
 // Esempio di inclusione delle viste header, corpo di index e footer
 $area_personale_link = "views/area_personale.php";
