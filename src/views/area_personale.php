@@ -6,11 +6,11 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
     
-    $nav_dir = "template/ap_navbar.html";
-    $nav_file = fopen($nav_dir, "r");
-    $nav = fread($nav_file, filesize($nav_dir));
-    echo $nav;
-    echo "Madonna beata";
+    // $nav_dir = "template/ap_navbar.html";
+    // $nav_file = fopen($nav_dir, "r");
+    // $nav = fread($nav_file, filesize($nav_dir));
+    // echo $nav;
+    include "res/ap_navbar.html";
     
     if(isset($_GET["addr"])) {
         $main_content = "template/indirizzi.php";
