@@ -7,6 +7,7 @@ $pagetitle = "Homepage";
 $pagedescription = "Descrizione della homepage";
 
 // per testare finchè non è completata la funzione di login
+session_start();
 $_SESSION["username"] = "user";
 if(isset($_SESSION["username"])) {
     echo "sta volta si eh";
