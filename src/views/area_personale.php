@@ -8,11 +8,11 @@ if(isset($_SESSION["username"])) {
     $nav_dir = "res/ap_navbar.html";
     $nav_file = fopen($nav_dir, "r");
     $nav = fread($nav_file, filesize($nav_dir));
-    if(isset $_GET["addresses"]) {
+    if(isset($_GET["addresses"])) {
         // echo $nav;
         echo "INDIRIZZI";
     }
-    if(isset $_GET["orders"]) {
+    if(isset($_GET["orders"])) {
         // echo $nav;
         echo "ORDINI";
     }
