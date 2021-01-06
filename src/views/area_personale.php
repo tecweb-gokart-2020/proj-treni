@@ -24,6 +24,7 @@ if(isset($_SESSION["username"])) {
     include "template/footer.php";
 }
 else {
+    echo $_SESSION;
     header("Location: www.google.it", TRUE, 401);
     exit();
 }
