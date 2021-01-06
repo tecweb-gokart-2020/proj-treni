@@ -39,4 +39,3 @@
 		</ul>
 	    </nav>
 	</header>
-	<div class="body−container">
