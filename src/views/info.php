@@ -25,10 +25,10 @@ if(isset($_SESSION["username"]) or true) {
     // /* Contenuto reale della pagina */
     // $_SESSION["username"] = "user";
     // $user = $_SESSION["username"];
-    $email = getEmailOfAccount("user")[0];
+    $email = getEmailOfAccount("user");
     // $real_email = $email ? $email : "email non trovata";
     // echo "<ul>" . HTML_EOL . "<li>username: $user</li>" . HTML_EOL . "<li>email: $real_email</li>". HTML_EOL . "</ul>";
-    
+    echo $email;
     // include "template/footer.php";
 }
 else {
