@@ -24,10 +24,8 @@ if(isset($_SESSION["username"])) {
 
     /* Contenuto reale della pagina */
     $user = $_SESSION["username"];
-    $email = getEmailOfAccount($user);
-    $real_email = $email ? $email : "email non trovata";
-    echo "<ul>" . HTML_EOL . "<li>username: $user</li>" . HTML_EOL . "<li>email: $real_email</li>". HTML_EOL . "</ul>";
-    
+    $email = getEmailOfAccount("user");
+    echo "<ul>" . PHP_EOL . "<li>username: $user</li>" . PHP_EOL . "<li>email: $email</li>". PHP_EOL . "</ul>";
     include "template/footer.php";
 }
 else {

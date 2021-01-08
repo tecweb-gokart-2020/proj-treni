@@ -39,13 +39,15 @@ function getAddressesFromAccount($accountID) {
 function getEmailOfAccount($username) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
+    $to_echo = $connection ? "connessione riuscita" : "ancora non va";
+    echo $to_echo;
 
     $query = "SELECT email FROM utente WHERE username = \"" . $username . "\";";
     $result = mysqli_query($connection,$query);
-    $final = mysqli_fetch_array($result, MYSQLI_NUM);
+    $final = mysqli_fetch_array($result, MYSQLI_NUM)[0];
 
     $db->closeDbConnection();
-    return $final[0];
+    return $final;
 }
 
 
