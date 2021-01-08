@@ -1,4 +1,5 @@
 <?php
+use function ACCOUNT\getOrdersFromAccount;
 session_start();
 if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
@@ -18,7 +19,18 @@ if(isset($_SESSION["username"])) {
     $indirizzi_link = "href=\"indirizzi.php\"";
     include "template/ap_navbar.php";
 
-    echo "MAIN CONTENT";
+    $user = $_SESSION["username"];
+    $orders = getOrdersFromAccount($user);
+    $count = count($orders);
+    
+    echo "<h2>Al momento hai $count ordini effettuati:</h2>" . PHP_EOL; 
+    for($i = 0; i < $count; $i += 1) {
+        $total = getTotalFromOrder($orders[$i]);
+        $date = getDateFromOrder($orders[$i]);
+        echo "<h3>Ordine $i:</h3>"
+            . PHP_EOL .
+            "Totale: $total " . HTML_EOL . " Data: $date " . HTML_EOL;
+    }
     
     include "template/footer.php";
 }
