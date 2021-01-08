@@ -1,6 +1,11 @@
 <?php
+require_once(__DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php");
 use function ACCOUNT\getOrdersFromAccount;
+use function ACCOUNT\getTotalFromOrder;
+use function ACCOUNT\getDateFromOrder;
+
 session_start();
+
 if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente
