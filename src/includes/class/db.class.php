@@ -35,7 +35,9 @@ class DBAccess {
                                            $this->DB_NAME,
                                            $this->PORT);
         if(!$this->connection){
-            error_log("Database not connected!!");
+            echo "Error: Unable to connect to MySQL." . PHP_EOL;
+            echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+            echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
             return false;
         }
         return $this->connection;
