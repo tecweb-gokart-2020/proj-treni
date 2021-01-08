@@ -22,19 +22,19 @@
 		<ul>
 		    <li>
 			<!-- Test -->
-			<a "<?=$area_personale_link;?>">Area personale</a>
+			<a <?=$area_personale_link;?>>Area personale</a>
 		    </li>
 		    <li>
-			<a "<?=$notizie_link;?>">Notizie</a>
+			<a <?=$notizie_link;?>>Notizie</a>
 		    </li>
 		    <li>
-			<a "<?=$prodotti_link;?>">Prodotti</a>
+			<a <?=$prodotti_link;?>>Prodotti</a>
 		    </li>				
 		    <li>
-			<a "<?=$servizi_link;?>">Servizi</a>
+			<a <?=$servizi_link;?>>Servizi</a>
 		    </li>
 		    <li>
-			<a "<?=$contatti_link;?>">Contatti</a>
+			<a <?=$contatti_link;?>>Contatti</a>
 		    </li>
 		</ul>
 	    </nav>
