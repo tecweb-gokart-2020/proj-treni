@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Trenogheno - Prodotti</title>
+    <meta name="description" content="Pagina Prodotti di trenogheno.it" />
+    <meta name="keywords" content="trenogheno, trenini, modellismo, prodotti, locomotive, carri" />
+    <meta name="title" content="Prodotti" />
+    <meta name="author" content="Gruppo progetto TecWeb" />
+    <meta name="language" content="italian it" />
+
+    <link rel="stylesheet" type="text/css" href="styleGenerale.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="styleMobile.css" media="handheld, screen and (max-device-width:640px), only screen and (max-width:640px)" />
+    <link rel="stylesheet" type="text/css" href="stylePrint.css" media="print" />
+</head>
+
+<body>
+    <div id="percorso">
+        <p>Ti trovi in: <a id="linkHome" href="home_statica.html" xml:lang="eng">Home</a> >> Prodotti</p>
+    </div>
+    <div id="categorie">
+        <ul>
+            <li>Locomotive</li>
+            <li>Carrozze</li>
+            <li>Carri</li>
+            <li>Accessori</li>
+            <li>Binari</li>
+        </ul>
+    </div>
+    <div id="filtroProdotti">
+        <form method="post" action="">
+            <select name="categorie" id="filrtoCategorie" placeholder="Categoria">
+                <option>Locomotive</option>
+                <option>Carrozze</option>
+                <option>Carri</option>
+                <option>Accessori</option>
+                <option>Binari</option>
+            </select>
+            <select name="marche" id="filrtoMarche" placeholder="Marca">
+                <!--GESTITO DA PHP-->
+            </select>
+            <label for="filtroDisponibile">Disponibile</label>
+            <input name="disponibile" id="filtroDisponibile" type="checkbox" value="disponibile" />
+            <label for="filtroInOfferta">In Offerta</label>
+            <input name="offerta" id="filtroInOfferta" type="checkbox" value="offerta" />
+            <label for="filtroPrezzoMin">Prezzo minimo</label>
+            <input name="prezzoMin" id="filtroPrezzoMin" type="number" value="prezzoMin" min="0" step="15" />
+            <label for="filtroPrezzoMax">Prezzo massimo</label>
+            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="prezzoMax" min="0" step="15" />
+            <label for="filrtoOrdinamento">Ordinamento</label>
+            <select name="ordinamento" id="filrtoOrdinamento"><!--DA CAPIRE MEGLIO CON PHP-->
+                <option>Alfabetico [A-Z]</option>
+                <option>Prezzo crescente</option>
+                <option>Prezzo decrescente</option>
+            </select>
+            <input id="filtroSubmit" type="submit" value="Applica" />
+        </form>
+    </div>
+</body>
+
+</html>
