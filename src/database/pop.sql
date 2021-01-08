@@ -1,6 +1,6 @@
 INSERT INTO carrello(cartID) VALUES
-       1,
-       2;
+       (1),
+       (2);
 
 INSERT INTO utente(username, cartID, email, password) VALUES
        ('admin', 1, 'admin@mail.com', 'admin'),
