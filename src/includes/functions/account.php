@@ -50,7 +50,7 @@ function getEmailOfAccount($username) {
     return $final;
 }
 
-function getEmailOfAccount($username) {
+function getPasswordOfAccount($username) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
     $to_echo = $connection ? "connessione riuscita" : "ancora non va";
