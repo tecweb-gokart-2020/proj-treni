@@ -53,8 +53,6 @@ function getEmailOfAccount($username) {
 function getPasswordOfAccount($username) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
-    $to_echo = $connection ? "connessione riuscita" : "ancora non va";
-    echo $to_echo;
 
     $query = "SELECT password FROM utente WHERE username = \"" . $username . "\";";
     $result = mysqli_query($connection,$query);
