@@ -15,7 +15,7 @@ if(isset($_SESSION["username"])) {
 
     $info_personali_link = "href=\"info.php\"";
     $ordini_link = "href=\"ordini.php\"";
-    $indirizzi = "class=\"active_link\"";
+    $indirizzi_link = "class=\"active_link\"";
     include "template/ap_navbar.php";
 
     echo "MAIN CONTENT";
