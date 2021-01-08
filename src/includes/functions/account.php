@@ -45,7 +45,7 @@ function getEmailOfAccount($username) {
     $final = mysqli_fetch_array($result, MYSQLI_NUM);
 
     $db->closeDbConnection();
-    return $final[0];
+    return $final;
 }
 
 
