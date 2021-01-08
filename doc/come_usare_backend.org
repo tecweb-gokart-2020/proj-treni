@@ -1,0 +1,67 @@
+#+TITLE: Come usare il backend
+#+AUTHOR: Luca Zaninotto - 1187304
+* Impostare import
+  Per usare il backend bisogna prima di tutto importare tutte le funzioni che lo rappresentano:
+  #+BEGIN_SRC php
+    require_once(__DIR__ . DIRECTORY_SEPARATOR . "path/to/resources.php");
+    use DB\DBAccess;
+    use function NAMESPACE\funzione;
+  #+END_SRC
+  In questo esempio viene importato prima di tutto il file
+  =resources.php=, serve a importare in maniera unica tutte le
+  funzioni che abbiamo messo di backend (gestione del carrello,
+  dell'utente, degli indirizzi...) in un unico colpo così da non
+  doversi scervellare su quale sia quella giusta.  La seconda parte è
+  un po' più tricky: ~use DB\DBAccess~ serve se volete usare la classe
+  che rappresenta il database in maniera diretta (avete bisogno di una
+  query particolare solo in quel pezzo di php? la cosa giusta da fare
+  è usare questa classe); ~use function NAMESPACE\function~ è da
+  utilizzare invece quando dovete usare una funzione che abbimo
+  scritto tra i file in ~src/includes/functions~. Esempio: vogliamo
+  usare la funzione che dall'account ci restituisce la mail: ~use
+  function ACCOUNT\getEmailOfAccount;~. Questo import permetterà nel
+  codice di utilizzare ~getEmailOfAccount($username)~ in modo corretto.
+* I namespace
+  I namespace li abbiamo definiti come primi parametri in ogni
+  porzione che abbiamo scritto: se andate a vedere ad esempio in
+  ~src/includes/functions/account~ vedrete che una delle prime linee
+  recita
+  #+BEGIN_SRC php
+    namespace ACCOUNT;
+  #+END_SRC
+  specificando che il namespace di quel file è proprio
+  ~ACCOUNT~. Tutte le funzioni avranno allora la firma
+  ~ACCOUNT\nomeFunzione~, ma con l'import detto nella sezione
+  precedente potete evitare di usare i lnome completo e usare solo il
+  nome della funzione.
+* La classe DBAccess
+  La classe ~DB\DBAccess~ la trovate importando ~resources.php~ come
+  tutte le altre, è speciale e mette a disposizione due funzionalità
+  principali: apertura e chiusura di una connessione al database.
+  Consiglio di leggere il codice per capire come funziona, anche
+  perchè è piuttosto corta, i due metodi principali sono:
+  #+BEGIN_SRC php
+    $db = new DBAccess();
+    $connection = $db->openDbConnection();
+  #+END_SRC
+  che apre una connessione al database di mariaDB che è presente sulle
+  macchine di dipartimento (la password la prende dal file che è nella
+  home) e
+  #+BEGIN_SRC php
+    $db->closeDbConnection();
+  #+END_SRC
+  che chiude la connessione al database, evitando così di causare errori
+** Come usare DBAccess
+   #+BEGIN_SRC php
+     // aprire una connessione al database e salvarla
+     $db = new DBAccess();
+     $connection = $db->openDbConnection();
+
+     /* usare la connessione come indicato in classe o, se volete evitare
+      ,* SQLinjection nel modo appropriato tramite mysqli_prepare */
+
+     $db->closeDbConnection();
+     /* Da questo punto in poi la connessione non è più utilizzabile!! il
+      ,* consiglio è di mettere questa cosa subito prima del */
+     return;
+   #+END_SRC
