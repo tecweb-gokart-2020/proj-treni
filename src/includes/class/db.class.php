@@ -4,28 +4,15 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
 use mysqli;
 
 class DBAccess {
-    
-    public function __get($constName){
-        $val = null;
-        switch($constName) {
-        case 'HOST_DB':
-            $val = 'localhost';
-            break;
-        case 'USERNAME':
-            $val = $_SERVER["LOGNAME"];
-            break;
-        case 'DB_NAME':
-            $val = $_SERVER["LOGNAME"];
-            break;
-        case 'PORT':
-            $val = 3306;
-            break;
-        case 'PASSWORD':
-            $val = "password";
-        }
-        return $val;
-    }
-    
+    /* Ci rinuncio definitivamente, metto le mie credenziali di
+     * default voi mettete le vostre per fare debug basta mi son
+     * rotto sincero */
+    private const HOST_DB = "localhost";
+    private const USERNAME = "lzaninot";
+    private const DB_NAME = "lzaninot";
+    private const PASSWORD = "password";
+    private const PORT = 3306;
+
     private $connection;
 
     public function initDbConnection() {        
