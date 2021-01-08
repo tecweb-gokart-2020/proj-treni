@@ -21,23 +21,23 @@
     </div>
     <div id="categorie">
         <ul>
-            <li>Locomotive</li>
-            <li>Carrozze</li>
-            <li>Carri</li>
-            <li>Accessori</li>
-            <li>Binari</li>
+            <li><a href="#contenutoPagina" onclick="filtroLocomotive();">Locomotive</a></li>
+            <li><a href="#contenutoPagina" onclick="filtroCarrozze();">Carrozze</a></li>
+            <li><a href="#contenutoPagina" onclick="filtroCarri();">Carri</a></li>
+            <li><a href="#contenutoPagina" onclick="filtroBinari();">Binari</a></li>
+            <li><a href="#contenutoPagina" onclick="filtroAccessori();">Accessori</a></li>
         </ul>
     </div>
     <div id="filtroProdotti">
         <form method="post" action="">
-            <select name="categorie" id="filrtoCategorie" placeholder="Categoria">
+            <select name="categorie" id="filtroCategorie" placeholder="Categoria">
                 <option>Locomotive</option>
                 <option>Carrozze</option>
                 <option>Carri</option>
                 <option>Accessori</option>
                 <option>Binari</option>
             </select>
-            <select name="marche" id="filrtoMarche" placeholder="Marca">
+            <select name="marche" id="filtroMarche" placeholder="Marca">
                 <!--GESTITO DA PHP-->
             </select>
             <label for="filtroDisponibile">Disponibile</label>
@@ -45,9 +45,9 @@
             <label for="filtroInOfferta">In Offerta</label>
             <input name="offerta" id="filtroInOfferta" type="checkbox" value="offerta" />
             <label for="filtroPrezzoMin">Prezzo minimo</label>
-            <input name="prezzoMin" id="filtroPrezzoMin" type="number" value="prezzoMin" min="0" step="15" />
+            <input name="prezzoMin" id="filtroPrezzoMin" type="number" value="prezzoMin" min="0" step="5" />
             <label for="filtroPrezzoMax">Prezzo massimo</label>
-            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="prezzoMax" min="0" step="15" />
+            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="prezzoMax" min="0" step="5" />
             <label for="filrtoOrdinamento">Ordinamento</label>
             <select name="ordinamento" id="filrtoOrdinamento"><!--DA CAPIRE MEGLIO CON PHP-->
                 <option>Alfabetico [A-Z]</option>
@@ -56,6 +56,9 @@
             </select>
             <input id="filtroSubmit" type="submit" value="Applica" />
         </form>
+    </div>
+    <div id="contenutoPagina">
+        <!--PRODOTTI DA METTERE CON PHP-->
     </div>
 </body>
 
