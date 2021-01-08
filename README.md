@@ -15,3 +15,7 @@ della repo lanciare
 La path alla cartella `public_html` può essere anche relativa, quello
 che fa alla fine è impostare dei link nella cartella `public_html` che 
 rimandano ai file necessari nella cartella del progetto.
+# Importante!!
+per fare test è necessario impostare username e password del proprio
+database in `src/includes/class/db.class.php`, altrimenti le
+connessioni falliscono.
