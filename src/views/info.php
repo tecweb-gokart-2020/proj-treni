@@ -33,11 +33,11 @@ if(isset($_SESSION["username"])) {
         . PHP_EOL .
         "<label for=\"email\">email:</label>"
         . PHP_EOL .
-        "<input name=\"email\" id=\"email\" value="$email" maxlength=\"50\"/>"
+        "<input name=\"email\" id=\"email\" value=\"$email\" maxlength=\"50\"/>"
         . PHP_EOL .
         "<label for=\"password\">password:</label>"
         . PHP_EOL .
-        "<input type=\"password\" name=\"password\" id=\"password\" value="$password" maxlength=\"50\"/>"
+        "<input type=\"password\" name=\"password\" id=\"password\" value=\"$password\" maxlength=\"50\"/>"
         . PHP_EOL .
         "</fieldset></form>"
         . PHP_EOL;
