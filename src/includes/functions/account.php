@@ -41,8 +41,11 @@ function getEmailOfAccount($username) {
     $connection = $db->openDbConnection();
 
     $query = "SELECT email FROM utente WHERE username = \"" . $username . "\";";
+    echo $query;
     $result = mysqli_query($connection,$query);
+    echo $resultl
     $final = mysqli_fetch_array($result, MYSQLI_NUM);
+    echo $final;
 
     $db->closeDbConnection();
     return $final;
