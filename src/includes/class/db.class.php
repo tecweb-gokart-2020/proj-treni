@@ -16,15 +16,15 @@ class DBAccess {
     private $connection;
 
     public function initDbConnection() {        
-        $this->connection = mysqli_connect($this->HOST_DB,
-                                           $this->USERNAME,
-                                           $this->PASSWORD,
-                                           $this->DB_NAME,
-                                           $this->PORT);
+        $this->connection = mysqli_connect(DBAccess::HOST_DB,
+                                           DBAccess::USERNAME,
+                                           DBAccess::PASSWORD,
+                                           DBAccess::DB_NAME,
+                                           DBAccess::PORT);
         if(!$this->connection){
-            echo "Error: Unable to connect to MySQL." . PHP_EOL;
-            echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-            echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+            echo "Error: Unable to connect to MySQL." . HTML_EOL;
+            echo "Debugging errno: " . mysqli_connect_errno() . HTML_EOL;
+            echo "Debugging error: " . mysqli_connect_error() . HTML_EOL;
             return false;
         }
         return $this->connection;
