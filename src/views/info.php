@@ -27,7 +27,7 @@ if(isset($_SESSION["username"])) {
     $user = $_SESSION["username"];
     $email = getEmailOfAccount($user);
     $password =  getPasswordOfAccount($user);
-    echo "<h2>Benvenuto $user !</h2>"
+    echo "<h2>Benvenuto $user!</h2>"
         . PHP_EOL .
         "<form action=\"\"><fieldset><legend>Email e password</legend>"
         . PHP_EOL .
