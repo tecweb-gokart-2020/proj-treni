@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php");
 use DB\DBAccess;
-use ACCOUNT\getEmailOfAccount;
+use function ACCOUNT\getEmailOfAccount;
 
 session_start();
 
