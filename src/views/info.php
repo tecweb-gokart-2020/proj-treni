@@ -23,6 +23,8 @@ if(isset($_SESSION["username"]) or true) {
     $indirizzi_link = "href=\"indirizzi.php\"";
     include "template/ap_navbar.php";
 
+    // debug
+    $_SESSION["username"] = "user";
     $email = getEmailOfAccount($_SESSION["username"]);
     $user = $_SESSION["username"];
     echo "<ul><li>username: $user</li> <li>email: $email</li></ul>";

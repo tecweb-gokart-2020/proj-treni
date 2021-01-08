@@ -32,7 +32,7 @@ class DBAccess {
     private $connection;
 
     public function initDbConnection() {
-        $fname = $_SERVER["HOME"] . "pwd_db_2020-21.txt";
+        $fname = $_SERVER["HOME"] . DIRECTORY_SEPARATOR . "pwd_db_2020-21.txt";
         $pw_file = fopen($fname, 'r');
         $pw_file_size = filesize($fname);
 
