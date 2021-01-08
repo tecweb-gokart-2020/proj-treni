@@ -1,5 +1,10 @@
 <?php
+require_once("../includes/resources.php");
+use DB\DBAccess;
+use ACCOUNT\getEmailOfAccount;
+
 session_start();
+
 if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente
@@ -18,7 +23,8 @@ if(isset($_SESSION["username"])) {
     $indirizzi_link = "href=\"indirizzi.php\"";
     include "template/ap_navbar.php";
 
-    echo "MAIN CONTENT";
+    $email = getEmailOfAccount($_SESSION["username"]);
+    echo "<ul><li>username: $_SESSION['username'] </li> <li>email: $email";
     
     include "template/footer.php";
 }

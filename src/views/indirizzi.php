@@ -18,7 +18,7 @@ if(isset($_SESSION["username"])) {
     $indirizzi_link = "class=\"active_link\"";
     include "template/ap_navbar.php";
 
-    echo "MAIN CONTENT";
+    
     
     include "template/footer.php";
 }
