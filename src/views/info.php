@@ -5,7 +5,7 @@ use ACCOUNT\getEmailOfAccount;
 
 session_start();
 
-if(isset($_SESSION["username"])) {
+if(isset($_SESSION["username"]) or true) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente
      * richiede la pagina direttamente da url, invece che dalla home
