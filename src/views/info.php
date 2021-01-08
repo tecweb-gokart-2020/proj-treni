@@ -4,7 +4,6 @@ use DB\DBAccess;
 use function ACCOUNT\getEmailOfAccount;
 
 session_start();
-
 if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente
@@ -23,8 +22,9 @@ if(isset($_SESSION["username"])) {
     $indirizzi_link = "href=\"indirizzi.php\"";
     include "template/ap_navbar.php";
 
-    $email = getEmailOfAccount($_SESSION["username"]);
+    /* Contenuto reale della pagina */
     $user = $_SESSION["username"];
+    $email = getEmailOfAccount($user);
     echo "<ul><li>username: $user</li> <li>email: $email</li></ul>";
     
     include "template/footer.php";
