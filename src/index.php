@@ -16,11 +16,11 @@ if(isset($_SESSION["username"])) {
 }
 
 // Esempio di inclusione delle viste header, corpo di index e footer
-$area_personale_link = "views/area_personale.php";
-$notizie_link = "";
-$prodotti_link = "";
-$servizi_link = "";
-$contatti_link = "";
+$area_personale_link = "href=\"views/info.php\"";
+$notizie_link = "href=\"views/notizie.php\"";
+$prodotti_link = "href=\"views/prodotti.php\"";
+$servizi_link = "href=\"views/servizi.php\"";
+$contatti_link = "href=\"views/contatti.php\"";
 include __DIR__ . DIRECTORY_SEPARATOR . "views/template/header.php";
 include __DIR__ . DIRECTORY_SEPARATOR . "views/template/footer.php";
 ?>
