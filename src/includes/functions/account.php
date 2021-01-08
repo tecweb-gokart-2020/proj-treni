@@ -28,7 +28,7 @@ function getAddressesFromAccount($accountID) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
 
-    $query = "SELECT addressID FROM indirizzo WHERE accountID = \"" . $accountID . "\"";
+    $query = "SELECT addressID FROM indirizzo WHERE username = \"" . $username . "\"";
     $result = mysqli_query($connection,$query);
     $final = mysqli_fetch_array($result, MYSQLI_NUM);
 
@@ -36,11 +36,11 @@ function getAddressesFromAccount($accountID) {
     return $final;
 }
 
-function getEmailOfAccount($accountID) {
+function getEmailOfAccount($username) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
 
-    $query = "SELECT email FROM indirizzo WHERE accountID = \"" . $accountID . "\"";
+    $query = "SELECT email FROM utente WHERE username = \"" . $username . "\"";
     $result = mysqli_query($connection,$query);
     $final = mysqli_fetch_array($result, MYSQLI_NUM);
 
@@ -50,11 +50,11 @@ function getEmailOfAccount($accountID) {
 
 
 /* Ritorna il carrello di un account, NULL se non ce l'ha */
-function getCartFromAccount($accountID) {
+function getCartFromAccount($username) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
 
-    $query = "SELECT cartID FROM utente WHERE accountID = \"" . $accountID . "\"";
+    $query = "SELECT cartID FROM utente WHERE username = \"" . $username . "\"";
     $result = mysqli_query($connection,$query);
     $final = mysqli_fetch_array($result, MYSQLI_NUM);
 
