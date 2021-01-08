@@ -2,6 +2,7 @@
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php");
 use DB\DBAccess;
 use function ACCOUNT\getEmailOfAccount;
+use function ACCOUNT\getPasswordOfAccount;
 
 session_start();
 if(isset($_SESSION["username"])) {
@@ -24,8 +25,22 @@ if(isset($_SESSION["username"])) {
 
     /* Contenuto reale della pagina */
     $user = $_SESSION["username"];
-    $email = getEmailOfAccount("user");
-    echo "<ul>" . PHP_EOL . "<li>username: $user</li>" . PHP_EOL . "<li>email: $email</li>". PHP_EOL . "</ul>";
+    $email = getEmailOfAccount($user);
+    $password =  getPasswordOfAccount($user);
+    echo "<h2>Benvenuto $user !</h2>"
+        . PHP_EOL .
+        "<form action=\"\"><fieldset><legend>Email e password</legend>"
+        . PHP_EOL .
+        "<label for=\"email\">email:</label>"
+        . PHP_EOL .
+        "<input name=\"email\" id=\"email\" value="$email" maxlength=\"50\"/>"
+        . PHP_EOL .
+        "<label for=\"password\">password:</label>"
+        . PHP_EOL .
+        "<input type=\"password\" name=\"password\" id=\"password\" value="$password" maxlength=\"50\"/>"
+        . PHP_EOL .
+        "</fieldset></form>"
+        . PHP_EOL;
     include "template/footer.php";
 }
 else {

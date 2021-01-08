@@ -50,6 +50,19 @@ function getEmailOfAccount($username) {
     return $final;
 }
 
+function getEmailOfAccount($username) {
+    $db = new DBAccess();
+    $connection = $db->openDbConnection();
+    $to_echo = $connection ? "connessione riuscita" : "ancora non va";
+    echo $to_echo;
+
+    $query = "SELECT password FROM utente WHERE username = \"" . $username . "\";";
+    $result = mysqli_query($connection,$query);
+    $final = mysqli_fetch_array($result, MYSQLI_NUM)[0];
+
+    $db->closeDbConnection();
+    return $final;
+}
 
 /* Ritorna il carrello di un account, NULL se non ce l'ha */
 function getCartFromAccount($username) {
