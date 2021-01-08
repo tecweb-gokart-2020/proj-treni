@@ -68,11 +68,12 @@ CREATE TABLE prodotto_ordinato(
 )Engine=InnoDB;
 
 CREATE TABLE ordine(
-       orderID int PRIMARY KEY,
-       username varchar(20) NOT NULL,
+       orderID int,
+       username varchar(20),
        data_ordine timestamp,
        total decimal,
 
+       PRIMARY KEY (orderID, username),
        FOREIGN KEY (username) REFERENCES utente(username)
 )Engine=InnoDB;
 
