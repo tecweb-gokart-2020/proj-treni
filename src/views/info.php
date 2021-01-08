@@ -24,7 +24,8 @@ if(isset($_SESSION["username"])) {
     include "template/ap_navbar.php";
 
     $email = getEmailOfAccount($_SESSION["username"]);
-    echo "<ul><li>username: $_SESSION['username'] </li> <li>email: $email";
+    $user = $_SESSION["username"];
+    echo "<ul><li>username: $user</li> <li>email: $email</li></ul>";
     
     include "template/footer.php";
 }
