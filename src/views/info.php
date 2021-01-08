@@ -5,7 +5,7 @@ use function ACCOUNT\getEmailOfAccount;
 
 session_start();
 
-if(isset($_SESSION["username"]) or true) {
+if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente
      * richiede la pagina direttamente da url, invece che dalla home
@@ -23,8 +23,6 @@ if(isset($_SESSION["username"]) or true) {
     $indirizzi_link = "href=\"indirizzi.php\"";
     include "template/ap_navbar.php";
 
-    // debug
-    $_SESSION["username"] = "user";
     $email = getEmailOfAccount($_SESSION["username"]);
     $user = $_SESSION["username"];
     echo "<ul><li>username: $user</li> <li>email: $email</li></ul>";
