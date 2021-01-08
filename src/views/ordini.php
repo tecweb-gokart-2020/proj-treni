@@ -6,25 +6,20 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
 
-    $area_personale_link = "";
-    $notizie_link = "notizie.php";
-    $prodotti_link = "prodotti.php";
-    $servizi_link = "servizi.php";
-    $contatti_link = "contatti.php";
+    $area_personale_link = "class=\"header_current_link\"";
+    $notizie_link = "href=\"notizie.php\"";
+    $prodotti_link = "href=\"prodotti.php\"";
+    $servizi_link = "href=\"servizi.php\"";
+    $contatti_link = "href=\"contatti.php\"";
     include "template/header.php";
 
-    include "res/ap_navbar.html";
+    $info_personali_link = "href=\"info.php\"";
+    $ordini_link = "class=\"active_link\"";
+    $indirizzi = "href=\"indirizzi.php\"";
+    include "template/ap_navbar.php";
+
+    echo "MAIN CONTENT";
     
-    if(isset($_GET["addr"])) {
-        $main_content = "template/indirizzi.php";
-    }
-    else if(isset($_GET["ord"])) {
-        $main_content = "template/ordini.php";
-    }
-    else {
-        $main_content = "template/info.php";
-    }
-    include $main_content;
     include "template/footer.php";
 }
 else {
