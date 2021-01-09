@@ -1,0 +1,111 @@
+<!-- L'idea sarebbe avere tutti i form nella pagina ma questi appaiono e scompaiono via JS. Oppure spezziamo in più pagine, renderebbe il login più leggero -->
+
+<main id="contenuto"><!-- per il salto della navigazione -->
+	<!-- Login -->
+	<div id="loginContainer" class="container">
+		<p><h1>Benvenuto!</h1>Accedi al tuo account</p>
+
+		<form name="login" action="" method="post">
+			<label> <strong>Nome Utente</strong>
+				<input type="text" name="nomeUtente" id="loginUtente" maxlength="20" required />
+			</label>
+
+			<label> <strong>Password</strong>
+				<input type="password" name="password" id="loginPassword" maxlength="10" required  />
+			</label>
+			
+			<input type="submit" id="loginInvio" value="Accedi" >
+		</form>
+		
+		<a href="" >Password dimenticata?</a>
+
+		<div id="loginToRegistr" class="container">
+			<p>Prima volta sul sito? <a href=""><strong>Registrati!</strong></a></p>
+		</div>
+	</div>
+
+	<!-- Registrazione -->
+	<div id="registrContainer" class="container">
+		<div class="container">
+			<p><h1>Crea account</h1>Inserisci i dati per registrarti su Trenogheno.it. I campi contrassegnati con * sono obbligatori.</p>
+
+			<form name="registr" action="" method="post">
+				<label>Email *
+					<input type="email" name="email" id="registrEmail" maxlength="100" required />
+				</label>
+
+				<label>Nome Utente *
+					<input type="text" name="nomeUtente" id="registrUtente" maxlength="20" required/>
+				</label>
+
+				<label>Password *
+					<input type="password" name="password" id="registrPassword" maxlength="10" required/>
+				</label>
+
+				<label>Conferma password *
+					<input type="password" name="password2" id="registrPassword2" maxlength="10" required/>
+				</label>
+
+				<!-- nome e cognome non sono separati nel DB, qualcosa da considerare. Qui la lunghezza è divisa a metà per poi concatenare ma meglio cambiare-->
+				<label>Nome *
+					<input type="text" name="nome" id="registrNome" maxlength="25" required/>
+				</label>
+
+				<label>Cognome *
+					<input type="text" name="cognome" id="registrCognome" maxlength="25" required/>
+				</label>
+
+				<label>Via *
+					<input type="text" name="via" id="registrVia" maxlength="50" required/>
+				</label>
+
+				<!-- un po' tanto 50 e si può inglobare in via -->
+				<label>Numero civico *
+					<input type="text" name="civico" id="registrCivico" maxlength="50" required/>
+				</label>
+
+				<label>Città *
+					<input type="text" name="citta" id="registrCitta" maxlength="50" required/>
+				</label>
+
+				<!-- ha decisamente più senso città e provincia di città e comune. Di certo è più chiaro -->
+				<label>Provincia *
+					<input type="text" name="provincia" id="registrProvincia" maxlength="50" required/>
+				</label>
+
+				<!-- sconsiglio di usare tipi numerici per il CAP, si perdono gli zeri privi di significato tipo 00010 (Roma) -->
+				<label> <abbr title="Codice Avviamento Postale">CAP</abbr> *
+					<input type="text" name="cap" id="registrCap" maxlength="5" required/>
+				</label>
+
+				<label>Stato *
+					<input type="text" name="stato" id="registrStato" maxlength="50" value="Italia" required/>
+				</label>
+
+				<!-- ma un telefono ci starebbe, c'è anche nel sito originale, magari opzionale 
+				<label>Telefono
+					<input type="text" name="telefono" maxlength="50" />
+				</label>
+				-->
+
+				<input type="submit" name="Registrati"/>
+			</form>
+
+			<div id="RegistrToLogin" class="container">
+				<p>Già registrato? <a href=""><strong>Accedi!</strong></a></p>
+			</div>	
+		</div>
+	</div>
+
+	<!-- Recupero password -->
+	<!-- è davvero il caso di implementarlo però? Normalmente richiede l'invio di email e bypassarlo lo rende insicuro e piuttosto insensato -->
+	<div id="recupera" class="container">
+		<p><h1>Recupera password</h1></p>
+
+		<form name="recupero" action="" method="post">
+			<label>Inserisci la tua email e...
+				<input type="email" name="email" required/>
+			</label>
+		</form>
+	</div>
+</main>
