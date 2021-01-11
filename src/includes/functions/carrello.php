@@ -43,4 +43,14 @@ function getProdottiFromCarrello($cart_id){
     }
 }
 
+function getNewCarrello(){
+    $dbAccess = new DBAccess();
+    $connection = $dbAccess->openDbConnection();
+    $query = "SELECT cartID FROM carrello ORDER BY cartID DESC LIMIT 1";
+    $queryResult = mysqli_query($connection, $query);
+    $dbAccess->closeDbConnection();
+    $cart_id = mysqli_fetch_row($queryResult)[0] + 1;
+    return $cart_id;
+}
+
 ?>
