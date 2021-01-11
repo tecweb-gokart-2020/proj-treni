@@ -43,6 +43,7 @@ function getProdottiFromCarrello($cart_id){
     }
 }
 
+// Inserisce un nuovo carrello e ritorna il suo ID, false in caso di fallimento
 function getNewCarrello(){
     $dbAccess = new DBAccess();
     $connection = $dbAccess->openDbConnection();
@@ -50,7 +51,12 @@ function getNewCarrello(){
     $queryResult = mysqli_query($connection, $query);
     $dbAccess->closeDbConnection();
     $cart_id = mysqli_fetch_row($queryResult)[0] + 1;
-    return $cart_id;
+    $queryInsert = "INSERT INTO carrello(cartID) VALUES (\"$cart_id\")";
+    if(mysqli_query($connection, $queryInsert)){
+        return $cart_id;
+    }else{
+        return false;
+    }
 }
 
 ?>
