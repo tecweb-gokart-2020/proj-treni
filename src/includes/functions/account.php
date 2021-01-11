@@ -10,11 +10,11 @@ use function UTILITIES\email_exists;
 
 /* Ritorna gli ordini di un account sotto forma di array, NULL se
  * non ne ha */
-function getOrdersFromAccount($accountID) {
+function getOrdersFromAccount($username) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
 
-    $query = "SELECT orderID FROM ordine WHERE accountID = \"" . $accountID . "\";";
+    $query = "SELECT orderID FROM ordine WHERE username = \"" . $username . "\";";
     $result = mysqli_query($connection,$query);
     $final = mysqli_fetch_array($result, MYSQLI_NUM);
 
@@ -24,7 +24,7 @@ function getOrdersFromAccount($accountID) {
 
 /* Ritorna gli indirizzi di un account sotto forma di array, NULL se
  * non ne ha */
-function getAddressesFromAccount($accountID) {
+function getAddressesFromAccount($username) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
 
