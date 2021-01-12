@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="it">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Contatti</title>
-    <meta name="description" content="Pagina Contatti di trenogheno.it" />
-    <meta name="keywords" content="trenogheno, trenini, modellismo" />
-    <meta name="title" content="Contatti" />
-    <meta name="author" content="Gruppo progetto TecWeb" />
-    <meta name="language" content="italian it" />
-
-    <link rel="stylesheet" type="text/css" href="styleGenerale.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="styleMobile.css" media="handheld, screen and (max-device-width:640px), only screen and (max-width:640px)" />
-    <link rel="stylesheet" type="text/css" href="stylePrint.css" media="print" />
-</head>
-
-<body>
+<?php
+    require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
+    $pagetitle = "Trenogheno - Contatti";
+    $pagedescription = "Pagina Contatti di trenogheno.it";
+    $area_personale_link = "href=\"info.php\"";
+    $notizie_link = "href=\"notizie.php\"";
+    $home_link = "href=\"../index.php\"";
+    $servizi_link = "href=\"servizi.php\"";
+    $prodotti_link = "href=\"prodotti.php\"";
+    include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
+?>
     <div id="percorso">
-        <p>Ti trovi in: <a id="linkHome" href="home_statica.html" xml:lang="en">Home</a> >> Contatti</p>
+        <p>Ti trovi in: <a id="linkHome" <?=$home_link?> xml:lang="en">Home</a> >> Contatti</p>
     </div>
     <div id="contenutoInfo">
         <p><strong>TrenoGheno</strong> è una piccola azienda nata nel 1999 tra Pordenone e Portogruaro (VE), specializzata nel settore del modellismo ferroviario.</p>
@@ -39,6 +32,6 @@
             <li><strong>FAX</strong>: +39 0434 572 865</li>
         </ul>
     </div>
-</body>
-
-</html>
+<?php
+    include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
+?>
