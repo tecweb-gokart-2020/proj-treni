@@ -27,4 +27,14 @@ function getInfoFromProdotto($cod_articolo){
     }
 }
 
+function getMarche(){
+    $dbAccess = new DBAccess();
+    $connection = $dbAccess->openDbConnection();
+    $query = "SELECT nome from marche";
+    $queryResult = mysqli_query($connection, $query);
+    $dbAccess->closeDbConnection();
+    $marche = mysqli_fetch_assoc($queryResult);
+    return $marche;
+}
+
 ?>

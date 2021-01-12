@@ -17,7 +17,7 @@
 
 <body>
     <div id="percorso">
-        <p>Ti trovi in: <a id="linkHome" href="home_statica.html" xml:lang="en">Home</a> >> Prodotti</p>
+        <p>Ti trovi in: <a id="linkHome" href="<?=$home_link;?>" xml:lang="en">Home</a> >> Prodotti</p>
     </div>
     <div id="categorie">
         <ul>
@@ -41,7 +41,14 @@
             </select>
             <label for="filtroMarche">Marca</label>
             <select name="marche" id="filtroMarche">
-			<option>Nessuna selezione</option>
+                <option>Nessuna selezione</option>
+                <?php
+                    use function PRODOTTO\getMarche;
+                    $marche = getMarche();
+                    for($i = 0;$i < count($marche);$i++){
+                        echo("<option>\"$marche[i]\"</option");
+                    }
+                ?>
                 <!--GESTITO DA PHP-->
             </select>
             <label for="filtroDisponibile">Disponibile</label>
