@@ -43,4 +43,21 @@ function getProdottiFromCarrello($cart_id){
     }
 }
 
+// Inserisce un nuovo carrello e ritorna il suo ID, false in caso di fallimento
+function getNewCarrello(){
+    $dbAccess = new DBAccess();
+    $connection = $dbAccess->openDbConnection();
+    $query = "SELECT cartID FROM carrello ORDER BY cartID DESC LIMIT 1";
+    $queryResult = mysqli_query($connection, $query);
+    $cart_id = mysqli_fetch_row($queryResult)[0] + 1;
+    $queryInsert = "INSERT INTO carrello(cartID) VALUES (\"$cart_id\")";
+    if(mysqli_query($connection, $queryInsert)){
+        $dbAccess->closeDbConnection();
+        return $cart_id;
+    }else{
+        $dbAccess->closeDbConnection();
+        return false;
+    }
+}
+
 ?>
