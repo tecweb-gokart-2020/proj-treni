@@ -25,10 +25,10 @@
         $home_link = "href=\"../index.php\"";
         $servizi_link = "href=\"servizi.php\"";
         $contatti_link = "href=\"contatti.php\"";
-        include __DIR__ . DIRECTORY_SEPARATOR . "views/template/header.php";
+        include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     ?>
     <div id="percorso">
-        <p>Ti trovi in: <a id="linkHome" href="<?=$home_link;?>" xml:lang="en">Home</a> >> Prodotti</p>
+        <p>Ti trovi in: <a id="linkHome" <?=$home_link;?> xml:lang="en">Home</a> >> Prodotti</p>
     </div>
     <div id="categorie">
         <ul>
@@ -84,7 +84,7 @@
         <!--PRODOTTI DA METTERE CON PHP-->
     </div>
     <?php
-    include __DIR__ . DIRECTORY_SEPARATOR . "views/template/footer.php";
+    include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
     ?>
 <!--</body>
 
