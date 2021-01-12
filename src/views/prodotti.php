@@ -47,7 +47,7 @@
                     use function PRODOTTO\getMarche;
                     $marche = getMarche();
                     for($i = 0;$i < count($marche);$i++){
-                        echo("<option>".$marche[$i]."</option");
+                        echo("<option>".$marche[$i]."</option>");
                     }
                 ?>
                 <!--GESTITO DA PHP-->

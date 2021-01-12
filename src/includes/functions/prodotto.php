@@ -33,7 +33,10 @@ function getMarche(){
     $query = "SELECT nome from marche";
     $queryResult = mysqli_query($connection, $query);
     $dbAccess->closeDbConnection();
-    $marche = mysqli_fetch_assoc($queryResult);
+    $marche = array();
+    while($singolaMarca = mysqli_fetch_row($queryResult)){
+        array_push($marche,$singolaMarca);
+    };
     return $marche;
 }
 
