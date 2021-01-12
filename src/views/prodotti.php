@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="it">
 
 <head>
@@ -15,7 +15,18 @@
     <link rel="stylesheet" type="text/css" href="stylePrint.css" media="print" />
 </head>
 
-<body>
+<body>-->
+    <?php
+        require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
+        $pagetitle = "Trenogheno - Prodotti";
+        $pagedescription = "Pagina Prodotti di trenogheno.it";
+        $area_personale_link = "href=\"info.php\"";
+        $notizie_link = "href=\"notizie.php\"";
+        $home_link = "href=\"../index.php\"";
+        $servizi_link = "href=\"servizi.php\"";
+        $contatti_link = "href=\"contatti.php\"";
+        include __DIR__ . DIRECTORY_SEPARATOR . "views/template/header.php";
+    ?>
     <div id="percorso">
         <p>Ti trovi in: <a id="linkHome" href="<?=$home_link;?>" xml:lang="en">Home</a> >> Prodotti</p>
     </div>
@@ -43,7 +54,6 @@
             <select name="marche" id="filtroMarche">
                 <option>Nessuna selezione</option>
                 <?php
-                    require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
                     use function PRODOTTO\getMarche;
                     $marche = getMarche();
                     for($i = 0;$i < count($marche);$i++){
@@ -73,6 +83,9 @@
     <div id="contenutoPagina">
         <!--PRODOTTI DA METTERE CON PHP-->
     </div>
-</body>
+    <?php
+    include __DIR__ . DIRECTORY_SEPARATOR . "views/template/footer.php";
+    ?>
+<!--</body>
 
-</html>
+</html>-->
