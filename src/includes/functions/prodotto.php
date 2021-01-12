@@ -35,7 +35,7 @@ function getMarche(){
     $dbAccess->closeDbConnection();
     $marche = array();
     while($singolaMarca = mysqli_fetch_row($queryResult)){
-        array_push($marche,$singolaMarca);
+        array_push($marche,$singolaMarca[0]);
     };
     return $marche;
 }
