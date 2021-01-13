@@ -40,7 +40,7 @@
         </ul>
     </div>
     <div id="filtroProdotti">
-        <form method="post" action="">
+        <form method="get" action="..includes/functions/prodotto.php">
             <label for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
                 <option>Nessuna selezione</option>
@@ -60,7 +60,6 @@
                         echo("<option>".$marche[$i]."</option>");
                     }
                 ?>
-                <!--GESTITO DA PHP-->
             </select>
             <label for="filtroDisponibile">Disponibile</label>
             <input name="disponibile" id="filtroDisponibile" type="checkbox" value="disponibile" />
@@ -77,7 +76,7 @@
                 <option>Prezzo crescente</option>
                 <option>Prezzo decrescente</option>
             </select>
-            <input id="filtroSubmit" type="submit" value="Applica" />
+            <input id="filtroSubmit" type="submit" value="Applica filtri" />
         </form>
     </div>
     <div id="contenutoPagina">
