@@ -11,28 +11,12 @@ DROP TABLE IF EXISTS ordine;
 DROP TABLE IF EXISTS spedizione;
 DROP TABLE IF EXISTS indirizzo;
 
-CREATE TABLE utente(
-       username varchar(20) PRIMARY KEY,
-       cartID int not null,
-       email varchar(100) not null,
-       password varchar(10) not null,
-       
-       FOREIGN KEY (cartID) REFERENCES carrello(cartID)
-)Engine=InnoDB;
-
 CREATE TABLE carrello(
        cartID int PRIMARY KEY
 )Engine=InnoDB;
 
-
-CREATE TABLE contenuto_carrello(
-       cartID int,
-       codArticolo int,
-       quantita int DEFAULT 1,
-
-       PRIMARY KEY(cartID, codArticolo),
-       FOREIGN KEY (cartID) REFERENCES carrello(cartID),
-       FOREIGN KEY (codArticolo) REFERENCES Prodotto(codArticolo)
+CREATE TABLE marca(
+       nome varchar(20) PRIMARY KEY
 )Engine=InnoDB;
 
 CREATE TABLE prodotto(
@@ -49,22 +33,23 @@ CREATE TABLE prodotto(
        FOREIGN KEY (marca) REFERENCES marca(nome)
 )Engine=InnoDB;
 
-CREATE TABLE marca(
-       nome varchar(20) PRIMARY KEY
+CREATE TABLE utente(
+       username varchar(20) PRIMARY KEY,
+       cartID int not null,
+       email varchar(100) not null,
+       password varchar(10) not null,
+       
+       FOREIGN KEY (cartID) REFERENCES carrello(cartID)
 )Engine=InnoDB;
 
-CREATE TABLE prodotto_ordinato(
+CREATE TABLE contenuto_carrello(
+       cartID int,
        codArticolo int,
-       orderID int,
-       shippingID int,
-       quantita int NOT NULL,
-       stato varchar(50) DEFAULT 'Processing',
-       prezzo_netto int,
+       quantita int DEFAULT 1,
 
-       PRIMARY KEY(codArticolo, orderID),
-       FOREIGN KEY (codArticolo) REFERENCES Prodotto(codArticolo),
-       FOREIGN KEY (orderID) REFERENCES ordine(orderID),
-       FOREIGN KEY (shippingID) REFERENCES spedizione(shippingID)
+       PRIMARY KEY(cartID, codArticolo),
+       FOREIGN KEY (cartID) REFERENCES carrello(cartID),
+       FOREIGN KEY (codArticolo) REFERENCES prodotto(codArticolo)
 )Engine=InnoDB;
 
 CREATE TABLE ordine(
@@ -75,17 +60,6 @@ CREATE TABLE ordine(
 
        PRIMARY KEY (orderID, username),
        FOREIGN KEY (username) REFERENCES utente(username)
-)Engine=InnoDB;
-
-CREATE TABLE spedizione(
-       shippingID int PRIMARY KEY,
-       orderID int NOT NULL,
-       addressID int NOT NULL,
-       stato varchar(50),
-       data_prevista date,
-
-       FOREIGN KEY (orderID) REFERENCES ordine(orderID),
-       FOREIGN KEY (addressID) REFERENCES indirizzo(addressID)
 )Engine=InnoDB;
 
 CREATE TABLE indirizzo(
@@ -100,6 +74,31 @@ CREATE TABLE indirizzo(
        cap int,
 
        FOREIGN KEY (username) REFERENCES utente(username)
+)Engine=InnoDB;
+
+CREATE TABLE spedizione(
+       shippingID int PRIMARY KEY,
+       orderID int NOT NULL,
+       addressID int NOT NULL,
+       stato varchar(50),
+       data_prevista date,
+
+       FOREIGN KEY (orderID) REFERENCES ordine(orderID),
+       FOREIGN KEY (addressID) REFERENCES indirizzo(addressID)
+)Engine=InnoDB;
+
+CREATE TABLE prodotto_ordinato(
+       codArticolo int,
+       orderID int,
+       shippingID int,
+       quantita int NOT NULL,
+       stato varchar(50) DEFAULT 'Processing',
+       prezzo_netto int,
+
+       PRIMARY KEY(codArticolo, orderID),
+       FOREIGN KEY (codArticolo) REFERENCES prodotto(codArticolo),
+       FOREIGN KEY (orderID) REFERENCES ordine(orderID),
+       FOREIGN KEY (shippingID) REFERENCES spedizione(shippingID)
 )Engine=InnoDB;
 
 SET FOREIGN_KEY_CHECKS=1;
