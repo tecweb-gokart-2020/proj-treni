@@ -12,7 +12,7 @@ if(!isset($_SESSION["cartID"])) {
     }
 }
 // cartID correttamente impostato
-echo "l'id del tuo carrello è $_SESSION['cartID']"
+echo "l'id del tuo carrello è $_SESSION['cartID']";
 
 $area_personale_link = "href=\"info.php\"";
 $notizie_link = "href=\"notizie.php\"";
