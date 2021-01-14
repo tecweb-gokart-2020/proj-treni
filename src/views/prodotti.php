@@ -40,7 +40,7 @@
         </ul>
     </div>
     <div id="filtroProdotti">
-        <form method="get" action="..includes/functions/formProdotti.php">
+        <form method="get" action="../includes/functions/formProdotti.php">
             <label for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
                 <option>Nessuna selezione</option>
