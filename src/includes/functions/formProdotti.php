@@ -10,6 +10,8 @@
         $prezzoMax = $_GET['prezzoMax'];
         $ordine = $_GET['ordinamento'];
         
+        if($prezzoMax < $prezzoMin) {echo "Il prezzo massimo è stato impostato al prezzo minimo"; $prezzoMax=$prezzoMin;}
+
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
         //WHERE AND marca = ".$marca." AND prezzo > ".$prezzoMin." AND prezzo < ".$prezzoMax;
@@ -27,12 +29,12 @@
         }
         if($prezzoMin !=""){
             $query = str_replace("1","",$query);
-            $query .= $and."prezzo > ".$prezzoMin;
+            $query .= $and."prezzo >= ".$prezzoMin;
             $and = " AND ";
         }
         if($prezzoMax !=""){
             $query = str_replace("1","",$query);
-            $query .= $and."prezzo < ".$prezzoMax;
+            $query .= $and."prezzo <= ".$prezzoMax;
             $and = " AND ";
         }
         if($disponibile == "disponibile" && $offerta == "offerta") $query .= " AND sconto > 0 AND quantita > 0";
