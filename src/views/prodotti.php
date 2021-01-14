@@ -27,6 +27,7 @@
         $contatti_link = "href=\"contatti.php\"";
         use function PRODOTTO\queryProdotti;
         use function PRODOTTO\getMarche;
+        use function PRODOTTO\stampaProdotti;
         use function PRODOTTO\searchProdotti;
         include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     
@@ -125,8 +126,12 @@
             }
             $listaProdotti = queryProdotti($categoria, $marca, $disponibile, $offerta, $prezzoMin, $prezzoMax, $ordine);
         }
+
     echo ('</div>
     <div id="contenutoPagina">
+        <ul class="cards">');                            
+            stampaProdotti($listaProdotti);
+        echo('</ul>
     </div>');
     include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
     ?>
