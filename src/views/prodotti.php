@@ -115,12 +115,13 @@
             $marca = $_GET['marche'];
             $disponibile = isset($_GET['disponibile']) ? $_GET['disponibile'] : "";
             $offerta = isset($_GET['offerta']) ? $_GET['offerta'] : "";
-            $prezzoMin = $_GET['prezzoMin'];
-            $prezzoMax = $_GET['prezzoMax'];
+            $prezzoMin = isset($_GET['prezzoMin']) ? $_GET['prezzoMin'] : "";
+            $prezzoMax = isset($_GET['prezzoMax']) ? $_GET['prezzoMax'] : "";
             $ordine = $_GET['ordinamento'];
-            
-            if($prezzoMax < $prezzoMin) {echo "Il prezzo massimo è stato impostato al prezzo minimo"; 
-                $prezzoMax=$prezzoMin;
+            if($prezzoMax != "" && $prezzoMin != ""){
+                if($prezzoMax < $prezzoMin) {echo "Il prezzo massimo è stato impostato al prezzo minimo"; 
+                    $prezzoMax=$prezzoMin;
+                }
             }
             $listaProdotti = queryProdotti($categoria, $marca, $disponibile, $offerta, $prezzoMin, $prezzoMax, $ordine);
         }
