@@ -85,13 +85,13 @@ function queryProdotti($categoria, $marca ="Nessuna selezione", $disponibile ="d
 function searchProdotti($stringa){
     $dbAccess = new DBAccess();
     $connection = $dbAccess->openDbConnection();
-    $query = "SELECT codArticolo FROM prodotti WHERE codArticolo LIKE \"$stringa\" OR descrizione LIKE \"$stringa\"
-            OR marca LIKE \"$stringa\"";
+    $query = "SELECT codArticolo FROM prodotto WHERE (codArticolo LIKE '%".$stringa."%' OR descrizione LIKE '%".$stringa."%' OR 
+    marca LIKE '%".$stringa."%' OR tipo LIKE '%".$stringa."%')";
     $queryResult = mysqli_query($connection, $query);
     $dbAccess->closeDbConnection();
     $prodotti = array();
     while($singoloProdotto = mysqli_fetch_row($queryResult)){
-        array_push($marche,$singoloProdotto[0]);
+        array_push($prodotti,$singoloProdotto[0]);
     };
     return $prodotti;
 }
