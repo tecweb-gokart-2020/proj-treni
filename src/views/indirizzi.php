@@ -7,7 +7,7 @@ use function INDIRIZZO\getInfoFromAddress;
 function printAddress($addressID) {
     $addr = getInfoFromAddress($addressID);
     if($addr){
-        echo "<ul>" . PHP_EOL;
+        echo "<ul class=\"display-address\">" . PHP_EOL;
         echo "<li>nome: " . $addr["nome"] . "</li>" . PHP_EOL;
         echo "<li>via: " . $addr["via"] . "</li>" . PHP_EOL;
         echo "<li>numero: " . $addr["numero"] . "</li>" . PHP_EOL;
@@ -42,9 +42,9 @@ if(isset($_SESSION["username"])) {
     include "template/ap_navbar.php";
 
     $addresses = getAddressesFromAccount($_SESSION["username"]);
-    echo "<ul>" . PHP_EOL;
+    echo "<ul id=\"address-list\">" . PHP_EOL;
     foreach($addresses as $address) {
-        echo "<li class=\"addr\">" . PHP_EOL;
+        echo "<li >" . PHP_EOL;
         printAddress($address);
         echo "</li>" . PHP_EOL;
     }
