@@ -6,9 +6,14 @@ use function INDIRIZZO\getInfoFromAddress;
 function printAddress($addressID) {
     $addr = getInfoFromAddress($addressID);
     echo "<ul>" . PHP_EOL;
-    echo "<li>indirizzo totale</li>" . PHP_EOL;
+    echo "<li>nome: " . addr["nome"] . "</li>" . PHP_EOL;
+    echo "<li>via: " . addr["via"] . "</li>" . PHP_EOL;
+    echo "<li>numero: " . addr["numero"] . "</li>" . PHP_EOL;
+    echo "<li>città: " . addr["citta"] . "</li>" . PHP_EOL;
+    echo "<li>stato: " . addr["stato"] . "</li>" . PHP_EOL;
+    echo "<li>comune: " . addr["comune"] . "</li>" . PHP_EOL;
+    echo "<li>cap: " . addr["cap"] . "</li>" . PHP_EOL;
     echo "</ul>" . PHP_EOL;
-
 }
 
 session_start();
@@ -33,7 +38,9 @@ if(isset($_SESSION["username"])) {
     $addresses = getAddressesFromAccount($_SESSION["username"]);
     echo "<ul>" . PHP_EOL;
     foreach($addresses as &$address) {
+        echo "<li>" . PHP_EOL;
         printAddress($address);
+        echo "</li>" . PHP_EOL;
     }
     echo "</ul>" . PHP_EOL;
         
