@@ -72,7 +72,7 @@
 
     if(isset($_GET['search'])){
         $searchString = $_GET['searchQuery'];
-        $prodotti = searchProdotti($searchString);
+        $listaProdotti = searchProdotti($searchString);
     }
 
     echo '<div id="filtroProdotti">
