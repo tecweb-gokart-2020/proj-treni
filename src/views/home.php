@@ -40,7 +40,7 @@
         </ul>
     </div>
     <div id="news">
-        <h2>NOVITÀ</h2>'
+        <h2>NOVITÀ</h2>';
         //mettere immagini prodotti con flag(da aggiungere) novità
         
     echo '</div>
@@ -49,5 +49,5 @@
         <a href="prodotti.html">Cerca nel catalogo</a>
     </div>
 
-</body>'
+</body>';
 ?>
