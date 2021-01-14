@@ -4,7 +4,7 @@
     if(isset($_GET['submit'])){
         $categoria = $_GET['categorie'];
         $marca = $_GET['marche'];
-        $disponinile = isset($_GET['disoonibile']) ? $_GET['disponibile'] : "";
+        $disponibile = isset($_GET['disponibile']) ? $_GET['disponibile'] : "";
         $offerta = isset($_GET['offerta']) ? $_GET['offerta'] : "";
         $prezzoMin = $_GET['prezzoMin'];
         $prezzoMax = $_GET['prezzoMax'];
