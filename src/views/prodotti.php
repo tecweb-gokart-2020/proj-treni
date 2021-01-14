@@ -28,7 +28,7 @@
         include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     
     echo('<div id="percorso">
-        <p>Ti trovi in: <a id="linkHome" <?=$home_link;?> xml:lang="en">Home</a> >> Prodotti</p>
+        <p>Ti trovi in: <a id="linkHome"'.$home_link.' xml:lang="en">Home</a> >> Prodotti</p>
     </div>
     <div id="categorie">
         <ul>
