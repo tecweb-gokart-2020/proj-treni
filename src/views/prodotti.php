@@ -26,8 +26,8 @@
         $servizi_link = "href=\"servizi.php\"";
         $contatti_link = "href=\"contatti.php\"";
         include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
-    ?>
-    <div id="percorso">
+    
+    echo('<div id="percorso">
         <p>Ti trovi in: <a id="linkHome" <?=$home_link;?> xml:lang="en">Home</a> >> Prodotti</p>
     </div>
     <div id="categorie">
@@ -52,15 +52,14 @@
             </select>
             <label for="filtroMarche">Marca</label>
             <select name="marche" id="filtroMarche">
-                <option>Nessuna selezione</option>
-                <?php
+                <option>Nessuna selezione</option>');
+
                     use function PRODOTTO\getMarche;
                     $marche = getMarche();
                     for($i = 0;$i < count($marche);$i++){
                         echo("<option>".$marche[$i]."</option>");
                     }
-                ?>
-            </select>
+            echo('</select>
             <label for="filtroDisponibile">Disponibile</label>
             <input name="disponibile" id="filtroDisponibile" type="checkbox" value="disponibile" />
             <label for="filtroInOfferta">In Offerta</label>
@@ -70,7 +69,7 @@
             <label for="filtroPrezzoMax">Prezzo massimo</label>
             <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="prezzoMax" min="0" step="5" />
             <label for="filrtoOrdinamento">Ordinamento</label>
-            <select name="ordinamento" id="filrtoOrdinamento"><!--DA CAPIRE MEGLIO CON PHP-->
+            <select name="ordinamento" id="filrtoOrdinamento">
                 <option>Nessuna selezione</option>
 				<option>Alfabetico [A-Z]</option>
                 <option>Prezzo crescente</option>
@@ -80,9 +79,7 @@
         </form>
     </div>
     <div id="contenutoPagina">
-        <!--PRODOTTI DA METTERE CON PHP-->
-    </div>
-    <?php
+    </div>');
     include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
     ?>
 <!--</body>
