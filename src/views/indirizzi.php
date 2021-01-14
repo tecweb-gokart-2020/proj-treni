@@ -8,13 +8,13 @@ function printAddress($addressID) {
     $addr = getInfoFromAddress($addressID);
     if($addr){
         echo "<ul>" . PHP_EOL;
-        echo "<li>nome: " . addr["nome"] . "</li>" . PHP_EOL;
-        echo "<li>via: " . addr["via"] . "</li>" . PHP_EOL;
-        echo "<li>numero: " . addr["numero"] . "</li>" . PHP_EOL;
-        echo "<li>città: " . addr["citta"] . "</li>" . PHP_EOL;
-        echo "<li>stato: " . addr["stato"] . "</li>" . PHP_EOL;
-        echo "<li>comune: " . addr["comune"] . "</li>" . PHP_EOL;
-        echo "<li>cap: " . addr["cap"] . "</li>" . PHP_EOL;
+        echo "<li>nome: " . $addr["nome"] . "</li>" . PHP_EOL;
+        echo "<li>via: " . $addr["via"] . "</li>" . PHP_EOL;
+        echo "<li>numero: " . $addr["numero"] . "</li>" . PHP_EOL;
+        echo "<li>città: " . $addr["citta"] . "</li>" . PHP_EOL;
+        echo "<li>stato: " . $addr["stato"] . "</li>" . PHP_EOL;
+        echo "<li>comune: " . $addr["comune"] . "</li>" . PHP_EOL;
+        echo "<li>cap: " . $addr["cap"] . "</li>" . PHP_EOL;
         echo "</ul>" . PHP_EOL;
     }
     else {
@@ -23,8 +23,7 @@ function printAddress($addressID) {
 }
 
 session_start();
-// debug
-if(isset($_SESSION["username"]) || $_SESSION["username"] = "user") {
+if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente
      * richiede la pagina direttamente da url, invece che dalla home
