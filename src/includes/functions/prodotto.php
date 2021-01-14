@@ -95,4 +95,12 @@ function searchProdotti($stringa){
     };
     return $prodotti;
 }
+
+function ricercaStringa($stringa){
+    $dbAccess = new DBAccess();
+    $connection = $dbAccess->openDbConnection();
+    $stringa = "/".$stringa."/i";
+    $queryStringa = "SELECT codArticolo FROM prodotto WHERE (descrizione LIKE '%".$stringa."%' OR 
+    marca LIKE '%".$stringa."%' OR tipo LIKE '%".$stringa."%')";
+}
 ?>
