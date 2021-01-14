@@ -1,20 +1,11 @@
 <?php
     require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
     use DB\DbAccess;
-    if(isset($_GET['submit'])){
-        $categoria = $_GET['categorie'];
-        $marca = $_GET['marche'];
-        $disponibile = isset($_GET['disponibile']) ? $_GET['disponibile'] : "";
-        $offerta = isset($_GET['offerta']) ? $_GET['offerta'] : "";
-        $prezzoMin = $_GET['prezzoMin'];
-        $prezzoMax = $_GET['prezzoMax'];
-        $ordine = $_GET['ordinamento'];
+    
         
-        if($prezzoMax < $prezzoMin) {echo "Il prezzo massimo è stato impostato al prezzo minimo"; $prezzoMax=$prezzoMin;}
-
+    function stampaProdotti($categoria, $marca, $disponibile, $offerta, $prezzoMin, $prezzoMax, $ordine){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
-        //WHERE AND marca = ".$marca." AND prezzo > ".$prezzoMin." AND prezzo < ".$prezzoMax;
         $query = "SELECT codArticolo FROM prodotto WHERE 1";
         $and = "";
         if($categoria != "Nessuna selezione"){
@@ -50,6 +41,7 @@
         while($singoloProdotto = mysqli_fetch_row($queryResult)){
             array_push($prodotti,$singoloProdotto[0]);
         }
-        $dbAccess->closeDbConnection();
-    }
+    }      
+    $dbAccess->closeDbConnection();
+    
 ?>

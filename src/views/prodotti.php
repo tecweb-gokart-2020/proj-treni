@@ -31,16 +31,27 @@
         <p>Ti trovi in: <a id="linkHome"'.$home_link.' xml:lang="en">Home</a> >> Prodotti</p>
     </div>
     <div id="categorie">
-        <ul>
-            <li><a href="#contenutoPagina" onclick="filtroLocomotive();">Locomotive</a></li>
-            <li><a href="#contenutoPagina" onclick="filtroCarrozze();">Carrozze</a></li>
-            <li><a href="#contenutoPagina" onclick="filtroCarri();">Carri</a></li>
-            <li><a href="#contenutoPagina" onclick="filtroBinari();">Binari</a></li>
-            <li><a href="#contenutoPagina" onclick="filtroAccessori();">Accessori</a></li>
-        </ul>
-    </div>
-    <div id="filtroProdotti">
-        <form method="get" action="../includes/functions/formProdotti.php">
+        <form>
+            <ul>
+                <li><input type="submit" name="cat" value="Locomotive"/></li>
+                <li><input type="submit" name="cat" value="Carrozze"/></li>
+                <li><input type="submit" name="cat" value="Carri"/></li>
+                <li><input type="submit" name="cat" value="Binari"/></li>
+                <li><input type="submit" name="cat" value="Accessori"/></li>
+            </ul>
+        </form>
+    </div>');
+
+    if(isset($_GET['cat'])){
+        switch($_GET['cat']){
+            case "Locomotive":
+                
+                break;
+        }
+    }
+
+    echo '<div id="filtroProdotti">
+        <form>
             <label for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
                 <option>Nessuna selezione</option>
@@ -52,7 +63,7 @@
             </select>
             <label for="filtroMarche">Marca</label>
             <select name="marche" id="filtroMarche">
-                <option>Nessuna selezione</option>');
+                <option>Nessuna selezione</option>';
 
                     use function PRODOTTO\getMarche;
                     $marche = getMarche();
@@ -76,8 +87,22 @@
                 <option>Prezzo decrescente</option>
             </select>
             <input id="filtroSubmit" type="submit" name="submit" value="Applica filtri" />
-        </form>
-    </div>
+        </form>');
+        if(isset($_GET['submit'])){
+            $categoria = $_GET['categorie'];
+            $marca = $_GET['marche'];
+            $disponibile = isset($_GET['disponibile']) ? $_GET['disponibile'] : "";
+            $offerta = isset($_GET['offerta']) ? $_GET['offerta'] : "";
+            $prezzoMin = $_GET['prezzoMin'];
+            $prezzoMax = $_GET['prezzoMax'];
+            $ordine = $_GET['ordinamento'];
+            
+            if($prezzoMax < $prezzoMin) {echo "Il prezzo massimo è stato impostato al prezzo minimo"; 
+                $prezzoMax=$prezzoMin;
+            }
+            stampaProdotti($categoria, $marca, $disponibile, $offerta, $prezzoMin, $prezzoMax, $ordine);
+        }
+    echo ('</div>
     <div id="contenutoPagina">
     </div>');
     include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
