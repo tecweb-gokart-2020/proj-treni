@@ -17,22 +17,22 @@
         $and = "";
         if($categoria != "Nessuna selezione"){
             $query = str_replace("1","",$query);
-            $query .= "tipo = ".$categoria;
+            $query .= "tipo = \"$categoria\"";
             $and = " AND ";
         }
         if($marca != "Nessuna selezione"){
             $query = str_replace("1","",$query);
-            $query .= $and."marca = ".$marca;
+            $query .= $and."marca = \"$marca\"";
             $and = " AND ";
         }
         if($prezzoMin !=""){
             $query = str_replace("1","",$query);
-            $query .= $and."prezzo > ".$prezzoMin;
+            $query .= $and."prezzo > \"$prezzoMin\"";
             $and = " AND ";
         }
         if($prezzoMax !=""){
             $query = str_replace("1","",$query);
-            $query .= $and."prezzo < ".$prezzoMax;
+            $query .= $and."prezzo < \"$prezzoMax\"";
             $and = " AND ";
         }
         if($disponibile == "disponibile" && $offerta == "offerta") $query .= " AND sconto > 0 AND quantita > 0";
