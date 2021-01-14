@@ -46,7 +46,19 @@
     if(isset($_GET['cat'])){
         switch($_GET['cat']){
             case "Locomotive":
-                
+                queryProdotti("locomotiva");
+                break;
+            case "Carrozze":
+                queryProdotti("carrozza");
+                break;
+            case "Carri":
+                queryProdotti("carro");
+                break;
+            case "Binari":
+                queryProdotti("binario");
+                break;
+            case "Accessori":
+                queryProdotti("accessorio");
                 break;
         }
     }

@@ -40,7 +40,7 @@ function getMarche(){
     return $marche;
 }
 
-function queryProdotti($categoria, $marca, $disponibile, $offerta, $prezzoMin, $prezzoMax, $ordine){
+function queryProdotti($categoria, $marca ="Nessuna selezione", $disponibile ="disponibile", $offerta ="offerta", $prezzoMin ="", $prezzoMax ="", $ordine ="Nessuna selezione"){
     $dbAccess = new DBAccess();
     $connection = $dbAccess->openDbConnection();
     $query = "SELECT codArticolo FROM prodotto WHERE 1";
