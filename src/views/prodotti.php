@@ -44,11 +44,11 @@
             <label for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
                 <option>Nessuna selezione</option>
-				<option>Locomotive</option>
-                <option>Carrozze</option>
-                <option>Carri</option>
-                <option>Accessori</option>
-                <option>Binari</option>
+				<option value="locomotiva">Locomotive</option>
+                <option value="carrozza">Carrozze</option>
+                <option value="carro">Carri</option>
+                <option value="accessorio">Accessori</option>
+                <option value="binario">Binari</option>
             </select>
             <label for="filtroMarche">Marca</label>
             <select name="marche" id="filtroMarche">

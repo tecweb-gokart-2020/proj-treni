@@ -27,7 +27,7 @@ CREATE TABLE prodotto(
        prezzo decimal,
        sconto int,
        marca varchar(20),
-       tipo ENUM ('locomotiva', 'carrozza', 'carro', 'accessorio'),
+       tipo ENUM ('locomotiva', 'carrozza', 'carro', 'accessorio', 'binario'),
        quantita int DEFAULT 1,
 
        FOREIGN KEY (marca) REFERENCES marca(nome)

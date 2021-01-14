@@ -16,22 +16,22 @@
         $query = "SELECT codArticolo FROM prodotto WHERE 1";
         $and = "";
         if($categoria != "Nessuna selezione"){
-            str_replace("1","",$query);
+            $query = str_replace("1","",$query);
             $query .= "tipo = ".$categoria;
             $and = " AND ";
         }
         if($marca != "Nessuna selezione"){
-            str_replace("1","",$query);
+            $query = str_replace("1","",$query);
             $query .= $and."marca = ".$marca;
             $and = " AND ";
         }
-        if($prezzoMin != "Nessuna selezione"){
-            str_replace("1","",$query);
+        if($prezzoMin !=""){
+            $query = str_replace("1","",$query);
             $query .= $and."prezzo > ".$prezzoMin;
             $and = " AND ";
         }
-        if($prezzoMax != "Nessuna selezione"){
-            str_replace("1","",$query);
+        if($prezzoMax !=""){
+            $query = str_replace("1","",$query);
             $query .= $and."prezzo < ".$prezzoMax;
             $and = " AND ";
         }
