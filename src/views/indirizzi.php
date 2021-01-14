@@ -1,19 +1,25 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
+
 use function ACCOUNT\getAddressesFromAccount;
 use function INDIRIZZO\getInfoFromAddress;
 
 function printAddress($addressID) {
     $addr = getInfoFromAddress($addressID);
-    echo "<ul>" . PHP_EOL;
-    echo "<li>nome: " . addr["nome"] . "</li>" . PHP_EOL;
-    echo "<li>via: " . addr["via"] . "</li>" . PHP_EOL;
-    echo "<li>numero: " . addr["numero"] . "</li>" . PHP_EOL;
-    echo "<li>città: " . addr["citta"] . "</li>" . PHP_EOL;
-    echo "<li>stato: " . addr["stato"] . "</li>" . PHP_EOL;
-    echo "<li>comune: " . addr["comune"] . "</li>" . PHP_EOL;
-    echo "<li>cap: " . addr["cap"] . "</li>" . PHP_EOL;
-    echo "</ul>" . PHP_EOL;
+    if($addr){
+        echo "<ul>" . PHP_EOL;
+        echo "<li>nome: " . addr["nome"] . "</li>" . PHP_EOL;
+        echo "<li>via: " . addr["via"] . "</li>" . PHP_EOL;
+        echo "<li>numero: " . addr["numero"] . "</li>" . PHP_EOL;
+        echo "<li>città: " . addr["citta"] . "</li>" . PHP_EOL;
+        echo "<li>stato: " . addr["stato"] . "</li>" . PHP_EOL;
+        echo "<li>comune: " . addr["comune"] . "</li>" . PHP_EOL;
+        echo "<li>cap: " . addr["cap"] . "</li>" . PHP_EOL;
+        echo "</ul>" . PHP_EOL;
+    }
+    else {
+        echo "Indirizzo non valido, qualcosa è andato storto...";
+    }
 }
 
 session_start();
