@@ -32,11 +32,11 @@ function getInfoFromProdotto($cod_articolo){
 function stampaProdotti($listaProdotti){
     for($i=0; $i<count($listaProdotti); $i++){
         $info=getInfoFromProdotto($listaProdotti[$i]);
-        echo '<li><h2>'.$info['marca'].' '.$info['codArticolo'].'</h2><img href="'.$info['url'].'" alt=""/>
+        echo '<li><h2>'.$info['marca'].' '.$listaProdotti[$i].'</h2><img href="'.$info['url'].'" alt=""/>
         <ul>
         <li>'.$info['tipo'].'</li>
-        <li>Disponibili all\'acquisto:'.$info['quantita'].'</li>';
-        if($info['sconto']!=""){echo '<li>Si applica uno sconto del'.$info['sconto'].'%</li>';}
+        <li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';
+        if($info['sconto']!=""){echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';}
         echo '<li>'; if($info['sconto']!=""){echo '<del>';} echo $info['prezzo']; if($info['sconto']!=""){echo '</del>';} echo '</li>';
         if($info['sconto']!=""){echo '<li>'; echo $aux=$info['prezzo']-$info['sconto']/100*$info['prezzo']; echo '</li>';} 
         echo '</ul></li>';
