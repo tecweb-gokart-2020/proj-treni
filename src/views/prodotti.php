@@ -76,7 +76,7 @@
                 <option>Prezzo crescente</option>
                 <option>Prezzo decrescente</option>
             </select>
-            <input id="filtroSubmit" type="submit" value="Applica filtri" />
+            <input id="filtroSubmit" type="submit" name="submit" value="Applica filtri" />
         </form>
     </div>
     <div id="contenutoPagina">

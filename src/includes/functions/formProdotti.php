@@ -12,14 +12,37 @@
         
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
-        $query = "SELECT codArticolo FROM prodotto WHERE tipo = ".$categoria." AND
-            marca = ".$marca." AND prezzo >".$prezzoMin." AND prezzo < ".$prezzoMax;
+        //WHERE AND marca = ".$marca." AND prezzo > ".$prezzoMin." AND prezzo < ".$prezzoMax;
+        $query = "SELECT codArticolo FROM prodotto WHERE 1";
+        $and = "";
+        if($categoria != "Nessuna selezione"){
+            str_replace("1","",$query);
+            $query .= "tipo = ".$categoria;
+            $and = " AND ";
+        }
+        if($marca != "Nessuna selezione"){
+            str_replace("1","",$query);
+            $query .= $and."marca = ".$marca;
+            $and = " AND ";
+        }
+        if($prezzoMin != "Nessuna selezione"){
+            str_replace("1","",$query);
+            $query .= $and."prezzo > ".$prezzoMin;
+            $and = " AND ";
+        }
+        if($prezzoMax != "Nessuna selezione"){
+            str_replace("1","",$query);
+            $query .= $and."prezzo < ".$prezzoMax;
+            $and = " AND ";
+        }
         if($disponibile == "disponibile" && $offerta == "offerta") $query .= " AND sconto > 0 AND quantita > 0";
         else if($disponibile == "disponibile") $query .= " AND quantita > 0";
-        else if($offerta == "offerta") $query .= " AND sconto > 0 ";
-        if($ordine == "Alfabetico [A-Z]") $query .= " ORDER BY descrizione";
-        else if($ordine == "Prezzo crescente") $query .= " ORDER BY prezzo ASC";
-        else if($ordine == "Prezzo decrescente") $query .= " ORDER BY prezzo DESC";
+        else if($offerta == "offerta") $query .= " AND sconto > 0";
+        if($ordine != "Nessuna selezione"){
+            if($ordine == "Alfabetico [A-Z]") $query .= " ORDER BY descrizione";
+            else if($ordine == "Prezzo crescente") $query .= " ORDER BY prezzo ASC";
+            else if($ordine == "Prezzo decrescente") $query .= " ORDER BY prezzo DESC";
+        }
         $queryResult = mysqli_query($connection, $query);
         $prodotti = array();
         while($singoloProdotto = mysqli_fetch_row($queryResult)){
