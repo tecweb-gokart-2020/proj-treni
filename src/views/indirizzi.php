@@ -37,8 +37,8 @@ if(isset($_SESSION["username"])) {
 
     $addresses = getAddressesFromAccount($_SESSION["username"]);
     echo "<ul>" . PHP_EOL;
-    foreach($addresses as &$address) {
-        echo "<li>" . PHP_EOL;
+    foreach($addresses as $address) {
+        echo "<li class=\"addr\">" . PHP_EOL;
         printAddress($address);
         echo "</li>" . PHP_EOL;
     }
