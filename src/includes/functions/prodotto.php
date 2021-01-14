@@ -85,8 +85,15 @@ function queryProdotti($categoria, $marca ="Nessuna selezione", $disponibile =""
 function searchProdotti($stringa){
     $dbAccess = new DBAccess();
     $connection = $dbAccess->openDbConnection();
-    $query = "SELECT codArticolo FROM prodotto WHERE (codArticolo LIKE '%".$stringa."%' OR descrizione LIKE '%".$stringa."%' OR 
-    marca LIKE '%".$stringa."%' OR tipo LIKE '%".$stringa."%')";
+    $stringhe = explode(" ",$stringa);
+    $query = "";
+    for($i=0;$i<count($stringhe);$i++){
+        $query .= "SELECT codArticolo FROM prodotto WHERE (codArticolo LIKE '%".$stringhe[$i]."%' OR descrizione LIKE '%".$stringhe[$i]."%' OR 
+        marca LIKE '%".$stringhe[$i]."%' OR tipo LIKE '%".$stringhe[$i]."%')";
+        if($i!=count($stringhe)-1){
+            $query .= " UNION ";
+        }
+    }
     $queryResult = mysqli_query($connection, $query);
     $dbAccess->closeDbConnection();
     $prodotti = array();
@@ -94,13 +101,5 @@ function searchProdotti($stringa){
         array_push($prodotti,$singoloProdotto[0]);
     };
     return $prodotti;
-}
-
-function ricercaStringa($stringa){
-    $dbAccess = new DBAccess();
-    $connection = $dbAccess->openDbConnection();
-    $stringa = "/".$stringa."/i";
-    $queryStringa = "SELECT codArticolo FROM prodotto WHERE (descrizione LIKE '%".$stringa."%' OR 
-    marca LIKE '%".$stringa."%' OR tipo LIKE '%".$stringa."%')";
 }
 ?>
