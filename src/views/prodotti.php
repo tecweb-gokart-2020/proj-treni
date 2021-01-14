@@ -25,6 +25,7 @@
         $home_link = "href=\"../index.php\"";
         $servizi_link = "href=\"servizi.php\"";
         $contatti_link = "href=\"contatti.php\"";
+        use function PRODOTTO\queryProdotti;
         include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     
     echo('<div id="percorso">
@@ -100,7 +101,7 @@
             if($prezzoMax < $prezzoMin) {echo "Il prezzo massimo è stato impostato al prezzo minimo"; 
                 $prezzoMax=$prezzoMin;
             }
-            stampaProdotti($categoria, $marca, $disponibile, $offerta, $prezzoMin, $prezzoMax, $ordine);
+            $listaProdotti = queryProdotti($categoria, $marca, $disponibile, $offerta, $prezzoMin, $prezzoMax, $ordine);
         }
     echo ('</div>
     <div id="contenutoPagina">
