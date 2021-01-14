@@ -26,6 +26,7 @@
         $servizi_link = "href=\"servizi.php\"";
         $contatti_link = "href=\"contatti.php\"";
         use function PRODOTTO\queryProdotti;
+        use function PRODOTTO\getMarche;
         include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     
     echo('<div id="percorso">
@@ -77,8 +78,6 @@
             <label for="filtroMarche">Marca</label>
             <select name="marche" id="filtroMarche">
                 <option>Nessuna selezione</option>';
-
-                    use function PRODOTTO\getMarche;
                     $marche = getMarche();
                     for($i = 0;$i < count($marche);$i++){
                         echo("<option>".$marche[$i]."</option>");
