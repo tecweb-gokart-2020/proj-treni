@@ -51,17 +51,23 @@ function queryProdotti($categoria, $marca ="Nessuna selezione", $disponibile =""
         $and = " AND ";
     }
     if($marca != "Nessuna selezione"){
-        $query = str_replace("1","",$query);
+        if($and == ""){
+            $query = str_replace("1","",$query);
+        }
         $query .= $and."marca = \"$marca\"";
         $and = " AND ";
     }
     if($prezzoMin !=""){
-        $query = str_replace("1","",$query);
+        if($and == ""){
+            $query = str_replace("1","",$query);
+        }
         $query .= $and."prezzo >= ".$prezzoMin;
         $and = " AND ";
     }
     if($prezzoMax !=""){
-        $query = str_replace("1","",$query);
+        if($and == ""){
+            $query = str_replace("1","",$query);
+        }
         $query .= $and."prezzo <= ".$prezzoMax;
         $and = " AND ";
     }
