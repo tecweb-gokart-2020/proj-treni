@@ -1,4 +1,16 @@
 <?php
+require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
+use function ACCOUNT\getAddressesFromAccount;
+use function INDIRIZZO\getInfoFromAddress;
+
+function printAddress($addressID) {
+    $addr = getInfoFromAddress($addressID);
+    echo "<ul>" . PHP_EOL;
+    echo "<li>indirizzo totale</li>" . PHP_EOL;
+    echo "</ul>" . PHP_EOL;
+
+}
+
 session_start();
 if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
@@ -18,8 +30,13 @@ if(isset($_SESSION["username"])) {
     $indirizzi_link = "class=\"active_link\"";
     include "template/ap_navbar.php";
 
-    
-    
+    $addresses = getAddressesFromAccount($_SESSION["username"]);
+    echo "<ul>" . PHP_EOL;
+    foreach($addresses as &$address) {
+        printAddress($address);
+    }
+    echo "</ul>" . PHP_EOL;
+        
     include "template/footer.php";
 }
 else {
