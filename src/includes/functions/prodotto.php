@@ -86,12 +86,12 @@ function searchProdotti($stringa){
     $dbAccess = new DBAccess();
     $connection = $dbAccess->openDbConnection();
     $stringhe = explode(" ",$stringa);
-    $query = "";
+    $query = "SELECT codArticolo FROM prodotto WHERE";
     for($i=0;$i<count($stringhe);$i++){
-        $query .= "SELECT codArticolo FROM prodotto WHERE (codArticolo LIKE '%".$stringhe[$i]."%' OR descrizione LIKE '%".$stringhe[$i]."%' OR 
+        $query .= " (codArticolo LIKE '%".$stringhe[$i]."%' OR descrizione LIKE '%".$stringhe[$i]."%' OR 
         marca LIKE '%".$stringhe[$i]."%' OR tipo LIKE '%".$stringhe[$i]."%')";
         if($i!=count($stringhe)-1){
-            $query .= " UNION ";
+            $query .= " AND ";
         }
     }
     $queryResult = mysqli_query($connection, $query);
