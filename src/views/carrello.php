@@ -25,7 +25,7 @@ include "template/header.php";
 
 $content = getProdottiFromCarrello($_SESSION["cartID"]);
 if($content) {
-    echo "</h2>Il tuo carrello:</h2>" . PHP_EOL;
+    echo "<h2>Il tuo carrello:</h2>" . PHP_EOL;
     echo "<ul id=\"cart\">" . PHP_EOL;
     foreach($content as $prodotto) {
         echo "<li>" . PHP_EOL;
@@ -35,7 +35,7 @@ if($content) {
     echo "</ul>";
 }
 else {
-    echo "</h2>Il tuo carrello è vuoto al momento.</h2>" . PHP_EOL;
+    echo "<h2>Il tuo carrello è vuoto al momento.</h2>" . PHP_EOL;
 }
 
 include "template/footer.php";
