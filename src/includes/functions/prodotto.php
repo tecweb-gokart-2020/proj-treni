@@ -39,7 +39,7 @@ function stampaProdotti($listaProdotti){
         if($info['sconto']!=""){echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';}
         echo '<li>Prezzo: '; if($info['sconto']!=""){echo '<del>';} echo $info['prezzo'].' €'; if($info['sconto']!=""){echo '</del>';} echo '</li>';
         if($info['sconto']!=""){echo '<li>Prezzo scontato: '; echo $info['prezzo']-$info['sconto']/100*$info['prezzo']; echo ' €</li>';} 
-        echo '</ul><input type="submit" name="prodottoSelezionato" value="'.$listaProdotti[$i].'"/>></li>';
+        echo '</ul><input type="submit" name="prodottoSelezionato" value="'.$listaProdotti[$i].'"/></li>';
     }
 }
 

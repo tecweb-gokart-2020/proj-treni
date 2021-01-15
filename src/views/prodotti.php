@@ -115,7 +115,6 @@
             }
             $listaProdotti = queryProdotti($categoria, $marca, $disponibile, $offerta, $prezzoMin, $prezzoMax, $ordine);
         }
-
     echo ('</div>
     <div id="contenutoPagina">
         <form action="paginaSingoloProdotto.php">
