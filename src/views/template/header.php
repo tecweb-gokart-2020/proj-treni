@@ -22,9 +22,9 @@ echo '<!DOCTYPE html>
 		}
 	    echo '</form>
 	    <!-- Login -->
-	    <a href="heh">Login</a>
+	    <a ' . $login_link . '">Login</a>
 	    <!-- Carrello -->
-	    <a href="huh">Carrello</a>
+	    <a ' . $carrello_link . '">Carrello</a>
 	    <!-- Menù -->
 	    <nav>
 		<ul>
