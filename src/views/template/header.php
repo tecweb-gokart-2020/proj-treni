@@ -4,7 +4,7 @@ use function PRODOTTO\searchProdotti;
 echo '<!DOCTYPE html>
 <html>
     <head>
-	<title><?=$pagetitle;?></title>
+	<title>' . $pagetitle . '</title>
 	<metaname="description" content="'.$pagedescription.'"/>
             <linkrel="stylesheet" type="text/css" href="styles/resource.css"/>
     </head>
@@ -22,27 +22,27 @@ echo '<!DOCTYPE html>
 		}
 	    echo '</form>
 	    <!-- Login -->
-	    <a href="/views/login.php">Login</a>
+	    <a href="'. $CONTEXT_PREFIX . '/views/login.php">Login</a>
 	    <!-- Carrello -->
-	    <a href="/views/carrello.php">Carrello</a>
+	    <a href="'. $CONTEXT_PREFIX . '/views/carrello.php">Carrello</a>
 	    <!-- Menù -->
 	    <nav>
 		<ul>
 		    <li>
 			<!-- Test -->
-			<a "/views/info.php">Area personale</a>
+			<a "' . $CONTEXT_PREFIX . '/views/info.php">Area personale</a>
 		    </li>
 		    <li>
-			<a "/views/prodotti.php?novita">Notizie</a>
+			<a "' . $CONTEXT_PREFIX . '/views/prodotti.php?novita">Notizie</a>
 		    </li>
 		    <li>
-			<a "/views/prodotti.php">Prodotti</a>
+			<a "' . $CONTEXT_PREFIX . '/views/prodotti.php">Prodotti</a>
 		    </li>				
 		    <li>
-			<a "/views/prodotti.php">Servizi</a>
+			<a "' . $CONTEXT_PREFIX . '/views/prodotti.php">Servizi</a>
 		    </li>
 		    <li>
-			<a "/views/contatti.php">Contatti</a>
+			<a "' . $CONTEXT_PREFIX . '/views/contatti.php">Contatti</a>
 		    </li>
 		</ul>
 	    </nav>
