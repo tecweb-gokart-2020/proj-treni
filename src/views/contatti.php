@@ -1,13 +1,15 @@
 <?php
-    require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
-    $pagetitle = "Trenogheno - Contatti";
-    $pagedescription = "Pagina Contatti di trenogheno.it";
-    $area_personale_link = "href=\"info.php\"";
-    $notizie_link = "href=\"notizie.php\"";
-    $home_link = "href=\"../index.php\"";
-    $servizi_link = "href=\"servizi.php\"";
-    $prodotti_link = "href=\"prodotti.php\"";
-    include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
+$pagetitle = "Trenogheno - Contatti";
+$pagedescription = "Pagina Contatti di trenogheno.it";
+$area_personale_link = "href=\"info.php\"";
+$carrello_link = "class=\"header_current_link\"";
+$login_link= "href=\"login.php\"";
+$notizie_link = "href=\"notizie.php\"";
+$home_link = "href=\"../index.php\"";
+$servizi_link = "href=\"servizi.php\"";
+$prodotti_link = "href=\"prodotti.php\"";
+include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 ?>
     <div id="percorso">
         <p>Ti trovi in: <a id="linkHome" <?=$home_link?> xml:lang="en">Home</a> >> Contatti</p>
@@ -33,5 +35,5 @@
         </ul>
     </div>
 <?php
-    include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
+include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 ?>

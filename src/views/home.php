@@ -13,17 +13,19 @@
 </head>-->
 
 <?php
-    require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
-    $pagetitle = "Trenogheno - Home";
-    $pagedescription = "Pagina Home di trenogheno.it";
-    $area_personale_link = "href=\"info.php\"";
-    $notizie_link = "href=\"notizie.php\"";
-    $home_link = "href=\"../index.php\"";
-    $servizi_link = "href=\"servizi.php\"";
-    $contatti_link = "href=\"contatti.php\"";
-    include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
+$pagetitle = "Trenogheno - Home";
+$pagedescription = "Pagina Home di trenogheno.it";
+$area_personale_link = "href=\"info.php\"";
+$carrello_link = "class=\"header_current_link\"";
+$login_link= "href=\"login.php\"";
+$notizie_link = "href=\"notizie.php\"";
+$home_link = "href=\"../index.php\"";
+$servizi_link = "href=\"servizi.php\"";
+$contatti_link = "href=\"contatti.php\"";
+include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 
-    echo '<body>
+echo '<body>
     <div id="chiSiamo">
         <h2>CHI SIAMO</h2>
         <p><strong>TrenoGheno</strong> è una piccola azienda nata nel 1999 specializzata 
@@ -41,9 +43,9 @@
     </div>
     <div id="news">
         <h2>NOVITÀ</h2>';
-        //mettere immagini prodotti con flag(da aggiungere) novità
-        
-    echo '</div>
+//mettere immagini prodotti con flag(da aggiungere) novità
+
+echo '</div>
     <div id="prodottiInHome">
 	<h2>I NOSTRI PRODOTTI</h2>
         <a href="prodotti.html">Cerca nel catalogo</a>
