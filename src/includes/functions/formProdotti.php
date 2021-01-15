@@ -41,7 +41,7 @@
         while($singoloProdotto = mysqli_fetch_row($queryResult)){
             array_push($prodotti,$singoloProdotto[0]);
         }
+        $dbAccess->closeDbConnection();
     }      
-    $dbAccess->closeDbConnection();
     
 ?>

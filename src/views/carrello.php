@@ -6,7 +6,7 @@ use function PRODOTTO\stampaProdotti;
 
 session_start();
 if(!isset($_SESSION["cartID"])) {
-    $newcart = getNewCarrello();
+    $newcart = 2;// getNewCarrello();
     if($newcart) {
         $_SESSION["cartID"] = $newcart;
     } else {
@@ -15,7 +15,6 @@ if(!isset($_SESSION["cartID"])) {
         die();
     }
 }
-
 // cartID correttamente impostato
 $page_description = "Contenuto del carrello attualmente attivo";
 $pagetitle = "carrello";
@@ -28,12 +27,14 @@ $servizi_link = "href=\"servizi.php\"";
 $contatti_link = "href=\"contatti.php\"";
 include "template/header.php";
 
-$content = getProdottiFromCarrello($_SESSION["cartID"]);
-if($content) {
+$prodotti = getProdottiFromCarrello($_SESSION["cartID"]);
+if($prodotti) {
     echo "<h2>Il tuo carrello:</h2>" . PHP_EOL;
     echo "<ul id=\"cart\">" . PHP_EOL;
-    stampaProdotti($listaProdotti);
-    echo "</ul>";
+    foreach($prodotti as $prodotto){
+	    stampaProdotti(array($prodotto["IDArticolo"]));
+    }
+    echo "</ul>" . PHP_EOL;
 }
 else {
     echo "<h2>Il tuo carrello è vuoto al momento.</h2>" . PHP_EOL;

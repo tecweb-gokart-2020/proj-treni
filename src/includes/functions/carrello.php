@@ -31,8 +31,8 @@ function getProdottiFromCarrello($cart_id){
         if(mysqli_num_rows($queryResult)!=0){
             while($riga = mysqli_fetch_assoc($queryResult)){
                 $singoloProdotto = array(
-                    "IDArticolo", $riga["codArticolo"],
-                    "Qta", $riga["quantita"]
+                    "IDArticolo" => $riga["codArticolo"],
+                    "Qta" => $riga["quantita"]
                 );    
                 array_push($listaProdotti,$singoloProdotto);
             }
