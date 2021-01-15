@@ -30,6 +30,8 @@ if(isset($_SESSION["username"])) {
      * dopo il login) */
 
     $area_personale_link = "class=\"header_current_link\"";
+    $carrello_link = "href=\"carrello.php\""
+    $login_link = "href=\"login.php\""
     $notizie_link = "href=\"notizie.php\"";
     $prodotti_link = "href=\"prodotti.php\"";
     $servizi_link = "href=\"servizi.php\"";
