@@ -4,14 +4,14 @@ use function PRODOTTO\searchProdotti;
 echo '<!DOCTYPE html>
 <html>
     <head>
-	<title>' . $pagetitle . '</title>
+	<title>'. $pagetitle . '</title>
 	<metaname="description" content="'.$pagedescription.'"/>
             <linkrel="stylesheet" type="text/css" href="styles/resource.css"/>
     </head>
     <body>
 	<header>
 	    <!-- Logo -->
-	    <a href="/index.php" id="banner"><h1>TrenoGheno</h1></a>
+	    <a href="/" id="banner"><h1>TrenoGheno</h1></a>
 	    <!-- Ricerca -->
 	    <form id="ricercaHeader" action="" method="get">
 		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
@@ -22,27 +22,27 @@ echo '<!DOCTYPE html>
 		}
 	    echo '</form>
 	    <!-- Login -->
-	    <a href="'. $CONTEXT_PREFIX . '/views/login.php">Login</a>
+	    <a href="heh">Login</a>
 	    <!-- Carrello -->
-	    <a href="'. $CONTEXT_PREFIX . '/views/carrello.php">Carrello</a>
+	    <a href="huh">Carrello</a>
 	    <!-- Menù -->
 	    <nav>
 		<ul>
 		    <li>
 			<!-- Test -->
-			<a "' . $CONTEXT_PREFIX . '/views/info.php">Area personale</a>
+			<a ' . $area_personale_link . '>Area personale</a>
 		    </li>
 		    <li>
-			<a "' . $CONTEXT_PREFIX . '/views/prodotti.php?novita">Notizie</a>
+			<a ' . $notizie_link . '>Notizie</a>
 		    </li>
 		    <li>
-			<a "' . $CONTEXT_PREFIX . '/views/prodotti.php">Prodotti</a>
+			<a ' . $prodotti_link . '>Prodotti</a>
 		    </li>				
 		    <li>
-			<a "' . $CONTEXT_PREFIX . '/views/prodotti.php">Servizi</a>
+			<a '. $servizi_link . '>Servizi</a>
 		    </li>
 		    <li>
-			<a "' . $CONTEXT_PREFIX . '/views/contatti.php">Contatti</a>
+			<a ' . $contatti_link . '>Contatti</a>
 		    </li>
 		</ul>
 	    </nav>
