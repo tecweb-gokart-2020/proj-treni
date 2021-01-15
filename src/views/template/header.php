@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<?php
+ require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
+use function PRODOTTO\searchProdotti;
+echo '<!DOCTYPE html>
 <html>
     <head>
 	<title><?=$pagetitle;?></title>
-	<metaname="description" content="<?=$pagedescription;?>">
-            <linkrel="stylesheet" type="text/css" href="styles/resource.css">
+	<metaname="description" content="'.$pagedescription.'"/>
+            <linkrel="stylesheet" type="text/css" href="styles/resource.css"/>
     </head>
     <body>
 	<header>
@@ -12,7 +15,12 @@
 	    <!-- Ricerca -->
 	    <form id="ricercaHeader" action="" method="get">
 		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
-	    </form>
+		<input type="submit" name="search" value="Cerca"/>';
+		if(isset($_GET['search'])){
+			$searchString = $_GET['searchQuery'];
+			$listaProdotti = searchProdotti($searchString);
+		}
+	    echo '</form>
 	    <!-- Login -->
 	    <a href="heh">Login</a>
 	    <!-- Carrello -->
@@ -38,4 +46,5 @@
 		    </li>
 		</ul>
 	    </nav>
-	</header>
+	</header>';
+?>
