@@ -28,7 +28,6 @@
         use function PRODOTTO\queryProdotti;
         use function PRODOTTO\getMarche;
         use function PRODOTTO\stampaProdotti;
-        use function PRODOTTO\searchProdotti;
         include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     
     echo('<div id="percorso">
@@ -43,10 +42,6 @@
                 <li><input type="submit" name="cat" value="Binari"/></li>
                 <li><input type="submit" name="cat" value="Accessori"/></li>
             </ul>
-        </form>
-        <form>
-            <input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
-            <input type="submit" name="search" value="search"/></li>
         </form>
     </div>');
 
@@ -69,12 +64,6 @@
                 break;
         }
     }
-
-    if(isset($_GET['search'])){
-        $searchString = $_GET['searchQuery'];
-        $listaProdotti = searchProdotti($searchString);
-    }
-
     echo '<div id="filtroProdotti">
         <form>
             <label for="filtroCategorie">Categoria</label>
