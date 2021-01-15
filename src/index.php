@@ -24,6 +24,7 @@ else {
 
 // Esempio di inclusione delle viste header, corpo di index e footer
 $area_personale_link = "href=\"views/info.php\"";
+$carrello_link = "href=\"views/carrello.php\"";
 $notizie_link = "href=\"views/notizie.php\"";
 $prodotti_link = "href=\"views/prodotti.php\"";
 $servizi_link = "href=\"views/servizi.php\"";
