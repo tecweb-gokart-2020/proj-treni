@@ -6,7 +6,7 @@ use function PRODOTTO\stampaProdotti;
 
 session_start();
 if(!isset($_SESSION["cartID"])) {
-    $newcart = getNewCarrello();
+    $newcart = 2;// getNewCarrello();
     if($newcart) {
         $_SESSION["cartID"] = $newcart;
     } else {
