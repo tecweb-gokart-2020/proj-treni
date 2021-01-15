@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
+    require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
 
     use function PRODOTTO\getInfoFromProdotto;
     $lista = $_SESSION['listaProdotti'];
