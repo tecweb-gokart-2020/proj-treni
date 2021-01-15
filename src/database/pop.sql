@@ -21,3 +21,6 @@ INSERT INTO prodotto(codArticolo, descrizione, amministrazione, scala, prezzo, t
 
 INSERT INTO indirizzo(addressID, username, nome, via, numero, citta, stato, comune, cap) VALUES
        (1, 'user', 'Marco User', 'via fasulla', '123', 'Springfield', 'USA', '', '');
+
+INSERT INTO contenuto_carrello(cartID, codArticolo, quantita) VALUES
+       (2, 60052, 2);
