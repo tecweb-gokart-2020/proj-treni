@@ -16,6 +16,8 @@ if(!isset($_SESSION["cartID"])) {
 }
 
 // cartID correttamente impostato
+$page_description = "Contenuto del carrello attualmente attivo";
+$pagetitle = "carrello";
 $area_personale_link = "href=\"info.php\"";
 $notizie_link = "href=\"notizie.php\"";
 $prodotti_link = "href=\"prodotti.php\"";
