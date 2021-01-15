@@ -32,7 +32,7 @@ $content = getProdottiFromCarrello($_SESSION["cartID"]);
 if($content) {
     echo "<h2>Il tuo carrello:</h2>" . PHP_EOL;
     echo "<ul id=\"cart\">" . PHP_EOL;
-    stampaProdotti($listaProdotti);
+    stampaProdotti($content);
     echo "</ul>";
 }
 else {
