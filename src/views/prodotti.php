@@ -36,17 +36,17 @@
     <div id="categorie">
         <form>
             <ul>
-                <li><input type="submit" name="cat" value="Locomotive"/></li>
-                <li><input type="submit" name="cat" value="Carrozze"/></li>
-                <li><input type="submit" name="cat" value="Carri"/></li>
-                <li><input type="submit" name="cat" value="Binari"/></li>
-                <li><input type="submit" name="cat" value="Accessori"/></li>
+                <li><input type="submit" name="categoriaSelezionata" value="Locomotive"/></li>
+                <li><input type="submit" name="categoriaSelezionata" value="Carrozze"/></li>
+                <li><input type="submit" name="categoriaSelezionata" value="Carri"/></li>
+                <li><input type="submit" name="categoriaSelezionata" value="Binari"/></li>
+                <li><input type="submit" name="categoriaSelezionata" value="Accessori"/></li>
             </ul>
         </form>
     </div>');
 
-    if(isset($_GET['cat'])){
-        switch($_GET['cat']){
+    {
+        switch($_GET['categoriaSelezionata']){
             case "Locomotive":
                 $listaProdotti=queryProdotti("locomotiva");
                 break;
@@ -118,9 +118,11 @@
 
     echo ('</div>
     <div id="contenutoPagina">
-        <ul class="cards">');                            
-            stampaProdotti($listaProdotti);
-        echo('</ul>
+        <form action="paginaSingoloProdotto.php">
+            <ul class="cards">');                            
+                stampaProdotti($listaProdotti);
+            echo('</ul>
+        </form>
     </div>');
     include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
     ?>
