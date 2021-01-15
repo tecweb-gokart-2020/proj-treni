@@ -2,6 +2,7 @@
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 use function CARRELLO\getNewCarrello;
 use function CARRELLO\getProdottiFromCarrello;
+use function PRODOTTO\stampaProdotti;
 
 session_start();
 if(!isset($_SESSION["cartID"])) {
@@ -29,11 +30,7 @@ $content = getProdottiFromCarrello($_SESSION["cartID"]);
 if($content) {
     echo "<h2>Il tuo carrello:</h2>" . PHP_EOL;
     echo "<ul id=\"cart\">" . PHP_EOL;
-    foreach($content as $prodotto) {
-        echo "<li>" . PHP_EOL;
-        // printProdotto($prodotto);
-        echo "</li>" . PHP_EOL;
-    }
+    stampaProdotti($listaProdotti);
     echo "</ul>";
 }
 else {
