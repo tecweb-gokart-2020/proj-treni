@@ -3,16 +3,16 @@
 use function PRODOTTO\searchProdotti;
 
 if(!isset($tag_info)) {
-    $tag_info = '<a href="info.php">'
+    $tag_info = '<a href="info.php">';
 }
 if(!isset($tag_novita)) {
-    $tag_info = '<a href="prodotti.php?novita">'
+    $tag_info = '<a href="prodotti.php?novita">';
 }
 if(!isset($tag_prodotti)) {
-    $tag_info = '<a href="prodotti.php">'
+    $tag_info = '<a href="prodotti.php">';
 }
 if(!isset($tag_contatti)) {
-    $tag_info = '<a href="contatti.php">'
+    $tag_info = '<a href="contatti.php">';
 }
 /* Sta roba prende il tag definito da quello sopra e imposta quello di
 chiusura */
@@ -66,11 +66,11 @@ echo '</form>
 		    </li>
 		    <li>
 			<!-- Test -->
-			' . profileButton() .'
+			' . ""/*profileButton()*/ .'
 		    </li>
 		    <li>
 			<!-- Test -->
-			' . cartButton() .'
+			' . ""/*cartButton()*/ .'
 		    </li>
 		</ul>
 	    </nav>
