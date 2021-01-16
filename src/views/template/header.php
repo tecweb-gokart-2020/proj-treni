@@ -3,36 +3,12 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
 use function PRODOTTO\searchProdotti;
 use function VIEW\productButton;
 use function VIEW\cartButton;
+use function UTILITY\init_tag;
 
-if(!isset($tag_info)) {
-    $tag_info = '<a href="info.php">';
-}
-if(!isset($tag_novita)) {
-    $tag_novita = '<a href="prodotti.php?novita">';
-}
-if(!isset($tag_prodotti)) {
-    $tag_prodotti = '<a href="prodotti.php">';
-}
-if(!isset($tag_contatti)) {
-    $tag_contatti = '<a href="contatti.php">';
-}
-/* Sta roba prende il tag definito da quello sopra e imposta quello di
-chiusura */
-preg_match('/^<\w{1,}/', $tag_info, $tmp);
-preg_match('/\w{1,}/', $tmp[0], $tmp);
-$tag_info_close = "</" . $tmp[0] . ">";
-
-preg_match('/^<\w{1,}/', $tag_prodotti, $tmp);
-preg_match('/\w{1,}/', $tmp[0], $tmp);
-$tag_prodotti_close = "</" . $tmp[0] . ">";
-
-preg_match('/^<\w{1,}/', $tag_contatti, $tmp);
-preg_match('/\w{1,}/', $tmp[0], $tmp);
-$tag_contatti_close = "</" . $tmp[0] . ">";
-
-preg_match('/^<\w{1,}/', $tag_novita, $tmp);
-preg_match('/\w{1,}/', $tmp[0], $tmp);
-$tag_novita_close = "</" . $tmp[0] . ">";
+init_tag($tag_info, '<a href="info.php">', $tag_info_close);
+init_tag($tag_novita, '<a href="prodotti.php?novita">', $tag_novita_close);
+init_tag($tag_prodotti, '<a href="prodotti.php">', $tag_prodotti_close);
+init_tag($tag_contatti, '<a href="contatti.php">', $tag_contatti_close);
 
 echo '<!DOCTYPE html>
 <html>

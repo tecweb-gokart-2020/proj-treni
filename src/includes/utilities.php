@@ -56,4 +56,16 @@ function username_exists($username) {
     $db->closeDbConnection();
     return (mysqli_num_rows($result) == 0);
 }
+
+/* Sta roba prende il tag definito da quello sopra e imposta quello di
+chiusura */
+function init_tag(&$tag, $default, &$tag_close) {
+    if(!isset($tag)) {
+        $tag = $default;
+    }
+    preg_match('/^<\w{1,}/', $tag, $tmp);
+    preg_match('/\w{1,}/', $tmp[0], $tmp);
+    $tag_close = "</" . $tmp[0] . ">";
+}
+
 ?>

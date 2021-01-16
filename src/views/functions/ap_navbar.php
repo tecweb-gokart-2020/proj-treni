@@ -1,24 +1,28 @@
+<?php
+require_once __DIR__ . DIRECOTRY_SEPARATOR . "../../includes/resources.php";
+use function UTILITY\init_tag;
+
+init_tag($tag_info, '<a href="info.php">', $tag_info_close);
+init_tag($tag_ordini, '<a href="ordini.php">', $tag_ordini_close);
+init_tag($tag_indirizzi, '<a href="indirizzi.php">', $tag_indirizzi_close);
+echo '
 <nav class="navbar">
     <ul class="navbar-nav">
-        <li class="logo">
-            <a href="../index.php">
-                Trenogheno
-            </a>
-        </li>
-        <li>
-            <a <?=$info_personali_link?>>
+             <li>
+            '. $tag_info .'
                 Informazioni personali
-            </a>
+            '. $tag_info_close .'
         </li>
 	<li>
-            <a <?=$ordini_link?>>
+            '. $tag_ordini .'
 		I miei ordini
-	    </a>
+            '. $tag_ordini_close .'
 	</li>
 	<li>
-            <a <?=$indirizzi_link?>>	
+            '. $tag_indirizzi .'
 		I miei indirizzi
-	    </a>
+            '. $tag_indirizzi_close .'
 	</li>
     </ul>
-</nav>
+</nav>';
+?>
