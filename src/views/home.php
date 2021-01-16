@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
+use function ACCOUNT\getCartFromAccount;
+use function CARRELLO\getNewCarrello;
 
 session_start();
 $_SESSION["username"] = "user";
