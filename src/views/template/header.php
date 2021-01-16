@@ -1,6 +1,9 @@
 <?php
  require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
 use function PRODOTTO\searchProdotti;
+if(!isset($tag_info)) {
+    $tag_info = '<a href="info.php">'
+}
 echo '<!DOCTYPE html>
 <html>
     <head>
@@ -20,29 +23,29 @@ echo '<!DOCTYPE html>
 			$searchString = $_GET['searchQuery'];
 			$listaProdotti = searchProdotti($searchString);
 		}
-	    echo '</form>
-	    <!-- Login -->
-	    <a ' . $login_link . '">Login</a>
-	    <!-- Carrello -->
-	    <a ' . $carrello_link . '">Carrello</a>
-	    <!-- Menù -->
+echo '</form> 
 	    <nav>
 		<ul>
 		    <li>
 			<!-- Test -->
-			<a ' . $area_personale_link . '>Area personale</a>
+			' . $tag_info . 'Area personale'. $tag_info_close .'
 		    </li>
 		    <li>
-			<a ' . $notizie_link . '>Notizie</a>
+			' . $tag_novita . 'Novità'. $tag_novita_close .'
 		    </li>
 		    <li>
-			<a ' . $prodotti_link . '>Prodotti</a>
+			' . $tag_prodotti . 'Prodotti'. $tag_prodotti_close .'
 		    </li>				
 		    <li>
-			<a '. $servizi_link . '>Servizi</a>
+			' . $tag_contatti . 'Contatti'. $tag_contatti_close .'
 		    </li>
 		    <li>
-			<a ' . $contatti_link . '>Contatti</a>
+			<!-- Test -->
+			' . profileButton() .'
+		    </li>
+		    <li>
+			<!-- Test -->
+			' . cartButton() .'
 		    </li>
 		</ul>
 	    </nav>

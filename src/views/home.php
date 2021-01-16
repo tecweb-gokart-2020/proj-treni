@@ -1,17 +1,3 @@
-<!--<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Trenogheno</title>
-    <meta name="description" content="Home di trenogheno.it" />
-    <meta name="keywords" content="trenogheno, trenini, modellismo" />
-    <meta name="title" content="Home" />
-    <meta name="author" content="Gruppo progetto TecWeb" />
-    <meta name="language" content="italian it" />
-
-    <link rel="stylesheet" type="text/css" href="styleGenerale.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="styleMobile.css" media="handheld, screen and (max-device-width:640px), only screen and (max-width:640px)" />
-    <link rel="stylesheet" type="text/css" href="stylePrint.css" media="print" />
-</head>-->
-
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
 $pagetitle = "Trenogheno - Home";
@@ -52,4 +38,5 @@ echo '</div>
     </div>
 
 </body>';
+include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 ?>
