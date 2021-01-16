@@ -6,11 +6,7 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
 
-    $area_personale_link = "class=\"header_current_link\"";
-    $notizie_link = "href=\"notizie.php\"";
-    $prodotti_link = "href=\"prodotti.php\"";
-    $servizi_link = "href=\"servizi.php\"";
-    $contatti_link = "href=\"contatti.php\"";
+    $tag_ordini = "<p>";
     include "template/header.php";
 
     $info_personali_link = "href=\"info.php\"";

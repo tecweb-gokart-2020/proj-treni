@@ -18,13 +18,7 @@ if(!isset($_SESSION["cartID"])) {
 // cartID correttamente impostato
 $page_description = "Contenuto del carrello attualmente attivo";
 $pagetitle = "carrello";
-$carrello_link = "class=\"header_current_link\"";
-$login_link= "href=\"login.php\"";
-$area_personale_link = "href=\"info.php\"";
-$notizie_link = "href=\"notizie.php\"";
-$prodotti_link = "href=\"prodotti.php\"";
-$servizi_link = "href=\"servizi.php\"";
-$contatti_link = "href=\"contatti.php\"";
+
 include "template/header.php";
 
 $prodotti = getProdottiFromCarrello($_SESSION["cartID"]);

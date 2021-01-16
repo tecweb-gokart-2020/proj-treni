@@ -18,13 +18,7 @@ else {
 
 $pagetitle = "Trenogheno - Home";
 $pagedescription = "Pagina Home di trenogheno.it";
-$area_personale_link = "href=\"info.php\"";
-$carrello_link = "class=\"header_current_link\"";
-$login_link= "href=\"login.php\"";
-$notizie_link = "href=\"notizie.php\"";
-$home_link = "href=\"../index.php\"";
-$servizi_link = "href=\"servizi.php\"";
-$contatti_link = "href=\"contatti.php\"";
+
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 
 echo '<body>

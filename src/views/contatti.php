@@ -2,16 +2,10 @@
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
 $pagetitle = "Trenogheno - Contatti";
 $pagedescription = "Pagina Contatti di trenogheno.it";
-$area_personale_link = "href=\"info.php\"";
-$carrello_link = "class=\"header_current_link\"";
-$login_link= "href=\"login.php\"";
-$notizie_link = "href=\"notizie.php\"";
-$home_link = "href=\"../index.php\"";
-$servizi_link = "href=\"servizi.php\"";
-$prodotti_link = "href=\"prodotti.php\"";
+
+$tag_contatti = "<p>";
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
-?>
-    <div id="percorso">
+echo '<div id="percorso">
         <p>Ti trovi in: <a id="linkHome" <?=$home_link?> xml:lang="en">Home</a> >> Contatti</p>
     </div>
     <div id="contenutoInfo">
@@ -33,7 +27,6 @@ include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
             <li><strong><span xml:lang="en">MOBILE</span></strong>: +39 348 443 19 33</li>
             <li><strong>FAX</strong>: +39 0434 572 865</li>
         </ul>
-    </div>
-<?php
+    </div>';
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 ?>
