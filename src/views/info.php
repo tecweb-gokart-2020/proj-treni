@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php");
+require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 use DB\DBAccess;
 use function ACCOUNT\getEmailOfAccount;
 use function ACCOUNT\getPasswordOfAccount;
