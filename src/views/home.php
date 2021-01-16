@@ -1,5 +1,19 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
+
+session_start();
+$_SESSION["username"] = "user";
+if(isset($_SESSION["username"])) {
+    $_SESSION["cartID"] = getCartFromAccount($_SESSION["username"]);
+}
+else {
+    $_SESSION["cartID"] = getNewCarrello();
+    if(!$_SESSION["cartID"]) {
+        error_log("Qualcosa è andato storto... nuovo carrello impossibile da creare");
+        die();
+    }
+}
+
 $pagetitle = "Trenogheno - Home";
 $pagedescription = "Pagina Home di trenogheno.it";
 $area_personale_link = "href=\"info.php\"";

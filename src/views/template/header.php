@@ -1,6 +1,8 @@
 <?php
- require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
 use function PRODOTTO\searchProdotti;
+use function VIEW\productButton;
+use function VIEW\cartButton;
 
 if(!isset($tag_info)) {
     $tag_info = '<a href="info.php">';
@@ -19,12 +21,15 @@ chiusura */
 preg_match('/^<\w{1,}/', $tag_info, $tmp);
 preg_match('/\w{1,}/', $tmp[0], $tmp);
 $tag_info_close = "</" . $tmp[0] . ">";
+
 preg_match('/^<\w{1,}/', $tag_prodotti, $tmp);
 preg_match('/\w{1,}/', $tmp[0], $tmp);
 $tag_prodotti_close = "</" . $tmp[0] . ">";
+
 preg_match('/^<\w{1,}/', $tag_contatti, $tmp);
 preg_match('/\w{1,}/', $tmp[0], $tmp);
 $tag_contatti_close = "</" . $tmp[0] . ">";
+
 preg_match('/^<\w{1,}/', $tag_novita, $tmp);
 preg_match('/\w{1,}/', $tmp[0], $tmp);
 $tag_novita_close = "</" . $tmp[0] . ">";
