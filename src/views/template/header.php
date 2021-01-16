@@ -1,9 +1,34 @@
 <?php
  require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
 use function PRODOTTO\searchProdotti;
+
 if(!isset($tag_info)) {
     $tag_info = '<a href="info.php">'
 }
+if(!isset($tag_novita)) {
+    $tag_info = '<a href="prodotti.php?novita">'
+}
+if(!isset($tag_prodotti)) {
+    $tag_info = '<a href="prodotti.php">'
+}
+if(!isset($tag_contatti)) {
+    $tag_info = '<a href="contatti.php">'
+}
+/* Sta roba prende il tag definito da quello sopra e imposta quello di
+chiusura */
+preg_match('/^<\w{1,}/', $tag_info, $tmp);
+preg_match('/\w{1,}/', $tmp, $tmp);
+$tag_info_close = "</" . $tmp . ">";
+preg_match('/^<\w{1,}/', $tag_prodotti, $tmp);
+preg_match('/\w{1,}/', $tmp, $tmp);
+$tag_prodotti_close = "</" . $tmp . ">";
+preg_match('/^<\w{1,}/', $tag_contatti, $tmp);
+preg_match('/\w{1,}/', $tmp, $tmp);
+$tag_contatti_close = "</" . $tmp . ">";
+preg_match('/^<\w{1,}/', $tag_novita, $tmp);
+preg_match('/\w{1,}/', $tmp, $tmp);
+$tag_novita_close = "</" . $tmp . ">";
+
 echo '<!DOCTYPE html>
 <html>
     <head>
@@ -50,4 +75,14 @@ echo '</form>
 		</ul>
 	    </nav>
 	</header>';
+
+unset($tag_info);
+unset($tag_novita);
+unset($tag_prodotti);
+unset($tag_contatti);
+
+unset($tag_info_close);
+unset($tag_novita_close);
+unset($tag_prodotti_close);
+unset($tag_contatti_close);
 ?>
