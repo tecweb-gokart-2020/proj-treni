@@ -29,13 +29,6 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
 
-    $area_personale_link = "class=\"header_current_link\"";
-    $carrello_link = "href=\"carrello.php\""
-    $login_link = "href=\"login.php\""
-    $notizie_link = "href=\"notizie.php\"";
-    $prodotti_link = "href=\"prodotti.php\"";
-    $servizi_link = "href=\"servizi.php\"";
-    $contatti_link = "href=\"contatti.php\"";
     include "template/header.php";
 
     $info_personali_link = "href=\"info.php\"";
