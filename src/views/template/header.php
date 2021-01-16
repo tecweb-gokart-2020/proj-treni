@@ -1,6 +1,7 @@
-<?php
- require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
+<?php			
+require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
 use function PRODOTTO\searchProdotti;
+
 echo '<!DOCTYPE html>
 <html>
     <head>
@@ -19,32 +20,26 @@ echo '<!DOCTYPE html>
 		if(isset($_GET['search'])){
 			$searchString = $_GET['searchQuery'];
 			$listaProdotti = searchProdotti($searchString);
+		}		
+	    echo '</form>';	    
+	    //icona login o loggato
+	    if(isset($_SESSION["username"])){
+			echo '<a id="linkAreaPersonale" ' . $area_personale_link . '><span class="icona" id="iconaUtente"></span>Area Personale</a>';
+		} else {	
+		    echo '<a id="linkLogin" ' . $login_link . '><span class="icona" id="iconaLogin"></span>Accedi</a>';
 		}
-	    echo '</form>
-	    <!-- Login -->
-	    <a ' . $login_link . '">Login</a>
-	    <!-- Carrello -->
-	    <a ' . $carrello_link . '">Carrello</a>
+	    echo ';<!-- Carrello -->
+	    <a ' . $carrello_link . '><span class="icona" id="iconaCarrello"></span>Carrello</a>
 	    <!-- Menù -->
 	    <nav>
-		<ul>
-		    <li>
-			<!-- Test -->
-			<a ' . $area_personale_link . '>Area personale</a>
-		    </li>
-		    <li>
-			<a ' . $notizie_link . '>Notizie</a>
-		    </li>
-		    <li>
-			<a ' . $prodotti_link . '>Prodotti</a>
-		    </li>				
-		    <li>
-			<a '. $servizi_link . '>Servizi</a>
-		    </li>
-		    <li>
-			<a ' . $contatti_link . '>Contatti</a>
-		    </li>
-		</ul>
-	    </nav>
+			<ul>
+			    <li>
+				<a ' . $prodotti_link . '>Prodotti</a>
+			    </li>
+			    <li>
+				<a ' . $contatti_link . '>Contatti</a>
+			    </li>
+			</ul>
+	    </nav>		
 	</header>';
 ?>
