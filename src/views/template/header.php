@@ -3,7 +3,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
 use function PRODOTTO\searchProdotti;
 use function VIEW\productButton;
 use function VIEW\cartButton;
-use function UTILITY\init_tag;
+use function UTILITIES\init_tag;
 
 init_tag($tag_info, '<a href="info.php">', $tag_info_close);
 init_tag($tag_novita, '<a href="prodotti.php?novita">', $tag_novita_close);
