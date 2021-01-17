@@ -24,3 +24,9 @@ INSERT INTO indirizzo(addressID, username, nome, via, numero, citta, stato, comu
 
 INSERT INTO contenuto_carrello(cartID, codArticolo, quantita) VALUES
        (2, 60052, 2);
+
+INSERT INTO ordine(orderID, username, data_ordine, total) VALUES
+       (1, 'user', CURRENT_TIMESTAMP, 190);
+
+INSERT INTO prodotto_ordinato(codArticolo, orderID, shipingID, quantita, prezzo_netto) VALUES
+       (60052, 1, NULL, 1, 190);
