@@ -1,28 +1,25 @@
-<!--<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Trenogheno</title>
-    <meta name="description" content="Home di trenogheno.it" />
-    <meta name="keywords" content="trenogheno, trenini, modellismo" />
-    <meta name="title" content="Home" />
-    <meta name="author" content="Gruppo progetto TecWeb" />
-    <meta name="language" content="italian it" />
-
-    <link rel="stylesheet" type="text/css" href="styleGenerale.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="styleMobile.css" media="handheld, screen and (max-device-width:640px), only screen and (max-width:640px)" />
-    <link rel="stylesheet" type="text/css" href="stylePrint.css" media="print" />
-</head>-->
-
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
+use function ACCOUNT\getCartFromAccount;
+use function CARRELLO\getNewCarrello;
+
+session_start();
+// debug
+$_SESSION["username"] = "user";
+if(isset($_SESSION["username"])) {
+    $_SESSION["cartID"] = getCartFromAccount($_SESSION["username"]);
+}
+else {
+    $_SESSION["cartID"] = getNewCarrello();
+    if(!$_SESSION["cartID"]) {
+        error_log("Qualcosa è andato storto... nuovo carrello impossibile da creare");
+        die();
+    }
+}
+
 $pagetitle = "Trenogheno - Home";
 $pagedescription = "Pagina Home di trenogheno.it";
-$area_personale_link = "href=\"info.php\"";
-$carrello_link = "class=\"header_current_link\"";
-$login_link= "href=\"login.php\"";
-$notizie_link = "href=\"notizie.php\"";
-$home_link = "href=\"../index.php\"";
-$servizi_link = "href=\"servizi.php\"";
-$contatti_link = "href=\"contatti.php\"";
+$tag_home = "";
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 
 echo '<body>
@@ -52,4 +49,5 @@ echo '</div>
     </div>
 
 </body>';
+include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 ?>

@@ -29,6 +29,9 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
 
+<<<<<<< HEAD
+    $tag_info = "<span class=\"current_link\">";
+=======
     $area_personale_link = "class=\"header_current_link\"";
     $carrello_link = "href=\"carrello.php\"";
     $login_link = "href=\"login.php\"";
@@ -36,11 +39,10 @@ if(isset($_SESSION["username"])) {
     $prodotti_link = "href=\"prodotti.php\"";
     $servizi_link = "href=\"servizi.php\"";
     $contatti_link = "href=\"contatti.php\"";
+>>>>>>> master
     include "template/header.php";
 
-    $info_personali_link = "href=\"info.php\"";
-    $ordini_link = "href=\"ordini.php\"";
-    $indirizzi_link = "class=\"active_link\"";
+    $tag_indirizzi = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 
     $addresses = getAddressesFromAccount($_SESSION["username"]);
@@ -55,8 +57,12 @@ if(isset($_SESSION["username"])) {
     include "template/footer.php";
 }
 else {
-    echo "username risulta non settato :(";
-    // header("Location: www.google.it", TRUE, 401);
-    // exit();
+    /* Se l'utente non è impostato -> l'utente deve loggarsi ->
+     * redirect alla pagina di login */
+    $host  = $_SERVER['HTTP_HOST'];
+    $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    $extra = 'login.php';
+    header("Location: http://$host$uri/$extra");
+    exit();
 }
 ?>

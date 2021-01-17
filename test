@@ -12,4 +12,5 @@ else
 	ln -s $proj_dir/$file
     done
     rm template;
+    rm home_statica.html;
 fi
