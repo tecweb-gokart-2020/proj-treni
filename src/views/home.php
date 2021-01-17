@@ -19,6 +19,7 @@ else {
 
 $pagetitle = "Trenogheno - Home";
 $pagedescription = "Pagina Home di trenogheno.it";
+$tag_home = "";
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 
 echo '<body>

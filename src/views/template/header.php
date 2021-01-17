@@ -5,6 +5,7 @@ use function VIEW\productButton;
 use function VIEW\cartButton;
 use function UTILITIES\init_tag;
 
+init_tag($tag_home, '<a href="home.php">', $tag_home_close);
 init_tag($tag_info, '<a href="info.php">', $tag_info_close);
 init_tag($tag_novita, '<a href="prodotti.php?novita">', $tag_novita_close);
 init_tag($tag_prodotti, '<a href="prodotti.php">', $tag_prodotti_close);
@@ -20,7 +21,7 @@ echo '<!DOCTYPE html>
     <body>
 	<header>
 	    <!-- Logo -->
-	    <a href="/" id="banner"><h1>TrenoGheno</h1></a>
+	    '. $tag_home .'<h1>TrenoGheno</h1>'. $tag_home_close .'
 	    <!-- Ricerca -->
 	    <form id="ricercaHeader" action="" method="get">
 		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
@@ -57,11 +58,13 @@ echo '</form>
 	    </nav>
 	</header>';
 
+unset($tag_home);
 unset($tag_info);
 unset($tag_novita);
 unset($tag_prodotti);
 unset($tag_contatti);
 
+unset($tag_home_close);
 unset($tag_info_close);
 unset($tag_novita_close);
 unset($tag_prodotti_close);
