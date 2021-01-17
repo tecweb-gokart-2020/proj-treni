@@ -11,8 +11,8 @@ function getDateFromOrder($order_id){
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT data_ordine FROM ordine WHERE orderID = \"$order_id\"";
         $queryResult = mysqli_query($connection, $query);
+        $data_ordine = mysqli_fetch_row($queryResult)[0];
         $dbAccess->closeDbConnection();
-        $data_ordine = mysqli_fetch_row($queryResult);
         return $data_ordine;
     }else{
         return false;
@@ -26,8 +26,8 @@ function getTotalFromOrder($order_id){
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT total FROM ordine WHERE orderID = \"$order_id\"";
         $queryResult = mysqli_query($connection, $query);
+        $totale = mysqli_fetch_row($queryResult)[0];
         $dbAccess->closeDbConnection();
-        $totale = mysqli_fetch_row($queryResult);
         return $totale;
     }else{
         return false;
@@ -54,16 +54,17 @@ function getProdottiFromOrder($order_id){
     if(isValidID($order_id)){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
-        $query = "SELECT shippingID, quantita, stato, prezzo_netto FROM prodotto_ordinato WHERE orderID = \"$order_id\"";
+        $query = "SELECT codArticolo, shippingID, quantita, stato, prezzo_netto FROM prodotto_ordinato WHERE orderID = \"$order_id\"";
         $queryResult = mysqli_query($connection, $query);
         $listaProdotti = array();
         if(mysqli_num_rows($queryResult)!=0){
             while($riga = mysqli_fetch_assoc($queryResult)){
                 $singoloProdotto = array(
-                    "IDSpedizione", $riga["shippingID"],
-                    "Qta", $riga["quantita"],
-                    "Stato", $riga["stato"],
-                    "Prezzo acquisto", $riga["prezzo_netto"]
+                    "productID" => $riga["codArticolo"],
+                    "shippingID" => $riga["shippingID"],
+                    "qta" => $riga["quantita"],
+                    "stato" => $riga["stato"],
+                    "prezzo" => $riga["prezzo_netto"]
                 );    
                 array_push($listaProdotti,$singoloProdotto);
             }
