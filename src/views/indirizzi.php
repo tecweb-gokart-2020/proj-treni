@@ -29,11 +29,10 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
 
+    $tag_info = "<span class=\"current_link\">";
     include "template/header.php";
 
-    $info_personali_link = "href=\"info.php\"";
-    $ordini_link = "href=\"ordini.php\"";
-    $indirizzi_link = "class=\"active_link\"";
+    $tag_indirizzi = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 
     $addresses = getAddressesFromAccount($_SESSION["username"]);

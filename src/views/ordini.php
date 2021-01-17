@@ -6,12 +6,10 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
 
-    $tag_ordini = "<p>";
+    $tag_info = "<span class=\"current_link\">"
     include "template/header.php";
 
-    $info_personali_link = "href=\"info.php\"";
-    $ordini_link = "class=\"active_link\"";
-    $indirizzi_link = "href=\"indirizzi.php\"";
+    $tag_ordini = "<span class=\"current_link\">"
     include "template/ap_navbar.php";
 
     echo "MAIN CONTENT";
