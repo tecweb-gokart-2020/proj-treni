@@ -11,10 +11,10 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
 
-    $tag_info = "<span class=\"current_link\">"
+    $tag_info = "<span class=\"current_link\">";
     include "template/header.php";
 
-    $tag_info = "<span class=\"current_link\">"
+    $tag_info = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 
     /* Contenuto reale della pagina */
@@ -39,7 +39,10 @@ if(isset($_SESSION["username"])) {
     include "template/footer.php";
 }
 else {
-    header("Location: home.php");
+    $host  = $_SERVER['HTTP_HOST'];
+    $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    $extra = 'home.php';
+    header("Location: http://$host$uri/$extra");
     exit();
 }
 ?>
