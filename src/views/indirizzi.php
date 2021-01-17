@@ -48,8 +48,12 @@ if(isset($_SESSION["username"])) {
     include "template/footer.php";
 }
 else {
-    echo "username risulta non settato :(";
-    // header("Location: www.google.it", TRUE, 401);
-    // exit();
+    /* Se l'utente non è impostato -> l'utente deve loggarsi ->
+     * redirect alla pagina di login */
+    $host  = $_SERVER['HTTP_HOST'];
+    $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    $extra = 'login.php';
+    header("Location: http://$host$uri/$extra");
+    exit();
 }
 ?>
