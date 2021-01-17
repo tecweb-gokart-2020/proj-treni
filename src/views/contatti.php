@@ -6,7 +6,7 @@ $pagedescription = "Pagina Contatti di trenogheno.it";
 $tag_contatti = '<span class="current_link">';
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 echo '<div id="percorso">
-        <p>Ti trovi in: <a id="linkHome" <?=$home_link?> xml:lang="en">Home</a> >> Contatti</p>
+        <p>Ti trovi in: <a id="linkHome" href="home.php" xml:lang="en">Home</a> >> Contatti</p>
     </div>
     <div id="contenutoInfo">
         <p><strong>TrenoGheno</strong> è una piccola azienda nata nel 1999 tra Pordenone e Portogruaro (VE), specializzata nel settore del modellismo ferroviario.</p>
