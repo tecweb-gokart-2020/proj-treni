@@ -39,7 +39,9 @@ if(isset($_SESSION["username"])) {
     include "template/footer.php";
 }
 else {
-    header("Location: home.php");
+    /* Se l'utente non è impostato -> l'utente deve loggarsi ->
+     * redirect alla pagina di login */
+    header("Location: login.html");
     exit();
 }
 ?>
