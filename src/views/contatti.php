@@ -3,7 +3,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
 $pagetitle = "Trenogheno - Contatti";
 $pagedescription = "Pagina Contatti di trenogheno.it";
 
-$tag_contatti = "<p>";
+$tag_contatti = '<span class="current_link">';
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 echo '<div id="percorso">
         <p>Ti trovi in: <a id="linkHome" <?=$home_link?> xml:lang="en">Home</a> >> Contatti</p>

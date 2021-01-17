@@ -7,7 +7,7 @@ use function PRODOTTO\getMarche;
 use function PRODOTTO\stampaProdotti;
 use function PRODOTTO\searchProdotti;
 
-$tag_prodotti = "<p>";
+$tag_prodotti = '<span class="current_link">';
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 
 echo('<div id="percorso">
