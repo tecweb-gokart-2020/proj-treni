@@ -39,7 +39,7 @@ if(isset($_SESSION["username"])) {
     include "template/footer.php";
 }
 else {
-    header("Location: home.php", TRUE, 401);
+    header("Location: home.php");
     exit();
 }
 ?>
