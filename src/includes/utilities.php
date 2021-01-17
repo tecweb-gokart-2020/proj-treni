@@ -63,9 +63,14 @@ function init_tag(&$tag, $default, &$tag_close) {
     if(!isset($tag)) {
         $tag = $default;
     }
-    preg_match('/^<\w{1,}/', $tag, $tmp);
-    preg_match('/\w{1,}/', $tmp[0], $tmp);
-    $tag_close = "</" . $tmp[0] . ">";
+    if($tag != ""){
+        preg_match('/^<\w{1,}/', $tag, $tmp);
+        preg_match('/\w{1,}/', $tmp[0], $tmp);
+        $tag_close = "</" . $tmp[0] . ">";
+    }
+    else {
+        $tag_close = "";
+    }
 }
 
 ?>

@@ -11,16 +11,10 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
 
-    $area_personale_link = "class=\"header_current_link\"";
-    $notizie_link = "href=\"notizie.php\"";
-    $prodotti_link = "href=\"prodotti.php\"";
-    $servizi_link = "href=\"servizi.php\"";
-    $contatti_link = "href=\"contatti.php\"";
+    $tag_info = "<span class=\"current_link\">"
     include "template/header.php";
 
-    $info_personali_link = "class=\"active_link\"";
-    $ordini_link = "href=\"ordini.php\"";
-    $indirizzi_link = "href=\"indirizzi.php\"";
+    $tag_info = "<span class=\"current_link\">"
     include "template/ap_navbar.php";
 
     /* Contenuto reale della pagina */
@@ -41,11 +35,11 @@ if(isset($_SESSION["username"])) {
         . PHP_EOL .
         "</fieldset></form>"
         . PHP_EOL;
+
     include "template/footer.php";
 }
 else {
-    echo "username risulta non settato :(";
-    // header("Location: www.google.it", TRUE, 401);
-    // exit();
+    header("Location: home.php", TRUE, 401);
+    exit();
 }
 ?>
