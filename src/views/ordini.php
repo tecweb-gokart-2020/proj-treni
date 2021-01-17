@@ -38,6 +38,9 @@ if(isset($_SESSION["username"])) {
     $tag_info = "<span class=\"current_link\">";
     include "template/header.php";
 
+    $current_page = "area personale >> i miei ordini";
+    include "template/breadcrumb.php";
+    
     $tag_ordini = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 

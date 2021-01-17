@@ -9,11 +9,11 @@ use function PRODOTTO\searchProdotti;
 
 $tag_prodotti = '<span class="current_link">';
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
+    
+$current_page = "prodotti";
+include "template/breadcrumb.php";
 
-echo('<div id="percorso">
-        <p>Ti trovi in: <a id="linkHome"'.$home_link.' xml:lang="en">Home</a> >> Prodotti</p>
-    </div>
-    <div id="categorie">
+echo('<div id="categorie">
         <form>
             <ul>
                 <li><input type="submit" name="cat" value="Locomotive"/></li>

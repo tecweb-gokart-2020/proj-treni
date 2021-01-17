@@ -5,6 +5,10 @@ $pagedescription = "Pagina Contatti di trenogheno.it";
 
 $tag_contatti = '<span class="current_link">';
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
+
+$current_page = "contatti";
+include "template/breadcrumb.php";
+
 echo '<div id="percorso">
         <p>Ti trovi in: <a id="linkHome" href="home.php" xml:lang="en">Home</a> >> Contatti</p>
     </div>

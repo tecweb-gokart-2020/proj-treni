@@ -18,8 +18,10 @@ if(!isset($_SESSION["cartID"])) {
 // cartID correttamente impostato
 $page_description = "Contenuto del carrello attualmente attivo";
 $pagetitle = "carrello";
-
 include "template/header.php";
+
+$current_page = "carrello";
+include "template/breadcrumb.php";
 
 $prodotti = getProdottiFromCarrello($_SESSION["cartID"]);
 if($prodotti) {

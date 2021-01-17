@@ -32,6 +32,9 @@ if(isset($_SESSION["username"])) {
     $tag_info = "<span class=\"current_link\">";
     include "template/header.php";
 
+    $current_page = "indirizzi";
+    include "template/breadcrumb.php";
+    
     $tag_indirizzi = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 

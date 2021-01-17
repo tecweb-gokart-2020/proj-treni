@@ -16,6 +16,9 @@ if(isset($_SESSION["username"])) {
     $pagedescription = "Area dove è possibile gestire i propri dati";
     include "template/header.php";
 
+    $current_page = "area personale >> email e password";
+    include "template/breadcrumb.php";
+    
     $tag_info = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 
