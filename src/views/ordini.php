@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . DIRECOTRY_SEPARATOR . "../includes/resources.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 use function ACCOUNT\getOrdersFromAccount;
 use function ORDINE\getProdottiFromOrder;
 use function ORDINE\getTotalFromOrder;

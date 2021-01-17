@@ -28,5 +28,5 @@ INSERT INTO contenuto_carrello(cartID, codArticolo, quantita) VALUES
 INSERT INTO ordine(orderID, username, data_ordine, total) VALUES
        (1, 'user', CURRENT_TIMESTAMP, 190);
 
-INSERT INTO prodotto_ordinato(codArticolo, orderID, shipingID, quantita, prezzo_netto) VALUES
+INSERT INTO prodotto_ordinato(codArticolo, orderID, shippingID, quantita, prezzo_netto) VALUES
        (60052, 1, NULL, 1, 190);
