@@ -62,7 +62,7 @@ function getProdottiFromOrder($order_id){
                 $singoloProdotto = array(
                     "productID" => $riga["codArticolo"],
                     "shippingID" => $riga["shippingID"],
-                    "qta" => $riga["quantita"],
+                    "quantita" => $riga["quantita"],
                     "stato" => $riga["stato"],
                     "prezzo" => $riga["prezzo_netto"]
                 );    

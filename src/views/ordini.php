@@ -16,7 +16,9 @@ function printOrder($orderID) {
         echo '<ul class="prodotto_item">' . PHP_EOL;
         echo '<li class="image"><img href="imgs/' . $prodotto["productID"]. '"/></li>'. PHP_EOL;
         echo '<li class="productID">'. $prodotto["productID"] ."</li>". PHP_EOL;
-        echo '<li class="shippingID">'. $prodotto["shippingID"] ."</li>". PHP_EOL;
+        if($prodotto["shippingID"]){
+            echo '<li class="shippingID">'. $prodotto["shippingID"] ."</li>". PHP_EOL;
+        }
         echo '<li class="quantita">'. $prodotto["quantita"] ."</li>". PHP_EOL;
         echo '<li class="stato">'. $prodotto["stato"] ."</li>". PHP_EOL;
         echo '<li class="prezzo">'. $prodotto["prezzo"] ."</li>". PHP_EOL;
