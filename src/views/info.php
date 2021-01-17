@@ -11,10 +11,10 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
 
-    $tag_info = "<span class=\"current_link\">"
+    $tag_info = "<span class=\"current_link\">";
     include "template/header.php";
 
-    $tag_info = "<span class=\"current_link\">"
+    $tag_info = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 
     /* Contenuto reale della pagina */
@@ -41,7 +41,10 @@ if(isset($_SESSION["username"])) {
 else {
     /* Se l'utente non è impostato -> l'utente deve loggarsi ->
      * redirect alla pagina di login */
-    header("Location: login.html");
+    $host  = $_SERVER['HTTP_HOST'];
+    $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    $extra = 'login.php';
+    header("Location: http://$host$uri/$extra");
     exit();
 }
 ?>
