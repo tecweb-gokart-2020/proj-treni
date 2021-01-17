@@ -66,12 +66,14 @@ CREATE TABLE indirizzo(
        addressID int PRIMARY KEY,
        username varchar(20),
        nome varchar(50),
+       cognome varchar(50),
        via varchar(50),
        numero varchar(50),
        citta varchar(50),
        stato varchar(50),
-       comune varchar(50),
-       cap int,
+       provincia varchar(50),
+       cap varchar(5),
+       telefono varchar(15)
 
        FOREIGN KEY (username) REFERENCES utente(username)
 )Engine=InnoDB;
