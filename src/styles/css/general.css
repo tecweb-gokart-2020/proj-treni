@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+    /*----------------GENERALE------------------*/
+    
+>>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
     html {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
@@ -5,13 +10,24 @@
     body {
         margin: 0em;
     }
+<<<<<<< HEAD
+=======
+    /*----------------HEADER------------------*/
+>>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
     
     header {
         position: -webkit-sticky;
         position: sticky;
+<<<<<<< HEAD
         border-bottom: 0.1em solid green;
         top: 0px;
         height: 6.2em;
+=======
+        top: 0px;
+        height: 6.5em;
+        background-color: orange;
+        /*Colore solo per test, NON DEFINITIVO*/
+>>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
     }
     
     header h1 {
@@ -19,9 +35,14 @@
         text-align: center;
         width: 8em;
         height: 1.1em;
+<<<<<<< HEAD
         right: 40%;
         float: right;
         border: 1px solid red;
+=======
+        right: 41%;
+        float: right;
+>>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
     }
     
     header a {
@@ -31,7 +52,11 @@
     
     header form {
         position: relative;
+<<<<<<< HEAD
         margin: 1em;
+=======
+        margin-left: 1em;
+>>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
         margin-top: 1.7em;
         text-align: left;
         float: left;
@@ -46,6 +71,7 @@
     
     header nav {
         position: relative;
+<<<<<<< HEAD
         top: 4em;
         margin: 0em;
     }
@@ -55,4 +81,40 @@
         display: inline;
         margin-left: 4em;
         margin-right: 4em;
+=======
+        top: 4.4em;
+        margin: 0em;
+    }
+    
+    header ul {
+        margin: 0;
+        position: absolute;
+        padding: 0px;
+        text-align: center;
+    }
+    
+    header ul li {
+        position: relative;
+        display: inline;
+        margin-left: 7em;
+        margin-right: 7em;
+    }
+    /*------------------CONTENUTO--------------------*/
+    /*-------------------FOOTER------------------*/
+    
+    footer {
+        position: absolute;
+        font-size: 0.5em;
+        background-color: green;
+        /*Colore solo per test, NON DEFINITIVO*/
+        text-align: center;
+    }
+    
+    footer #indirizzi {
+        float: left;
+    }
+    
+    footer #contatti {
+        float: right;
+>>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
     }

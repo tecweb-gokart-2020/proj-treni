@@ -23,7 +23,7 @@ echo '<!DOCTYPE html>
 	    <!-- Logo -->
 	    '. $tag_home .'<h1>TrenoGheno</h1>'. $tag_home_close .'
 	    <!-- Ricerca -->
-	    <form id="ricercaHeader" action="" method="get">
+	    <form id="ricercaHeader" action="prodotti.php" method="get">
 		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
 		<input type="submit" name="search" value="Cerca"/>';
 		if(isset($_GET['search'])){
@@ -31,6 +31,7 @@ echo '<!DOCTYPE html>
 			$listaProdotti = searchProdotti($searchString);
 		}		
 	    echo '</form>';	    
+<<<<<<< HEAD
 echo '<nav>
 		<ul>';
         //icona login o loggato
@@ -44,6 +45,16 @@ echo '<nav>
 			' . $tag_info . 'Area personale'. $tag_info_close .'
 		    </li>*/
 echo '		<li>
+=======
+echo '
+	    <nav>
+		<ul>
+		    <li>
+			<!-- Test -->
+			' . $tag_info . 'Area personale'. $tag_info_close .'
+			</li>
+			<li>
+>>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
 			' . $tag_novita . 'Novità'. $tag_novita_close .'
 		    </li>
 		    <li>
