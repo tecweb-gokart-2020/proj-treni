@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
 use function PRODOTTO\searchProdotti;
+use function CARRELLO\getProdottiFromCarrello;
 use function UTILITIES\init_tag;
 
 init_tag($tag_home, '<a href="home.php">', $tag_home_close);
