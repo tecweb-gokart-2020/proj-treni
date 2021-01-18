@@ -88,10 +88,12 @@ unset($tag_info);
 unset($tag_novita);
 unset($tag_prodotti);
 unset($tag_contatti);
+unset($tag_cart);
 
 unset($tag_home_close);
 unset($tag_info_close);
 unset($tag_novita_close);
 unset($tag_prodotti_close);
 unset($tag_contatti_close);
+unset($tag_cart_close);
 ?>
