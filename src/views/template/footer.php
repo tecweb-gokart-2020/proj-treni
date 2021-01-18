@@ -6,9 +6,16 @@
 		</div>
 		<!-- tutti quei <br/> sono rimpiazzabili da line-height(?) in CSS -->
 		<div id="contatti">
-			<p><strong>Contattaci!</strong> <br/> Email <br/> <a href="mailto:info@trenogheno.it">info@trenogheno.it</a> <br/><br/>
-			Telefono <br/> +39 348 443 19 33<br/><br/>
-			Fax <br/> +39 0434 572 865</p>
+			<p><strong>Contattaci!</strong> 
+				<dl>
+					<dt>Email</dt>
+					<dd><a href="mailto:info@trenogheno.it">info@trenogheno.it</a></dd>
+					<dt>Telefono</dt>
+					<dd>+39 348 443 19 33</dd>
+					<dt>Fax</dt>
+					<dd>+39 0434 572 865</dd>
+				</dl>
+			</p>
 		</div>
 
 		<div id="quellaRigaSotto">
