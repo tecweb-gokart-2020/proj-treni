@@ -30,20 +30,15 @@ echo '<!DOCTYPE html>
 			$searchString = $_GET['searchQuery'];
 			$listaProdotti = searchProdotti($searchString);
 		}		
-	    echo '</form>';	    
-echo '<nav>
-		<ul>';
-        //icona login o loggato
-	    if(isset($_SESSION["username"])){
-			echo '<li><a id="linkAreaPersonale" ' . $area_personale_link . '><span class="icona" id="iconaUtente"></span>Area Personale</a></li>';
-		} else {	
-		    //echo '<a id="linkLogin" ' . $login_link . '><span class="icona" id="iconaLogin"></span>Accedi</a>';
-		}
-     	  /*  <li>
+	    echo '</form>';
+echo '
+	    <nav>
+		<ul>
+		    <li>
 			<!-- Test -->
 			' . $tag_info . 'Area personale'. $tag_info_close .'
-		    </li>*/
-echo '		<li>
+			</li>*/
+			<li>
 			' . $tag_novita . 'Novità'. $tag_novita_close .'
 		    </li>
 		    <li>
