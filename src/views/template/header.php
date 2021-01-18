@@ -50,7 +50,7 @@ echo '</form>
 if(isset($_SESSION["username"])) {
     // mostra icona utente
     init_tag($tag_info, '<a href="info.php" id="user-icon">', $tag_cart_close);
-    echo $tag_info . "\uf007 " . $tag_info_close;
+    echo $tag_info . "&#xf007 " . $tag_info_close;
 }
 else {
     echo '<a href="login.html">Entra</a>' . PHP_EOL;
@@ -68,7 +68,7 @@ if(isset($_SESSION["cartID"])) {
     init_tag($tag_cart, '<a href="carrello.php" id="cart-icon">', $tag_cart_close);
     $carrello = getProdottiFromCarrello($_SESSION["cartID"]);
     $count = $carrello ? count($carrello) : 0;
-    echo $tag_cart . "\uf07a ". $count . $tag_cart_close;
+    echo $tag_cart . "&#xf07a ". $count . $tag_cart_close;
 }
 else {
     /* Non si dovrebbe mai arrivare qui, vorrebbe dire che si può
