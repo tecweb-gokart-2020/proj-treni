@@ -9,9 +9,9 @@
     header {
         position: -webkit-sticky;
         position: sticky;
-        border-bottom: 0.1em solid green;
         top: 0px;
-        height: 6.2em;
+        height: 6.5em;
+	background-color: orange; /*Colore solo per test, NON DEFINITIVO*/
     }
     
     header h1 {
@@ -19,9 +19,8 @@
         text-align: center;
         width: 8em;
         height: 1.1em;
-        right: 40%;
+        right: 41%;
         float: right;
-        border: 1px solid red;
     }
     
     header a {
@@ -31,7 +30,7 @@
     
     header form {
         position: relative;
-        margin: 1em;
+        margin-left: 1em;
         margin-top: 1.7em;
         text-align: left;
         float: left;
@@ -46,13 +45,19 @@
     
     header nav {
         position: relative;
-        top: 4em;
+        top: 4.4em;
         margin: 0em;
     }
     
+    header ul{
+	margin: 0;
+	position: absolute;
+	padding: 0px;
+	text-align: center;
+    }
     header ul li {
         position: relative;
         display: inline;
-        margin-left: 4em;
-        margin-right: 4em;
+        margin-left: 7em;
+        margin-right: 7em;
     }
