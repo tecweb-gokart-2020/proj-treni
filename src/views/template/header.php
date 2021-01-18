@@ -16,7 +16,7 @@ echo '<!DOCTYPE html>
     <head>
 	<title>'. $pagetitle . '</title>
 	<metaname="description" content="'.$pagedescription.'"/>
-            <linkrel="stylesheet" type="text/css" href="../../styles/css/general.css"/>
+            <link rel="stylesheet" type="text/css" href="../styles/css/general.css" media="screen"/>
     </head>
     <body>
 	<header>
@@ -35,7 +35,7 @@ echo '<!DOCTYPE html>
 	    if(isset($_SESSION["username"])){
 			echo '<a id="linkAreaPersonale" ' . $area_personale_link . '><span class="icona" id="iconaUtente"></span>Area Personale</a>';
 		} else {	
-		    echo '<a id="linkLogin" ' . $login_link . '><span class="icona" id="iconaLogin"></span>Accedi</a>';
+		    //echo '<a id="linkLogin" ' . $login_link . '><span class="icona" id="iconaLogin"></span>Accedi</a>';
 		}
 echo '</form> 
 	    <nav>
@@ -55,7 +55,7 @@ echo '</form>
 		    </li>
 		    <li>
 			<!-- Test -->
-			' . profileButton() .'
+			<!--' . profileButton() .'-->
 		    </li>
 		    <li>
 			<!-- Test -->
