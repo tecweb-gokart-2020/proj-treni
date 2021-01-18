@@ -18,7 +18,7 @@ if(!isset($_SESSION["cartID"])) {
 // cartID correttamente impostato
 $page_description = "Contenuto del carrello attualmente attivo";
 $pagetitle = "carrello";
-$tag_cart = "";
+$tag_cart = "<p>";
 include "template/header.php";
 
 $current_page = "carrello";
