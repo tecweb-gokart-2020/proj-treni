@@ -2,25 +2,31 @@
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
     
+    body {
+        margin: 0em;
+    }
+    
     header {
         position: -webkit-sticky;
         position: sticky;
-        border: 0.1em solid green;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: yellow;
+        border-bottom: 0.1em solid green;
+        top: 0px;
+        height: 6.2em;
     }
     
     header h1 {
         position: relative;
         text-align: center;
-        display: block;
         width: 8em;
         height: 1.1em;
-        border: 0.1em solid black;
         right: 40%;
-        float: right
+        float: right;
+        border: 1px solid red;
+    }
+    
+    header a {
+        position: relative;
+        z-index: 1;
     }
     
     header form {
@@ -28,6 +34,7 @@
         margin: 1em;
         margin-top: 1.7em;
         text-align: left;
+        float: left;
     }
     
     header form input[type=search] {
@@ -35,7 +42,12 @@
         display: inline-block;
         width: 13em;
         height: 2em;
-        border: 0.1em solid red;
+    }
+    
+    header nav {
+        position: relative;
+        top: 4em;
+        margin: 0em;
     }
     
     header ul li {
@@ -43,5 +55,4 @@
         display: inline;
         margin-left: 4em;
         margin-right: 4em;
-        border: 0.1em solid black;
     }
