@@ -9,10 +9,7 @@ include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 $current_page = "contatti";
 include "template/breadcrumb.php";
 
-echo '<div id="percorso">
-        <p>Ti trovi in: <a id="linkHome" href="home.php" xml:lang="en">Home</a> >> Contatti</p>
-    </div>
-    <div id="contenutoInfo">
+echo '<div id="contenutoInfo">
         <p><strong>TrenoGheno</strong> è una piccola azienda nata nel 1999 tra Pordenone e Portogruaro (VE), specializzata nel settore del modellismo ferroviario.</p>
         <p>Anche se giovane, vanta del personale con una esperienza e conoscenza del settore che le permette di soddisfare quasi tutti i desideri degli appassionati fermodellisti. </p>
         <p>Può offrire:</p>
