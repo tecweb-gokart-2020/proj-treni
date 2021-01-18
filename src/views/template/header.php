@@ -31,12 +31,6 @@ echo '<!DOCTYPE html>
 			$listaProdotti = searchProdotti($searchString);
 		}		
 	    echo '</form>';	    
-	    //icona login o loggato
-	    if(isset($_SESSION["username"])){
-			echo '<a id="linkAreaPersonale" ' . $area_personale_link . '><span class="icona" id="iconaUtente"></span>Area Personale</a>';
-		} else {	
-		    echo '<a id="linkLogin" ' . $login_link . '><span class="icona" id="iconaLogin"></span>Accedi</a>';
-		}
 echo '</form> 
 	    <nav>
 		<ul>
