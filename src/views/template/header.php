@@ -12,10 +12,10 @@ init_tag($tag_prodotti, '<a href="prodotti.php">', $tag_prodotti_close);
 init_tag($tag_contatti, '<a href="contatti.php">', $tag_contatti_close);
 
 echo '<!DOCTYPE html>
-<html>
+<html lang="it">
     <head>
 	<title>'. $pagetitle . '</title>
-	<metaname="description" content="'.$pagedescription.'"/>
+	<meta name="description" content="'.$pagedescription.'"/>
             <link rel="stylesheet" type="text/css" href="../styles/css/general.css" media="screen"/>
     </head>
     <body>
