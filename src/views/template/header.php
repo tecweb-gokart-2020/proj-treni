@@ -9,6 +9,8 @@ init_tag($tag_novita, '<a href="prodotti.php?novita">', $tag_novita_close);
 init_tag($tag_prodotti, '<a href="prodotti.php">', $tag_prodotti_close);
 init_tag($tag_contatti, '<a href="contatti.php">', $tag_contatti_close);
 
+session_start();
+
 echo '<!DOCTYPE html>
 <html>
     <head>

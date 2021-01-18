@@ -1,14 +1,14 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
-$pagetitle = "Trenogheno - Prodotti";
-$pagedescription = "Pagina Prodotti di trenogheno.it";
 use function PRODOTTO\queryProdotti;
 use function PRODOTTO\getMarche;
 use function PRODOTTO\stampaProdotti;
 use function PRODOTTO\searchProdotti;
 
+$pagetitle = "Trenogheno - Prodotti";
+$pagedescription = "Pagina Prodotti di trenogheno.it";
 $tag_prodotti = '<span class="current_link">';
-include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
+include "template/header.php";
     
 $current_page = "prodotti";
 include "template/breadcrumb.php";
