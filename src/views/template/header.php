@@ -16,7 +16,7 @@ echo '<!DOCTYPE html>
     <head>
 	<title>'. $pagetitle . '</title>
 	<metaname="description" content="'.$pagedescription.'"/>
-            <linkrel="stylesheet" type="text/css" href="../../styles/css/general.css"/>
+            <link rel="stylesheet" type="text/css" href="../styles/css/general.css" media="screen"/>
     </head>
     <body>
 	<header>
@@ -31,7 +31,7 @@ echo '<!DOCTYPE html>
 			$listaProdotti = searchProdotti($searchString);
 		}		
 	    echo '</form>';	    
-echo '</form> 
+echo '
 	    <nav>
 		<ul>
 		    <li>
@@ -49,7 +49,7 @@ echo '</form>
 		    </li>
 		    <li>
 			<!-- Test -->
-			' . profileButton() .'
+			<!--' . profileButton() .'-->
 		    </li>
 		    <li>
 			<!-- Test -->
