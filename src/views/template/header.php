@@ -37,7 +37,7 @@ echo '
 		    <li>
 			<!-- Test -->
 			' . $tag_info . 'Area personale'. $tag_info_close .'
-			</li>*/
+			</li>
 			<li>
 			' . $tag_novita . 'Novità'. $tag_novita_close .'
 		    </li>
