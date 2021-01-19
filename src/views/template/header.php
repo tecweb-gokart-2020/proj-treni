@@ -16,7 +16,7 @@ echo '<!DOCTYPE html>
     <head>
 	<title>'. $pagetitle . '</title>
 	<meta name="description" content="'.$pagedescription.'"/>
-  <link rel="stylesheet" type="text/css" href="styles/resource.css"/>
+  <link rel="stylesheet" type="text/css" href="../styles/resource.css"/>
     </head>
     <body>
         <nav id="aiuti">
