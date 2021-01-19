@@ -18,18 +18,20 @@
         position: -webkit-sticky;
         position: sticky;
         top: 0px;
-        height: 7.7em;
+        height: 6.7em;
         background-color: orange;
         /*Colore solo per test, NON DEFINITIVO*/
+	z-index: 1;
     }
     
     header h1 {
         position: relative;
         text-align: center;
         width: 8em;
-        height: 1.1em;
+        height: 1em;
         right: 41%;
         float: right;
+	top: -0.3em;
     }
     
     header a {
@@ -40,7 +42,7 @@
     header form {
         position: relative;
         margin-left: 1em;
-        margin-top: 1.7em;
+        margin-top: 1.4em;
         text-align: left;
         float: left;
     }
@@ -54,16 +56,16 @@
     
     header nav {
         position: relative;
-        top: 4.4em;
+        top: 3.5em;
         margin: 0em;
     }
     
-    header ul li:first-child {
-        margin-left: 3em;
+    header ul#pagine li:first-child {
+        margin-left: 7%;
     }
     
-    header ul li:last-child {
-        margin-right: 3em;
+    header ul#icons li:last-child {
+        margin-right: 3%;
     }
     
     header ul#pagine {
@@ -75,14 +77,15 @@
         width: 50%;
         height: 3em;
         vertical-align: middle;
+	top: 0.1em;
     }
     
     header ul#pagine li {
         position: relative;
         top: 0.6em;
         display: inline;
-        margin-left: 5em;
-        margin-right: 5em;
+        margin-left: 10%;
+        margin-right: 10%;
         vertical-align: middle;
     }
     
@@ -101,8 +104,8 @@
     header ul#icons li {
         position: relative;
         display: inline;
-        margin-left: 5em;
-        margin-right: 5em;
+        margin-left: 7%;
+        margin-right: 7%;
         top: 0.5em;
         vertical-align: middle;
     }
@@ -127,6 +130,51 @@
         left: 0.35em;
     }
     /*------------------CONTENUTO--------------------*/
+    main#content{
+    	margin-left: 1%;
+	margin-right: 1%;
+	z-index: 0;
+    }
+    div#chiSiamo{
+	float: left;
+	position: relative;
+	width: 25%;
+	margin: 0;
+	text-align: center;
+    }
+    div#servizi{
+	display: block;
+	position: relative;
+	width: 25%;
+	margin: 0;
+	left: 50%;
+	overflow: auto;
+    }
+    div#servizi h2{
+	text-align: center;    
+    }
+    div#news, div#prodottiInHome{
+    	position: relative;
+	top: 2em;
+	text-align: center;
+	height: auto;
+    }
+
+    div#percorso{	
+	position: relative;
+	top: -1em;
+	background-color: yellow;
+	height: 2.5em;
+    }
+    div#percorso p{
+	position: relative;
+	top: 0.7em;
+	left: 1%;
+	vertical-align: middle;	
+    }
+
+
+
     /*-------------------FOOTER------------------*/
     
     footer {
