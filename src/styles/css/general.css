@@ -71,8 +71,8 @@
     
     footer {
         position: absolute;
-	width: 100%;
-	height: 9em;
+        width: 100%;
+        height: 9em;
         font-size: 0.8em;
         background-color: green;
         /*Colore solo per test, NON DEFINITIVO*/
@@ -81,40 +81,45 @@
     
     footer #indirizzi {
         float: left;
-	margin-left: 1em;
+        margin-left: 1em;
     }
     
     footer #contatti {
         float: right;
-	margin-right: 1em;
+        margin-right: 1em;
     }
-    footer #contatti ul li{
-    	position: relative;
-	display: inline-block;
-	padding-left: 1em;
-	padding-right: 1em;
+    
+    footer #contatti ul li {
+        position: relative;
+        display: inline-block;
+        padding-left: 1em;
+        padding-right: 1em;
     }
-    footer #contatti ul li:first-child{
+    
+    footer #contatti ul li:first-child {
         padding-left: 0em;
     }
-    footer #indirizzi p{
-	position: relative;
-	left: -2em;
-    }
-    footer #indirizzi ul li{
+    
+    footer #indirizzi p {
         position: relative;
-	left: -4em;
+        left: -2em;
+    }
+    
+    footer #indirizzi ul li {
+        position: relative;
+        left: -4em;
         display: inline-block;
         padding-left: 2em;
         padding-right: 2em;
     }
-    footer #indirizzi ul li:first-child{
+    
+    footer #indirizzi ul li:first-child {
         padding-right: 0em;
     }
-
+    
     footer #quellaRigaSotto {
-	position: absolute;
-	top: 6em;
-	left: 0em;
-	width: 100%;
+        position: absolute;
+        top: 6em;
+        left: 0em;
+        width: 100%;
     }
