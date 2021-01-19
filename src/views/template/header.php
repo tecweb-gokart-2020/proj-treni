@@ -28,7 +28,7 @@ echo '<!DOCTYPE html>
 	    <!-- Logo -->
 	    '. $tag_home .'<h1>TrenoGheno</h1>'. $tag_home_close .'
 	    <!-- Ricerca -->
-	    <form id="ricercaHeader" action="" method="get">
+	    <form id="ricercaHeader" action="prodotti.php" method="get">
 		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
 		<input type="submit" name="search" value="Cerca"/>';
 		if(isset($_GET['search'])){

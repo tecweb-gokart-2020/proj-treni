@@ -24,10 +24,6 @@ echo('<div id="categorie">
                 <li><input type="submit" name="cat" value="Accessori"/></li>
             </ul>
         </form>
-        <form>
-            <input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
-            <input type="submit" name="search" value="search"/></li>
-        </form>
     </div>');
 
 if(isset($_GET['cat'])){
@@ -79,9 +75,9 @@ echo('</select>
             <label for="filtroInOfferta">In Offerta</label>
             <input name="offerta" id="filtroInOfferta" type="checkbox" value="offerta" />
             <label for="filtroPrezzoMin">Prezzo minimo</label>
-            <input name="prezzoMin" id="filtroPrezzoMin" type="number" value="prezzoMin" min="0" step="5" />
+            <input name="prezzoMin" id="filtroPrezzoMin" type="number" value="0" min="0" step="5" />
             <label for="filtroPrezzoMax">Prezzo massimo</label>
-            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="prezzoMax" min="0" step="5" />
+            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="10000" min="0" step="5" />
             <label for="filrtoOrdinamento">Ordinamento</label>
             <select name="ordinamento" id="filrtoOrdinamento">
                 <option>Nessuna selezione</option>

@@ -7,6 +7,6 @@ use function UTILITIES\init_tag;
 // init_tag($tag_indirizzi, '<a href="indirizzi.php">', $tag_indirizzi_close);
 
 echo '<div id="percorso">
-	<p>Ti trovi in: <a id="linkHome" href="home.php" xml:lang="en">Home</a> >> '. $current_page .'</p>
+	<p>Ti trovi in: <a id="linkHome" href="home.php" xml:lang="en" lang="en">Home</a> >> '. $current_page .'</p>
 	</div>';
 ?>
