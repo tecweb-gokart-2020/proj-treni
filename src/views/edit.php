@@ -2,6 +2,7 @@
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 use DBAccess;
 use function ACCOUNT\edit_mail;
+use function ACCOUNT\edit_pw;
 
 session_start();
 $newMail = &$_POST["newMail"];

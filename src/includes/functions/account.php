@@ -184,7 +184,7 @@ function edit_mail($user, $newMail) {
 }
 
 /* newPw è una stringa e user è l'id di un utente */
-function edit_mail($user, $newPw) {
+function edit_pw($user, $newPw) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
     // non molto elegante
