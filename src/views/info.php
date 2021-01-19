@@ -34,6 +34,8 @@ if(isset($_SESSION["username"])) {
     
     if(isset($_SESSION["username"]) and (isset($newMail) or isset($newPw))) {
         if(isset($newMail)) {
+            result = "";
+            echo "email esiste: " . email_exists($newMail) . PHP_EOL;
             try {
                 $result = edit_mail($_SESSION["username"], $newMail);
             } catch (Exception $e) {
@@ -45,6 +47,7 @@ if(isset($_SESSION["username"])) {
             }
         }
         if(isset($newPw)) {
+            result = "";
             try {
                 $result = edit_pw($_SESSION["username"], $newPw);
             } catch (Exception $e) {
