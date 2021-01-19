@@ -36,7 +36,7 @@ function email_exists($email) {
     mysqli_stmt_close($stmt);
 
     $db->closeDbConnection();
-    return (mysqli_num_rows($result) == 0);
+    return (mysqli_num_rows($result) > 0);
 }
 
 /* true se esiste, false se non esiste */
@@ -54,7 +54,7 @@ function username_exists($username) {
     mysqli_stmt_close($stmt);
 
     $db->closeDbConnection();
-    return (mysqli_num_rows($result) == 0);
+    return (mysqli_num_rows($result) > 0);
 }
 
 /* Sta roba prende il tag definito da quello sopra e imposta quello di
