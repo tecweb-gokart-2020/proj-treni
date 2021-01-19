@@ -1,8 +1,12 @@
 <footer>
  	<address><!-- informazioni di contatto e sul negozio -->
 		<div id="indirizzi">
-			<p><strong>Vieni a trovarci!</strong> <br/> Esposizione <br/> via Pordenone, 6 - 30026 PORTOGRUARO (VE)</p>
-			<p>Sede legale <br/> via della Torba, 10 - 33080 PORCIA (PN)</p>
+			<p><strong>Vieni a trovarci!</strong> 
+			<ul>
+				<li> Esposizione <br/> via Pordenone, 6 - 30026 PORTOGRUARO (VE)</li>
+				<li>Sede legale <br/> via della Torba, 10 - 33080 PORCIA (PN)</li>
+			</ul>
+		</p>
 		</div>
 		<!-- tutti quei <br/> sono rimpiazzabili da line-height(?) in CSS -->
 		<div id="contatti">
