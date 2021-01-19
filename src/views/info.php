@@ -7,6 +7,7 @@ use function ACCOUNT\getCartFromAccount;
 use function ACCOUNT\edit_pw;
 use function ACCOUNT\edit_mail;
 use function UTILITIES\email_exists;
+use function UTILITIES\check_email;
 
 session_start();
 //debug
@@ -38,6 +39,8 @@ if(isset($_SESSION["username"])) {
             $result = "";
             $check = email_exists($newMail) ? "Si" : "No";
             echo "email esiste: " . $check . PHP_EOL;
+            $check = check_email($newMail) ? "Si" : "No";
+            echo "email valida: " . $check . PHP_EOL;
             try {
                 $result = edit_mail($_SESSION["username"], $newMail);
             } catch (Exception $e) {
