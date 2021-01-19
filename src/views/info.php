@@ -22,6 +22,7 @@ if(isset($_SESSION["username"])) {
     $tag_info = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 
+    echo '<main id="content">' . PHP_EOL;
     /* Contenuto reale della pagina */
     $user = $_SESSION["username"];
     $email = getEmailOfAccount($user);
@@ -41,6 +42,7 @@ if(isset($_SESSION["username"])) {
         "</fieldset></form>"
         . PHP_EOL;
 
+    echo '</main>' . PHP_EOL;
     include "template/footer.php";
 }
 else {

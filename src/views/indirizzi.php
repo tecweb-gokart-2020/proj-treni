@@ -38,6 +38,7 @@ if(isset($_SESSION["username"])) {
     $tag_indirizzi = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 
+    echo '<main id="content">' . PHP_EOL;
     $addresses = getAddressesFromAccount($_SESSION["username"]);
     echo "<ul id=\"address-list\">" . PHP_EOL;
     foreach($addresses as $address) {
@@ -46,7 +47,7 @@ if(isset($_SESSION["username"])) {
         echo "</li>" . PHP_EOL;
     }
     echo "</ul>" . PHP_EOL;
-        
+    echo '</main>';
     include "template/footer.php";
 }
 else {

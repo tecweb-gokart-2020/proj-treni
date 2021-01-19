@@ -22,8 +22,8 @@ $pagedescription = "Pagina Home di trenogheno.it";
 $tag_home = "";
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 
-echo '
-    <div id="chiSiamo">
+echo '<main id="content">' . PHP_EOL;
+echo '<div id="chiSiamo">
         <h2>CHI SIAMO</h2>
         <p><strong>TrenoGheno</strong> è una piccola azienda nata nel 1999 specializzata 
 		nel settore del modellismo ferroviario</p>
@@ -47,5 +47,7 @@ echo '</div>
 	<h2>I NOSTRI PRODOTTI</h2>
         <a href="prodotti.html">Cerca nel catalogo</a>
     </div>';
+echo '</main>';
+
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 ?>

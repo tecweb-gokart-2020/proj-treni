@@ -23,6 +23,14 @@
 			<p>Trenogheno S.A.S. di Rigon Angelo & C. - Vendita per corrispondenza articoli per fermodellismo - P.I. e Reg.Imprese 01848890933</p>
 		</div>
 	</address>
+    </div>
+    <div id="contatti">
+	<h3>Contatti:</h3> 
+	<ul>
+	    <li>Email: <a href="mailto:info@treni.it">info@treni.it</a></li>
+	    <li>Fax: 555 1234 567</li>
+	</ul>
+    </div>
 </footer>
 </body>
 </html>
