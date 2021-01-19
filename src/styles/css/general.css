@@ -2,15 +2,15 @@
     
     html {
         font-family: Calibri, 'Trebuchet MS', sans-serif;
-	font-size: 1em;
+        font-size: 1em;
     }
     
     body {
         margin: 0em;
     }
-
-    #aiuti{
-	display: none;
+    
+    #aiuti {
+        display: none;
     }
     /*----------------HEADER------------------*/
     
@@ -37,18 +37,6 @@
         z-index: 1;
     }
     
-    header #counter{
-	position: absolute;
-	color: white;
-	font-size: 0.9em;
-	width: 2em;
-	height: auto;
-	top: -0.95em;
-	text-align: center;
-	vertical-align: middle;
-	left: 0.35em;
-    }
-    
     header form {
         position: relative;
         margin-left: 1em;
@@ -70,26 +58,35 @@
         margin: 0em;
     }
     
-    header ul#pagine{
-	float: left;
+    header ul li:first-child {
+        margin-left: 3em;
+    }
+    
+    header ul li:last-child {
+        margin-right: 3em;
+    }
+    
+    header ul#pagine {
+        float: left;
         margin: 0;
         position: absolute;
         padding: 0px;
         text-align: left;
-	width: 50%;
+        width: 50%;
         height: 3em;
         vertical-align: middle;
     }
     
-    header ul#pagine li{
+    header ul#pagine li {
         position: relative;
-	top: 0.6em;
+        top: 0.6em;
         display: inline;
         margin-left: 5em;
         margin-right: 5em;
-	vertical-align: middle;
+        vertical-align: middle;
     }
-    header ul#icons{
+    
+    header ul#icons {
         float: right;
         margin: 0;
         position: relative;
@@ -98,28 +95,36 @@
         width: 50%;
         height: 3em;
         vertical-align: middle;
-	right: -15em;
+        right: -15em;
     }
-    header ul#icons li{
+    
+    header ul#icons li {
         position: relative;
         display: inline;
         margin-left: 5em;
         margin-right: 5em;
-       	top: 0.5em;
+        top: 0.5em;
         vertical-align: middle;
     }
-	
-    header ul li:first-child{
-	margin-left: 3em;	
-    }
-    header ul li:last-child{
-	margin-right: 3em;	
-    }
-    .fa-shopping-cart, .fa-user{
-	position: relative;
-	width: 2em;
+    
+    .fa-shopping-cart,
+    .fa-user {
+        position: relative;
+        width: 2em;
         height: 2em;
-        display: inline-block;	
+        display: inline-block;
+    }
+    
+    header #counter {
+        position: absolute;
+        color: white;
+        font-size: 0.9em;
+        width: 2em;
+        height: auto;
+        top: -0.95em;
+        text-align: center;
+        vertical-align: middle;
+        left: 0.35em;
     }
     /*------------------CONTENUTO--------------------*/
     /*-------------------FOOTER------------------*/
