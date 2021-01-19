@@ -42,6 +42,25 @@ if(isset($_SESSION["username"])) {
         "</fieldset></form>"
         . PHP_EOL;
 
+    if(isset($emailDone)) {
+        if($emailDone) {
+            echo '<h3><span xml:lang="en" lang="en">Email</span> modificata con successo</h3>';
+        }
+        else {
+            echo '<h3><span xml:lang="en" lang="en">Email</span> non valida</h3>';
+        }
+        unset($emailDone);
+    }
+    if(isset($pwDone)) {
+        if($pwDone) {
+            echo '<h3><span xml:lang="en" lang="en">Password</span> modificata con successo</h3>';
+        }
+        else {
+            echo '<h3><span xml:lang="en" lang="en">Password</span> non valida</h3>';
+        }
+        unset($pwDone);
+    }
+
     echo '</main>' . PHP_EOL;
     include "template/footer.php";
 }
