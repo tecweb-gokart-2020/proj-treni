@@ -6,6 +6,7 @@ use function ACCOUNT\getPasswordOfAccount;
 use function ACCOUNT\getCartFromAccount;
 use function ACCOUNT\edit_pw;
 use function ACCOUNT\edit_mail;
+use function UTILITIES\email_exists;
 
 session_start();
 //debug
