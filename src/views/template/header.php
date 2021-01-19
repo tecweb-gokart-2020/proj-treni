@@ -12,11 +12,11 @@ init_tag($tag_contatti, '<a href="contatti.php">', $tag_contatti_close);
 session_start();
 
 echo '<!DOCTYPE html>
-<html>
+<html lang="it">
     <head>
 	<title>'. $pagetitle . '</title>
 	<meta name="description" content="'.$pagedescription.'"/>
-        <link rel="stylesheet" type="text/css" href="styles/resource.css"/>
+  <link rel="stylesheet" type="text/css" href="styles/resource.css"/>
     </head>
     <body>
         <nav id="aiuti">
@@ -28,14 +28,14 @@ echo '<!DOCTYPE html>
 	    <!-- Logo -->
 	    '. $tag_home .'<h1>TrenoGheno</h1>'. $tag_home_close .'
 	    <!-- Ricerca -->
-	    <form id="ricercaHeader" action="" method="get">
+	    <form id="ricercaHeader" action="prodotti.php" method="get">
 		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
 		<input type="submit" name="search" value="Cerca"/>';
 		if(isset($_GET['search'])){
 			$searchString = $_GET['searchQuery'];
 			$listaProdotti = searchProdotti($searchString);
 		}		
-	    echo '</form>';	    
+echo '</form>';	    
 echo '<nav>
 		<ul>
 		    <li>

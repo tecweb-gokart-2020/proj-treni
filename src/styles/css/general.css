@@ -1,0 +1,125 @@
+    /*----------------GENERALE------------------*/
+    
+    html {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    body {
+        margin: 0em;
+    }
+    /*----------------HEADER------------------*/
+    
+    header {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
+        height: 6.5em;
+        background-color: orange;
+        /*Colore solo per test, NON DEFINITIVO*/
+    }
+    
+    header h1 {
+        position: relative;
+        text-align: center;
+        width: 8em;
+        height: 1.1em;
+        right: 41%;
+        float: right;
+    }
+    
+    header a {
+        position: relative;
+        z-index: 1;
+    }
+    
+    header form {
+        position: relative;
+        margin-left: 1em;
+        margin-top: 1.7em;
+        text-align: left;
+        float: left;
+    }
+    
+    header form input[type=search] {
+        position: relative;
+        display: inline-block;
+        width: 13em;
+        height: 2em;
+    }
+    
+    header nav {
+        position: relative;
+        top: 4.4em;
+        margin: 0em;
+    }
+    
+    header ul {
+        margin: 0;
+        position: absolute;
+        padding: 0px;
+        text-align: center;
+    }
+    
+    header ul li {
+        position: relative;
+        display: inline;
+        margin-left: 5em;
+        margin-right: 5em;
+    }
+    /*------------------CONTENUTO--------------------*/
+    /*-------------------FOOTER------------------*/
+    
+    footer {
+        position: absolute;
+        width: 100%;
+        height: 9em;
+        font-size: 0.8em;
+        background-color: green;
+        /*Colore solo per test, NON DEFINITIVO*/
+        text-align: center;
+    }
+    
+    footer #indirizzi {
+        float: left;
+        margin-left: 1em;
+    }
+    
+    footer #contatti {
+        float: right;
+        margin-right: 1em;
+    }
+    
+    footer #contatti ul li {
+        position: relative;
+        display: inline-block;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    
+    footer #contatti ul li:first-child {
+        padding-left: 0em;
+    }
+    
+    footer #indirizzi p {
+        position: relative;
+        left: -2em;
+    }
+    
+    footer #indirizzi ul li {
+        position: relative;
+        left: -4em;
+        display: inline-block;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+    
+    footer #indirizzi ul li:first-child {
+        padding-right: 0em;
+    }
+    
+    footer #quellaRigaSotto {
+        position: absolute;
+        top: 6em;
+        left: 0em;
+        width: 100%;
+    }
