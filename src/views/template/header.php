@@ -49,7 +49,8 @@ echo '<nav>
 		    </li>
 		    <li>
 			<!-- Test -->
-			' . PHP_EOL;
+			</ul>
+			<ul id="icons">' . PHP_EOL;
 if(isset($_SESSION["username"])) {
     // mostra icona utente
     init_tag($tag_info, '<a href="info.php" id="user-icon">', $tag_info_close);
@@ -63,8 +64,6 @@ else {
 }
 
 echo '</li>
-	</ul>
-	<ul id="icons">
 	    <li>
 		<!-- Test -->' . PHP_EOL;
 
