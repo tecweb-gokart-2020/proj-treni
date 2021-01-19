@@ -20,14 +20,14 @@ echo '<p><strong>TrenoGheno</strong> è una piccola azienda nata nel 1999 tra Po
             <li>Materiali e informazioni per la costruzione di plastici e diorami di alta qualità</li>
         </ul>
         <p>Per la consegna dei prodotti si avvale di Poste Italiane o di corrieri privati</p>
-    </div>
     <div id="contenutoContatti">
         <p>Contatti:</p>
         <ul>
-            <li><strong><span xml:lang="en">MAIL</span></strong>: <a href="mailto:info@trenogheno.it">info@trenogheno.it</a></li>
-            <li><strong><span xml:lang="en">MOBILE</span></strong>: +39 348 443 19 33</li>
-            <li><strong>FAX</strong>: +39 0434 572 865</li>
-        </ul>';
+            <li><strong><span xml:lang="en" lang="en">MAIL</span></strong>: <a href="mailto:info@treni.it">info@treni.it</a></li>
+            <li><strong><span xml:lang="en" lang="en">MOBILE</span></strong>: +39 333 123 4567</li>
+            <li><strong>FAX</strong>: +39 555 1234 567</li>
+	</ul>
+	</div>';
 echo '</main>';
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 ?>
