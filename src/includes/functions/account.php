@@ -193,7 +193,7 @@ function edit_pw($user, $newPw) {
     } 
 
     if(check_email($newPw) and !email_exists($newPw)) {
-        $query = 'UPDATE utente SET password = "?" WHERE username = "?"';
+        $query = 'UPDATE utente SET password = ? WHERE username = ?';
         $stmt = mysqli_prepare($connection, $query);
         
         mysqli_stmt_bind_param($stmt, "ss", $newPw, $user);
