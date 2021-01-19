@@ -3,8 +3,14 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 use DB\DBAccess;
 use function ACCOUNT\getEmailOfAccount;
 use function ACCOUNT\getPasswordOfAccount;
+use function ACCOUNT\getCartFromAccount;
+use function ACCOUNT\edit_pw;
+use function ACCOUNT\edit_mail;
 
 session_start();
+//debug
+$_SESSION["username"] = "user";
+$_SESSION["cartID"] = getCartFromAccount($_SESSION["username"]);
 if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente
@@ -23,13 +29,40 @@ if(isset($_SESSION["username"])) {
     include "template/ap_navbar.php";
 
     echo '<main id="content">' . PHP_EOL;
+    $newMail = &$_POST["email"];
+    $newPw = &$_POST["password"];
+    
+    if(isset($_SESSION["username"]) and (isset($newMail) or isset($newPw))) {
+        if(isset($newMail)) {
+	    try {
+                $result = edit_mail($_SESSION["username"], $newMail);
+	    } catch (Exception $e) {
+	    	echo "eccezione email volata!" . $e->getMessage() . PHP_EOL;
+	    }
+            $emailDone = false;
+            if($result) {
+                $emailDone = true;
+            }
+        }
+        if(isset($newPw)) {
+	    try {
+                $result = edit_pw($_SESSION["username"], $newPw);
+	    } catch (Exception $e) {
+	    	echo "eccezione pw volata!" . $e->getMessage() . PHP_EOL;
+	    }
+            $pwDone = false;
+            if($result) {
+                $pwDone = true;
+            }
+        }
+    }
     /* Contenuto reale della pagina */
     $user = $_SESSION["username"];
     $email = getEmailOfAccount($user);
     $password =  getPasswordOfAccount($user);
     echo "<h2>Benvenuto $user!</h2>"
         . PHP_EOL .
-        '<form action="edit.php"><fieldset><legend>Email e password</legend>'
+        '<form action="info.php" method="post"><fieldset><legend>Email e password</legend>'
         . PHP_EOL .
         "<label for=\"email\">email:</label>"
         . PHP_EOL .
