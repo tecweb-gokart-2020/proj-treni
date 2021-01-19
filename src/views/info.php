@@ -22,7 +22,7 @@ if(isset($_SESSION["username"])) {
     $tag_info = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 
-    echo '<main name="content">' . PHP_EOL;
+    echo '<main id="content">' . PHP_EOL;
     /* Contenuto reale della pagina */
     $user = $_SESSION["username"];
     $email = getEmailOfAccount($user);

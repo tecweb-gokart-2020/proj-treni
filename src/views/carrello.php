@@ -24,7 +24,7 @@ include "template/header.php";
 $current_page = "carrello";
 include "template/breadcrumb.php";
 
-echo '<main name="content">' . PHP_EOL;
+echo '<main id="content">' . PHP_EOL;
 $prodotti = getProdottiFromCarrello($_SESSION["cartID"]);
 if($prodotti) {
     echo "<h2>Il tuo carrello:</h2>" . PHP_EOL;

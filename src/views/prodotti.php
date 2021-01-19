@@ -13,7 +13,7 @@ include "template/header.php";
 $current_page = "prodotti";
 include "template/breadcrumb.php";
 
-echo '<main name="content">' . PHP_EOL;
+echo '<main id="content">' . PHP_EOL;
 echo('<div id="categorie">
         <form>
             <ul>

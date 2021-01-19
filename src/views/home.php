@@ -22,7 +22,7 @@ $pagedescription = "Pagina Home di trenogheno.it";
 $tag_home = "";
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 
-echo '<main name="content">' . PHP_EOL;
+echo '<main id="content">' . PHP_EOL;
 echo '<div id="chiSiamo">
         <h2>CHI SIAMO</h2>
         <p><strong>TrenoGheno</strong> è una piccola azienda nata nel 1999 specializzata 
