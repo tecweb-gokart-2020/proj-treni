@@ -63,15 +63,17 @@
     header ul li {
         position: relative;
         display: inline;
-        margin-left: 7em;
-        margin-right: 7em;
+        margin-left: 5em;
+        margin-right: 5em;
     }
     /*------------------CONTENUTO--------------------*/
     /*-------------------FOOTER------------------*/
     
     footer {
         position: absolute;
-        font-size: 0.5em;
+	width: 100%;
+	height: 9em;
+        font-size: 0.8em;
         background-color: green;
         /*Colore solo per test, NON DEFINITIVO*/
         text-align: center;
@@ -79,8 +81,40 @@
     
     footer #indirizzi {
         float: left;
+	margin-left: 1em;
     }
     
     footer #contatti {
         float: right;
+	margin-right: 1em;
+    }
+    footer #contatti ul li{
+    	position: relative;
+	display: inline-block;
+	padding-left: 1em;
+	padding-right: 1em;
+    }
+    footer #contatti ul li:first-child{
+        padding-left: 0em;
+    }
+    footer #indirizzi p{
+	position: relative;
+	left: -2em;
+    }
+    footer #indirizzi ul li{
+        position: relative;
+	left: -4em;
+        display: inline-block;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+    footer #indirizzi ul li:first-child{
+        padding-right: 0em;
+    }
+
+    footer #quellaRigaSotto {
+	position: absolute;
+	top: 6em;
+	left: 0em;
+	width: 100%;
     }
