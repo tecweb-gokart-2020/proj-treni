@@ -15,8 +15,8 @@ echo '<!DOCTYPE html>
 <html>
     <head>
 	<title>'. $pagetitle . '</title>
-	<metaname="description" content="'.$pagedescription.'"/>
-            <linkrel="stylesheet" type="text/css" href="styles/resource.css"/>
+	<meta name="description" content="'.$pagedescription.'"/>
+        <link rel="stylesheet" type="text/css" href="styles/resource.css"/>
     </head>
     <body>
         <nav id="aiuti">
@@ -36,8 +36,7 @@ echo '<!DOCTYPE html>
 			$listaProdotti = searchProdotti($searchString);
 		}		
 	    echo '</form>';	    
-echo '</form> 
-	    <nav>
+echo '<nav>
 		<ul>
 		    <li>
 			' . $tag_novita . 'Novità'. $tag_novita_close .'
