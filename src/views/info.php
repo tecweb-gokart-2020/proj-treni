@@ -29,7 +29,7 @@ if(isset($_SESSION["username"])) {
     $password =  getPasswordOfAccount($user);
     echo "<h2>Benvenuto $user!</h2>"
         . PHP_EOL .
-        "<form action=\"\"><fieldset><legend>Email e password</legend>"
+        '<form action="edit.php"><fieldset><legend>Email e password</legend>'
         . PHP_EOL .
         "<label for=\"email\">email:</label>"
         . PHP_EOL .
@@ -38,6 +38,8 @@ if(isset($_SESSION["username"])) {
         "<label for=\"password\">password:</label>"
         . PHP_EOL .
         "<input type=\"password\" name=\"password\" id=\"password\" value=\"$password\" maxlength=\"50\"/>"
+        . PHP_EOL .
+        '<input id="filtroSubmit" type="submit" name="submit" value="Modifica email" />'
         . PHP_EOL .
         "</fieldset></form>"
         . PHP_EOL;

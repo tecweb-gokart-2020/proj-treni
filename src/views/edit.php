@@ -5,8 +5,8 @@ use function ACCOUNT\edit_mail;
 use function ACCOUNT\edit_pw;
 
 session_start();
-$newMail = &$_POST["newMail"];
-$newPw = &$_POST["newPassword"];
+$newMail = &$_POST["email"];
+$newPw = &$_POST["password"];
 
 if(isset($_SESSION["username"]) and (isset($newMail) or isset($newPw))) {
     if(isset($newMail)) {
