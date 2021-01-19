@@ -34,22 +34,22 @@ if(isset($_SESSION["username"])) {
     
     if(isset($_SESSION["username"]) and (isset($newMail) or isset($newPw))) {
         if(isset($newMail)) {
-	    try {
+            try {
                 $result = edit_mail($_SESSION["username"], $newMail);
-	    } catch (Exception $e) {
-	    	echo "eccezione email volata!" . $e->getMessage() . PHP_EOL;
-	    }
+            } catch (Exception $e) {
+                echo "eccezione email volata!" . $e->getMessage() . PHP_EOL;
+            }
             $emailDone = false;
             if($result) {
                 $emailDone = true;
             }
         }
         if(isset($newPw)) {
-	    try {
+            try {
                 $result = edit_pw($_SESSION["username"], $newPw);
-	    } catch (Exception $e) {
-	    	echo "eccezione pw volata!" . $e->getMessage() . PHP_EOL;
-	    }
+            } catch (Exception $e) {
+                echo "eccezione pw volata!" . $e->getMessage() . PHP_EOL;
+            }
             $pwDone = false;
             if($result) {
                 $pwDone = true;

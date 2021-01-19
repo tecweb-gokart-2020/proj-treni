@@ -168,17 +168,16 @@ function edit_mail($user, $newMail) {
     } 
 
     if(check_email($newMail) and !email_exists($newMail)) {
-        $query = 'UPDATE utente SET email = ? WHERE username = ?';
+        $query = 'UPDATE utente SET email=? WHERE username=?';
         $stmt = mysqli_prepare($connection, $query);
         
         mysqli_stmt_bind_param($stmt, "ss", $newMail, $user);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $result);
-        mysqli_stmt_fetch($stmt);
+        $rows = mysqli_stmt_affected_rows($stmt);
         mysqli_stmt_close($stmt);
         
         $db->closeDbConnection();
-        return $result;
+        return $rows == 1;
     }
     return false;
 }
@@ -198,12 +197,11 @@ function edit_pw($user, $newPw) {
         
         mysqli_stmt_bind_param($stmt, "ss", $newPw, $user);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $result);
-        mysqli_stmt_fetch($stmt);
+        $rows = mysqli_stmt_affected_rows($stmt);
         mysqli_stmt_close($stmt);
         
         $db->closeDbConnection();
-        return $result;
+        return $rows == 1;
     }
     return false;
 }
