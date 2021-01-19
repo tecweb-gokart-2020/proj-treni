@@ -19,6 +19,11 @@ echo '<!DOCTYPE html>
             <linkrel="stylesheet" type="text/css" href="styles/resource.css"/>
     </head>
     <body>
+        <nav id="aiuti">
+            <ul>
+                <li><a href="#content">Vai al contenuto della pagina</a>
+            </ul>
+        </nav>
 	<header>
 	    <!-- Logo -->
 	    '. $tag_home .'<h1>TrenoGheno</h1>'. $tag_home_close .'

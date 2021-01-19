@@ -9,8 +9,8 @@ include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 $current_page = "contatti";
 include "template/breadcrumb.php";
 
-echo '<div id="contenutoInfo">
-        <p><strong>TrenoGheno</strong> è una piccola azienda nata nel 1999 tra Pordenone e Portogruaro (VE), specializzata nel settore del modellismo ferroviario.</p>
+echo '<main name="content">' . PHP_EOL;
+echo '<p><strong>TrenoGheno</strong> è una piccola azienda nata nel 1999 tra Pordenone e Portogruaro (VE), specializzata nel settore del modellismo ferroviario.</p>
         <p>Anche se giovane, vanta del personale con una esperienza e conoscenza del settore che le permette di soddisfare quasi tutti i desideri degli appassionati fermodellisti. </p>
         <p>Può offrire:</p>
         <ul>
@@ -27,7 +27,7 @@ echo '<div id="contenutoInfo">
             <li><strong><span xml:lang="en">MAIL</span></strong>: <a href="mailto:info@trenogheno.it">info@trenogheno.it</a></li>
             <li><strong><span xml:lang="en">MOBILE</span></strong>: +39 348 443 19 33</li>
             <li><strong>FAX</strong>: +39 0434 572 865</li>
-        </ul>
-    </div>';
+        </ul>';
+echo '</main>';
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 ?>
