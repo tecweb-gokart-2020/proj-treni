@@ -37,7 +37,7 @@ echo '<!DOCTYPE html>
 		}		
 echo '</form>';	    
 echo '<nav>
-		<ul>
+		<ul id="pagine">
 		    <li>
 			' . $tag_novita . 'Novità'. $tag_novita_close .'
 		    </li>
@@ -63,8 +63,10 @@ else {
 }
 
 echo '</li>
-		    <li>
-			<!-- Test -->' . PHP_EOL;
+	</ul>
+	<ul id="icons">
+	    <li>
+		<!-- Test -->' . PHP_EOL;
 
 if(isset($_SESSION["cartID"])) {
     // mostra icona cart con count degli item dentro
