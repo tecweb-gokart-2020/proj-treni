@@ -6,8 +6,6 @@ use function ACCOUNT\getPasswordOfAccount;
 use function ACCOUNT\getCartFromAccount;
 use function ACCOUNT\edit_pw;
 use function ACCOUNT\edit_mail;
-use function UTILITIES\email_exists;
-use function UTILITIES\check_email;
 
 session_start();
 //debug
@@ -36,28 +34,14 @@ if(isset($_SESSION["username"])) {
     
     if(isset($_SESSION["username"]) and (isset($newMail) or isset($newPw))) {
         if(isset($newMail)) {
-            $result = "";
-            $check = email_exists($newMail) ? "Si" : "No";
-            echo "email esiste: " . $check . PHP_EOL;
-            $check = check_email($newMail) ? "Si" : "No";
-            echo "email valida: " . $check . PHP_EOL;
-            try {
-                $result = edit_mail($_SESSION["username"], $newMail);
-            } catch (Exception $e) {
-                echo "eccezione email volata!" . $e->getMessage() . PHP_EOL;
-            }
+            $result = edit_mail($_SESSION["username"], $newMail);
             $emailDone = false;
             if($result) {
                 $emailDone = true;
             }
         }
         if(isset($newPw)) {
-            $result = "";
-            try {
-                $result = edit_pw($_SESSION["username"], $newPw);
-            } catch (Exception $e) {
-                echo "eccezione pw volata!" . $e->getMessage() . PHP_EOL;
-            }
+            $result = edit_pw($_SESSION["username"], $newPw);
             $pwDone = false;
             if($result) {
                 $pwDone = true;
