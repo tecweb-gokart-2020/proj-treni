@@ -16,7 +16,7 @@ if(!isset($_SESSION["cartID"])) {
     }
 }
 // cartID correttamente impostato
-$pagedescription = "Contenuto del carrello attualmente attivo";
+$pagedescription = "Contenuto del carrello";
 $pagetitle = "carrello";
 $tag_cart = "";
 include "template/header.php";
@@ -24,6 +24,7 @@ include "template/header.php";
 $current_page = "carrello";
 include "template/breadcrumb.php";
 
+echo '<main name="content">' . PHP_EOL;
 $prodotti = getProdottiFromCarrello($_SESSION["cartID"]);
 if($prodotti) {
     echo "<h2>Il tuo carrello:</h2>" . PHP_EOL;
@@ -37,5 +38,6 @@ else {
     echo "<h2>Il tuo carrello è vuoto al momento.</h2>" . PHP_EOL;
 }
 
+echo '</main>';
 include "template/footer.php";
 ?>
