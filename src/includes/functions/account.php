@@ -168,7 +168,7 @@ function edit_mail($user, $newMail) {
     } 
 
     if(check_email($newMail) and !email_exists($newMail)) {
-        $query = 'UPDATE utente SET email = "?" WHERE username = "?"';
+        $query = 'UPDATE utente SET email = ? WHERE username = ?';
         $stmt = mysqli_prepare($connection, $query);
         
         mysqli_stmt_bind_param($stmt, "ss", $newMail, $user);
