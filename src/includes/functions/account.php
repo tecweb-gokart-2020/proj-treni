@@ -82,6 +82,10 @@ function getCartFromAccount($username) {
  * invece un'eccezione che indica cosa è andato storto altrimenti */
 
 function register($email, $username, $password) {
+    session_start();
+    if(isset($_SESSION["username"])) {
+        return false;
+    }
     $valid_email = check_email($email);
     $valid_username = preg_match("/\w{3,}/", $username);
 
@@ -113,7 +117,7 @@ function register($email, $username, $password) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     } 
 
-    $query = "INSERT INTO utente(email, username, password, cartID) VALUES ?, ?, ?, ?";
+    $query = 'INSERT INTO utente(email, username, password, cartID) VALUES ("?", "?", "?", ?)';
     $stmt = mysqli_prepare($connection, $query);
 
     mysqli_stmt_bind_param($stmt, "ssssi", $email, $username, $password, $cartID);
@@ -141,7 +145,7 @@ function login($UUID, $password) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     } 
 
-    $query = "SELECT username FROM utente WHERE " . $id . " = ? AND password = ?";
+    $query = 'SELECT username FROM utente WHERE ' . $id . ' = "?" AND password = "?"';
     $stmt = mysqli_prepare($connection, $query);
 
     mysqli_stmt_bind_param($stmt, "ss", $UUID, $password);
@@ -152,5 +156,53 @@ function login($UUID, $password) {
     
     $db->closeDbConnection();
     return $result;
+}
+
+/* newMail è una stringa e user è l'id di un utente */
+function edit_mail($user, $newMail) {
+    $db = new DBAccess();
+    $connection = $db->openDbConnection();
+    // non molto elegante
+    if ($connection->connect_error) {
+        throw new Exception("Connection failed: " . $connection->connect_error);
+    } 
+
+    if(check_email($newMail) and !email_exists($newMail)) {
+        $query = 'UPDATE utente SET email=? WHERE username=?';
+        $stmt = mysqli_prepare($connection, $query);
+        
+        mysqli_stmt_bind_param($stmt, "ss", $newMail, $user);
+        mysqli_stmt_execute($stmt);
+        $rows = mysqli_stmt_affected_rows($stmt);
+        mysqli_stmt_close($stmt);
+        
+        $db->closeDbConnection();
+        return $rows == 1;
+    }
+    return false;
+}
+
+/* newPw è una stringa e user è l'id di un utente */
+function edit_pw($user, $newPw) {
+    $db = new DBAccess();
+    $connection = $db->openDbConnection();
+    // non molto elegante
+    if ($connection->connect_error) {
+        throw new Exception("Connection failed: " . $connection->connect_error);
+    } 
+
+    if(check_email($newPw) and !email_exists($newPw)) {
+        $query = 'UPDATE utente SET password = ? WHERE username = ?';
+        $stmt = mysqli_prepare($connection, $query);
+        
+        mysqli_stmt_bind_param($stmt, "ss", $newPw, $user);
+        mysqli_stmt_execute($stmt);
+        $rows = mysqli_stmt_affected_rows($stmt);
+        mysqli_stmt_close($stmt);
+        
+        $db->closeDbConnection();
+        return $rows == 1;
+    }
+    return false;
 }
 ?>

@@ -1,39 +1,20 @@
-<!--<!DOCTYPE html>
-<html lang="it">
+<?php
+require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
+use function PRODOTTO\queryProdotti;
+use function PRODOTTO\getMarche;
+use function PRODOTTO\stampaProdotti;
+use function PRODOTTO\searchProdotti;
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Trenogheno - Prodotti</title>
-    <meta name="description" content="Pagina Prodotti di trenogheno.it" />
-    <meta name="keywords" content="trenogheno, trenini, modellismo, prodotti, locomotive, carri" />
-    <meta name="title" content="Prodotti" />
-    <meta name="author" content="Gruppo progetto TecWeb" />
-    <meta name="language" content="italian it" />
-
-    <link rel="stylesheet" type="text/css" href="styleGenerale.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="styleMobile.css" media="handheld, screen and (max-device-width:640px), only screen and (max-width:640px)" />
-    <link rel="stylesheet" type="text/css" href="stylePrint.css" media="print" />
-</head>
-
-<body>-->
-    <?php
-        require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
-        $pagetitle = "Trenogheno - Prodotti";
-        $pagedescription = "Pagina Prodotti di trenogheno.it";
-        $area_personale_link = "href=\"info.php\"";
-        $notizie_link = "href=\"notizie.php\"";
-        $home_link = "href=\"../index.php\"";
-        $servizi_link = "href=\"servizi.php\"";
-        $contatti_link = "href=\"contatti.php\"";
-        use function PRODOTTO\queryProdotti;
-        use function PRODOTTO\getMarche;
-        use function PRODOTTO\stampaProdotti;
-        include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
+$pagetitle = "Trenogheno - Prodotti";
+$pagedescription = "Pagina Prodotti di trenogheno.it";
+$tag_prodotti = '<span class="current_link">';
+include "template/header.php";
     
-    echo('<div id="percorso">
-        <p>Ti trovi in: <a id="linkHome"'.$home_link.' xml:lang="en">Home</a> >> Prodotti</p>
-    </div>
-    <div id="categorie">
+$current_page = "prodotti";
+include "template/breadcrumb.php";
+
+echo '<main id="content">' . PHP_EOL;
+echo('<div id="categorie">
         <form>
             <ul>
                 <li><input type="submit" name="categoriaSelezionata" value="Locomotive"/></li>
@@ -45,26 +26,32 @@
         </form>
     </div>');
 
-    {
-        switch($_GET['categoriaSelezionata']){
-            case "Locomotive":
-                $listaProdotti=queryProdotti("locomotiva");
-                break;
-            case "Carrozze":
-                $listaProdotti=queryProdotti("carrozza");
-                break;
-            case "Carri":
-                $listaProdotti=queryProdotti("carro");
-                break;
-            case "Binari":
-                $listaProdotti=queryProdotti("binario");
-                break;
-            case "Accessori":
-                $listaProdotti=queryProdotti("accessorio");
-                break;
-        }
+if(isset($_GET['cat'])){
+    switch($_GET['cat']){
+        case "Locomotive":
+            $listaProdotti=queryProdotti("locomotiva");
+            break;
+        case "Carrozze":
+            $listaProdotti=queryProdotti("carrozza");
+            break;
+        case "Carri":
+            $listaProdotti=queryProdotti("carro");
+            break;
+        case "Binari":
+            $listaProdotti=queryProdotti("binario");
+            break;
+        case "Accessori":
+            $listaProdotti=queryProdotti("accessorio");
+            break;
     }
-    echo '<div id="filtroProdotti">
+}
+
+if(isset($_GET['search'])){
+    $searchString = $_GET['searchQuery'];
+    $listaProdotti = searchProdotti($searchString);
+}
+
+echo '<div id="filtroProdotti">
         <form>
             <label for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
@@ -78,19 +65,19 @@
             <label for="filtroMarche">Marca</label>
             <select name="marche" id="filtroMarche">
                 <option>Nessuna selezione</option>';
-                    $marche = getMarche();
-                    for($i = 0;$i < count($marche);$i++){
-                        echo("<option>".$marche[$i]."</option>");
-                    }
-            echo('</select>
+$marche = getMarche();
+for($i = 0;$i < count($marche);$i++){
+    echo("<option>".$marche[$i]."</option>");
+}
+echo('</select>
             <label for="filtroDisponibile">Disponibile</label>
             <input name="disponibile" id="filtroDisponibile" type="checkbox" value="disponibile" />
             <label for="filtroInOfferta">In Offerta</label>
             <input name="offerta" id="filtroInOfferta" type="checkbox" value="offerta" />
             <label for="filtroPrezzoMin">Prezzo minimo</label>
-            <input name="prezzoMin" id="filtroPrezzoMin" type="number" value="prezzoMin" min="0" step="5" />
+            <input name="prezzoMin" id="filtroPrezzoMin" type="number" value="0" min="0" step="5" />
             <label for="filtroPrezzoMax">Prezzo massimo</label>
-            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="prezzoMax" min="0" step="5" />
+            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="10000" min="0" step="5" />
             <label for="filrtoOrdinamento">Ordinamento</label>
             <select name="ordinamento" id="filrtoOrdinamento">
                 <option>Nessuna selezione</option>
@@ -100,31 +87,28 @@
             </select>
             <input id="filtroSubmit" type="submit" name="submit" value="Applica filtri" />
         </form>');
-        if(isset($_GET['submit'])){
-            $categoria = $_GET['categorie'];
-            $marca = $_GET['marche'];
-            $disponibile = isset($_GET['disponibile']) ? $_GET['disponibile'] : "";
-            $offerta = isset($_GET['offerta']) ? $_GET['offerta'] : "";
-            $prezzoMin = isset($_GET['prezzoMin']) ? $_GET['prezzoMin'] : "";
-            $prezzoMax = isset($_GET['prezzoMax']) ? $_GET['prezzoMax'] : "";
-            $ordine = $_GET['ordinamento'];
-            if($prezzoMax != "" && $prezzoMin != ""){
-                if($prezzoMax < $prezzoMin) {echo "Il prezzo massimo è stato impostato al prezzo minimo"; 
-                    $prezzoMax=$prezzoMin;
-                }
-            }
-            $listaProdotti = queryProdotti($categoria, $marca, $disponibile, $offerta, $prezzoMin, $prezzoMax, $ordine);
+if(isset($_GET['submit'])){
+    $categoria = $_GET['categorie'];
+    $marca = $_GET['marche'];
+    $disponibile = isset($_GET['disponibile']) ? $_GET['disponibile'] : "";
+    $offerta = isset($_GET['offerta']) ? $_GET['offerta'] : "";
+    $prezzoMin = isset($_GET['prezzoMin']) ? $_GET['prezzoMin'] : "";
+    $prezzoMax = isset($_GET['prezzoMax']) ? $_GET['prezzoMax'] : "";
+    $ordine = $_GET['ordinamento'];
+    if($prezzoMax != "" && $prezzoMin != ""){
+        if($prezzoMax < $prezzoMin) {echo "Il prezzo massimo è stato impostato al prezzo minimo"; 
+            $prezzoMax=$prezzoMin;
         }
-    echo ('</div>
-    <div id="contenutoPagina">
-        <form action="paginaSingoloProdotto.php">
-            <ul class="cards">');                            
-                stampaProdotti($listaProdotti);
-            echo('</ul>
-        </form>
-    </div>');
-    include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
-    ?>
-<!--</body>
+    }
+    $listaProdotti = queryProdotti($categoria, $marca, $disponibile, $offerta, $prezzoMin, $prezzoMax, $ordine);
+}
 
-</html>-->
+echo ('</div>
+    <div id="contenutoPagina">
+        <ul class="cards">');                            
+stampaProdotti($listaProdotti);
+echo('</ul>
+    </div>');
+echo '</main>';
+include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
+?>

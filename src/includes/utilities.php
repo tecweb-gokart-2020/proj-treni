@@ -17,7 +17,7 @@ function isValidID($id){
  * una regexp un po'più stringente */
 function check_email($email) {
     if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return preg_match("/^(\w{3,})@(\w{3,}).(\d{2,})*$/", $email);
+        return preg_match("/^(\w{3,})@(\w{3,}).(\w{2,})*$/", $email);
     }
     return false;
 }
@@ -36,7 +36,7 @@ function email_exists($email) {
     mysqli_stmt_close($stmt);
 
     $db->closeDbConnection();
-    return (mysqli_num_rows($result) == 0);
+    return (mysqli_num_rows($result) > 0);
 }
 
 /* true se esiste, false se non esiste */
@@ -54,6 +54,23 @@ function username_exists($username) {
     mysqli_stmt_close($stmt);
 
     $db->closeDbConnection();
-    return (mysqli_num_rows($result) == 0);
+    return (mysqli_num_rows($result) > 0);
 }
+
+/* Sta roba prende il tag definito da quello sopra e imposta quello di
+chiusura */
+function init_tag(&$tag, $default, &$tag_close) {
+    if(!isset($tag)) {
+        $tag = $default;
+    }
+    if($tag != ""){
+        preg_match('/^<\w{1,}/', $tag, $tmp);
+        preg_match('/\w{1,}/', $tmp[0], $tmp);
+        $tag_close = "</" . $tmp[0] . ">";
+    }
+    else {
+        $tag_close = "";
+    }
+}
+
 ?>
