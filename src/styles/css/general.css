@@ -21,7 +21,7 @@
         height: 6.7em;
         background-color: orange;
         /*Colore solo per test, NON DEFINITIVO*/
-	z-index: 1;
+        z-index: 1;
     }
     
     header h1 {
@@ -31,7 +31,7 @@
         height: 1em;
         right: 41%;
         float: right;
-	top: -0.3em;
+        top: -0.3em;
     }
     
     header a {
@@ -77,7 +77,7 @@
         width: 50%;
         height: 3em;
         vertical-align: middle;
-	top: 0.1em;
+        top: 0.1em;
     }
     
     header ul#pagine li {
@@ -130,111 +130,123 @@
         left: 0.35em;
     }
     /*------------------CONTENUTO--------------------*/
-    main#content{
-    	padding-left: 1%;
-	padding-right: 1%;
-	z-index: 0;
-    }
-    div#chiSiamo{
-	float: left;
-	position: relative;
-	width: 25%;
-	margin: 0;
-	text-align: center;
-    }
-    div#servizi{
-	display: block;
-	position: relative;
-	width: 25%;
-	margin: 0;
-	left: 50%;
-	overflow: auto;
-    }
-    div#servizi h2{
-	text-align: center;    
-    }
-    div#news, div#prodottiInHome{
-    	position: relative;
-	top: 2em;
-	text-align: center;
-	height: auto;
-    }
-
-    div#percorso{	
-	position: relative;
-	top: -1em;
-	background-color: yellow;
-	height: 2.5em;
-    }
-    div#percorso p{
-	position: relative;
-	top: 0.7em;
-	padding-left: 1%;	
-    }
-
-    div#categorie ul{
-	position: relative;
-	top: -1em;
-    	text-align: center;
-    }
-    div#categorie ul li{
-	display: inline;
-    }
-    div#categorie ul li input[type=submit]{
-	width: 25%;
-	height: 20%;
-	padding: 0.5em;
-	font-size: 2.5em;
-	background-color: green;
-	color: white;
-	margin: 1%;
-	border-radius: 10px;	
-    }
-    main div#filtroProdotti{
-	position: -webkit-sticky;
-	position: sticky;
-	background-color: green;
-	color: white;
-	padding: 0.7em 0em;
-	top: 6.7em;
-	text-align: center;
-	margin-left: -1%;
-	width: 102%;
-    }
-    main div#filtroProdotti input[type=submit]{
-	background-color: orange;
-	color: white;
-	padding: 0.5em;
-	font-size: 1.2em;		
-	margin: 0;
-	border-radius: 7px;
-    }
-    main div#filtroProdotti input[type=number]{
-	width: 3em;	
-    }
-    main div#filtroProdotti form input, main div#filtroProdotti form select{
-	margin-right: 1.5em;
-    }
-
-    main .cards{
-	list-style: none;
-	display: flex;
-	flex-wrap: wrap;	
-    }
-
-    main .cards > li{
-	border: 1px solid orange;
-	margin: 0 1em 2em 1em;
-	padding: 1em;
-	border-radius: 7px;
-	flex: 1 1 20%;
+    
+    main#content {
+        padding-left: 1%;
+        padding-right: 1%;
+        z-index: 0;
     }
     
-    main .cards h2{
-	text-align: center;
+    div#chiSiamo {
+        float: left;
+        position: relative;
+        width: 25%;
+        margin: 0;
+        text-align: center;
     }
-
-
+    
+    div#servizi {
+        display: block;
+        position: relative;
+        width: 25%;
+        margin: 0;
+        left: 50%;
+        overflow: auto;
+    }
+    
+    div#servizi h2 {
+        text-align: center;
+    }
+    
+    div#news,
+    div#prodottiInHome {
+        position: relative;
+        top: 2em;
+        text-align: center;
+        height: auto;
+    }
+    
+    div#percorso {
+        position: relative;
+        top: -1em;
+        background-color: yellow;
+        height: 2.5em;
+    }
+    
+    div#percorso p {
+        position: relative;
+        top: 0.7em;
+        padding-left: 1%;
+    }
+    
+    div#categorie ul {
+        position: relative;
+        top: -1em;
+        text-align: center;
+    }
+    
+    div#categorie ul li {
+        display: inline;
+    }
+    
+    div#categorie ul li input[type=submit] {
+        width: 25%;
+        height: 20%;
+        padding: 0.5em;
+        font-size: 2.5em;
+        background-color: green;
+        color: white;
+        margin: 1%;
+        border-radius: 10px;
+    }
+    
+    main div#filtroProdotti {
+        position: -webkit-sticky;
+        position: sticky;
+        background-color: green;
+        color: white;
+        padding: 0.7em 0em;
+        top: 6.7em;
+        text-align: center;
+        margin-left: -1%;
+        width: 102%;
+    }
+    
+    main div#filtroProdotti input[type=submit] {
+        background-color: orange;
+        color: white;
+        padding: 0.5em;
+        font-size: 1.2em;
+        margin: 0;
+        border-radius: 7px;
+    }
+    
+    main div#filtroProdotti input[type=number] {
+        width: 3em;
+    }
+    
+    main div#filtroProdotti form input,
+    main div#filtroProdotti form select {
+        margin-right: 1.5em;
+    }
+    
+    main .cards {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    main .cards>li {
+        border: 1px solid orange;
+        margin: 0 1em 2em 1em;
+        padding: 1em;
+        border-radius: 7px;
+        flex: 1 1 20%;
+    }
+    
+    main .cards h2 {
+        text-align: center;
+    }
     /*-------------------FOOTER------------------*/
     
     footer {
