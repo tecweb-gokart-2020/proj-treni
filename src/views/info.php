@@ -52,25 +52,21 @@ if(isset($_SESSION["username"])) {
     $user = $_SESSION["username"];
     $email = getEmailOfAccount($user);
     $password =  getPasswordOfAccount($user);
-    $check = strpos($_POST["edit"], "email");
-    $editableMail = $check === 0 or $check > 0 ? '' : 'disabled="disabled"';
-    $check = strpos($_POST["edit"], "password");
-    $editablePw = $check === 0 or $check > 0 ? '' : 'disabled="disabled"';
-    echo "<h2>Benvenuto $user!</h2>"
+    echo "<h1>Benvenuto $user!</h2>"
         . PHP_EOL .
-        '<form action="info.php" method="post"><fieldset><legend>Email e password</legend>'
+        '<form action="info.php" method="post"><fieldset><legend>Email</legend>'
         . PHP_EOL .
         '<label for="email">email:</label>'
         . PHP_EOL .
-        '<input name="email" id="email" value="' . $email . '" maxlength="50" ' . $editableMail . '/>'
+	'<input name="email" id="email" value="' . $email . '" maxlength="50" disabled="disabled"/>'
+	. PHP_EOL .
+	'<button type="submit" name="edit" id="edit">modifica email</button></fieldset>'
         . PHP_EOL .
-        '<label for="password">password:</label>'
+        '<fieldset><legend>Password</legend><label for="password">password:</label>'
         . PHP_EOL .
-        '<input type="password" name="password" id="password" value="' . $password . '" maxlength="50" '. $editablePw . '/>'
+        '<input type="password" name="password" id="password" value="' . $password . '" maxlength="50" disabled="disabled"/>'
         . PHP_EOL .
-        '<button type="submit" name="edit" id="edit" value="email">modifica email</button>'
-        . PHP_EOL .
-        '<button type="submit" name="edit" id="edit" value="password">modifica password</button>'
+        '<button type="submit" name="edit" id="edit">modifica password</button>'
         . PHP_EOL .
         '</fieldset></form>'
         . PHP_EOL;
