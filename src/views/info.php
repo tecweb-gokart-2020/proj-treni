@@ -52,8 +52,10 @@ if(isset($_SESSION["username"])) {
     $user = $_SESSION["username"];
     $email = getEmailOfAccount($user);
     $password =  getPasswordOfAccount($user);
-    $editableMail = strpos($_POST["edit"], 'email') ? '' : 'disabled="disabled"';
-    $editablePw = strpos($_POST["edit"], 'password') ? '' : 'disabled="disabled"';
+    $check = strpos($_POST["edit"], "email");
+    $editableMail = $check === 0 or $check > 0 ? '' : 'disabled="disabled"';
+    $check = strpos($_POST["edit"], "password");
+    $editablePw = $check === 0 or $check > 0 ? '' : 'disabled="disabled"';
     echo "<h2>Benvenuto $user!</h2>"
         . PHP_EOL .
         '<form action="info.php" method="post"><fieldset><legend>Email e password</legend>'
