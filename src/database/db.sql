@@ -94,7 +94,6 @@ CREATE TABLE prodotto_ordinato(
        orderID int,
        shippingID int,
        quantita int NOT NULL,
-       stato varchar(50) DEFAULT 'Processing',
        prezzo_netto int,
 
        PRIMARY KEY(codArticolo, orderID),
