@@ -26,7 +26,7 @@ echo '<!DOCTYPE html>
         </nav>
 	<header>
 	    <!-- Logo -->
-	    '. $tag_home .'<h1>TrenoGheno</h1>'. $tag_home_close .'
+	    <h1>'. $tag_home .'TrenoGheno'. $tag_home_close .'</h1>
 	    <!-- Ricerca -->
 	    <form id="ricercaHeader" action="prodotti.php" method="get">
 		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
@@ -47,9 +47,6 @@ echo '<nav>
 		    <li>
 			' . $tag_contatti . 'Contatti'. $tag_contatti_close .'
 		    </li>
-		    <li>
-			<!-- Test -->
-			</ul>
 			<ul id="icons">
 				<li>' . PHP_EOL;
 if(isset($_SESSION["username"])) {
