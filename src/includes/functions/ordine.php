@@ -54,10 +54,10 @@ function getProdottiFromOrder($order_id){
     if(isValidID($order_id)){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
-        $query = "SELECT codArticolo, shippingID, quantita, stato, prezzo_netto FROM prodotto_ordinato WHERE orderID = \"$order_id\"";
+        $query = 'SELECT codArticolo, shippingID, quantita, stato, prezzo_netto FROM prodotto_ordinato WHERE orderID = "' . $order_id . '"';
         $queryResult = mysqli_query($connection, $query);
         $listaProdotti = array();
-        if(mysqli_num_rows($queryResult)!=0){
+        if($queryResult){
             while($riga = mysqli_fetch_assoc($queryResult)){
                 $singoloProdotto = array(
                     "productID" => $riga["codArticolo"],

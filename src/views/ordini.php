@@ -4,7 +4,6 @@ use function ACCOUNT\getOrdersFromAccount;
 use function ORDINE\getProdottiFromOrder;
 use function ORDINE\getTotalFromOrder;
 use function ORDINE\getDateFromOrder;
-use function ACCOUNT\getAddressesFromAccount;
 use function INDIRIZZO\getInfoFromAddress;
 use function SPEDIZIONE\getAddressFromShipping;
 
@@ -22,6 +21,7 @@ function printAddress($addressID) {
         echo '</ul>' . PHP_EOL;
     }
     else {
+	echo "addressID = " . var_dump($addressID) . PHP_EOL;
         echo "Indirizzo non valido, qualcosa è andato storto...";
     }
 }
@@ -69,6 +69,8 @@ function printOrder($orderID) {
 }
 
 session_start();
+$_SESSION["username"] = "user";
+$_SESSION["cartID"] = 2;
 if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente
