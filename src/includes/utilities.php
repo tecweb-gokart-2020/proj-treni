@@ -56,4 +56,12 @@ function username_exists($username) {
     $db->closeDbConnection();
     return (mysqli_num_rows($result) == 0);
 }
+
+//
+function cleanUp($input){
+    $input = trim($input);
+    $input = stripslashes($input);
+    $input = strip_tags($input);
+    return $input;
+}
 ?>
