@@ -73,7 +73,7 @@ CREATE TABLE indirizzo(
        stato varchar(50),
        provincia varchar(50),
        cap varchar(5),
-       telefono varchar(15)
+       telefono varchar(15),
 
        FOREIGN KEY (username) REFERENCES utente(username)
 )Engine=InnoDB;

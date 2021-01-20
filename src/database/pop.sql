@@ -19,14 +19,20 @@ INSERT INTO prodotto(codArticolo, descrizione, amministrazione, scala, prezzo, t
        (16515, 'Scala N FS set carrozze  Tipo X livrea grigio/rosso fegato, 2a cl.+2a classe livrea sperimentale', 'FS', 'N',115, 'carrozza', 'acme'),
        (50161, 'FS carrozza FS Bz 30800 grigia epoca IV, senza pittogrammi', 'FS', 'HO',61.50, 'carrozza', 'acme');
 
-INSERT INTO indirizzo(addressID, username, nome, via, numero, citta, stato, comune, cap) VALUES
-       (1, 'user', 'Marco User', 'via fasulla', '123', 'Springfield', 'USA', '', '');
+INSERT INTO indirizzo(addressID, username, nome, via, numero, citta, stato, cap) VALUES
+       (1, 'user', 'Marco User', 'via fasulla', '123', 'Springfield', 'USA', '');
 
 INSERT INTO contenuto_carrello(cartID, codArticolo, quantita) VALUES
        (2, 60052, 2);
 
 INSERT INTO ordine(orderID, username, data_ordine, total) VALUES
-       (1, 'user', CURRENT_TIMESTAMP, 190);
+	(1, 'user', CURRENT_TIMESTAMP, 190);
+
+INSERT INTO spedizione(shippingID, orderID, addressID, stato, data_prevista) VALUES
+	(1, 1, 1, 'Spedito', '2020-12-25');
 
 INSERT INTO prodotto_ordinato(codArticolo, orderID, shippingID, quantita, prezzo_netto) VALUES
-       (60052, 1, NULL, 1, 190);
+	(60052, 1, 1, 1, 190),
+	(60106, 1, 1, 1, 199),
+	(30002, 1, 1, 1, 13),
+	(16515, 1, 1, 1, 115);
