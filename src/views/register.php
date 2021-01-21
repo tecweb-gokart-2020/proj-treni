@@ -7,7 +7,7 @@ echo '<main id="contenuto">
 		<div class="container">
 			<p><h1>Crea account</h1>Inserisci i dati per registrarti su Trenogheno.it. I campi contrassegnati con * sono obbligatori.</p>
 
-			<form name="registr" action="" method="post">
+			<form name="registr" action="registerAct.php" method="post">
 				<label>Email *
 					<input type="email" name="email" id="registrEmail" maxlength="100" autocomplete="on" required />
 				</label>
