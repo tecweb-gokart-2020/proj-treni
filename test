@@ -4,13 +4,16 @@ if [ $# -eq 0 ]
   then
     echo "help: ./test [PATH (relativa o assoluta) della cartella public_html]"
 else
-    proj_dir=$(echo $(pwd)/src/views)
+    views_dir=$(echo $(pwd)/src/views)
+    css_dir=$(echo $(pwd)/src/styles/css)
     public_path=$1
     
+    rm -rf $public_path/*
     cd $public_path
-    for file in `ls $proj_dir`; do
-	ln -s $proj_dir/$file
+    for file in `ls $views_dir`; do
+	ln -s $views_dir/$file
     done
+    ln -s $css_dir css
     rm template;
     rm home_statica.html;
 fi

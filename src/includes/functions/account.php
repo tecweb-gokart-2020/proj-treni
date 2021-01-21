@@ -183,7 +183,7 @@ function edit_mail($user, $newMail) {
 }
 
 /* newPw è una stringa e user è l'id di un utente */
-function edit_pw($user, $newPw) {
+function edit_pw($user, $oldPw, $newPw, $rePw) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
     // non molto elegante
@@ -191,17 +191,25 @@ function edit_pw($user, $newPw) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     } 
 
-    if(check_email($newPw) and !email_exists($newPw)) {
-        $query = 'UPDATE utente SET password = ? WHERE username = ?';
-        $stmt = mysqli_prepare($connection, $query);
+    if($oldPw === getPasswordOfAccount($user)){
+	    if($newPw === $rePw) {
+        	$query = 'UPDATE utente SET password = ? WHERE username = ?';
+        	$stmt = mysqli_prepare($connection, $query);
         
-        mysqli_stmt_bind_param($stmt, "ss", $newPw, $user);
-        mysqli_stmt_execute($stmt);
-        $rows = mysqli_stmt_affected_rows($stmt);
-        mysqli_stmt_close($stmt);
+        	mysqli_stmt_bind_param($stmt, "ss", $newPw, $user);
+        	mysqli_stmt_execute($stmt);
+        	$rows = mysqli_stmt_affected_rows($stmt);
+        	mysqli_stmt_close($stmt);
         
-        $db->closeDbConnection();
-        return $rows == 1;
+        	$db->closeDbConnection();
+     	   	return $rows == 1;
+	    }
+	    else {
+	    	return 2;
+	    }
+    }
+    else {
+    	return 0;
     }
     return false;
 }

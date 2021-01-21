@@ -43,7 +43,7 @@ function getAddressFromShipping($shipping_id){
         $queryResult = mysqli_query($connection, $query);
         $dbAccess->closeDbConnection();
         $address_id = mysqli_fetch_row($queryResult);
-        return $address_id;
+        return $address_id[0];
     }else{
         return false;
     }
