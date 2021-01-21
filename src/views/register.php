@@ -1,6 +1,15 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
+$pagetitle = "Trenogheno - Registrazione";
+$pagedescription = "Registrazione al sito trenogheno.it";
 include 'template/header.php';
+
+session_start();
+if($_SESSION["username"]) {
+	// se ci arriva per vie traverse va reindirizzato alla home
+	header("Location: home.php");
+	exit();
+}
 
 echo '<main id="contenuto">
 	<div id="registrContainer" class="container">
@@ -24,7 +33,7 @@ echo '<main id="contenuto">
 			</form>
 
 			<div id="RegistrToLogin" class="container">
-				<p>Già registrato? <a href=""><strong>Accedi!</strong></a></p>
+				<p>Già registrato? <a href="login.php"><strong>Accedi!</strong></a></p>
 			</div>	
 		</div>
 	</div>';

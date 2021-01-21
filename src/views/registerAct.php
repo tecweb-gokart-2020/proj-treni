@@ -34,6 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" or true){
 	if(!$error){
 		$_SESSION["username"] = $newUser;
 		//mostrare conferma registrazione
+		$pagetitle = "Trenogheno - Registrazione";
+		$pagedescription = "Conferma della registrazione avvenuta su trenogheno.it";
 		include __DIR__ . DIRECTORY_SEPARATOR. "template/header.php";
 		echo '<main id="content"><div class="container" id="confermaRegistr"><p><em>Registrazione avvenuta con successo</em></p>
 		<p>' . $newUser . ', benvenuto su Trenogheno.it!</p></div>
