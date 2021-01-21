@@ -146,16 +146,20 @@ function login($UUID, $password) {
     } 
 
     $query = 'SELECT username FROM utente WHERE ' . $id . ' = ? AND password = ?';
-    $stmt = mysqli_prepare($connection, $query);
-
-    mysqli_stmt_bind_param($stmt, "ss", $UUID, $password);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $result);
-    mysqli_stmt_fetch($stmt);
-    mysqli_stmt_close($stmt);
+    $res = mysqli_query($connection, $query);
+    if($name = mysqli_fetch_row($res)){
+        $name = $name[0];
+    }
+    //$stmt = mysqli_prepare($connection, $query);
+    //
+    //mysqli_stmt_bind_param($stmt, "ss", $UUID, $password);
+    //mysqli_stmt_execute($stmt);
+    //mysqli_stmt_bind_result($stmt, $result);
+    //mysqli_stmt_fetch($stmt);
+    //mysqli_stmt_close($stmt);
     
     $db->closeDbConnection();
-    return $result;
+    return $name;
 }
 
 /* newMail è una stringa e user è l'id di un utente */
