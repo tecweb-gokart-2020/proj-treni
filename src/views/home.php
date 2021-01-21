@@ -48,5 +48,6 @@ echo '</div>
         <a href="prodotti.html">Cerca nel catalogo</a>
     </div>';
 echo '</main>';
+
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 ?>

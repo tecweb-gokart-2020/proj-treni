@@ -12,11 +12,11 @@ init_tag($tag_contatti, '<a href="contatti.php">', $tag_contatti_close);
 session_start();
 
 echo '<!DOCTYPE html>
-<html>
+<html lang="it">
     <head>
 	<title>'. $pagetitle . '</title>
 	<meta name="description" content="'.$pagedescription.'"/>
-        <link rel="stylesheet" type="text/css" href="styles/resource.css"/>
+  <link rel="stylesheet" type="text/css" href="../styles/resource.css"/>
     </head>
     <body>
         <nav id="aiuti">
@@ -26,7 +26,7 @@ echo '<!DOCTYPE html>
         </nav>
 	<header>
 	    <!-- Logo -->
-	    '. $tag_home .'<h1>TrenoGheno</h1>'. $tag_home_close .'
+	    <h1>'. $tag_home .'TrenoGheno'. $tag_home_close .'</h1>
 	    <!-- Ricerca -->
 	    <form id="ricercaHeader" action="prodotti.php" method="get">
 		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
@@ -35,9 +35,9 @@ echo '<!DOCTYPE html>
 			$searchString = $_GET['searchQuery'];
 			$listaProdotti = searchProdotti($searchString);
 		}		
-	    echo '</form>';	    
+echo '</form>';	    
 echo '<nav>
-		<ul>
+		<ul id="pagine">
 		    <li>
 			' . $tag_novita . 'Novità'. $tag_novita_close .'
 		    </li>
@@ -46,10 +46,10 @@ echo '<nav>
 		    </li>				
 		    <li>
 			' . $tag_contatti . 'Contatti'. $tag_contatti_close .'
-		    </li>
-		    <li>
-			<!-- Test -->
-			' . PHP_EOL;
+			</li>
+		</ul>
+		<ul id="icons">
+			<li>' . PHP_EOL;
 if(isset($_SESSION["username"])) {
     // mostra icona utente
     init_tag($tag_info, '<a href="info.php" id="user-icon">', $tag_info_close);
@@ -63,8 +63,8 @@ else {
 }
 
 echo '</li>
-		    <li>
-			<!-- Test -->' . PHP_EOL;
+	    <li>
+		<!-- Test -->' . PHP_EOL;
 
 if(isset($_SESSION["cartID"])) {
     // mostra icona cart con count degli item dentro

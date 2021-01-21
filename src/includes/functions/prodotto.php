@@ -60,7 +60,7 @@ function stampaProdotti($listaProdotti){
 function getMarche(){
     $dbAccess = new DBAccess();
     $connection = $dbAccess->openDbConnection();
-    $query = "SELECT nome from marche";
+    $query = "SELECT nome from marca";
     $queryResult = mysqli_query($connection, $query);
     $dbAccess->closeDbConnection();
     $marche = array();
