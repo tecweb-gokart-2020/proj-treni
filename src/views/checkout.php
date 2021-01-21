@@ -37,8 +37,10 @@ if($checkout) {
     $result = checkout($_SESSION["cartID"], $address);
     if($result) {
         header("refresh:10;url=home.php");
-        echo '<main id="checkoutConfirm"><h1>Acquisto effettuato<h1>';
+        echo '<main id="checkoutConfirm"><h1>Acquisto effettuato<h1></main>';
         exit();
+    } else {
+        echo "debug: errore";
     }
 }
 
@@ -100,4 +102,6 @@ echo '<form><fieldset><legend>Indirizzo di spedizione</legend>
 <button type="submit" name="back" id="back">Torna al carrello</button>
 </form>'
     echo '</main>' . PHP_EOL;
+
+include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 ?>
