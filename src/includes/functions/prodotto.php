@@ -9,7 +9,7 @@ function getInfoFromProdotto($cod_articolo){
     if(isValidID($cod_articolo)){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
-        $query = "SELECT descrizione, scala, amministrazione, prezzo, sconto, marca, tipo, quantita 
+        $query = "SELECT codArticolo, descrizione, scala, amministrazione, prezzo, sconto, marca, tipo, quantita 
                   FROM prodotto WHERE CodArticolo = \"$cod_articolo\"";
         //$stmt = mysqli_prepare($connection, $query);
         //$stmt->bind_param("i", $articolo);
@@ -32,7 +32,7 @@ function getInfoFromProdotto($cod_articolo){
 function stampaProdotti($listaProdotti){
     for($i=0; $i<count($listaProdotti); $i++){
         $info=getInfoFromProdotto($listaProdotti[$i]);
-        echo '<li><h2>'.$info['marca'].' '.$listaProdotti[$i].'</h2><img href="'.$info['url'].'" alt=""/>
+        echo '<li><a href="paginaSingoloProdotto.php?codArticolo='.$listaProdotti[$i].'"><h2>'.$info['marca'].' '.$listaProdotti[$i].'</h2><img href="'.$info['url'].'" alt=""/>
         <ul>
         <li>'.$info['tipo'].'</li>
         <li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';
@@ -53,7 +53,7 @@ function stampaProdotti($listaProdotti){
             echo $aux=$info['prezzo']-$info['sconto']/100*$info['prezzo'];
             echo '</li>';
         } 
-        echo '</ul></li>';
+        echo '</ul></a></li>';
     }
 }
 
