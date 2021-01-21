@@ -40,22 +40,18 @@ function getInfoFromAddress($address_id){
 function address_exists($address) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
-    $query = 'SELECT addresID FROM indirizzo WHERE nome=?, cognome=?, via=?, civico=?, citta=?, provincia=?, cap=?, stato=?, telefono=?';
-    if(myqli_stmt_prepare($stmt, $query)){
-        mysqli_stmt_bind_param($stmt, 'sssssssss', 
-                               $address["nome"],
-                               $address["cognome"],
-                               $address["via"],
-                               $address["civico"],
-                               $address["citta"],
-                               $address["provincia"],
-                               $address["cap"],
-                               $address["stato"],
-                               $address["telefono"]);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $res);
-        mysqli_stmt_fetch($stmt);
-        return $res;
+    $query = 'SELECT addresID FROM indirizzo WHERE nome="'. $address["nome"] . 
+           '", cognome="'. $address["cognome"] . 
+           '", via="'. $address["via"] . 
+           '", civico="'. $address["civico"] . 
+           '", citta="'. $address["citta"] . 
+           '", provincia="'. $address["provincia"] . 
+           '", cap="'. $address["cap"] . 
+           '", stato="'. $address["stato"] . 
+           '", telefono="'. $address["telefono"] . '"';
+    $res = mysqli_query($connection, $query);
+    if($res){
+        return mysqli_affected_rows($res);
     }
     return false;
 }
