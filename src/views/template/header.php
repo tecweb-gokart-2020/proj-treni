@@ -46,9 +46,10 @@ echo '<nav>
 		    </li>				
 		    <li>
 			' . $tag_contatti . 'Contatti'. $tag_contatti_close .'
-		    </li>
-			<ul id="icons">
-				<li>' . PHP_EOL;
+			</li>
+		</ul>
+		<ul id="icons">
+			<li>' . PHP_EOL;
 if(isset($_SESSION["username"])) {
     // mostra icona utente
     init_tag($tag_info, '<a href="info.php" id="user-icon">', $tag_info_close);
