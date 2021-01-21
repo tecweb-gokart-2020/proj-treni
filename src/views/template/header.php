@@ -29,6 +29,7 @@ echo '<!DOCTYPE html>
 	    <h1>'. $tag_home .'TrenoGheno'. $tag_home_close .'</h1>
 	    <!-- Ricerca -->
 	    <form id="ricercaHeader" action="prodotti.php" method="get">
+		<label for="searchQuery">Ricerca prodotti</label>
 		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
 		<input type="submit" name="search" value="Cerca"/>';
 		if(isset($_GET['search'])){
@@ -54,10 +55,10 @@ if(isset($_SESSION["username"])) {
     echo '<li id="logout"><a href="logout.php">Logout</a></li>';
 }
 else {
-    echo '<a href="login.html">Entra</a>' . PHP_EOL;
+    echo '<a href="login.php">Entra</a>' . PHP_EOL;
     echo '</li>' . PHP_EOL;
     echo '<li>' . PHP_EOL;
-    echo '<a href="register.html">Registrati</a>' . PHP_EOL;
+    echo '<a href="register.php">Registrati</a>' . PHP_EOL;
 }
 
 echo '</li>

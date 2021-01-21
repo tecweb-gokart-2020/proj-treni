@@ -4,23 +4,8 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
 use DB\DbAccess;
 use function UTILITIES\isValidID;
 use function ORDINE\makeNewOrdine;
+use function PRODOTTO\ordina;
 use function SPEDIZIONE\makeNewSpedizione;
-
-// Ritorna l'ID della sessione associata ad un carrello, null se non esiste
-/* Deprecata, le sessioni sono gestite da php */
-// function getSessionFromCarrello($cart_id){
-//     if(isValidID($cart_id)){
-//         $dbAccess = new DBAccess();
-//         $connection = $dbAccess->openDbConnection();
-//         $query = "SELECT sessionID FROM carrello WHERE cartID = \"$cart_id\"";
-//         $queryResult = mysqli_query($connection, $query);
-//         $dbAccess->closeDbConnection();
-//         $session_id = mysqli_fetch_row($queryResult);
-//         return $session_id;
-//     }else{
-//         return false;
-//     }
-// }
 
 // Ritorna un array associativo di prodotti presenti in un carrello, null se non c'è alcun prodotto
 function getProdottiFromCarrello($cart_id){
@@ -93,13 +78,16 @@ function checkout($cartID, $addressID) {
     $account = getAccountFromCarrello($cartID);
     $totale = 0;
     foreach($prodotti as $prodotto) {
-        $total += $prodotto["prezzo"];
+        $total += getInfoProdotto($prodotto["codArticolo"])["prezzo"];
     }
     $orderID = makeNewOrdine($account, $totale);
     $ship = makenewSpedizione($orderID, $addressID, 'Processing');
     foreach($prodotti as $prodotto){
         $response = ordina($prodotto["codArticolo"],
-                           $prodotto["quantita"]);
+                           $prodotto["quantita"],
+                           $prodotto["prezzo"],
+                           $orderID,
+                           $ship);
     }
 }
 ?>
