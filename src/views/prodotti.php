@@ -26,7 +26,7 @@ if(!isset($_GET['categorie']) && !isset($_GET['categoriaSelezionata']) && !isset
                 </ul>
             </form>
         </div>');
-
+}
     if(isset($_GET['categoriaSelezionata'])){
         switch($_GET['categoriaSelezionata']){
             case "Locomotive":
@@ -46,7 +46,7 @@ if(!isset($_GET['categorie']) && !isset($_GET['categoriaSelezionata']) && !isset
                 break;
         }
     }
-}
+    
 if(isset($_GET['search'])){
     $searchString = $_GET['searchQuery'];
     $listaProdotti = searchProdotti($searchString);
@@ -57,11 +57,11 @@ echo '<div id="filtroProdotti">
             <label for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
                 <option>Nessuna selezione</option>';
-                echo '<option value="locomotiva"'; if($_GET["categorie"]=="locomotiva" || $_GET['categoriaSelezionata']=="locomotiva"){echo 'selected=selected';} echo '>Locomotive</option>';
-                echo '<option value="carrozza"'; if($_GET["categorie"]=="carrozza" || $_GET['categoriaSelezionata']=="carrozza"){echo 'selected=selected';} echo '>Carrozze</option>';
-                echo '<option value="carro"'; if($_GET["categorie"]=="carro" || $_GET['categoriaSelezionata']=="carro"){echo 'selected=selected';} echo '>Carri</option>';
-                echo '<option value="accessorio"'; if($_GET["categorie"]=="accessorio" || $_GET['categoriaSelezionata']=="accessorio"){echo 'selected=selected';} echo '>Accessori</option>';
-                echo '<option value="binario"'; if($_GET["categorie"]=="binario" || $_GET['categoriaSelezionata']=="binario"){echo 'selected=selected';} echo '>Binari</option>';
+                echo '<option value="locomotiva"'; if($_GET["categorie"]=="locomotiva" || $_GET['categoriaSelezionata']=="Locomotive"){echo 'selected=selected';} echo '>Locomotive</option>';
+                echo '<option value="carrozza"'; if($_GET["categorie"]=="carrozza" || $_GET['categoriaSelezionata']=="Carrozze"){echo 'selected=selected';} echo '>Carrozze</option>';
+                echo '<option value="carro"'; if($_GET["categorie"]=="carro" || $_GET['categoriaSelezionata']=="Carri"){echo 'selected=selected';} echo '>Carri</option>';
+                echo '<option value="accessorio"'; if($_GET["categorie"]=="accessorio" || $_GET['categoriaSelezionata']=="Accessori"){echo 'selected=selected';} echo '>Accessori</option>';
+                echo '<option value="binario"'; if($_GET["categorie"]=="binario" || $_GET['categoriaSelezionata']=="Binari"){echo 'selected=selected';} echo '>Binari</option>';
             echo '</select>
             <label for="filtroMarche">Marca</label>
             <select name="marche" id="filtroMarche">
@@ -69,7 +69,7 @@ echo '<div id="filtroProdotti">
             $marche = getMarche();
             for($i = 0;$i < count($marche);$i++){
                 echo'<option';
-                if($_GET['marche']==$marche[$i]){echo 'selected=selected';}
+                if($_GET['marche']==$marche[$i]){echo ' selected=selected';}
                 echo'>'.$marche[$i].'</option>';
             }
 echo '</select>
