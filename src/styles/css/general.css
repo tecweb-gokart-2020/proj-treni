@@ -43,16 +43,12 @@
         position: absolute;
         margin-left: 1em;
         margin-top: 1.4em;
-        text-align: left;
-        float: left;
     }
     
     header form input[type=search] {
         position: relative;
 	float: left;
         display: inline-block;
-        width: 13em;
-        height: 2em;
     }
     
     header nav {
@@ -73,17 +69,14 @@
         text-align: center;
         width: 100%;
         height: auto;
-        vertical-align: middle;
 	top: 0.4em;
     }
     
     header ul#pagine li {
         position: relative;
-	text-align: center;
         display: inline;
         margin-left: 10%;
         margin-right: 10%;
-        vertical-align: middle;
     }
     
     header ul#icons {
@@ -95,7 +88,6 @@
         width: 50%;
         height: 3em;
 	top: -3em;
-        vertical-align: middle;
         right: 0;
     }
     
@@ -105,7 +97,6 @@
         margin-left: 7%;
         margin-right: 7%;
         top: 0.5em;
-        vertical-align: middle;
     }
     
     .fa-shopping-cart,
@@ -124,11 +115,9 @@
         height: auto;
         top: -0.95em;
         text-align: center;
-        vertical-align: middle;
         left: 0.35em;
     }
     /*------------------CONTENUTO--------------------*/
-<<<<<<< HEAD
     main#content{
     	padding-left: 1%;
 	padding-right: 1%;
