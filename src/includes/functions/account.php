@@ -145,7 +145,7 @@ function login($UUID, $password) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     } 
 
-    $query = 'SELECT username FROM utente WHERE ' . $id . ' = "?" AND password = "?"';
+    $query = 'SELECT username FROM utente WHERE ' . $id . ' = ? AND password = ?';
     $stmt = mysqli_prepare($connection, $query);
 
     mysqli_stmt_bind_param($stmt, "ss", $UUID, $password);
