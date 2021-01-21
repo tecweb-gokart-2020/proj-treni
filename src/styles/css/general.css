@@ -9,8 +9,12 @@
         margin: 0em;
     }
     
-    #aiuti {
-        display: none;
+    .aiuti {
+        position:absolute;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px,1px,1px,1px);
     }
     /*----------------HEADER------------------*/
     
@@ -19,13 +23,14 @@
         position: sticky;
         top: 0px;
         height: 6em;
-        background-color: orange;
+        background-color: #333;
         /*Colore solo per test, NON DEFINITIVO*/
         z-index: 1;
     }
     
     header h1 {
         float: left;
+        color:darkorange;
         position: relative;
         text-align: center;
         width: 100%;
