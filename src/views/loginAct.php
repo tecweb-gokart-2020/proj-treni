@@ -2,7 +2,8 @@
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php");
 use DB\DBAccess;
 use function ACCOUNT\login;
-use function UTILILTIES\cleanUp;
+use function UTILITIES\cleanUp;
+
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -17,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	$nome = login($utente, $password); 
 	if($nome){
 		$_SESSION["username"] = $nome;
-		header("Location: home.php"); //redirect a homepage. Ma se volessi tornare dove ero prima? Complicato...			
+		header("Location: home.php");
 		exit();
 	} else {
 		$_SESSION["loginErr"] = "Utente o password non corretti";
@@ -25,5 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		exit();
 	}
 }
-else header("Location: home.php"); //se è arrivato per vie traverse, rimandiamolo alla home
+else {
+    header("Location: home.php"); //se è arrivato per vie traverse, rimandiamolo alla home
+}
 ?>
