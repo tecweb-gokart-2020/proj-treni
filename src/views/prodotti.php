@@ -5,7 +5,7 @@ use function PRODOTTO\getMarche;
 use function PRODOTTO\stampaProdotti;
 use function PRODOTTO\searchProdotti;
 
-$pagetitle = "Trenogheno - Prodotti";
+$pagetitle = "Prodotti - Trenogheno";
 $pagedescription = "Pagina Prodotti di trenogheno.it";
 $tag_prodotti = '<span class="current_link">';
 include "template/header.php";
@@ -14,45 +14,46 @@ $current_page = "prodotti";
 include "template/breadcrumb.php";
 
 echo '<main id="content">' . PHP_EOL;
-echo('<div id="categorie">
-        <form>
-            <ul>
-                <li><input type="submit" name="categoriaSelezionata" value="Locomotive"/></li>
-                <li><input type="submit" name="categoriaSelezionata" value="Carrozze"/></li>
-                <li><input type="submit" name="categoriaSelezionata" value="Carri"/></li>
-                <li><input type="submit" name="categoriaSelezionata" value="Binari"/></li>
-                <li><input type="submit" name="categoriaSelezionata" value="Accessori"/></li>
-            </ul>
-        </form>
-    </div>');
+if(!isset($_GET['categorie']) && !isset($_GET['categoriaSelezionata']) && !isset($_GET['searchQuery'])){
+    echo('<div id="categorie">
+            <form>
+                <ul>
+                    <li><input type="submit" name="categoriaSelezionata" value="Locomotive"/></li>
+                    <li><input type="submit" name="categoriaSelezionata" value="Carrozze"/></li>
+                    <li><input type="submit" name="categoriaSelezionata" value="Carri"/></li>
+                    <li><input type="submit" name="categoriaSelezionata" value="Binari"/></li>
+                    <li><input type="submit" name="categoriaSelezionata" value="Accessori"/></li>
+                </ul>
+            </form>
+        </div>');
 
-if(isset($_GET['cat'])){
-    switch($_GET['cat']){
-        case "Locomotive":
-            $listaProdotti=queryProdotti("locomotiva");
-            break;
-        case "Carrozze":
-            $listaProdotti=queryProdotti("carrozza");
-            break;
-        case "Carri":
-            $listaProdotti=queryProdotti("carro");
-            break;
-        case "Binari":
-            $listaProdotti=queryProdotti("binario");
-            break;
-        case "Accessori":
-            $listaProdotti=queryProdotti("accessorio");
-            break;
+    if(isset($_GET['categoriaSelezionata'])){
+        switch($_GET['categoriaSelezionata']){
+            case "Locomotive":
+                $listaProdotti=queryProdotti("locomotiva");
+                break;
+            case "Carrozze":
+                $listaProdotti=queryProdotti("carrozza");
+                break;
+            case "Carri":
+                $listaProdotti=queryProdotti("carro");
+                break;
+            case "Binari":
+                $listaProdotti=queryProdotti("binario");
+                break;
+            case "Accessori":
+                $listaProdotti=queryProdotti("accessorio");
+                break;
+        }
     }
 }
-
 if(isset($_GET['search'])){
     $searchString = $_GET['searchQuery'];
     $listaProdotti = searchProdotti($searchString);
 }
 
 echo '<div id="filtroProdotti">
-        <form action="#contenutoPagina">
+        <form>
             <label for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
                 <option>Nessuna selezione</option>
