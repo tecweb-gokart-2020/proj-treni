@@ -74,10 +74,25 @@ function init_tag(&$tag, $default, &$tag_close) {
 }
 
 //pulizia base
+//toglie spazi vuoti in eccesso, slash e tag
 function cleanUp($input){
     $input = trim($input);
     $input = stripslashes($input);
     $input = strip_tags($input);
+    $input = preg_replace("/\s+/", " ", $input);
     return $input;
+}
+
+//come sopra ma lascia gli slash (es. per il numero civico)
+function cleanUp_keepSlashes($input){
+    $input = trim($input);
+    $input = strip_tags($input);
+    $input = preg_replace("/\s+/", " ", $input);
+    return $input;
+}
+
+//compatta l'input
+function removeWhitespaces($input){
+    return preg_replace("/\s+/", "", $input);
 }
 ?>

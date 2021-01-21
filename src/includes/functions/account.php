@@ -83,7 +83,7 @@ function getCartFromAccount($username) {
 
 function register($email, $username, $password, $cartID) {
     $valid_email = check_email($email);
-    $valid_username = preg_match("/\w{3,}/", $username);
+    $valid_username = preg_match("/^\w{3,}$/", $username);
 
     $error_str = "";
 
