@@ -52,7 +52,7 @@ if(isset($_GET['search'])){
 }
 
 echo '<div id="filtroProdotti">
-        <form>
+        <form action="#contenutoPagina">
             <label for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
                 <option>Nessuna selezione</option>

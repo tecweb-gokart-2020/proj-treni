@@ -3,14 +3,12 @@
     require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
 
     use function PRODOTTO\getInfoFromProdotto;
-
-    if(isset($_GET['prodottoSelezionato'])){
-        $prodottoAttuale = $_GET['prodottoSelezionato'];
+    if(isset($_GET['codArticolo'])){
+        $prodottoAttuale = $_GET['codArticolo'];
     }
-    $index = array_search($prodottoAttuale, $lista);
-    $info=getInfoFromProdotto($listaProdotti[$index]);
-    $pagetitle = "Trenogheno - ".$info['marca']." ".$listaProdotti[$index];
-    $pagedescription = "Pagina Prodotti di trenogheno.it";
+    $info=getInfoFromProdotto($prodottoAttuale);
+    $pagetitle = $info['marca']." ".$info['codArticolo']." - Trenogheno";
+    $pagedescription = "Pagina".$info['marca']." ".$listaProdotti[$index]."di trenogheno.it";
     $area_personale_link = "href=\"info.php\"";
     $notizie_link = "href=\"notizie.php\"";
     $home_link = "href=\"../index.php\"";
@@ -19,7 +17,7 @@
     include __DIR__ . DIRECTORY_SEPARATOR . "header.php";
     
     echo '<div id="paginaSingoloProdotto">
-    <h2>'.$info['marca'].' '.$listaProdotti[$index].'</h2>
+    <h2>'.$info['marca'].' '.$prodottoAttuale.'</h2>
     <img href="'.$info['url'].'" alt=""/>
     <ul>
     <li>Categoria: '.$info['tipo'].'</li>
