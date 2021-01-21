@@ -33,6 +33,7 @@ if($prodotti) {
 	    stampaProdotti(array($prodotto["IDArticolo"]));
     }
     echo "</ul>" . PHP_EOL;
+    echo '<form action="checkout.php" method="post"><button type="submit">Procedi all\'ordine</button></form>';
 }
 else {
     echo "<h2>Il tuo carrello è vuoto al momento.</h2>" . PHP_EOL;

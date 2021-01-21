@@ -1,11 +1,12 @@
 <?php
 namespace CARRELLO;
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
-use DB\DbAccess;
+use DB\DBAccess;
 use function UTILITIES\isValidID;
 use function ORDINE\makeNewOrdine;
 use function PRODOTTO\ordina;
 use function SPEDIZIONE\makeNewSpedizione;
+use function PRODOTTO\getInfoFromProdotto;
 
 // Ritorna un array associativo di prodotti presenti in un carrello, null se non c'è alcun prodotto
 function getProdottiFromCarrello($cart_id){
@@ -78,7 +79,7 @@ function checkout($cartID, $addressID) {
     $account = getAccountFromCarrello($cartID);
     $totale = 0;
     foreach($prodotti as $prodotto) {
-        $total += getInfoProdotto($prodotto["codArticolo"])["prezzo"];
+        $total += getInfoFromProdotto($prodotto["codArticolo"])["prezzo"];
     }
     $orderID = makeNewOrdine($account, $totale);
     $ship = makenewSpedizione($orderID, $addressID, 'Processing');
