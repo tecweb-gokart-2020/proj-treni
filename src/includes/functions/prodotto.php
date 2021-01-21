@@ -138,4 +138,39 @@ function searchProdotti($stringa){
     };
     return $prodotti;
 }
+
+/* quantià del prodotto $prodotto è >= a $quantità ?? scopriamolo. */
+function thereAreEnoughOf($prodotto, $quantita){
+    $info = getInfoFromProdotto($prodotto);
+    return $info['quantita'] >= $quantita;
+}
+
+/* Dato un prodotto (con le info che possono variare da ordine a
+ * ordine : quantità e prezzo), l'id dell'ordine e della spedizione lo
+ * inserisce tra i prodotti ordinati, eliminandone una quantità
+ * equivalente a quella in magazzino */
+function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
+    if(isValid($prodotto) and 
+       isValid($ordine) and 
+       isValid($spedizione) and 
+       thereAreEnoughOf($prodotto, $quantita)) {
+       
+        // Inserisce tra i prodotti ordinati
+        $dbAccess = new DBAccess();
+        $connection = $dbAccess->openDbConnection();
+        $query = "
+INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES 
+(\"$prodotto\", \"$quantita\", \"$prezzo\", \"$ordine\", \"$spedzione\")";
+        $queryResult = mysqli_query($connection, $query);
+        $res1 = mysqli_affected_rows($queryResult);
+        
+        // toglie dai prodotti disponibili
+        $query = "UPDATE prodotto SET quantita = quantita - ". $quantita . " WHERE codArticolo = " . $prodotto;
+        $queryResult = mysqli_query($connection, $query);
+        $res2 = mysqli_affected_rows($queryResult);
+        $dbAccess->closeDbConnection();
+        return $res1 * $res2;
+    }
+    return false;
+}
 ?>

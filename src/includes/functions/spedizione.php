@@ -41,12 +41,30 @@ function getAddressFromShipping($shipping_id){
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT addressID FROM spedizione WHERE shippingID = \"$shipping_id\"";
         $queryResult = mysqli_query($connection, $query);
-        $dbAccess->closeDbConnection();
         $address_id = mysqli_fetch_row($queryResult);
+        $dbAccess->closeDbConnection();
         return $address_id[0];
     }else{
         return false;
     }
 }
 
+/* Crea una spedizione relativa all'ordine $orderID all'indirizzo
+ * $addressID */
+function makeNewSpedizione($orderID, $addressID, $status = null, $date = null) {
+    if(isValid($orderID) and isValid($addressID)) {
+        $db = new DBAccess();
+        $connection = $db->openDbConnection();
+        /* Era meglio usare valori di default? probabilmente si */
+        $query = 'INSERT INTO spedizione(orderID, addressID'. ($status ? ', stato' : '') . ($date ? ', data_prevista' : '') . ') VALUES (' .
+               $orderID . ', ' .
+               $addressID . ($status ? ', ' : '') .
+               $status . ($data ? ', ' : '') .
+               $date . ')';
+        $res = mysqli_query($connection, $query)
+        $n = mysqli_affected_rows($res);
+        return n>=0;
+        $dbAccess->closeDbConnection();
+    }
+}
 ?>
