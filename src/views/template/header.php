@@ -19,7 +19,7 @@ echo '<!DOCTYPE html>
   <link rel="stylesheet" type="text/css" href="css/general.css"/>
     </head>
     <body>
-        <nav class="aiuti">
+        <nav id="aiuti">
             <ul>
                 <li><a href="#content">Vai al contenuto della pagina</a>
             </ul>
