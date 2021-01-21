@@ -15,7 +15,8 @@
     $contatti_link = "href=\"contatti.php\"";
     include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     
-    echo '<div id="paginaSingoloProdotto">
+    echo '<main id="content">
+    <div id="paginaSingoloProdotto">
     <h2>'.$info['marca'].' '.$prodottoAttuale.'</h2>
     <img href="'.$info['url'].'" alt=""/>
     <ul>
@@ -33,7 +34,9 @@
         <input type="number" name="quantitaOrdine" max="'.$info['quantita'].'" min="1" value="1"/>
         <input type="submit" value="Aggiungi al carrello"/>
     </form>
-    </ul></div>';
+    </ul>
+    </div>
+    </main>';
 
     include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 
