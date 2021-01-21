@@ -109,6 +109,7 @@
     header #counter {
         position: absolute;
         color: white;
+        /*Colore solo per test, NON DEFINITIVO*/
         font-size: 0.9em;
         width: 2em;
         height: auto;
@@ -157,6 +158,7 @@
         position: relative;
         top: -1em;
         background-color: yellow;
+        /*Colore solo per test, NON DEFINITIVO*/
         height: 2.5em;
     }
     
@@ -183,6 +185,7 @@
         font-size: 2.5em;
         background-color: green;
         color: white;
+        /*Colori solo per test, NON DEFINITIVI*/
         margin: 1%;
         border-radius: 10px;
     }
@@ -192,6 +195,7 @@
         position: sticky;
         background-color: green;
         color: white;
+        /*Colori solo per test, NON DEFINITIVI*/
         padding: 0.7em 0em;
         top: 6em;
         text-align: center;
@@ -202,6 +206,7 @@
     main div#filtroProdotti input[type=submit] {
         background-color: orange;
         color: white;
+        /*Colori solo per test, NON DEFINITIVI*/
         padding: 0.5em;
         font-size: 1.2em;
         margin: 0;
@@ -225,6 +230,7 @@
     
     main .cards>li {
         border: 1px solid orange;
+        /*Colore solo per test, NON DEFINITIVO*/
         margin: 0 1em 2em 1em;
         padding: 1em;
         border-radius: 7px;
