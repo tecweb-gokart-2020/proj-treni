@@ -10,19 +10,20 @@ echo '<main id="content">
 		</label>
 		<label> <strong>Password</strong>
 			<input type="password" name="password" id="loginPassword" maxlength="10" autocomplete="on" required  />
-		</label>';
-		if(isset($_SESSION["loginErr"])){
-			echo '<span class="errore">' . $_SESSION["loginErr"] . '</span>';
-			unset($_SESSION["loginErr"]);
-		}
-		echo '<input type="submit" id="loginInvio" value="Accedi" >
+		</label>
+            <input type="submit" id="loginInvio" value="Accedi" >
 	</form>
-	
 	<div id="loginToRegistr" class="container">
 		<p>Prima volta sul sito? <a href="register.php"><strong>Registrati!</strong></a></p>
 	</div>
-</div>
-</main>';
+</div>';
+
+if(isset($_SESSION["loginErr"])){
+    echo '<span class="errore">' . $_SESSION["loginErr"] . '</span>';
+    unset($_SESSION["loginErr"]);
+}
+
+echo '</main>';
 include __DIR__ . DIRECTORY_SEPARATOR . 'template/footer.php';
 ?>
 
