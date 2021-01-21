@@ -52,7 +52,7 @@ function getAddressFromShipping($shipping_id){
 /* Crea una spedizione relativa all'ordine $orderID all'indirizzo
  * $addressID */
 function makeNewSpedizione($orderID, $addressID, $status = null, $date = null) {
-    if(isValid($orderID) and isValid($addressID)) {
+    if(isValidID($orderID) and isValidID($addressID)) {
         $db = new DBAccess();
         $connection = $db->openDbConnection();
         /* Era meglio usare valori di default? probabilmente si */

@@ -61,28 +61,30 @@ function address_exists($address) {
  * questo già esiste ritorna l'id, altrimenti lo inserisce e ne
  * ritorna l'id. ritorna false se la mappa è errata (campi non
  * validi) */
-function getAddress($address){
-    if($ID = address_exists($address)){
+function getAddress($address, $user){
+    $ID = address_exists($address);
+    if($ID){
         return $ID;
     } else {
         $db = new DBAccess();
-        $connection = $dbAccess->openDbConnection();
+        $connection = $db->openDbConnection();
         $query = "SELECT addressID FROM indirizzo ORDER BY addressID DESC LIMIT 1";
         $queryResult = mysqli_query($connection, $query);
         $addressID = mysqli_fetch_row($queryResult)[0] + 1;
         //mamma mia che casino
-        $query = 'INSERT INTO indirizzo(addressID, nome, cognome, via, civico, citta, provincia, cap, stato, telefono) VALUES ('.
-               $addressID . ', ' .
-               address["nome"] . ', ' .
-               address["cognome"] . ', ' .
-               address["via"] . ', ' .
-               address["civico"] . ', ' .
-               address["citta"] . ', ' .
-               address["provincia"] . ', ' .
-               address["cap"] . ', ' .
-               address["stato"] . ', ' .
-               address["telefono"] . ')';
+	$query = 'INSERT INTO indirizzo(username, nome, cognome, via, numero, citta, provincia, cap, stato, telefono) VALUES ('.
+               $user . ', ' .
+               $address["nome"] . ', ' .
+               $address["cognome"] . ', ' .
+               $address["via"] . ', ' .
+               $address["numero"] . ', ' .
+               $address["citta"] . ', ' .
+               $address["provincia"] . ', ' .
+               $address["cap"] . ', ' .
+               $address["stato"] . ', ' .
+               $address["telefono"] . ')';
         $queryResult = mysqli_query($connection, $query);
+	var_dump($queryResult);
         $db->closeDbConnection();
         if($queryResult) {
             return $addressID;
