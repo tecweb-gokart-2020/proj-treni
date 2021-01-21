@@ -21,9 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		header("Location: home.php");
 		exit();
 	} else {
-		$_SESSION["loginErr"] = "Utente o password non corretti";
+		$_SESSION["loginErr"] = "username o password non validi";
 		header("Location: login.php");  
 		exit();
+		var_dump($nome);
 	}
 }
 else {

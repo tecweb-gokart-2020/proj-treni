@@ -145,21 +145,12 @@ function login($UUID, $password) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     } 
 
-    $query = 'SELECT username FROM utente WHERE ' . $id . ' = ? AND password = ?';
+    $query = 'SELECT username FROM utente WHERE ' . $id . ' = "'. $UUID .'" AND password = "'. $password . '"';
     $res = mysqli_query($connection, $query);
-    if($name = mysqli_fetch_row($res)){
-        $name = $name[0];
-    }
-    //$stmt = mysqli_prepare($connection, $query);
-    //
-    //mysqli_stmt_bind_param($stmt, "ss", $UUID, $password);
-    //mysqli_stmt_execute($stmt);
-    //mysqli_stmt_bind_result($stmt, $result);
-    //mysqli_stmt_fetch($stmt);
-    //mysqli_stmt_close($stmt);
+    $name = mysqli_fetch_row($res);
     
     $db->closeDbConnection();
-    return $name;
+    return $name[0];
 }
 
 /* newMail è una stringa e user è l'id di un utente */
