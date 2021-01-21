@@ -24,7 +24,7 @@ function getInfoFromAddress($address_id){
     if(isValidID($address_id)){
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
-        $query = "SELECT nome, via, numero, citta, stato, comune, cap 
+        $query = "SELECT nome, via, numero, citta, stato, provincia, cap, telefono
                   FROM indirizzo WHERE addressID = \"$address_id\"";
         $queryResult = mysqli_query($connection, $query);
         $infoIndirizzo = mysqli_fetch_assoc($queryResult);

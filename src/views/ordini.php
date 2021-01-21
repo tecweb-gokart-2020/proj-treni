@@ -16,7 +16,7 @@ function printAddress($addressID) {
         echo '<li class="numero">' . $addr["numero"] . "</li>" . PHP_EOL;
         echo '<li class="citta">' . $addr["citta"] . "</li>" . PHP_EOL;
         echo '<li class="stato">' . $addr["stato"] . "</li>" . PHP_EOL;
-        echo '<li class="comune">' . $addr["comune"] . "</li>" . PHP_EOL;
+        echo '<li class="telefono">' . $addr["telefono"] . "</li>" . PHP_EOL;
         echo '<li class="cap">' . $addr["cap"] . "</li>" . PHP_EOL;
         echo '</ul>' . PHP_EOL;
     }
