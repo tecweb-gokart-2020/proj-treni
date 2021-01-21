@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
+    require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
 
     use function PRODOTTO\getInfoFromProdotto;
     if(isset($_GET['codArticolo'])){
@@ -14,7 +13,7 @@
     $home_link = "href=\"../index.php\"";
     $servizi_link = "href=\"servizi.php\"";
     $contatti_link = "href=\"contatti.php\"";
-    include __DIR__ . DIRECTORY_SEPARATOR . "header.php";
+    include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     
     echo '<div id="paginaSingoloProdotto">
     <h2>'.$info['marca'].' '.$prodottoAttuale.'</h2>
@@ -36,6 +35,6 @@
     </form>
     </ul></div>';
 
-    include __DIR__ . DIRECTORY_SEPARATOR . "footer.php";
+    include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 
 ?>
