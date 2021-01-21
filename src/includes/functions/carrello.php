@@ -82,7 +82,7 @@ function checkout($cartID, $addressID) {
         $total += getInfoFromProdotto($prodotto["codArticolo"])["prezzo"];
     }
     $orderID = makeNewOrdine($account, $totale);
-    $ship = makenewSpedizione($orderID, $addressID, 'Processing');
+    $ship = makeNewSpedizione($orderID, $addressID, 'Processing');
     foreach($prodotti as $prodotto){
         $response = ordina($prodotto["codArticolo"],
                            $prodotto["quantita"],

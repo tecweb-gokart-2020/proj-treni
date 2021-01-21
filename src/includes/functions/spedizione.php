@@ -56,11 +56,11 @@ function makeNewSpedizione($orderID, $addressID, $status = null, $date = null) {
         $db = new DBAccess();
         $connection = $db->openDbConnection();
         /* Era meglio usare valori di default? probabilmente si */
-        $query = 'INSERT INTO spedizione(orderID, addressID'. ($status ? ', stato' : '') . ($date ? ', data_prevista' : '') . ') VALUES (' .
-               $orderID . ', ' .
-               $addressID . ($status ? ', ' : '') .
-               $status . ($data ? ', ' : '') .
-               $date . ')';
+        $query = 'INSERT INTO spedizione(orderID, addressID, stato, data_prevista) VALUES ("' .
+               $orderID . '", "' .
+               $addressID . '", "' .
+               $status . '", "' .
+               $date . '")';
         $res = mysqli_query($connection, $query);
         $n = mysqli_affected_rows($res);
         return $n>=0;
