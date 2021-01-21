@@ -5,7 +5,7 @@ use function CARRELLO\getNewCarrello;
 
 session_start();
 // debug
-$_SESSION["username"] = "user";
+// $_SESSION["username"] = "user";
 if(isset($_SESSION["username"])) {
     $_SESSION["cartID"] = getCartFromAccount($_SESSION["username"]);
 }
