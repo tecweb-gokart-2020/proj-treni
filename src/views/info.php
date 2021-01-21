@@ -30,7 +30,9 @@ if(isset($_SESSION["username"])) {
 
     echo '<main id="content">' . PHP_EOL;
     $newMail = &$_POST["email"];
-    $newPw = &$_POST["password"];
+    $newPw = &$_POST["newPassword"];
+    $rePw = &$_POST["rePassword"];
+    $oldPw = &$_POST["oldPassword"];
     
     if(isset($_SESSION["username"]) and (isset($newMail) or isset($newPw))) {
         if(isset($newMail)) {
@@ -40,12 +42,9 @@ if(isset($_SESSION["username"])) {
                 $emailDone = true;
             }
         }
-        if(isset($newPw)) {
-            $result = edit_pw($_SESSION["username"], $newPw);
-            $pwDone = false;
-            if($result) {
-                $pwDone = true;
-            }
+        if(isset($newPw) and isset($oldPw) and isset($rePw)) {
+            $result = edit_pw($_SESSION["username"], $oldPw, $newPw, $rePw);
+            $pwDone = $result;
         }
     }
     /* Contenuto reale della pagina */
@@ -62,9 +61,13 @@ if(isset($_SESSION["username"])) {
 	. PHP_EOL .
 	'<button type="submit" name="edit" id="edit">modifica email</button></fieldset>'
         . PHP_EOL .
-        '<fieldset><legend>Password</legend><label for="password">password:</label>'
+        '<fieldset><legend>Password</legend>'
         . PHP_EOL .
-        '<input type="password" name="password" id="password" value="' . $password . '" maxlength="50" disabled="disabled"/>'
+        '<label for="oldPassword">vecchia password:</label><input type="password" name="oldPassword" id="oldPassword" maxlength="50"/>'
+        . PHP_EOL .
+        '<label for="newPassword">nuova password:</label><input type="password" name="newPassword" id="newPassword" maxlength="50"/>'
+        . PHP_EOL .
+        '<label for="rePassword">conferma password:</label><input type="password" name="rePassword" id="rePassword" maxlength="50"/>'
         . PHP_EOL .
         '<button type="submit" name="edit" id="edit">modifica password</button>'
         . PHP_EOL .
@@ -81,11 +84,14 @@ if(isset($_SESSION["username"])) {
         unset($emailDone);
     }
     if(isset($pwDone)) {
-        if($pwDone) {
+        if($pwDone === true) {
             echo '<h3><span xml:lang="en" lang="en">Password</span> modificata con successo</h3>';
         }
-        else {
-            echo '<h3><span xml:lang="en" lang="en">Password</span> non valida</h3>';
+        else if($pwDone === 0){
+            echo '<h3><span xml:lang="en" lang="en">Password</span> non valida, vecchia password errata</h3>';
+        }
+        else if($pwDone === 2){
+            echo '<h3><span xml:lang="en" lang="en">Password</span> non valida, le password non coincidono</h3>';
         }
         unset($pwDone);
     }

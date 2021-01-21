@@ -63,7 +63,7 @@ CREATE TABLE ordine(
 )Engine=InnoDB;
 
 CREATE TABLE indirizzo(
-       addressID int PRIMARY KEY,
+       addressID int PRIMARY KEY AUTO_INCREMENT,
        username varchar(20),
        nome varchar(50),
        cognome varchar(50),
@@ -73,7 +73,7 @@ CREATE TABLE indirizzo(
        stato varchar(50),
        provincia varchar(50),
        cap varchar(5),
-       telefono varchar(15)
+       telefono varchar(15),
 
        FOREIGN KEY (username) REFERENCES utente(username)
 )Engine=InnoDB;
@@ -94,7 +94,6 @@ CREATE TABLE prodotto_ordinato(
        orderID int,
        shippingID int,
        quantita int NOT NULL,
-       stato varchar(50) DEFAULT 'Processing',
        prezzo_netto int,
 
        PRIMARY KEY(codArticolo, orderID),

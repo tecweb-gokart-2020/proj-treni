@@ -16,7 +16,7 @@ echo '<!DOCTYPE html>
     <head>
 	<title>'. $pagetitle . '</title>
 	<meta name="description" content="'.$pagedescription.'"/>
-  <link rel="stylesheet" type="text/css" href="../styles/resource.css"/>
+  <link rel="stylesheet" type="text/css" href="css/general.css"/>
     </head>
     <body>
         <nav class="aiuti">
@@ -29,6 +29,7 @@ echo '<!DOCTYPE html>
 	    <h1>'. $tag_home .'TrenoGheno'. $tag_home_close .'</h1>
 	    <!-- Ricerca -->
 	    <form id="ricercaHeader" action="prodotti.php" method="get">
+		<label for="searchQuery">Ricerca prodotti</label>
 		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cosa cerchi?" maxlength="40"/>
 		<input type="submit" name="search" value="Cerca"/>';
 		if(isset($_GET['search'])){
@@ -38,9 +39,6 @@ echo '<!DOCTYPE html>
 echo '</form>';	    
 echo '<nav>
 		<ul id="pagine">
-		    <li>
-			' . $tag_novita . 'Novità'. $tag_novita_close .'
-		    </li>
 		    <li>
 			' . $tag_prodotti . 'Prodotti'. $tag_prodotti_close .'
 		    </li>				
@@ -54,12 +52,13 @@ if(isset($_SESSION["username"])) {
     // mostra icona utente
     init_tag($tag_info, '<a href="info.php" id="user-icon">', $tag_info_close);
     echo $tag_info . '<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg>' . $tag_info_close;
+    echo '<li id="logout"><a href="logout.php">Logout</a></li>';
 }
 else {
-    echo '<a href="login.html">Entra</a>' . PHP_EOL;
+    echo '<a href="login.php">Entra</a>' . PHP_EOL;
     echo '</li>' . PHP_EOL;
     echo '<li>' . PHP_EOL;
-    echo '<a href="register.html">Registrati</a>' . PHP_EOL;
+    echo '<a href="register.php">Registrati</a>' . PHP_EOL;
 }
 
 echo '</li>
