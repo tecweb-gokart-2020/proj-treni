@@ -63,7 +63,7 @@ CREATE TABLE ordine(
 )Engine=InnoDB;
 
 CREATE TABLE indirizzo(
-       addressID int PRIMARY KEY,
+       addressID int PRIMARY KEY AUTO_INCREMENT,
        username varchar(20),
        nome varchar(50),
        cognome varchar(50),

@@ -73,4 +73,11 @@ function init_tag(&$tag, $default, &$tag_close) {
     }
 }
 
+//pulizia base
+function cleanUp($input){
+    $input = trim($input);
+    $input = stripslashes($input);
+    $input = strip_tags($input);
+    return $input;
+}
 ?>
