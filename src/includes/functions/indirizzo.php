@@ -1,7 +1,8 @@
 <?php
 namespace INDIRIZZO;
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
-use DB\DbAccess;
+use mysqli;
+use DB\DBAccess;
 use function UTILITIES\isValidID;
 
 // Ritorna l'ID dell'account associato ad un indirizzo, null se non esiste
@@ -71,18 +72,24 @@ function getAddress($address, $user){
         $query = "SELECT addressID FROM indirizzo ORDER BY addressID DESC LIMIT 1";
         $queryResult = mysqli_query($connection, $query);
         $addressID = mysqli_fetch_row($queryResult)[0] + 1;
+	echo 'id: ';
+	var_dump($addressID);
         //mamma mia che casino
-	$query = 'INSERT INTO indirizzo(username, nome, cognome, via, numero, citta, provincia, cap, stato, telefono) VALUES ('.
-               $user . ', ' .
-               $address["nome"] . ', ' .
-               $address["cognome"] . ', ' .
-               $address["via"] . ', ' .
-               $address["numero"] . ', ' .
-               $address["citta"] . ', ' .
-               $address["provincia"] . ', ' .
-               $address["cap"] . ', ' .
-               $address["stato"] . ', ' .
-               $address["telefono"] . ')';
+	echo 'Indirizzo: ';
+	var_dump($address);
+	$query = 'INSERT INTO indirizzo(username, nome, cognome, via, numero, citta, provincia, cap, stato, telefono) VALUES ("'.
+               $user . '", "' .
+               $address["nome"] . '", "' .
+               $address["cognome"] . '", "' .
+               $address["via"] . '", "' .
+               $address["numero"] . '", "' .
+               $address["citta"] . '", "' .
+               $address["provincia"] . '", "' .
+               $address["cap"] . '", "' .
+               $address["stato"] . '", "' .
+               $address["telefono"] . '")';
+	echo 'query: ';
+	var_dump($query);
         $queryResult = mysqli_query($connection, $query);
 	var_dump($queryResult);
         $db->closeDbConnection();
