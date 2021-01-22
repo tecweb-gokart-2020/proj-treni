@@ -32,7 +32,7 @@ function getInfoFromProdotto($cod_articolo){
 function stampaProdotti($listaProdotti){
     for($i=0; $i<count($listaProdotti); $i++){
         $info=getInfoFromProdotto($listaProdotti[$i]);
-        echo '<li><a href="paginaSingoloProdotto.php?codArticolo='.$listaProdotti[$i].'"><h2>'.$info['marca'].' '.$listaProdotti[$i].'</h2><img href="'.$info['url'].'" alt=""/>
+        echo '<a href="paginaSingoloProdotto.php?codArticolo='.$listaProdotti[$i].'"><li><h2>'.$info['marca'].' '.$listaProdotti[$i].'</h2><img href="'.$info['url'].'" alt=""/>
         <ul>
         <li>'.$info['tipo'].'</li>
         <li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';
@@ -53,7 +53,7 @@ function stampaProdotti($listaProdotti){
             echo $aux=$info['prezzo']-$info['sconto']/100*$info['prezzo'];
             echo '</li>';
         } 
-        echo '</ul></a></li>';
+        echo '</ul></li></a>';
     }
 }
 
@@ -160,7 +160,7 @@ function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
         $connection = $dbAccess->openDbConnection();
         $query = "
 INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES 
-(\"$prodotto\", \"$quantita\", \"$prezzo\", \"$ordine\", \"$spedzione\")";
+(\"$prodotto\", \"$quantita\", \"$prezzo\", \"$ordine\", \"$spedizione\")";
         $queryResult = mysqli_query($connection, $query);
         $res1 = mysqli_affected_rows($queryResult);
         
