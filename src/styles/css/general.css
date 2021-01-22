@@ -33,7 +33,7 @@
     
     header h1 {
         float: left;
-        color:darkorange;
+        color: white;
         position: relative;
         text-align: center;
         width: 100%;
@@ -65,7 +65,10 @@
     }
     
     header ul#icons li:last-child {
-        margin-right: 3%;
+        margin-right: 5%;
+    }
+    header ul#icons li:first-child{
+	margin-left:0;
     }
     
     header ul#pagine {
@@ -82,7 +85,7 @@
     header ul#pagine li {
         position: relative;
         display: inline;
-        margin-left: 10%;
+        margin-left: 7%;
         margin-right: 10%;
     }
     
@@ -91,8 +94,8 @@
         margin: 0;
         position: absolute;
         padding: 0px;
-        text-align: right;
-        width: 50%;
+        text-align: left;
+        width: 15%;
         height: 3em;
         top: -3em;
         right: 0;
@@ -101,8 +104,9 @@
     header ul#icons li {
         position: relative;
         display: inline;
-        margin-left: 7%;
-        margin-right: 7%;
+        margin-left: 10%;
+        margin-right: 10%;
+	vertical-align: middle;
         top: 0.5em;
     }
     
@@ -116,6 +120,8 @@
     
     header #counter {
         position: absolute;
+	color: #222;
+	font-weight: bold;
         /*Colore solo per test, NON DEFINITIVO*/
         font-size: 0.9em;
         width: 2em;
