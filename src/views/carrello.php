@@ -5,6 +5,9 @@ use function CARRELLO\getProdottiFromCarrello;
 use function PRODOTTO\stampaProdotti;
 
 session_start();
+//debug 
+$_SESSION["username"] = 'user';
+$_SESSION["cartID"] = 2;
 if(!isset($_SESSION["cartID"])) {
     $newcart = getNewCarrello();
     if($newcart) {

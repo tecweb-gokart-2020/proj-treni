@@ -21,7 +21,7 @@ function printAddress($addressID) {
         echo '</ul>' . PHP_EOL;
     }
     else {
-	echo "addressID = " . var_dump($addressID) . PHP_EOL;
+	var_dump($addressID);
         echo "Indirizzo non valido, qualcosa è andato storto...";
     }
 }

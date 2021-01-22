@@ -83,7 +83,7 @@ CREATE TABLE spedizione(
        orderID int NOT NULL,
        addressID int NOT NULL,
        stato varchar(50),
-       data_prevista date,
+       data_prevista timestamp,
 
        FOREIGN KEY (orderID) REFERENCES ordine(orderID),
        FOREIGN KEY (addressID) REFERENCES indirizzo(addressID)

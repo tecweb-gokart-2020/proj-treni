@@ -84,7 +84,6 @@ function getAddress($address, $user){
                $address["cap"] . '", "' .
                $address["stato"] . '", "' .
                $address["telefono"] . '")';
-	echo 'query: ';
         $queryResult = mysqli_query($connection, $query);
         $db->closeDbConnection();
         if($queryResult) {
