@@ -65,7 +65,7 @@
     }
     
     header ul#icons li:last-child {
-        margin-right: 5%;
+        margin-right: 10%;
     }
     header ul#icons li:first-child{
 	margin-left:0;
@@ -94,8 +94,8 @@
         margin: 0;
         position: absolute;
         padding: 0px;
-        text-align: left;
-        width: 15%;
+        text-align: right;
+        width: 20%;
         height: 3em;
         top: -3em;
         right: 0;
