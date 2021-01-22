@@ -130,6 +130,7 @@
         padding-left: 1%;
         padding-right: 1%;
         z-index: 0;
+	margin-bottom: 3%;
     }
     
     div#chiSiamo {
@@ -247,6 +248,24 @@
     main .cards h2 {
         text-align: center;
     }
+
+    nav#ap_navbar {
+	float: left;
+	margin-right: 3%;
+    }
+    main div#areaPersonale{
+	position: relative;
+	border-left: 1px solid darkorange;
+	margin-left: 16%;
+	padding-left: 4%;
+	padding-right: 4%;
+	padding-bottom: 2%;
+    }
+    main div#areaPersonale h1{
+	margin-top: 1%;
+    } 
+    
+    
     /*-------------------FOOTER------------------*/
     
     footer {
