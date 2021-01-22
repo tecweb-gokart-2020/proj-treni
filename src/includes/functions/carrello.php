@@ -84,12 +84,21 @@ function checkout($cartID, $addressID) {
     var_dump($totale);
     var_dump($orderID);
     var_dump($ship);
+    $response = true;
     foreach($prodotti as $prodotto){
-        $response = ordina($prodotto["IDArticolo"],
-                           $prodotto["Qta"],
-                           getInfoFromProdotto($prodotto["IDArticolo"])["prezzo"],
-                           $orderID,
-                           $ship);
+	    if($response){
+        	$response = ordina($prodotto["IDArticolo"],
+               				$prodotto["Qta"],
+                			getInfoFromProdotto($prodotto["IDArticolo"])["prezzo"],
+                			$orderID,
+                			$ship);
+		if($response) {
+			$db = new DBAccess();
+			$connection = $db->openDbConnection();
+			$query = "DELETE FROM contenuto_carrello WHERE cartID=$cartID AND codArticolo=" . $prodotto["IDArticolo"];
+			$response = mysqli_query($connection, $query);
+		}
+	    }
     }
     return true;
 }

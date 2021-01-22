@@ -158,9 +158,9 @@ function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
 		// Inserisce tra i prodotti ordinati
         	$dbAccess = new DBAccess();
         	$connection = $dbAccess->openDbConnection();
-        	$query = "
-			INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES 
-			(\"$prodotto\", \"$quantita\", \"$prezzo\", \"$ordine\", \"$spedzione\")";
+        	$query = "INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES 
+			($prodotto, $quantita, $prezzo, $ordine, $spedzione)";
+		var_dump($query);
         	$queryResult = mysqli_query($connection, $query);
         	$res1 = mysqli_affected_rows($connection);
         
