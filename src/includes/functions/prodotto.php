@@ -2,6 +2,7 @@
 namespace PRODOTTO;
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
 use DB\DbAccess;
+use Exception;
 use function UTILITIES\isValidID;
 
 // Ritorna un array associativo con i campi presenti in un prodotto, null se non c'è alcun prodotto
@@ -152,24 +153,26 @@ function thereAreEnoughOf($prodotto, $quantita){
 function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
     if(isValidID($prodotto) and 
        isValidID($ordine) and 
-       isValidID($spedizione) and 
-       thereAreEnoughOf($prodotto, $quantita)) {
-       
-        // Inserisce tra i prodotti ordinati
-        $dbAccess = new DBAccess();
-        $connection = $dbAccess->openDbConnection();
-        $query = "
-INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES 
-(\"$prodotto\", \"$quantita\", \"$prezzo\", \"$ordine\", \"$spedzione\")";
-        $queryResult = mysqli_query($connection, $query);
-        $res1 = mysqli_affected_rows($connection);
+       isValidID($spedizione)) { 
+       if(thereAreEnoughOf($prodotto, $quantita)) {
+		// Inserisce tra i prodotti ordinati
+        	$dbAccess = new DBAccess();
+        	$connection = $dbAccess->openDbConnection();
+        	$query = "
+			INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES 
+			(\"$prodotto\", \"$quantita\", \"$prezzo\", \"$ordine\", \"$spedzione\")";
+        	$queryResult = mysqli_query($connection, $query);
+        	$res1 = mysqli_affected_rows($connection);
         
-        // toglie dai prodotti disponibili
-        $query = "UPDATE prodotto SET quantita = quantita - ". $quantita . " WHERE codArticolo = " . $prodotto;
-        $queryResult = mysqli_query($connection, $query);
-        $res2 = mysqli_affected_rows($connection);
-        $dbAccess->closeDbConnection();
-        return $res1 * $res2;
+        	// toglie dai prodotti disponibili
+        	$query = "UPDATE prodotto SET quantita = quantita - ". $quantita . " WHERE codArticolo = " . $prodotto;
+       		$queryResult = mysqli_query($connection, $query);
+       	 	$res2 = mysqli_affected_rows($connection);
+       	 	$dbAccess->closeDbConnection();
+        	return $res1 * $res2;
+       } else {
+       		throw new Exception("Quantità non disponibile");
+       }
     }
     return false;
 }
