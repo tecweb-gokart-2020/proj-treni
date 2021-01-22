@@ -2,9 +2,12 @@
     require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
 
     use function PRODOTTO\getInfoFromProdotto;
-    if(isset($_GET['codArticolo'])){
-        $prodottoAttuale = $_GET['codArticolo'];
+    if(!isset($_GET['codArticolo'])){
+	// se non è selezionato pun prodotto probabilmente vuole vedere i prodotti
+    	header("Location: prodotti.php");
     }
+
+    $prodottoAttuale = $_GET['codArticolo'];
     $info=getInfoFromProdotto($prodottoAttuale);
     $pagetitle = $info['marca']." ".$info['codArticolo']." - Trenogheno";
     $pagedescription = "Pagina".$info['marca']." ".$listaProdotti[$index]." di trenogheno.it";
@@ -13,7 +16,7 @@
     echo '<main id="content">
     <div id="paginaSingoloProdotto">
     <h2>'.$info['marca'].' '.$prodottoAttuale.'</h2>
-    <img href="img/'.$info['codArticolo'].'" alt=""/>
+    <img src="img/'.$info['codArticolo'].'" alt=""/>
     <ul>
     <li>Categoria: '.$info['tipo'].'</li>
     <li><p>'.$info['descrizione'].'</p></li>';
@@ -25,9 +28,7 @@
     <li>Prezzo: '.$aux.'</li>
     <li>Disponibili all\'acquisto: '.$info['quantita'].'</li>
     <form method="post">
-        <label for="quantitaOrdine">Quantità:</label>
-        <input type="number" name="quantitaOrdine" max="'.$info['quantita'].'" min="1" value="1"/>
-        <input type="submit" value="Aggiungi al carrello"/>
+        <button type="submit" value="add">Aggiungi al carrello</button>
     </form>
     </ul>
     </div>

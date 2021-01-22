@@ -91,5 +91,6 @@ function checkout($cartID, $addressID) {
                            $orderID,
                            $ship);
     }
+    return true;
 }
 ?>
