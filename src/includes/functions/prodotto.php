@@ -36,7 +36,7 @@ function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
         echo '<li><a href="paginaSingoloProdotto.php?codArticolo=' . $listaProdotti[$i].
                                                                    '"><h2>'.$info['marca'].' '.
                                                                    $listaProdotti[$i].
-                                                                   '</h2><img href="img/'
+                                                                   '</h2><img src="img/'
                                                                    .$listaProdotti[$i].
                                                                    '" alt=""/><ul><li>'.
                                                                    $info['tipo'].'</li>';
@@ -166,9 +166,8 @@ function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
 		// Inserisce tra i prodotti ordinati
         	$dbAccess = new DBAccess();
         	$connection = $dbAccess->openDbConnection();
-        	$query = "INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES 
-			($prodotto, $quantita, $prezzo, $ordine, $spedzione)";
-		var_dump($query);
+        	$query = "INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES ".
+			"(". $prodotto .", ". $quantita .", ". $prezzo .", ". $ordine .", ". $spedizione .")";
         	$queryResult = mysqli_query($connection, $query);
         	$res1 = mysqli_affected_rows($connection);
         

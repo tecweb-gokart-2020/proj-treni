@@ -6,7 +6,7 @@ if [ $# -eq 0 ]
 else
     views_dir=$(echo $(pwd)/src/views)
     css_dir=$(echo $(pwd)/src/styles/css)
-    img_dir=$(echo $(pwd)/imgs)
+    img_dir=$(echo $(pwd)/img)
     public_path=$1
     
     rm -rf $public_path/*
