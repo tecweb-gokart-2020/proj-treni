@@ -86,7 +86,7 @@ function checkout($cartID, $addressID) {
     var_dump($ship);
     foreach($prodotti as $prodotto){
         $response = ordina($prodotto["IDArticolo"],
-                           $prodotto["qta"],
+                           $prodotto["Qta"],
                            getInfoFromProdotto($prodotto["IDArticolo"])["prezzo"],
                            $orderID,
                            $ship);

@@ -7,18 +7,13 @@
     }
     $info=getInfoFromProdotto($prodottoAttuale);
     $pagetitle = $info['marca']." ".$info['codArticolo']." - Trenogheno";
-    $pagedescription = "Pagina".$info['marca']." ".$listaProdotti[$index]."di trenogheno.it";
-    $area_personale_link = "href=\"info.php\"";
-    $notizie_link = "href=\"notizie.php\"";
-    $home_link = "href=\"../index.php\"";
-    $servizi_link = "href=\"servizi.php\"";
-    $contatti_link = "href=\"contatti.php\"";
+    $pagedescription = "Pagina".$info['marca']." ".$listaProdotti[$index]." di trenogheno.it";
     include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     
     echo '<main id="content">
     <div id="paginaSingoloProdotto">
     <h2>'.$info['marca'].' '.$prodottoAttuale.'</h2>
-    <img href="'.$info['url'].'" alt=""/>
+    <img href="img/'.$info['codArticolo'].'" alt=""/>
     <ul>
     <li>Categoria: '.$info['tipo'].'</li>
     <li><p>'.$info['descrizione'].'</p></li>';
@@ -29,7 +24,7 @@
     echo '<ul id="formAcquisto">
     <li>Prezzo: '.$aux.'</li>
     <li>Disponibili all\'acquisto: '.$info['quantita'].'</li>
-    <form action="" method="post">
+    <form method="post">
         <label for="quantitaOrdine">Quantità:</label>
         <input type="number" name="quantitaOrdine" max="'.$info['quantita'].'" min="1" value="1"/>
         <input type="submit" value="Aggiungi al carrello"/>

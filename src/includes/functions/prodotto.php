@@ -162,12 +162,12 @@ function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
 INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES 
 (\"$prodotto\", \"$quantita\", \"$prezzo\", \"$ordine\", \"$spedzione\")";
         $queryResult = mysqli_query($connection, $query);
-        $res1 = mysqli_affected_rows($queryResult);
+        $res1 = mysqli_affected_rows($connection);
         
         // toglie dai prodotti disponibili
         $query = "UPDATE prodotto SET quantita = quantita - ". $quantita . " WHERE codArticolo = " . $prodotto;
         $queryResult = mysqli_query($connection, $query);
-        $res2 = mysqli_affected_rows($queryResult);
+        $res2 = mysqli_affected_rows($connection);
         $dbAccess->closeDbConnection();
         return $res1 * $res2;
     }
