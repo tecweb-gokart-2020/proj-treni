@@ -44,10 +44,12 @@
     
     header a {
         position: relative;
-        text-decoration: none;
-        z-index: 1;
     }
     
+    header h1 a {
+        text-decoration: none;
+    }
+
     header form#ricercaHeader {
         float: left;
         position: absolute;
@@ -254,12 +256,11 @@
         min-width: 13em;
     }
 
-    main .cards>li>a:visited {
-        color:darkorange;
+    main .cards>li>a {
         text-decoration: none;
     }
     
-    main .cards a>li:visited{
+    main .cards li>a:visited{
         color: darkorange;
     }
 
