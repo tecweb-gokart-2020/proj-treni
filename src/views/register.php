@@ -30,19 +30,17 @@ echo '<main id="contenuto">
 					<input type="password" name="password2" id="registrPassword2" maxlength="10" required/>
 				</label>
                     <input type="submit" value="Registrati"/>
-			</form>
-
-			<div id="RegistrToLogin" class="container">
-				<p>Già registrato? <a href="login.php"><strong>Accedi!</strong></a></p>
-			</div>	
-		</div>
-	</div>';
+			</form>';
 
 if(isset($_SESSION["registerErr"])){
     echo '<span class="errore">' . $_SESSION["registerErr"] . '</span>';
     unset($_SESSION["registerErr"]);
 }
-echo '</main>';
+echo '<div id="RegistrToLogin" class="container">
+				<p>Già registrato? <a href="login.php"><strong>Accedi!</strong></a></p>
+			</div>	
+		</div>
+	</div></main>';
 
 include 'template/footer.php';
 ?>
