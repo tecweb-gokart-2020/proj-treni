@@ -3,12 +3,15 @@
     html {
         font-family: Calibri, 'Trebuchet MS', sans-serif;
         font-size: 1em;
+        color:white;
     }
     
     body {
         margin: 0em;
+        background-color: #333;
     }
-    
+    :link{color:rgb(255, 196, 0);}
+    :visited{color:darkorange;}
     .aiuti {
         position:absolute;
         height: 1px;
@@ -113,7 +116,6 @@
     
     header #counter {
         position: absolute;
-        color: white;
         /*Colore solo per test, NON DEFINITIVO*/
         font-size: 0.9em;
         width: 2em;
@@ -162,7 +164,7 @@
     div#percorso {
         position: relative;
         top: -1em;
-        background-color: yellow;
+        background-color: black;
         /*Colore solo per test, NON DEFINITIVO*/
         height: 2.5em;
     }
@@ -209,8 +211,7 @@
     }
     
     main div#filtroProdotti input[type=submit] {
-        background-color: orange;
-        color: white;
+        background-color: darkorange;
         /*Colori solo per test, NON DEFINITIVI*/
         padding: 0.5em;
         font-size: 1.2em;
@@ -234,8 +235,7 @@
     }
     
     main .cards>li {
-        border: 1px solid orange;
-        /*Colore solo per test, NON DEFINITIVO*/
+        border: 1px solid darkorange;
         margin: 0 1em 2em 1em;
         padding: 1em;
         border-radius: 7px;
@@ -254,7 +254,7 @@
         width: 100%;
         height: 9em;
         font-size: 0.8em;
-        background-color: white;
+        background-color: black;
         /*Colore solo per test, NON DEFINITIVO*/
         text-align: center;
     }
