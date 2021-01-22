@@ -11,7 +11,7 @@ if(!isset($_GET['codArticolo'])){
     header("Location: prodotti.php");
 }
 
-if($_POST["add"]) {
+if(isset($_POST["add"])) {
     $aggiunto = addToCart($_SESSION["cartID"], $_GET["codArticolo"]);
 }
 
