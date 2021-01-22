@@ -2,43 +2,69 @@
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 use function PRODOTTO\stampaProdotti;
 use function CARRELLO\checkout;
+use function INDIRIZZO\getAddress;
+use function CARRELLO\getProdottiFromCarrello;
 
 session_start();
+$_SESSION["cartID"] = '2';
+$_SESSION["username"] = 'user';
 if(!isset($_SESSION["cartID"])) {
     header("Location: carrello.php");
     exit();
 }
 
 if(!isset($_SESSION["username"])) {
-    header("refresh=5;url=home.php");
-    include "template/errorHeader.php";
+    header("refresh=5;Location: home.php");
+    $pagetitle = "Trenogheno - Errore";
+    $pagedescription = "Trenogheno - Errore";
+    include "template/header.php";
     echo '<main id="error">Errore: bisogna avere un account per effettuare un ordine.<br/>
-Verrai reindirizzato alla home in 10 secondi. Se ciò non dovesse succedere clicca <a href="home.php">Qui</a></main>';
+Verrai reindirizzato alla home in 5 secondi. Se ciò non dovesse succedere clicca <a href="home.php">Qui</a></main>';
+    include "template/footer.php";
 }
 
-$checkout = &$_POST["checkout"];
+$checkout = true; // &$_POST["checkout"];
 $back = &$_POST["back"];
+
+$_POST["nome"] = "Luca";
+$_POST["cognome"] = "Zaninotto";
+$_POST["via"] = "bosco dell'arneret";
+$_POST["civico"] = "11";
+$_POST["citta"] = "Fiume Veneto";
+$_POST["provincia"] = "Pordenone";
+$_POST["cap"] = "33080";
+$_POST["stato"] = "Italia";
+$_POST["telefono"] = "3479054568";
+
 if($back) {
     header("Location: carrello.php");
     exit();
 }
 if($checkout) {
     $address = array(
-        "nome" => $_POST["nome"];
-        "cognome" => $_POST["cognome"];
-        "via" => $_POST["via"];
-        "civico" => $_POST["civico"];
-        "citta" => $_POST["citta"];
-        "provincia" => $_POST["provincia"];
-        "cap" => $_POST["cap"];
-        "stato" => $_POST["stato"];
-        "telefono" => $_POST["telefono"];
+        "nome" => $_POST["nome"],
+        "cognome" => $_POST["cognome"],
+        "via" => $_POST["via"],
+        "numero" => $_POST["civico"],
+        "citta" => $_POST["citta"],
+        "provincia" => $_POST["provincia"],
+        "cap" => $_POST["cap"],
+        "stato" => $_POST["stato"],
+        "telefono" => $_POST["telefono"]
     );
-    $result = checkout($_SESSION["cartID"], $address);
+    $addressID = getAddress($address, $_SESSION["username"]);
+    var_dump($addressID);
+    try {
+	$result = checkout($_SESSION["cartID"], $addressID);
+    } catch (Exception $e) {
+    	echo $e->getMessage();
+    }
     if($result) {
-        header("refresh:10;url=home.php");
+	$pagetitle = 'Trenogheno - conferma acquisto';
+	$pagedescription = 'Conferma acquisto avvenuto su trenogheno.it';
+	include 'template/header.php';
         echo '<main id="checkoutConfirm"><h1>Acquisto effettuato<h1></main>';
-        exit();
+	include 'template/footer.php';
     } else {
         echo "debug: errore";
     }
@@ -52,16 +78,7 @@ $current_page = "carrello >> checkout";
 include "template/breadcrumb.php";
 
 echo '<main id="content">' . PHP_EOL;
-$prodotti = getProdottiFromCarrello($_SESSION["cartID"]);
-if($prodotti) {
-    echo "<h2>Riepilogo carrello:</h2>" . PHP_EOL;
-    echo "<ul id=\"cart\">" . PHP_EOL;
-    foreach($prodotti as $prodotto){
-	    stampaProdotti(array($prodotto["IDArticolo"]));
-    }
-    echo "</ul>" . PHP_EOL;
-}
-echo '<form><fieldset><legend>Indirizzo di spedizione</legend>
+echo '<form method="post"><fieldset><legend>Indirizzo di spedizione</legend>
 				<label>Nome *
 					<input type="text" name="nome" id="nome" maxlength="50" required/>
 				</label>
@@ -98,10 +115,19 @@ echo '<form><fieldset><legend>Indirizzo di spedizione</legend>
 					<input type="text" name="telefono" id="telefono" maxlength="20" />
 				</label>
 </fieldset>
-<button type="submit" name="checkout" id="checkout">Procedi all\'acquisto</button>
-<button type="submit" name="back" id="back">Torna al carrello</button>
-</form>'
-    echo '</main>' . PHP_EOL;
+<button type="submit" name="checkout" id="checkout" value="checkout">Procedi all\'acquisto</button>
+<button type="submit" name="back" id="back" value="back">Torna al carrello</button>
+</form>';
+$prodotti = getProdottiFromCarrello($_SESSION["cartID"]);
+if($prodotti) {
+    echo "<h2>Riepilogo carrello:</h2>" . PHP_EOL;
+    echo "<ul id=\"cart\">" . PHP_EOL;
+    foreach($prodotti as $prodotto){
+	    stampaProdotti(array($prodotto["IDArticolo"]));
+    }
+    echo "</ul>" . PHP_EOL;
+}
+echo '</main>' . PHP_EOL;
 
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
 ?>

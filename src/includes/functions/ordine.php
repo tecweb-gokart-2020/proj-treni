@@ -79,14 +79,16 @@ function getProdottiFromOrder($order_id){
 /* Dato un carrello e un indirizzo inserice i prodotti del carrello in
  * prodotto_ordinato e crea una spedizione all'indirizzo addressID */
 function makeNewOrdine($user, $total, $data = "CURDATE()") {
+	var_dump($user);
     if(username_exists($user)) {
         $db = new DBAccess();
-        $connection = $dbAccess->openDbConnection();
+        $connection = $db->openDbConnection();
         $query = "SELECT orderID FROM ordine ORDER BY orderID DESC LIMIT 1";
         $queryResult = mysqli_query($connection, $query);
         $orderID = mysqli_fetch_row($queryResult)[0] + 1;
-        $query = 'INSERT INTO ordine(orderID, username, total, data_ordine) VALUES ('. $orderID .', '. $user .', '. $total.', '. $data .')';
+        $query = 'INSERT INTO ordine(orderID, username, total, data_ordine) VALUES ('. $orderID .', "'. $user .'", '. $total.', '. $data .')';
         $queryResult = mysqli_query($connection, $query);
+	var_dump($queryResult);
         $db->closeDbConnection();
         if($queryResult) {
             return $orderID;

@@ -32,7 +32,7 @@ function getInfoFromProdotto($cod_articolo){
 function stampaProdotti($listaProdotti){
     for($i=0; $i<count($listaProdotti); $i++){
         $info=getInfoFromProdotto($listaProdotti[$i]);
-        echo '<li><a href="paginaSingoloProdotto.php?codArticolo='.$listaProdotti[$i].'"><h2>'.$info['marca'].' '.$listaProdotti[$i].'</h2><img href="'.$info['url'].'" alt=""/>
+        echo '<li><a href="paginaSingoloProdotto.php?codArticolo='.$listaProdotti[$i].'"><h2>'.$info['marca'].' '.$listaProdotti[$i].'</h2><img href="img/'.$listaProdotti[$i].'" alt=""/>
         <ul>
         <li>'.$info['tipo'].'</li>
         <li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';
@@ -150,9 +150,9 @@ function thereAreEnoughOf($prodotto, $quantita){
  * inserisce tra i prodotti ordinati, eliminandone una quantità
  * equivalente a quella in magazzino */
 function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
-    if(isValid($prodotto) and 
-       isValid($ordine) and 
-       isValid($spedizione) and 
+    if(isValidID($prodotto) and 
+       isValidID($ordine) and 
+       isValidID($spedizione) and 
        thereAreEnoughOf($prodotto, $quantita)) {
        
         // Inserisce tra i prodotti ordinati
