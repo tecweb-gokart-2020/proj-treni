@@ -1,6 +1,7 @@
 <?php
 namespace CARRELLO;
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
+use mysqli;
 use DB\DBAccess;
 use function UTILITIES\isValidID;
 use function ORDINE\makeNewOrdine;
@@ -39,12 +40,7 @@ function getAccountFromCarrello($cart_id){
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT username FROM utente WHERE cartID = \"$cart_id\"";
         $queryResult = mysqli_query($connection, $query);
-        if(mysqli_num_rows($queryResult) === 1){
-            $account = mysqli_fetch_array($query_result)[0];
-        }
-        else{
-            $account= false;
-        }
+        $account = mysqli_fetch_row($queryResult)[0];
         $dbAccess->closeDbConnection();
         return $account;
     }else{
@@ -79,14 +75,19 @@ function checkout($cartID, $addressID) {
     $account = getAccountFromCarrello($cartID);
     $totale = 0;
     foreach($prodotti as $prodotto) {
-        $total += getInfoFromProdotto($prodotto["codArticolo"])["prezzo"];
+        $totale += getInfoFromProdotto($prodotto["IDArticolo"])["prezzo"];
     }
     $orderID = makeNewOrdine($account, $totale);
     $ship = makeNewSpedizione($orderID, $addressID, 'Processing');
+    var_dump($prodotti);
+    var_dump($account);
+    var_dump($totale);
+    var_dump($orderID);
+    var_dump($ship);
     foreach($prodotti as $prodotto){
-        $response = ordina($prodotto["codArticolo"],
-                           $prodotto["quantita"],
-                           $prodotto["prezzo"],
+        $response = ordina($prodotto["IDArticolo"],
+                           $prodotto["qta"],
+                           getInfoFromProdotto($prodotto["IDArticolo"])["prezzo"],
                            $orderID,
                            $ship);
     }

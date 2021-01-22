@@ -63,8 +63,8 @@ function makeNewSpedizione($orderID, $addressID, $status = null, $date = null) {
                $date . '")';
         $res = mysqli_query($connection, $query);
         $n = mysqli_affected_rows($res);
-        return $n>=0;
         $dbAccess->closeDbConnection();
+        return $n>=0;
     }
 }
 ?>

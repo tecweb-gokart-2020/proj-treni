@@ -44,14 +44,8 @@ function username_exists($username) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
 
-    $query = "SELECT username FROM utente WHERE username = ?";
-    $stmt = mysqli_prepare($connection, $query);
-
-    mysqli_stmt_bind_param($stmt, "s", $username);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $result);
-    mysqli_stmt_fetch($stmt);
-    mysqli_stmt_close($stmt);
+    $query = "SELECT username FROM utente WHERE username = \"$username\"";
+    $result = mysqli_query($connection, $query);
 
     $db->closeDbConnection();
     return (mysqli_num_rows($result) > 0);

@@ -44,7 +44,7 @@ function address_exists($address) {
     $query = 'SELECT addresID FROM indirizzo WHERE nome="'. $address["nome"] . 
            '", cognome="'. $address["cognome"] . 
            '", via="'. $address["via"] . 
-           '", civico="'. $address["civico"] . 
+           '", civico="'. $address["numero"] . 
            '", citta="'. $address["citta"] . 
            '", provincia="'. $address["provincia"] . 
            '", cap="'. $address["cap"] . 
@@ -72,11 +72,7 @@ function getAddress($address, $user){
         $query = "SELECT addressID FROM indirizzo ORDER BY addressID DESC LIMIT 1";
         $queryResult = mysqli_query($connection, $query);
         $addressID = mysqli_fetch_row($queryResult)[0] + 1;
-	echo 'id: ';
-	var_dump($addressID);
         //mamma mia che casino
-	echo 'Indirizzo: ';
-	var_dump($address);
 	$query = 'INSERT INTO indirizzo(username, nome, cognome, via, numero, citta, provincia, cap, stato, telefono) VALUES ("'.
                $user . '", "' .
                $address["nome"] . '", "' .
@@ -89,12 +85,10 @@ function getAddress($address, $user){
                $address["stato"] . '", "' .
                $address["telefono"] . '")';
 	echo 'query: ';
-	var_dump($query);
         $queryResult = mysqli_query($connection, $query);
-	var_dump($queryResult);
         $db->closeDbConnection();
         if($queryResult) {
-            return $addressID;
+            return '' . $addressID;
         }
         else {
             return false;

@@ -6,8 +6,8 @@ use function INDIRIZZO\getAddress;
 use function CARRELLO\getProdottiFromCarrello;
 
 session_start();
-// $_SESSION["cartID"] = '2';
-// $_SESSION["username"] = 'user';
+$_SESSION["cartID"] = '2';
+$_SESSION["username"] = 'user';
 if(!isset($_SESSION["cartID"])) {
     header("Location: carrello.php");
     exit();
@@ -23,8 +23,19 @@ Verrai reindirizzato alla home in 5 secondi. Se ciò non dovesse succedere clicc
     include "template/footer.php";
 }
 
-$checkout = &$_POST["checkout"];
+$checkout = true; // &$_POST["checkout"];
 $back = &$_POST["back"];
+
+$_POST["nome"] = "Luca";
+$_POST["cognome"] = "Zaninotto";
+$_POST["via"] = "bosco dell'arneret";
+$_POST["civico"] = "11";
+$_POST["citta"] = "Fiume Veneto";
+$_POST["provincia"] = "Pordenone";
+$_POST["cap"] = "33080";
+$_POST["stato"] = "Italia";
+$_POST["telefono"] = "3479054568";
+
 if($back) {
     header("Location: carrello.php");
     exit();
