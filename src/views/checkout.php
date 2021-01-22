@@ -55,25 +55,25 @@ if($checkout) {
     $addressID = getAddress($address, $_SESSION["username"]);
     var_dump($addressID);
     try {
-	$result = checkout($_SESSION["cartID"], $addressID);
+        $result = checkout($_SESSION["cartID"], $addressID);
     } catch (Exception $e) {
-	$pagedescription = "Error: Trenogheno - carrello";
-	$pagetitle = "errore checkout";
-	include "template/header.php";
+        $pagedescription = "Error: Trenogheno - carrello";
+        $pagetitle = "errore checkout";
+        include "template/header.php";
 	
-	$current_page = "carrello >> checkout >> errore";
-	include "template/breadcrumb.php";
-	echo '<div id="errore">Qualcosa è andato storto durante l\'ordine del tuo acquisto: '. $e->getMessage() .' </div>';
-	include 'template/footer.php';
-	exit();
+        $current_page = "carrello >> checkout >> errore";
+        include "template/breadcrumb.php";
+        echo '<div id="errore">Qualcosa è andato storto durante l\'ordine del tuo acquisto: '. $e->getMessage() .' </div>';
+        include 'template/footer.php';
+        exit();
     }
     if($result) {
-	$pagetitle = 'Trenogheno - conferma acquisto';
-	$pagedescription = 'Conferma acquisto avvenuto su trenogheno.it';
-	include 'template/header.php';
+        $pagetitle = 'Trenogheno - conferma acquisto';
+        $pagedescription = 'Conferma acquisto avvenuto su trenogheno.it';
+        include 'template/header.php';
         echo '<main id="checkoutConfirm"><h1>Acquisto effettuato<h1></main>';
-	include 'template/footer.php';
-	exit();
+        include 'template/footer.php';
+        exit();
     } else {
         echo "debug: errore";
     }

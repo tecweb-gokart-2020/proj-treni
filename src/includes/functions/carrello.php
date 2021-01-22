@@ -102,4 +102,21 @@ function checkout($cartID, $addressID) {
     }
     return true;
 }
+
+/* cartID e codice articolo ben formati, controlla che siano id validi
+ * e poi aggiunge al carrello cartID l'articolo $articolo */
+function addToCart($cartID, $articolo) {
+    if(isValidID($cartID) and isValidID($articolo)) {
+        $db = new DBAccess();
+        $connection = $db->openDbConnection();
+        $query = 'SELECT quantita FROM contenuto_carrello WHERE cartID='. $cartID.
+               ' AND codArticolo=' . $articolo;
+        $quantita = mysqli_query($connection, $query);
+        $quantita = mysqli_fetch_row($res);
+        $quantita += 1;
+        $query = 'INSERT INTO contenuto_carrello(cartID, codArticolo, quantita) VALUES' .
+               "($cartID, $articolo, $quantita)";
+    }
+}
+
 ?>
