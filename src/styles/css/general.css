@@ -260,7 +260,7 @@
         text-decoration: none;
     }
     
-    main .cards li>a:visited{
+    main .cards li>a:link{
         color: darkorange;
     }
 
