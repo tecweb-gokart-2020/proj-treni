@@ -86,7 +86,7 @@ if(isset($_SESSION["username"])) {
     $tag_ordini = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 
-    echo '<main id="content"><div id="areaPersonale>"' . PHP_EOL;
+    echo '<main id="content"><div id="areaPersonale">' . PHP_EOL;
     $orders = getOrdersFromAccount($_SESSION["username"]);
     echo '<ul id="ordini">' . PHP_EOL;
     foreach($orders as $order) {
