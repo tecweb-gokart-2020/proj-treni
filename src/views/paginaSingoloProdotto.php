@@ -11,7 +11,7 @@ if(!isset($_GET['codArticolo'])){
     header("Location: prodotti.php");
 }
 
-if(isset($_POST["add"])) {
+if($_POST["add"] == "add") {
     $aggiunto = addToCart($_SESSION["cartID"], $_GET["codArticolo"]);
 }
 
@@ -36,7 +36,7 @@ echo '<ul id="formAcquisto">
     <li>Prezzo: '.$aux.'</li>
     <li>Disponibili all\'acquisto: '.$info['quantita'].'</li>
     <form method="post">
-        <button type="submit" id="add" name="add">Aggiungi al carrello</button>
+        <button type="submit" id="add" name="add" value="add">Aggiungi al carrello</button>
     </form>
     </ul>
     </div>';

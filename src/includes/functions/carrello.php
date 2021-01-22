@@ -116,6 +116,8 @@ function addToCart($cartID, $articolo) {
         $quantita += 1;
         $query = 'INSERT INTO contenuto_carrello(cartID, codArticolo, quantita) VALUES' .
                "($cartID, $articolo, $quantita)";
+        $res = mysqli_query($connection, $query);
+        return mysqli_affected_rows($connection);
     }
 }
 
