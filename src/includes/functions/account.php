@@ -7,6 +7,7 @@ use DB\DBAccess;
 use function UTILITIES\check_email;
 use function UTILITIES\username_exists;
 use function UTILITIES\email_exists;
+use function UTILITIES\cleanUp;
 
 /* Ritorna gli ordini di un account sotto forma di array, NULL se
  * non ne ha */
@@ -86,7 +87,7 @@ function getCartFromAccount($username) {
 
 function register($email, $username, $password, $cartID) {
     $valid_email = check_email($email);
-    $valid_username = preg_match("/^\w{3,}$/", $username);
+    $valid_username = preg_match("/^\w{3,}/", $username);
 
     $error_str = "";
 
@@ -113,14 +114,15 @@ function register($email, $username, $password, $cartID) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     } 
 
-    $query = 'INSERT INTO utente(email, username, password, cartID) VALUES (?, ?, ?, ?)';
-    $stmt = mysqli_prepare($connection, $query);
+    cleanUp($email);
+    cleanUp($username);
+    cleanUp($password);
 
-    mysqli_stmt_bind_param($stmt, "sssi", $email, $username, $password, $cartID);
-    mysqli_stmt_execute($stmt);
+    $query = "INSERT INTO utente(email, username, password, cartID) VALUES (\"$email\", \"$username\", \"$password\", $cartID)";
+    $result = mysqli_query($connection, $query);
+
     $to_return = (mysqli_affected_rows($connection) == 1) ? $username : NULL;
 
-    mysqli_stmt_close($stmt);
     $db->closeDbConnection();
     
     return $to_return;

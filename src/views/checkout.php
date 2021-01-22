@@ -1,9 +1,12 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
+use Exception;
 use function PRODOTTO\stampaProdotti;
 use function CARRELLO\checkout;
 use function INDIRIZZO\getAddress;
 use function CARRELLO\getProdottiFromCarrello;
+use function CARRELLO\setQuantityInCart;
+use function CARRELLO\removeFromCart;
 
 session_start();
 // $_SESSION["cartID"] = '2';
@@ -26,25 +29,47 @@ if(!isset($_SESSION["cartID"])) {
 }
 
 if(!isset($_SESSION["username"])) {
-    header("refresh=5;Location: home.php");
-    $pagetitle = "trenene - Errore";
-    $pagedescription = "trenene - Errore";
-    include "template/header.php";
-    echo '<main id="error">Errore: bisogna avere un account per effettuare un ordine.<br/>
-Verrai reindirizzato alla home in 5 secondi. Se ciò non dovesse succedere clicca <a href="home.php">Qui</a></main>';
-    include "template/footer.php";
-}
-
-$checkout = &$_POST["checkout"];
-$back = &$_POST["back"];
-
-
-if($back) {
-    header("Location: carrello.php");
+    header("Location: login.php");
     exit();
 }
-if($checkout) {
-    $address = array(
+
+function checkQuantity($cartID, $product, $quantity){
+	// Perdonami Ranzato perchè ho peccato;
+	// $tmp = getProdottiFromCarrello($cartID);
+	// var_dump($product);
+	if($product["quantita"] != $quantity) {
+		if($quantity){
+			try {
+				var_dump($cartID);
+				var_dump($product);
+				var_dump($quantity);
+				$return = setQuantityInCart($cartID, $product["codArticolo"], $quantity);
+			} catch (Exception $e){
+				var_dump($e->getMessage());
+			}
+		} else {
+			removeFromCart($cartID, $product["codArticolo"]);
+		}
+	}
+	return true;
+}                                                 	
+
+$prodotti = getProdottiFromCarrello($_SESSION["cartID"]);
+foreach($prodotti as $prodotto){
+	// var_dump($_POST["quantita-" . $prodotto["codArticolo"]]);
+	checkQuantity($_SESSION["cartID"], $prodotto, $_POST["quantita-" . $prodotto["codArticolo"]]);
+}
+
+$checkout = &$_POST["checkout"];                  	
+$back = &$_POST["back"];                          	
+                                                  	
+                                                  	
+if($back) {                                       	
+    header("Location: carrello.php");             	
+    exit();                                       
+}                                                 	
+if($checkout) {                                   	
+    $address = array(                             	
         "nome" => $_POST["nome"],
         "cognome" => $_POST["cognome"],
         "via" => $_POST["via"],
@@ -56,7 +81,7 @@ if($checkout) {
         "telefono" => $_POST["telefono"]
     );
     $addressID = getAddress($address, $_SESSION["username"]);
-    var_dump($addressID);
+    // var_dump($addressID);
     try {
         $result = checkout($_SESSION["cartID"], $addressID);
     } catch (Exception $e) {

@@ -69,8 +69,8 @@ function printOrder($orderID) {
 }
 
 session_start();
-$_SESSION["username"] = "user";
-$_SESSION["cartID"] = 2;
+// $_SESSION["username"] = "user";
+// $_SESSION["cartID"] = 2;
 if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente

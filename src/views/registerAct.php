@@ -6,11 +6,11 @@ use function UTILITIES\cleanUp;
 use function CARRELLO\getNewCarrello;
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" or true){
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	$email = $_POST["email"];
 	$nomeUtente = $_POST["nomeUtente"];
 	$password = $_POST["password"];
-	$password = $_POST["password2"];
+	$rePassword = $_POST["password2"];
 
 	//pulizia base
 	$email = cleanUp($email);
@@ -26,17 +26,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" or true){
 		    die();
 		}
 	}
-
 	try{
 		// perdonami Ranzato perchè ho peccato
 		if($rePassword == $password){
+			// var_dump($email);
+			// var_dump($nomeUtente);
+			// var_dump($password);
+			// var_dump($_SESSION["cartID"]);
 			$newUser = register($email, $nomeUtente, $password, $_SESSION["cartID"]);
 		} else throw new Exception("le password non coincidono");
 
 	} catch (Exception $e) {
 		$error = $e->getMessage();
 	}
-	if(!$error){
+	if(!$error and $newUser){
 		//mostrare conferma registrazione
 		$pagetitle = "trenene - Registrazione";
 		$pagedescription = "Conferma della registrazione avvenuta su trenene.it";
@@ -49,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" or true){
 	else {
 		$_SESSION["registerErr"] = $error;
 		header("Location: register.php");
+		exit();
 	} 
 }
 ?>

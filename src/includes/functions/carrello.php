@@ -2,6 +2,7 @@
 namespace CARRELLO;
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
 use mysqli;
+use Exception;
 use DB\DBAccess;
 use function UTILITIES\isValidID;
 use function ORDINE\makeNewOrdine;
@@ -61,6 +62,14 @@ function getNewCarrello(){
     }
 }
 
+function removeFromCart($cartID, $prodotto) {
+	$db = new DBAccess();
+	$connection = $db->openDbConnection();
+	$query = "DELETE FROM contenuto_carrello WHERE cartID=$cartID AND codArticolo=" . $prodotto;
+	$response = mysqli_query($connection, $query);
+	return $response;
+}
+
 /* cartID è l'id ben formato di un carrello, $address è una mappa che
  * contiene tutti i campi necessari per la definizione di un indirizzo
  * (come esempio vedere views/checkout.php linea 26). Ritorna true se
@@ -89,10 +98,7 @@ function checkout($cartID, $addressID) {
                 			$orderID,
                 			$ship);
 		if($response) {
-			$db = new DBAccess();
-			$connection = $db->openDbConnection();
-			$query = "DELETE FROM contenuto_carrello WHERE cartID=$cartID AND codArticolo=" . $prodotto["codArticolo"];
-			$response = mysqli_query($connection, $query);
+			removeFromCart($cartID, $prodotto["codArticolo"]);
 		}
 	    }
     }
@@ -121,4 +127,23 @@ function addToCart($cartID, $articolo) {
     }
 }
 
+function setQuantityInCart($cart, $product, $quantity){
+	if(isValidID($cart)){
+		if(isValidID($product)){
+			$db = new DBAccess();
+			$connection = $db->openDbConnection();
+			$cart = cleanUp($cart);
+			$product = cleanUp($product);
+			$quantity = cleanUp($quantity);
+			var_dump($quantity);
+			var_dump($cart);
+			var_dump($product);
+			$query = "UPDATE contenuto_carrello SET quantita=$quantity WHERE cartID=$cart AND codArticolo=$product";
+			$res = mysqli_query($connection, $query);
+			return mysqli_affected_rows($connection);
+		}
+		else throw new Exception("Prodotto non passa il check");
+	}
+	else throw new Exception("carrello non passa il check");
+}
 ?>
