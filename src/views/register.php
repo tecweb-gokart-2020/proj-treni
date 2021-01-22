@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
-$pagetitle = "Trenogheno - Registrazione";
-$pagedescription = "Registrazione al sito trenogheno.it";
+$pagetitle = "trenene - Registrazione";
+$pagedescription = "Registrazione al sito trenene.it";
 include 'template/header.php';
 
 session_start();
@@ -14,7 +14,7 @@ if($_SESSION["username"]) {
 echo '<main id="contenuto">
 	<div id="registrContainer" class="container">
 		<div class="container">
-			<p><h1>Crea account</h1>Inserisci i dati per registrarti su Trenogheno.it. I campi contrassegnati con * sono obbligatori.</p>
+			<p><h1>Crea account</h1>Inserisci i dati per registrarti su trenene.it. I campi contrassegnati con * sono obbligatori.</p>
 
 			<form name="registr" action="registerAct.php" method="post">
 				<label>Email *

@@ -27,8 +27,8 @@ if(!isset($_SESSION["cartID"])) {
 
 if(!isset($_SESSION["username"])) {
     header("refresh=5;Location: home.php");
-    $pagetitle = "Trenogheno - Errore";
-    $pagedescription = "Trenogheno - Errore";
+    $pagetitle = "trenene - Errore";
+    $pagedescription = "trenene - Errore";
     include "template/header.php";
     echo '<main id="error">Errore: bisogna avere un account per effettuare un ordine.<br/>
 Verrai reindirizzato alla home in 5 secondi. Se ciò non dovesse succedere clicca <a href="home.php">Qui</a></main>';
@@ -60,7 +60,7 @@ if($checkout) {
     try {
         $result = checkout($_SESSION["cartID"], $addressID);
     } catch (Exception $e) {
-        $pagedescription = "Error: Trenogheno - carrello";
+        $pagedescription = "Error: trenene - carrello";
         $pagetitle = "errore checkout";
         include "template/header.php";
 	
@@ -71,8 +71,8 @@ if($checkout) {
         exit();
     }
     if($result) {
-        $pagetitle = 'Trenogheno - conferma acquisto';
-        $pagedescription = 'Conferma acquisto avvenuto su trenogheno.it';
+        $pagetitle = 'trenene - conferma acquisto';
+        $pagedescription = 'Conferma acquisto avvenuto su trenene.it';
         include 'template/header.php';
         echo '<main id="checkoutConfirm"><h1>Acquisto effettuato<h1></main>';
         include 'template/footer.php';

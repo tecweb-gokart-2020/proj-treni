@@ -38,11 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" or true){
 	}
 	if(!$error){
 		//mostrare conferma registrazione
-		$pagetitle = "Trenogheno - Registrazione";
-		$pagedescription = "Conferma della registrazione avvenuta su trenogheno.it";
+		$pagetitle = "trenene - Registrazione";
+		$pagedescription = "Conferma della registrazione avvenuta su trenene.it";
 		include __DIR__ . DIRECTORY_SEPARATOR. "template/header.php";
 		echo '<main id="content"><div class="container" id="confermaRegistr"><p><em>Registrazione avvenuta con successo</em></p>
-		<p>' . $newUser . ', benvenuto su Trenogheno.it!</p></div>
+		<p>' . $newUser . ', benvenuto su trenene.it!</p></div>
 		<div id="registerToHome">ora puoi <a href="login.php">accedere al sito</a></div></main>';
 		include __DIR__ . DIRECTORY_SEPARATOR. "template/footer.php";
 	}

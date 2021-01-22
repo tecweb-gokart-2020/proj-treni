@@ -18,7 +18,7 @@ if(isset($_SESSION["username"])) {
      * dopo il login) */
 
     $tag_info = "<span class=\"current_link\">";
-    $pagetitle = "Trenogheno - Area personale";
+    $pagetitle = "trenene - Area personale";
     $pagedescription = "Area dove è possibile gestire i propri dati";
     include "template/header.php";
 
