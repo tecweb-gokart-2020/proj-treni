@@ -34,7 +34,7 @@
     header h1 {
         float: left;
         color: darkorange;
-        text-decoration: none;
+        
         position: relative;
         text-align: center;
         width: 100%;
@@ -44,6 +44,7 @@
     
     header a {
         position: relative;
+        text-decoration: none;
         z-index: 1;
     }
     
@@ -251,11 +252,11 @@
         flex: 1 1 200px;
         max-width: 25em;
         min-width: 13em;
-        text-decoration: none;
     }
 
-    main .cards>li:visited {
+    main .cards>li>a:visited {
         color:darkorange;
+        text-decoration: none;
     }
     
     main .cards a>li:visited{
