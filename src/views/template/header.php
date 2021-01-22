@@ -30,7 +30,7 @@ echo '<!DOCTYPE html>
 	    <!-- Ricerca -->
 	    <form id="ricercaHeader" action="prodotti.php" method="get">
 		<label for="searchQuery">Ricerca prodotti</label>
-		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cerca un prodotto" maxlength="40"/>
+		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cerca nei prodotti" maxlength="40"/>
 		<input type="submit" name="search" value="Cerca"/>';
 		if(isset($_GET['search'])){
 			$searchString = $_GET['searchQuery'];
