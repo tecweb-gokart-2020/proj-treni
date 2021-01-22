@@ -51,7 +51,7 @@ if(isset($_SESSION["username"])) {
     $user = $_SESSION["username"];
     $email = getEmailOfAccount($user);
     $password =  getPasswordOfAccount($user);
-    echo "<h1>Benvenuto $user!</h2>"
+    echo '<div id="areaPersonale"><h1>Benvenuto '. $user.'!</h2>'
         . PHP_EOL .
         '<form action="info.php" method="post"><fieldset><legend>Email</legend>'
         . PHP_EOL .
@@ -96,7 +96,7 @@ if(isset($_SESSION["username"])) {
         unset($pwDone);
     }
 
-    echo '</main>' . PHP_EOL;
+    echo '</div></main>' . PHP_EOL;
     include "template/footer.php";
 }
 else {
