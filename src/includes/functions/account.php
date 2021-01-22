@@ -16,7 +16,10 @@ function getOrdersFromAccount($username) {
 
     $query = "SELECT orderID FROM ordine WHERE username = \"" . $username . "\";";
     $result = mysqli_query($connection,$query);
-    $final = mysqli_fetch_array($result, MYSQLI_NUM);
+    $final = array();
+    while($res = mysqli_fetch_row($result)){
+	array_push($final, $res[0]);
+    }
 
     $db->closeDbConnection();
     return $final;

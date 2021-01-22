@@ -78,7 +78,7 @@ function getProdottiFromOrder($order_id){
 
 /* Dato un carrello e un indirizzo inserice i prodotti del carrello in
  * prodotto_ordinato e crea una spedizione all'indirizzo addressID */
-function makeNewOrdine($user, $total, $data = "CURDATE()") {
+function makeNewOrdine($user, $total, $data = "NOW()") {
 	var_dump($user);
     if(username_exists($user)) {
         $db = new DBAccess();

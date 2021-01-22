@@ -51,7 +51,7 @@ function getAddressFromShipping($shipping_id){
 
 /* Crea una spedizione relativa all'ordine $orderID all'indirizzo
  * $addressID */
-function makeNewSpedizione($orderID, $addressID, $status = null, $date = "CURDATE()") {
+function makeNewSpedizione($orderID, $addressID, $status = null, $date = "NOW()") {
     if(isValidID($orderID) and isValidID($addressID)) {
         $db = new DBAccess();
         $connection = $db->openDbConnection();
@@ -65,10 +65,12 @@ function makeNewSpedizione($orderID, $addressID, $status = null, $date = "CURDAT
         	$addressID . ', "' .
         	$status . '", ' .
         	$date . ')';
+	var_dump($query);
         $queryResult = mysqli_query($connection, $query);
         $n = mysqli_affected_rows($connection);
         $db->closeDbConnection();
 	if($n) {
+		var_dump($shippingID);
         	return $shippingID;
 	} else return false;
     }

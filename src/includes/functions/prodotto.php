@@ -41,9 +41,9 @@ function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
                                                                    '" alt=""/><ul><li>'.
                                                                    $info['tipo'].'</li>';
         if(!$printQuantity){
-            echo '<li>Disponibili all\'acquisto: '.$info['quantita'].'</li>'l;
+            echo '<li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';
         } else {
-            echo '<li> quantità: ' . $qty . '</li>'
+            echo '<li> quantità: ' . $qty . '</li>';
         }
         if($info['sconto']!=""){
             echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';

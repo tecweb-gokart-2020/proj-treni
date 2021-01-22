@@ -30,7 +30,7 @@ if($prodotti) {
     echo "<h2>Il tuo carrello:</h2>" . PHP_EOL;
     echo "<ul id=\"cart\">" . PHP_EOL;
     foreach($prodotti as $prodotto){
-	    stampaProdotti(array($prodotto["IDArticolo"]), true, $prodotto["Qta"]);
+	    stampaProdotti(array($prodotto["codArticolo"]), true, $prodotto["quantita"]);
     }
     echo "</ul>" . PHP_EOL;
     echo '<form action="checkout.php" method="post"><button type="submit">Procedi all\'ordine</button></form>';

@@ -19,11 +19,7 @@ function getProdottiFromCarrello($cart_id){
         $listaProdotti = array();
         if(mysqli_num_rows($queryResult)!=0){
             while($riga = mysqli_fetch_assoc($queryResult)){
-                $singoloProdotto = array(
-                    "IDArticolo" => $riga["codArticolo"],
-                    "Qta" => $riga["quantita"]
-                );    
-                array_push($listaProdotti,$singoloProdotto);
+                array_push($listaProdotti,$riga);
             }
         }
         $dbAccess->closeDbConnection();
@@ -75,7 +71,7 @@ function checkout($cartID, $addressID) {
     $account = getAccountFromCarrello($cartID);
     $totale = 0;
     foreach($prodotti as $prodotto) {
-        $totale += getInfoFromProdotto($prodotto["IDArticolo"])["prezzo"];
+        $totale += getInfoFromProdotto($prodotto["codArticolo"])["prezzo"];
     }
     $orderID = makeNewOrdine($account, $totale);
     $ship = makeNewSpedizione($orderID, $addressID, 'Processing');
@@ -87,15 +83,15 @@ function checkout($cartID, $addressID) {
     $response = true;
     foreach($prodotti as $prodotto){
 	    if($response){
-        	$response = ordina($prodotto["IDArticolo"],
+        	$response = ordina($prodotto["codArticolo"],
                				$prodotto["Qta"],
-                			getInfoFromProdotto($prodotto["IDArticolo"])["prezzo"],
+                			getInfoFromProdotto($prodotto["codArticolo"])["prezzo"],
                 			$orderID,
                 			$ship);
 		if($response) {
 			$db = new DBAccess();
 			$connection = $db->openDbConnection();
-			$query = "DELETE FROM contenuto_carrello WHERE cartID=$cartID AND codArticolo=" . $prodotto["IDArticolo"];
+			$query = "DELETE FROM contenuto_carrello WHERE cartID=$cartID AND codArticolo=" . $prodotto["codArticolo"];
 			$response = mysqli_query($connection, $query);
 		}
 	    }
@@ -112,12 +108,14 @@ function addToCart($cartID, $articolo) {
         $query = 'SELECT quantita FROM contenuto_carrello WHERE cartID='. $cartID.
                ' AND codArticolo=' . $articolo;
         $quantita = mysqli_query($connection, $query);
-        $quantita = mysqli_fetch_row($res);
+        $quantita = mysqli_fetch_row($quantita)[0];
         $quantita += 1;
         $query = 'INSERT INTO contenuto_carrello(cartID, codArticolo, quantita) VALUES' .
                "($cartID, $articolo, $quantita)";
         $res = mysqli_query($connection, $query);
         return mysqli_affected_rows($connection);
+    } else {
+    	throw Exception("Oh oh...");
     }
 }
 

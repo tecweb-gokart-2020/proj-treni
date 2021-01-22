@@ -6,8 +6,8 @@ use function INDIRIZZO\getAddress;
 use function CARRELLO\getProdottiFromCarrello;
 
 session_start();
-$_SESSION["cartID"] = '2';
-$_SESSION["username"] = 'user';
+// $_SESSION["cartID"] = '2';
+// $_SESSION["username"] = 'user';
 if(!isset($_SESSION["cartID"])) {
     header("Location: carrello.php");
     exit();
@@ -23,18 +23,18 @@ Verrai reindirizzato alla home in 5 secondi. Se ciò non dovesse succedere clicc
     include "template/footer.php";
 }
 
-$checkout = true; //&$_POST["checkout"];
+$checkout = &$_POST["checkout"];
 $back = &$_POST["back"];
 
-$_POST["nome"] = "Luca";
-$_POST["cognome"] = "Zaninotto";
-$_POST["via"] = "bosco dell'arneret";
-$_POST["civico"] = "11";
-$_POST["citta"] = "Fiume Veneto";
-$_POST["provincia"] = "Pordenone";
-$_POST["cap"] = "33080";
-$_POST["stato"] = "Italia";
-$_POST["telefono"] = "3479054568";
+// $_POST["nome"] = "Luca";
+// $_POST["cognome"] = "Zaninotto";
+// $_POST["via"] = "bosco dell'arneret";
+// $_POST["civico"] = "11";
+// $_POST["citta"] = "Fiume Veneto";
+// $_POST["provincia"] = "Pordenone";
+// $_POST["cap"] = "33080";
+// $_POST["stato"] = "Italia";
+// $_POST["telefono"] = "3479054568";
 
 if($back) {
     header("Location: carrello.php");
@@ -125,14 +125,13 @@ echo '<form method="post"><fieldset><legend>Indirizzo di spedizione</legend>
 				</label>
 </fieldset>
 <button type="submit" name="checkout" id="checkout" value="checkout">Procedi all\'acquisto</button>
-<button type="submit" name="back" id="back" value="back">Torna al carrello</button>
-</form>';
+</form><a href="carrello.php">Torna al carrello</a>';
 $prodotti = getProdottiFromCarrello($_SESSION["cartID"]);
 if($prodotti) {
     echo "<h2>Riepilogo carrello:</h2>" . PHP_EOL;
     echo "<ul id=\"cart\">" . PHP_EOL;
     foreach($prodotti as $prodotto){
-	    stampaProdotti(array($prodotto["IDArticolo"]));
+	    stampaProdotti(array($prodotto["codArticolo"]));
     }
     echo "</ul>" . PHP_EOL;
 }

@@ -4,6 +4,10 @@ use function PRODOTTO\getInfoFromProdotto;
 use function CARRELLO\addToCart;
 
 session_start();
+// debug
+// $_SESSION["cartID"] = 2;
+// $_POST["add"] = "add";
+// $_GET['codArticolo'] = 60052;
 
 if(!isset($_GET['codArticolo'])){
     // se non è selezionato un prodotto probabilmente vuole vedere
@@ -12,7 +16,11 @@ if(!isset($_GET['codArticolo'])){
 }
 
 if($_POST["add"] == "add") {
-    $aggiunto = addToCart($_SESSION["cartID"], $_GET["codArticolo"]);
+	try{
+		$aggiunto = addToCart($_SESSION["cartID"], $_GET["codArticolo"]);
+	} catch(Exception $e) {
+		$aggiunto = $e->getMessage();
+	}
 }
 
 $prodottoAttuale = $_GET['codArticolo'];

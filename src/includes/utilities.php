@@ -17,7 +17,7 @@ function isValidID($id){
  * una regexp un po'più stringente */
 function check_email($email) {
     if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return preg_match("/^(\w{3,})@(\w{3,}).(\w{2,})*$/", $email);
+        return preg_match("/^\w+[+.\w-]*@([\w-]+.)*\w+[\w-]*.([a-z]{2,4}|d+)$/i", $email);
     }
     return false;
 }
