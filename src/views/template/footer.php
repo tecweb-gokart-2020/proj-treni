@@ -15,10 +15,6 @@
 				<li>Telefono: 555 1234 555</li>
 			</ul>
 	</div>
-
-	<div id="quellaRigaSotto">
-		<p>Trenene, ferromodellismo per appassionati!!</p>
-	</div>
 </footer>
 </body>
 </html>
