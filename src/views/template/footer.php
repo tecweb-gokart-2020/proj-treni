@@ -15,8 +15,6 @@
 				<li>Telefono: 555 1234 555</li>
 			</ul>
 	</div>
-
-	
 </footer>
 </body>
 </html>

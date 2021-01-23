@@ -1,3 +1,7 @@
+html{
+    font-size: 2em;
+}
+
 /*---------------------HEADER-----------------------*/
 
 header{
@@ -22,7 +26,7 @@ header form#ricercaHeader {
 header form#ricercaHeader input[type=search]{
     position: relative;
     width: 80%;
-    height: 2.5em;
+    height: 5em;
 }
 header form#ricercaHeader input[type=submit]{
     height: 2em;
@@ -37,7 +41,7 @@ header ul#pagine {
 header ul#icons {
     width: 50%;
     top: -3.4em;
-    margin-right: 1em;
+    margin-right: 0em;
 }
 
 /*------------CONTENUTO-------------*/
@@ -51,6 +55,35 @@ div#servizi{
     float: none;
     width: 100%;
     left: 0;
+}
+
+div#percorso{
+    top: -2em;
+    height: 3em;
+    padding-top: 0;
+    padding: 1em;
+}
+
+main#content{
+    padding: 1em;
+}
+
+nav#ap_navbar{
+    text-align: center;
+    float: none;
+}
+nav#ap_navbar ul{
+    padding-left: 0;
+    list-style-type: none;  
+}
+main div#areaPersonale{
+    margin-left: 0;
+    border: none;
+}
+main div#areaPersonale input{
+    width: 95%;
+    height: 3em;
+    margin-bottom: 1em;
 }
 
 /*------------FOOTER------------*/
