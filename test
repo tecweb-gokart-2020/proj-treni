@@ -6,7 +6,7 @@ if [ $# -eq 0 ]
 else
     views_dir=$(echo $(pwd)/src/views)
     css_dir=$(echo $(pwd)/src/styles/css)
-    img_dir=$(echo $(pwd)/img)
+    img_dir=$(echo $(pwd)/imgs)
     public_path=$1
     
     rm -rf $public_path/*
@@ -15,7 +15,7 @@ else
 	ln -s $views_dir/$file
     done
     ln -s $css_dir css
-    ln -s $img_dir img
+    ln -s $img_dir imgs
     rm template;
     rm home_statica.html;
 fi
