@@ -125,7 +125,7 @@ if($listaProdotti){
 	echo('<ul class="cards">');
 	stampaProdotti($listaProdotti);
 	echo('</ul>');
-} else echo '<h3>Nessun prodotto trovato corrispondente alla chiave di ricerca</h3>';
+} else if($_GET['submit']) echo '<h3>Nessun prodotto trovato corrispondente alla chiave di ricerca</h3>';
 echo ('</div>');
 echo '</main>';
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
