@@ -44,6 +44,10 @@ if(!isset($_GET['categorie']) && !isset($_GET['categoriaSelezionata']) && !isset
             case "Accessori":
                 $listaProdotti=queryProdotti("accessorio");
                 break;
+	    default:
+                $listaProdotti=queryProdotti("*");
+                break;
+
         }
     }
     
@@ -56,7 +60,7 @@ echo '<div id="filtroProdotti">
         <form>
             <label for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
-                <option>Nessuna selezione</option>';
+		<option value="" disabled="disabled" selected="selected">categoria</option>';
                 echo '<option value="locomotiva"'; if($_GET["categorie"]=="locomotiva" || $_GET['categoriaSelezionata']=="Locomotive"){echo 'selected=selected';} echo '>Locomotive</option>';
                 echo '<option value="carrozza"'; if($_GET["categorie"]=="carrozza" || $_GET['categoriaSelezionata']=="Carrozze"){echo 'selected=selected';} echo '>Carrozze</option>';
                 echo '<option value="carro"'; if($_GET["categorie"]=="carro" || $_GET['categoriaSelezionata']=="Carri"){echo 'selected=selected';} echo '>Carri</option>';
@@ -65,11 +69,13 @@ echo '<div id="filtroProdotti">
             echo '</select>
             <label for="filtroMarche">Marca</label>
             <select name="marche" id="filtroMarche">
-                <option>Nessuna selezione</option>';
+		<option value="" disabled="disabled" '; 
+		if(!$_GET["marche"]){ echo 'selected="selected"';}
+		echo '>marca</option>';
             $marche = getMarche();
             for($i = 0;$i < count($marche);$i++){
                 echo'<option';
-                if($_GET['marche']==$marche[$i]){echo ' selected=selected';}
+                if($_GET['marche']==$marche[$i]){echo ' selected="selected"';}
                 echo'>'.$marche[$i].'</option>';
             }
 echo '</select>
@@ -83,7 +89,9 @@ echo '</select>
             <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="';if(isset($_GET["prezzoMax"])){echo $_GET["prezzoMax"];}echo '" min="0" step="5" />
             <label for="filrtoOrdinamento">Ordinamento</label>
             <select name="ordinamento" id="filrtoOrdinamento">
-                <option>Nessuna selezione</option>';
+		<option value="" disabled="disabled"'; 
+	if(!$_GET['ordinamento']){echo ' selected="selected"';} 
+	echo '>ordine</option>';
 				echo '<option value="alfabetico"'; if($_GET["ordinamento"]=="alfabetico"){echo 'selected=selected';} echo '>Alfabetico [A-Z]</option>';
                 echo '<option value="prezzoCrescente"'; if($_GET["ordinamento"]=="prezzoCrescente"){echo 'selected=selected';} echo '>Prezzo crescente</option>';
                 echo '<option value="prezzoDecrescente"'; if($_GET["ordinamento"]=="prezzoDecrescente"){echo 'selected=selected';} echo '>Prezzo decrescente</option>';
