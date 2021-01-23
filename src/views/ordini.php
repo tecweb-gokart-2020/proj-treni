@@ -36,8 +36,8 @@ function printOrder($orderID) {
         }
         array_push($g_prod[$prodotto["shippingID"]], $prodotto);
     }
-    $data = getTotalFromOrder($orderID);
-    $totale = getDateFromOrder($orderID);
+    $totale = getTotalFromOrder($orderID);
+    $data = getDateFromOrder($orderID);
     echo '<li class="order_date">'. ($data ? $data : "Errore: impossibile ricavare la data dell'ordine") . PHP_EOL;
     echo '<li class="order_total">'. ($totale ? $totale : "Errore: impossibile ricavare il totale dell'ordine") . PHP_EOL;
     echo '<li class="prodotti_container">' . PHP_EOL;
