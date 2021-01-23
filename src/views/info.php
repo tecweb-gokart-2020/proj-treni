@@ -29,22 +29,19 @@ if(isset($_SESSION["username"])) {
     include "template/ap_navbar.php";
 
     echo '<main id="content">' . PHP_EOL;
-    $newMail = &$_POST["email"];
+    $newMail = &$_POST["newMail"];
+    $oldMail = &$_POST["oldMail"];
+    $reMail = &$_POST["reMail"];
     $newPw = &$_POST["newPassword"];
     $rePw = &$_POST["rePassword"];
     $oldPw = &$_POST["oldPassword"];
     
-    if(isset($_SESSION["username"]) and (isset($newMail) or isset($newPw))) {
-        if(isset($newMail)) {
-            $result = edit_mail($_SESSION["username"], $newMail);
-            $emailDone = false;
-            if($result) {
-                $emailDone = true;
-            }
+    if(isset($_SESSION["username"])) {
+        if($_POST["edit"] == "email" and isset($newMail) and isset($oldMail) and isset($reMail)) {
+            $emailDone = edit_mail($_SESSION["username"], $oldMail, $newMail, $reMail);
         }
-        if(isset($newPw) and isset($oldPw) and isset($rePw)) {
-            $result = edit_pw($_SESSION["username"], $oldPw, $newPw, $rePw);
-            $pwDone = $result;
+        if($_POST["edit"] == "password" and isset($newPw) and isset($oldPw) and isset($rePw)) {
+            $pwDone = edit_pw($_SESSION["username"], $oldPw, $newPw, $rePw);
         }
     }
     /* Contenuto reale della pagina */
@@ -55,11 +52,19 @@ if(isset($_SESSION["username"])) {
         . PHP_EOL .
         '<form action="info.php" method="post"><fieldset><legend>Email</legend>'
         . PHP_EOL .
-        '<label for="email">email:</label>'
+        '<label for="oldMail">vecchia mail:</label>'
         . PHP_EOL .
-	'<input name="email" id="email" value="' . $email . '" maxlength="50" disabled="disabled"/>'
+	'<input name="oldMail" id="oldMail" maxlength="50"/>'
 	. PHP_EOL .
-	'<button type="submit" name="edit" id="edit">modifica email</button></fieldset>'
+        '<label for="newMail">nuova mail:</label>'
+        . PHP_EOL .
+	'<input name="newMail" id="newMail" maxlength="50"/>'
+	. PHP_EOL .
+        '<label for="reMail">conferma mail:</label>'
+        . PHP_EOL .
+	'<input name="reMail" id="reMail" maxlength="50"/>'
+	. PHP_EOL .
+	'<button type="submit" name="edit" id="edit" value="email">modifica email</button></fieldset>'
         . PHP_EOL .
         '<fieldset><legend>Password</legend>'
         . PHP_EOL .
@@ -69,17 +74,23 @@ if(isset($_SESSION["username"])) {
         . PHP_EOL .
         '<label for="rePassword">conferma password:</label><input type="password" name="rePassword" id="rePassword" maxlength="50"/>'
         . PHP_EOL .
-        '<button type="submit" name="edit" id="edit">modifica password</button>'
+        '<button type="submit" name="edit" id="edit" value="password">modifica password</button>'
         . PHP_EOL .
         '</fieldset></form>'
         . PHP_EOL;
 
     if(isset($emailDone)) {
-        if($emailDone) {
+        if($emailDone === true) {
             echo '<h3><span xml:lang="en" lang="en">Email</span> modificata con successo</h3>';
         }
-        else {
-            echo '<h3><span xml:lang="en" lang="en">Email</span> non valida</h3>';
+        else if($emailDOne === 0){
+            echo '<h3><span xml:lang="en" lang="en">Email</span> non valida o già in memoria</h3>';
+        }
+        else if($emailDOne === 2){
+            echo '<h3>vecchia <span xml:lang="en" lang="en">email</span> sbagliata</h3>';
+        }
+        else if($emailDOne === 3){
+            echo '<h3>Le <span xml:lang="en" lang="en">email</span> non coincidono</h3>';
         }
         unset($emailDone);
     }

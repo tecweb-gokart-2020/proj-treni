@@ -152,7 +152,7 @@ function login($UUID, $password) {
 }
 
 /* newMail è una stringa e user è l'id di un utente */
-function edit_mail($user, $newMail) {
+function edit_mail($user, $oldMail, $newMail, $reMail) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
     // non molto elegante
@@ -161,17 +161,20 @@ function edit_mail($user, $newMail) {
     } 
 
     if(check_email($newMail) and !email_exists($newMail)) {
-        $query = 'UPDATE utente SET email=? WHERE username=?';
-        $stmt = mysqli_prepare($connection, $query);
-        
-        mysqli_stmt_bind_param($stmt, "ss", $newMail, $user);
-        mysqli_stmt_execute($stmt);
-        $rows = mysqli_stmt_affected_rows($stmt);
-        mysqli_stmt_close($stmt);
-        
-        $db->closeDbConnection();
-        return $rows == 1;
-    }
+	    if($oldMail === getEmailOfAccount($user)){
+		if($newMail != $reMail) return 3;
+        	$query = 'UPDATE utente SET email=? WHERE username=?';
+        	$stmt = mysqli_prepare($connection, $query);
+        	
+        	mysqli_stmt_bind_param($stmt, "ss", $newMail, $user);
+        	mysqli_stmt_execute($stmt);
+        	$rows = mysqli_stmt_affected_rows($stmt);
+        	mysqli_stmt_close($stmt);
+        	
+        	$db->closeDbConnection();
+        	return $rows == 1;
+	    } else return 2;
+    } else return 0;
     return false;
 }
 

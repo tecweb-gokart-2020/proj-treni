@@ -1,6 +1,7 @@
 <?php 
 include __DIR__ . DIRECTORY_SEPARATOR . 'template/header.php';
 session_start();
+
 echo '<main id="content">
 <div id="loginContainer" class="container">
 	<p><h1>Benvenuto!</h1>Accedi al tuo account</p>

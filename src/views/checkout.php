@@ -7,6 +7,7 @@ use function INDIRIZZO\getAddress;
 use function CARRELLO\getProdottiFromCarrello;
 use function CARRELLO\setQuantityInCart;
 use function CARRELLO\removeFromCart;
+use function PRODOTTO\getInfoFromProdotto;
 
 session_start();
 // $_SESSION["cartID"] = '2';
@@ -23,6 +24,41 @@ session_start();
 // $_POST["telefono"] = "3479054568";
 
 // $_POST["checkout"] = true;
+function stampaProdotto($prodotto){
+        $info=getInfoFromProdotto($prodotto["codArticolo"]);
+        echo '<li><a href="paginaSingoloProdotto.php?codArticolo=' . $prodotto["codArticolo"] .
+                                                                   '"><h2>'.$info['marca'].' '.
+                                                                   $prodotto["codArticolo"].
+                                                                   '</h2></a><img src="img/'
+                                                                   .$prodotto["codArticolo"].
+                                                                   '" alt=""/><ul><li>'.
+                                                                   $info['tipo'].'</li>';
+	echo '<li>';
+	echo 'quantità: ' . $prodotto["quantita"];
+	echo '</li>';
+	echo '<li>';
+	echo 'disponibili: ' . $info["quantita"];
+	echo '</li>';
+        if($info['sconto']!=""){
+            echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';
+        }
+        echo '<li>';
+        if($info['sconto']!=""){
+            echo '<del>';
+        }
+        echo $info['prezzo'];
+        if($info['sconto']!=""){
+            echo '</del>';
+        }
+        echo '</li>';
+        if($info['sconto']!=""){
+            echo '<li>';
+            echo $aux=$info['prezzo']-$info['sconto']/100*$info['prezzo'];
+            echo '</li>';
+        } 
+        echo '</ul></li>';
+}
+
 if(!isset($_SESSION["cartID"])) {
     header("Location: carrello.php");
     exit();
@@ -33,32 +69,32 @@ if(!isset($_SESSION["username"])) {
     exit();
 }
 
-function checkQuantity($cartID, $product, $quantity){
-	// Perdonami Ranzato perchè ho peccato;
-	// $tmp = getProdottiFromCarrello($cartID);
-	// var_dump($product);
-	if($product["quantita"] != $quantity) {
-		if($quantity){
-			try {
-				var_dump($cartID);
-				var_dump($product);
-				var_dump($quantity);
-				$return = setQuantityInCart($cartID, $product["codArticolo"], $quantity);
-			} catch (Exception $e){
-				var_dump($e->getMessage());
-			}
-		} else {
-			removeFromCart($cartID, $product["codArticolo"]);
-		}
-	}
-	return true;
-}                                                 	
-
-$prodotti = getProdottiFromCarrello($_SESSION["cartID"]);
-foreach($prodotti as $prodotto){
-	// var_dump($_POST["quantita-" . $prodotto["codArticolo"]]);
-	checkQuantity($_SESSION["cartID"], $prodotto, $_POST["quantita-" . $prodotto["codArticolo"]]);
-}
+//function checkQuantity($cartID, $product, $quantity){
+//	// Perdonami Ranzato perchè ho peccato;
+//	// $tmp = getProdottiFromCarrello($cartID);
+//	// var_dump($product);
+//	if($product["quantita"] != $quantity) {
+//		if($quantity){
+//			try {
+//				var_dump($cartID);
+//				var_dump($product);
+//				var_dump($quantity);
+//				$return = setQuantityInCart($cartID, $product["codArticolo"], $quantity);
+//			} catch (Exception $e){
+//				var_dump($e->getMessage());
+//			}
+//		} else {
+//			removeFromCart($cartID, $product["codArticolo"]);
+//		}
+//	}
+//	return true;
+//}                                                 	
+//
+//$prodotti = getProdottiFromCarrello($_SESSION["cartID"]);
+//foreach($prodotti as $prodotto){
+//	// var_dump($_POST["quantita-" . $prodotto["codArticolo"]]);
+//	checkQuantity($_SESSION["cartID"], $prodotto, $_POST["quantita-" . $prodotto["codArticolo"]]);
+//}
 
 $checkout = &$_POST["checkout"];                  	
 $back = &$_POST["back"];                          	
@@ -159,7 +195,7 @@ if($prodotti) {
     echo "<h2>Riepilogo carrello:</h2>" . PHP_EOL;
     echo "<ul id=\"cart\">" . PHP_EOL;
     foreach($prodotti as $prodotto){
-	    stampaProdotti(array($prodotto["codArticolo"]));
+	    stampaProdotto($prodotto);
     }
     echo "</ul>" . PHP_EOL;
 }
