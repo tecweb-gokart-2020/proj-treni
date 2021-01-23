@@ -17,7 +17,7 @@ else {
     }
 }
 
-$pagetitle = "trenene - Home";
+$pagetitle = "Home - Trenene";
 $pagedescription = "Pagina Home di trenene.it";
 $tag_home = "";
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
