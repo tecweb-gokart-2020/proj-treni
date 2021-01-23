@@ -16,7 +16,8 @@ echo '<!DOCTYPE html>
     <head>
 	<title>'. $pagetitle . '</title>
 	<meta name="description" content="'.$pagedescription.'"/>
-  <link rel="stylesheet" type="text/css" href="css/general.css"/>
+  <link rel="stylesheet" type="text/css" href="css/general.css" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-device-width:640px), only screen and (max-width:640px)" />
     </head>
     <body>
         <nav id="aiuti">
