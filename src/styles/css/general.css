@@ -1,38 +1,44 @@
-<<<<<<< HEAD
-=======
     /*----------------GENERALE------------------*/
     
->>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
     html {
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-family: Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1em;
+        color:white;
     }
     
     body {
         margin: 0em;
+        background-color: #333;
     }
-<<<<<<< HEAD
-=======
+    :link{color:rgb(255, 196, 0);}
+    :visited{color:darkorange;}
+    #aiuti {
+        position:absolute;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px,1px,1px,1px);
+    }
     /*----------------HEADER------------------*/
->>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
     
     header {
         position: -webkit-sticky;
         position: sticky;
-<<<<<<< HEAD
         border-bottom: 0.1em solid green;
         top: 0px;
-        height: 6.2em;
-=======
-        top: 0px;
-        height: 6.5em;
-        background-color: orange;
+        height: 6em;
+        background-color: #333;
         /*Colore solo per test, NON DEFINITIVO*/
->>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
+        z-index: 1;
     }
     
     header h1 {
+        float: left;
+        color: darkorange;
+        
         position: relative;
         text-align: center;
+/*<<<<<<< HEAD
         width: 8em;
         height: 1.1em;
 <<<<<<< HEAD
@@ -43,78 +49,322 @@
         right: 41%;
         float: right;
 >>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
+======= */
+        width: 100%;
+        margin-top: 0.3em;
+        height: auto;
+/* >>>>>>> eb44a4773844f49420d0ff167407d404ad812417 */
     }
     
     header a {
         position: relative;
-        z-index: 1;
     }
     
     header form {
         position: relative;
-<<<<<<< HEAD
         margin: 1em;
-=======
         margin-left: 1em;
->>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
         margin-top: 1.7em;
         text-align: left;
+}
+    header h1 a {
+        text-decoration: none;
+    }
+
+    header form#ricercaHeader {
         float: left;
+        position: absolute;
+        margin-left: 1em;
+        margin-top: 1.4em;
     }
     
     header form input[type=search] {
         position: relative;
-        display: inline-block;
-        width: 13em;
-        height: 2em;
+        float: left;
     }
     
     header nav {
         position: relative;
-<<<<<<< HEAD
-        top: 4em;
+        /* top: 4em; */
+        top: 3.5em;
         margin: 0em;
     }
     
-    header ul li {
-        position: relative;
-        display: inline;
-        margin-left: 4em;
-        margin-right: 4em;
-=======
-        top: 4.4em;
-        margin: 0em;
+    header ul#icons li:last-child {
+        margin-right: 10%;
+    }
+    header ul#icons li:first-child{
+	margin-left:0;
     }
     
-    header ul {
+    header ul#pagine {
+        float: left;
         margin: 0;
         position: absolute;
         padding: 0px;
         text-align: center;
+        width: 100%;
+        height: auto;
+        top: 0.4em;
     }
     
-    header ul li {
+    header ul#pagine li {
         position: relative;
         display: inline;
-        margin-left: 7em;
-        margin-right: 7em;
+        margin-left: 4em;
+        margin-right: 4em;
+        /* top: 4.4em; */
+        margin: 0em;
+        margin-left: 7%;
+        margin-right: 10%;
+    }
+    
+    header label {
+    	display: none;
+    }
+    header ul#icons {
+        float: right;
+        margin: 0;
+        position: absolute;
+        padding: 0px;
+        text-align: right;
+        width: 20%;
+        height: 3em;
+        top: -3em;
+        right: 0;
+    }
+    
+    header ul#icons li {
+        position: relative;
+        display: inline;
+        margin-left: 10%;
+        margin-right: 10%;
+	vertical-align: middle;
+        top: 0.5em;
+    }
+    
+    .fa-shopping-cart,
+    .fa-user {
+        position: relative;
+        width: 2em;
+        height: 2em;
+        display: inline-block;
+    }
+    
+    header #counter {
+        position: absolute;
+	color: #222;
+	font-weight: bold;
+        /*Colore solo per test, NON DEFINITIVO*/
+        font-size: 0.9em;
+        width: 2em;
+        height: auto;
+        top: -0.95em;
+        text-align: center;
+        left: 0.35em;
     }
     /*------------------CONTENUTO--------------------*/
+    
+    main#content {
+        padding-left: 1%;
+        padding-right: 1%;
+        z-index: 0;
+	margin-bottom: 3%;
+    }
+    
+    div#chiSiamo {
+        float: left;
+        position: relative;
+        width: 25%;
+        margin: 0;
+        text-align: center;
+    }
+    
+    div#servizi {
+        display: block;
+        position: relative;
+        width: 25%;
+        margin: 0;
+        left: 50%;
+        overflow: auto;
+    }
+    
+    div#servizi h2 {
+        text-align: center;
+    }
+    
+    div#news,
+    div#prodottiInHome {
+        position: relative;
+        top: 2em;
+        text-align: center;
+        height: auto;
+    }
+    
+    div#percorso {
+        position: relative;
+        top: -1em;
+        margin-bottom:-1em;
+        background-color: #222;
+        /*Colore solo per test, NON DEFINITIVO*/
+        height: 2.5em;
+    }
+    
+    div#percorso p {
+        position: relative;
+        top: 0.7em;
+        padding-left: 1%;
+    }
+    
+    div#categorie ul {
+        position: relative;
+        top: -1em;
+        text-align: center;
+    }
+    
+    div#categorie ul li {
+        display: inline;
+    }
+    
+    div#categorie ul li input[type=submit] {
+        width: 25%;
+        height: 20%;
+        padding: 0.5em;
+        font-size: 2.5em;
+        border: 3px solid darkorange;
+        color:white;
+        background-color: #333;
+        /*Colori solo per test, NON DEFINITIVI*/
+        margin: 1%;
+        border-radius: 10px;
+    }
+    
+    main div#filtroProdotti {
+        position: -webkit-sticky;
+        position: sticky;
+        background-color: #222;
+        /*Colori solo per test, NON DEFINITIVI*/
+        padding: 0.7em 0em;
+        top: 6em;
+        text-align: center;
+        margin-left: -1%;
+        width: 102%;
+    }
+    
+    main div#filtroProdotti input[type=submit] {
+        background-color: darkorange;
+        /*Colori solo per test, NON DEFINITIVI*/
+        padding: 0.5em;
+        font-size: 1.2em;
+        margin: 0;
+        border-radius: 7px;
+    }
+    
+    main div#filtroProdotti input[type=number] {
+        width: 3em;
+    }
+    
+    main div#filtroProdotti form input,
+    main div#filtroProdotti form select {
+        margin-right: 1.5em;
+    }
+    
+    main .cards {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .prodottoLista {
+        border: 4px solid darkorange;
+        margin: 0 1em 2em 1em;
+        padding: 1em;
+        border-radius: 7px;
+        flex: 1 1 200px;
+        max-width: 25em;
+        min-width: 13em;
+    }
+
+    .prodottoLista a:link, .prodottoLista a:visited {
+        text-decoration: none;
+        color: darkorange;
+    }
+
+    main .cards h2 {
+        text-align: center;
+    }
+
+    nav#ap_navbar {
+	float: left;
+	margin-right: 3%;
+    }
+    main div#areaPersonale{
+	position: relative;
+	border-left: 1px solid darkorange;
+	margin-left: 16%;
+	padding-left: 4%;
+	padding-right: 4%;
+	padding-bottom: 2%;
+    }
+    main div#areaPersonale h1{
+	margin-top: 1%;
+    } 
+    
+    
     /*-------------------FOOTER------------------*/
     
     footer {
         position: absolute;
-        font-size: 0.5em;
-        background-color: green;
+        width: 100%;
+        height: 9em;
+        font-size: 0.8em;
+        background-color: #222;
         /*Colore solo per test, NON DEFINITIVO*/
         text-align: center;
+	bottom: -9em;
     }
     
     footer #indirizzi {
         float: left;
+        margin-left: 1em;
     }
     
     footer #contatti {
         float: right;
->>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
+        margin-right: 1em;
+    }
+    
+    footer #contatti ul li {
+        position: relative;
+        display: inline-block;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    
+    footer #contatti ul li:first-child {
+        padding-left: 0em;
+    }
+    
+    footer #indirizzi p {
+        position: relative;
+        left: -2em;
+    }
+    
+    footer #indirizzi ul li {
+        position: relative;
+        left: -4em;
+        display: inline-block;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+    
+    footer #indirizzi ul li:first-child {
+        padding-right: 0em;
+    }
+    
+    footer #quellaRigaSotto {
+        position: absolute;
+        top: 6em;
+        left: 0em;
+        width: 100%;
     }
