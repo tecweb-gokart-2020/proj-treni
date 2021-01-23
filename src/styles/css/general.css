@@ -98,7 +98,7 @@
     header form#ricercaHeader input[type=submit]{
 	background-color: darkorange;
 	font-weight: bold;
-	font-size: 0.9em;
+	font-size: 1em;
 	margin-left: 0.5%;
 	border-radius: 5px;
 	
