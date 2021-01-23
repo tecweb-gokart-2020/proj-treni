@@ -38,7 +38,7 @@ function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
                                                                    $listaProdotti[$i].
                                                                    '</h2><img src="../../../imgs/'
                                                                    .$listaProdotti[$i].
-                                                                   '" alt="non carica"/><ul><li>'.
+                                                                   '" alt=""/><ul><li>'.
                                                                    $info['tipo'].'</li>';
         if(!$printQuantity){
             echo '<li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';
