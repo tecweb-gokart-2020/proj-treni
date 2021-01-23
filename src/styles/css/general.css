@@ -312,6 +312,11 @@
         min-width: 13em;
     }
 
+    .prodottoLista img{
+        max-width: 100%;
+        height: auto;
+    }
+
     .prodottoLista a:link, .prodottoLista a:visited {
         text-decoration: none;
         color: darkorange;
