@@ -7,6 +7,7 @@ use DB\DBAccess;
 use function UTILITIES\check_email;
 use function UTILITIES\username_exists;
 use function UTILITIES\email_exists;
+use function UTILITIES\cleanUp;
 
 /* Ritorna gli ordini di un account sotto forma di array, NULL se
  * non ne ha */
@@ -16,7 +17,10 @@ function getOrdersFromAccount($username) {
 
     $query = "SELECT orderID FROM ordine WHERE username = \"" . $username . "\";";
     $result = mysqli_query($connection,$query);
-    $final = mysqli_fetch_array($result, MYSQLI_NUM);
+    $final = array();
+    while($res = mysqli_fetch_row($result)){
+	array_push($final, $res[0]);
+    }
 
     $db->closeDbConnection();
     return $final;
@@ -83,7 +87,7 @@ function getCartFromAccount($username) {
 
 function register($email, $username, $password, $cartID) {
     $valid_email = check_email($email);
-    $valid_username = preg_match("/^\w{3,}$/", $username);
+    $valid_username = preg_match("/^\w{3,}/", $username);
 
     $error_str = "";
 
@@ -110,14 +114,15 @@ function register($email, $username, $password, $cartID) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     } 
 
-    $query = 'INSERT INTO utente(email, username, password, cartID) VALUES (?, ?, ?, ?)';
-    $stmt = mysqli_prepare($connection, $query);
+    cleanUp($email);
+    cleanUp($username);
+    cleanUp($password);
 
-    mysqli_stmt_bind_param($stmt, "sssi", $email, $username, $password, $cartID);
-    mysqli_stmt_execute($stmt);
+    $query = "INSERT INTO utente(email, username, password, cartID) VALUES (\"$email\", \"$username\", \"$password\", $cartID)";
+    $result = mysqli_query($connection, $query);
+
     $to_return = (mysqli_affected_rows($connection) == 1) ? $username : NULL;
 
-    mysqli_stmt_close($stmt);
     $db->closeDbConnection();
     
     return $to_return;
@@ -147,7 +152,7 @@ function login($UUID, $password) {
 }
 
 /* newMail è una stringa e user è l'id di un utente */
-function edit_mail($user, $newMail) {
+function edit_mail($user, $oldMail, $newMail, $reMail) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
     // non molto elegante
@@ -156,17 +161,20 @@ function edit_mail($user, $newMail) {
     } 
 
     if(check_email($newMail) and !email_exists($newMail)) {
-        $query = 'UPDATE utente SET email=? WHERE username=?';
-        $stmt = mysqli_prepare($connection, $query);
-        
-        mysqli_stmt_bind_param($stmt, "ss", $newMail, $user);
-        mysqli_stmt_execute($stmt);
-        $rows = mysqli_stmt_affected_rows($stmt);
-        mysqli_stmt_close($stmt);
-        
-        $db->closeDbConnection();
-        return $rows == 1;
-    }
+	    if($oldMail === getEmailOfAccount($user)){
+		if($newMail != $reMail) return 3;
+        	$query = 'UPDATE utente SET email=? WHERE username=?';
+        	$stmt = mysqli_prepare($connection, $query);
+        	
+        	mysqli_stmt_bind_param($stmt, "ss", $newMail, $user);
+        	mysqli_stmt_execute($stmt);
+        	$rows = mysqli_stmt_affected_rows($stmt);
+        	mysqli_stmt_close($stmt);
+        	
+        	$db->closeDbConnection();
+        	return $rows == 1;
+	    } else return 2;
+    } else return 0;
     return false;
 }
 

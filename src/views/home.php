@@ -17,15 +17,15 @@ else {
     }
 }
 
-$pagetitle = "Trenogheno - Home";
-$pagedescription = "Pagina Home di trenogheno.it";
+$pagetitle = "trenene - Home";
+$pagedescription = "Pagina Home di trenene.it";
 $tag_home = "";
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 
 echo '<main id="content">' . PHP_EOL;
 echo '<div id="chiSiamo">
         <h2>CHI SIAMO</h2>
-        <p><strong>TrenoGheno</strong> è una piccola azienda nata nel 1999 specializzata 
+        <p><strong>Trenene</strong> è una piccola azienda nata nel 1999 specializzata 
 		nel settore del modellismo ferroviario</p>
     </div>
     <div id="servizi">

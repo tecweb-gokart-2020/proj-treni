@@ -5,8 +5,8 @@ use function PRODOTTO\getMarche;
 use function PRODOTTO\stampaProdotti;
 use function PRODOTTO\searchProdotti;
 
-$pagetitle = "Prodotti - Trenogheno";
-$pagedescription = "Pagina Prodotti di trenogheno.it";
+$pagetitle = "Prodotti - trenene";
+$pagedescription = "Pagina Prodotti di trenene.it";
 $tag_prodotti = '<span class="current_link">';
 include "template/header.php";
     

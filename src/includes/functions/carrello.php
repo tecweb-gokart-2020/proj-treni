@@ -2,6 +2,7 @@
 namespace CARRELLO;
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
 use mysqli;
+use Exception;
 use DB\DBAccess;
 use function UTILITIES\isValidID;
 use function ORDINE\makeNewOrdine;
@@ -19,11 +20,7 @@ function getProdottiFromCarrello($cart_id){
         $listaProdotti = array();
         if(mysqli_num_rows($queryResult)!=0){
             while($riga = mysqli_fetch_assoc($queryResult)){
-                $singoloProdotto = array(
-                    "IDArticolo" => $riga["codArticolo"],
-                    "Qta" => $riga["quantita"]
-                );    
-                array_push($listaProdotti,$singoloProdotto);
+                array_push($listaProdotti,$riga);
             }
         }
         $dbAccess->closeDbConnection();
@@ -65,6 +62,14 @@ function getNewCarrello(){
     }
 }
 
+function removeFromCart($cartID, $prodotto) {
+	$db = new DBAccess();
+	$connection = $db->openDbConnection();
+	$query = "DELETE FROM contenuto_carrello WHERE cartID=$cartID AND codArticolo=" . $prodotto;
+	$response = mysqli_query($connection, $query);
+	return $response;
+}
+
 /* cartID è l'id ben formato di un carrello, $address è una mappa che
  * contiene tutti i campi necessari per la definizione di un indirizzo
  * (come esempio vedere views/checkout.php linea 26). Ritorna true se
@@ -75,21 +80,70 @@ function checkout($cartID, $addressID) {
     $account = getAccountFromCarrello($cartID);
     $totale = 0;
     foreach($prodotti as $prodotto) {
-        $totale += getInfoFromProdotto($prodotto["IDArticolo"])["prezzo"];
+        $totale += getInfoFromProdotto($prodotto["codArticolo"])["prezzo"];
     }
     $orderID = makeNewOrdine($account, $totale);
     $ship = makeNewSpedizione($orderID, $addressID, 'Processing');
-    var_dump($prodotti);
-    var_dump($account);
-    var_dump($totale);
-    var_dump($orderID);
+    // var_dump($prodotti);
+    // var_dump($account);
+    // var_dump($totale);
+    // var_dump($orderID);
     var_dump($ship);
+    $response = true;
     foreach($prodotti as $prodotto){
-        $response = ordina($prodotto["IDArticolo"],
-                           $prodotto["qta"],
-                           getInfoFromProdotto($prodotto["IDArticolo"])["prezzo"],
-                           $orderID,
-                           $ship);
+	    if($response){
+        	$response = ordina($prodotto["codArticolo"],
+               				$prodotto["quantita"],
+                			getInfoFromProdotto($prodotto["codArticolo"])["prezzo"],
+                			$orderID,
+                			$ship);
+		if($response) {
+			removeFromCart($cartID, $prodotto["codArticolo"]);
+		}
+	    }
     }
+    return true;
+}
+
+/* cartID e codice articolo ben formati, controlla che siano id validi
+ * e poi aggiunge al carrello cartID l'articolo $articolo */
+function addToCart($cartID, $articolo) {
+    if(isValidID($cartID) and isValidID($articolo)) {
+        $db = new DBAccess();
+        $connection = $db->openDbConnection();
+        $query = 'SELECT quantita FROM contenuto_carrello WHERE cartID='. $cartID.
+               ' AND codArticolo=' . $articolo;
+        $quantita = mysqli_query($connection, $query);
+        $quantita = mysqli_fetch_row($quantita)[0];
+	if($quantita > 0){
+        	$query = "UPDATE contenuto_carrello SET quantita = quantita + 1 WHERE cartID = $cartID AND codArticolo = $articolo";
+	} else {
+        	$query = "INSERT INTO contenuto_carrello(cartID, codArticolo) VALUES ($cartID, $articolo)";
+	}
+        $res = mysqli_query($connection, $query);
+        return mysqli_affected_rows($connection);
+    } else {
+    	throw Exception("Oh oh...");
+    }
+}
+
+function setQuantityInCart($cart, $product, $quantity){
+	if(isValidID($cart)){
+		if(isValidID($product)){
+			$db = new DBAccess();
+			$connection = $db->openDbConnection();
+			$cart = cleanUp($cart);
+			$product = cleanUp($product);
+			$quantity = cleanUp($quantity);
+			var_dump($quantity);
+			var_dump($cart);
+			var_dump($product);
+			$query = "UPDATE contenuto_carrello SET quantita=$quantity WHERE cartID=$cart AND codArticolo=$product";
+			$res = mysqli_query($connection, $query);
+			return mysqli_affected_rows($connection);
+		}
+		else throw new Exception("Prodotto non passa il check");
+	}
+	else throw new Exception("carrello non passa il check");
 }
 ?>

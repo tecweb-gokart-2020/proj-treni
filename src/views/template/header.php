@@ -26,7 +26,7 @@ echo '<!DOCTYPE html>
         </nav>
 	<header>
 	    <!-- Logo -->
-	    <h1>'. $tag_home .'TrenoGheno'. $tag_home_close .'</h1>
+	    <h1>'. $tag_home .'Trenene'. $tag_home_close .'</h1>
 	    <!-- Ricerca -->
 	    <form id="ricercaHeader" action="prodotti.php" method="get">
 		<label for="searchQuery">Ricerca prodotti</label>

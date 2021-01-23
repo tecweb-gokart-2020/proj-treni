@@ -21,7 +21,7 @@ function printAddress($addressID) {
         echo '</ul>' . PHP_EOL;
     }
     else {
-	echo "addressID = " . var_dump($addressID) . PHP_EOL;
+	var_dump($addressID);
         echo "Indirizzo non valido, qualcosa è andato storto...";
     }
 }
@@ -54,7 +54,7 @@ function printOrder($orderID) {
         //stampa prodotti spediti a quell'indirizzo
         foreach($ship as $prodotto) {
             echo '<ul class="prodotto_item">' . PHP_EOL;
-            echo '<li class="image"><img href="imgs/' . $prodotto["productID"]. '"/></li>'. PHP_EOL;
+            echo '<li class="image"><img src="img/' . $prodotto["productID"]. '"/></li>'. PHP_EOL;
             echo '<li class="productID">'. $prodotto["productID"] ."</li>". PHP_EOL;
             //if($prodotto["shippingID"]){
             //echo '<li class="shippingID">'. $prodotto["shippingID"] ."</li>". PHP_EOL;
@@ -69,8 +69,8 @@ function printOrder($orderID) {
 }
 
 session_start();
-$_SESSION["username"] = "user";
-$_SESSION["cartID"] = 2;
+// $_SESSION["username"] = "user";
+// $_SESSION["cartID"] = 2;
 if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente

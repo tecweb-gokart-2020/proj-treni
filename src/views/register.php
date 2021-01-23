@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
-$pagetitle = "Trenogheno - Registrazione";
-$pagedescription = "Registrazione al sito trenogheno.it";
+$pagetitle = "trenene - Registrazione";
+$pagedescription = "Registrazione al sito trenene.it";
 include 'template/header.php';
 
 session_start();
@@ -14,7 +14,7 @@ if($_SESSION["username"]) {
 echo '<main id="contenuto">
 	<div id="registrContainer" class="container">
 		<div class="container">
-			<p><h1>Crea account</h1>Inserisci i dati per registrarti su Trenogheno.it. I campi contrassegnati con * sono obbligatori.</p>
+			<p><h1>Crea account</h1>Inserisci i dati per registrarti su trenene.it. I campi contrassegnati con * sono obbligatori.</p>
 
 			<form name="registr" action="registerAct.php" method="post">
 				<label>Email *
@@ -30,19 +30,17 @@ echo '<main id="contenuto">
 					<input type="password" name="password2" id="registrPassword2" maxlength="10" required/>
 				</label>
                     <input type="submit" value="Registrati"/>
-			</form>
-
-			<div id="RegistrToLogin" class="container">
-				<p>Già registrato? <a href="login.php"><strong>Accedi!</strong></a></p>
-			</div>	
-		</div>
-	</div>';
+			</form>';
 
 if(isset($_SESSION["registerErr"])){
     echo '<span class="errore">' . $_SESSION["registerErr"] . '</span>';
     unset($_SESSION["registerErr"]);
 }
-echo '</main>';
+echo '<div id="RegistrToLogin" class="container">
+				<p>Già registrato? <a href="login.php"><strong>Accedi!</strong></a></p>
+			</div>	
+		</div>
+	</div></main>';
 
 include 'template/footer.php';
 ?>

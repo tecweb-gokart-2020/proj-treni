@@ -6,18 +6,19 @@ use DB\DBAccess;
 
 function isValidID($id){
     $reg_expr = "/^\d+$/";
-    if(preg_match($reg_expr,$id)!=0){
+    $res = preg_match($reg_expr,$id);
+    if($res != false or $res === 0){
         return true;
     }else{
-        error_log("Invalid ID! Must be a number");
-        return false;
+	    error_log("ERROR: " . $id . " Must be a valid ID");
+	    return false;
     }
 }
 /* Filtro per validare email, combinazione di FILTER_VALIDATE_EMAIL e
  * una regexp un po'più stringente */
 function check_email($email) {
     if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return preg_match("/^(\w{3,})@(\w{3,}).(\w{2,})*$/", $email);
+        return preg_match("/^\w+[+.\w-]*@([\w-]+.)*\w+[\w-]*.([a-z]{2,4}|d+)$/i", $email);
     }
     return false;
 }
@@ -26,17 +27,12 @@ function check_email($email) {
 function email_exists($email) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
-    $query = "SELECT email FROM utente WHERE email = ?";
-    $stmt = mysqli_prepare($connection, $query);
-
-    mysqli_stmt_bind_param($stmt, "s", $email);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $result);
-    mysqli_stmt_fetch($stmt);
-    mysqli_stmt_close($stmt);
+    cleanUp($email);
+    $query = "SELECT email FROM utente WHERE email = \"$email\"";
+    $res = mysqli_query($connection, $query);
 
     $db->closeDbConnection();
-    return (mysqli_num_rows($result) > 0);
+    return (mysqli_num_rows($res) > 0);
 }
 
 /* true se esiste, false se non esiste */

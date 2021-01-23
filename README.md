@@ -1,6 +1,6 @@
 # Progetto Tecweb 2020
 Realizzazione di un sito "vetrina" per
-[Trenogheno](http://www.trenogheno.it). Requisiti nel file
+[trenene](http://www.trenene.it). Requisiti nel file
 `REQUISITI.md`
 # Test
 Per testare la buona riuscita del progetto, ho pensato di usare le

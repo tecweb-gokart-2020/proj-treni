@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		$_SESSION["loginErr"] = "username o password non validi";
 		header("Location: login.php");  
 		exit();
-		var_dump($nome);
+		// var_dump($nome);
 	}
 }
 else {

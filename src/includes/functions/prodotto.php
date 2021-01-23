@@ -2,6 +2,7 @@
 namespace PRODOTTO;
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
 use DB\DbAccess;
+use Exception;
 use function UTILITIES\isValidID;
 
 // Ritorna un array associativo con i campi presenti in un prodotto, null se non c'è alcun prodotto
@@ -29,13 +30,21 @@ function getInfoFromProdotto($cod_articolo){
     }
 }
 
-function stampaProdotti($listaProdotti){
+function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
     for($i=0; $i<count($listaProdotti); $i++){
         $info=getInfoFromProdotto($listaProdotti[$i]);
-        echo '<li class="prodottoLista"><a href="paginaSingoloProdotto.php?codArticolo='.$listaProdotti[$i].'"><h2>'.$info['marca'].' '.$listaProdotti[$i].'</h2><img href="img/'.$listaProdotti[$i].'" alt=""/>
-        <ul>
-        <li>'.$info['tipo'].'</li>
-        <li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';
+        echo '<li class="prodottoLista"><a href="paginaSingoloProdotto.php?codArticolo=' . $listaProdotti[$i].
+                                                                   '"><h2>'.$info['marca'].' '.
+                                                                   $listaProdotti[$i].
+                                                                   '</h2><img src="img/'
+                                                                   .$listaProdotti[$i].
+                                                                   '" alt=""/><ul><li>'.
+                                                                   $info['tipo'].'</li>';
+        if(!$printQuantity){
+            echo '<li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';
+        } else {
+            echo '<li> quantità: ' . $qty . '</li>';
+        }
         if($info['sconto']!=""){
             echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';
         }
@@ -152,24 +161,25 @@ function thereAreEnoughOf($prodotto, $quantita){
 function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
     if(isValidID($prodotto) and 
        isValidID($ordine) and 
-       isValidID($spedizione) and 
-       thereAreEnoughOf($prodotto, $quantita)) {
-       
-        // Inserisce tra i prodotti ordinati
-        $dbAccess = new DBAccess();
-        $connection = $dbAccess->openDbConnection();
-        $query = "
-INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES 
-(\"$prodotto\", \"$quantita\", \"$prezzo\", \"$ordine\", \"$spedizione\")";
-        $queryResult = mysqli_query($connection, $query);
-        $res1 = mysqli_affected_rows($queryResult);
+       isValidID($spedizione)) { 
+       if(thereAreEnoughOf($prodotto, $quantita)) {
+		// Inserisce tra i prodotti ordinati
+        	$dbAccess = new DBAccess();
+        	$connection = $dbAccess->openDbConnection();
+        	$query = "INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES ".
+			"(". $prodotto .", ". $quantita .", ". $prezzo .", ". $ordine .", ". $spedizione .")";
+        	$queryResult = mysqli_query($connection, $query);
+        	$res1 = mysqli_affected_rows($connection);
         
-        // toglie dai prodotti disponibili
-        $query = "UPDATE prodotto SET quantita = quantita - ". $quantita . " WHERE codArticolo = " . $prodotto;
-        $queryResult = mysqli_query($connection, $query);
-        $res2 = mysqli_affected_rows($queryResult);
-        $dbAccess->closeDbConnection();
-        return $res1 * $res2;
+        	// toglie dai prodotti disponibili
+        	$query = "UPDATE prodotto SET quantita = quantita - ". $quantita . " WHERE codArticolo = " . $prodotto;
+       		$queryResult = mysqli_query($connection, $query);
+       	 	$res2 = mysqli_affected_rows($connection);
+       	 	$dbAccess->closeDbConnection();
+        	return $res1 * $res2;
+       } else {
+       		throw new Exception("Quantità non disponibile");
+       }
     }
     return false;
 }
