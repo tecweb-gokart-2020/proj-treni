@@ -16,9 +16,7 @@
 			</ul>
 	</div>
 
-	<div id="quellaRigaSotto">
-		<p>Trenene, ferromodellismo per appassionati!!</p>
-	</div>
+	
 </footer>
 </body>
 </html>
