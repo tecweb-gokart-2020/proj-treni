@@ -220,6 +220,10 @@
         height: auto;
     }
     
+    .imgNovita {
+    	width: min(100%, 50em);
+    	height: min(100%, 20em);
+    }
     div#percorso {
         position: relative;
         top: -1em;
@@ -306,8 +310,9 @@
     }
     
     .prodottoLista img {
-        max-width: 100%;
-        height: auto;
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
     }
     
     .prodottoLista a:link,

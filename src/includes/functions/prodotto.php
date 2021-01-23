@@ -33,20 +33,10 @@ function getInfoFromProdotto($cod_articolo){
 function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
     for($i=0; $i<count($listaProdotti); $i++){
         $info=getInfoFromProdotto($listaProdotti[$i]);
-        echo '<li class="prodottoLista"><a href="paginaSingoloProdotto.php?codArticolo=' . $listaProdotti[$i].
-                                                                   '"><h2>'.$info['marca'].' '.
-                                                                   $listaProdotti[$i].
-                                                                   '</h2><img src="imgs/'
-                                                                   .$listaProdotti[$i].
-                                                                   '" alt=""/><ul><li>'.
-                                                                   $info['tipo'].'</li>';
-        if(!$printQuantity){
-            echo '<li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';
-        } else {
-            echo '<li> quantità: ' . $qty . '</li>';
-        }
+	echo '<li class="prodottoLista"><a href="paginaSingoloProdotto.php?codArticolo=' . $listaProdotti[$i]. '"><h2>'.$info['marca'].' '. $listaProdotti[$i]. '</h2><img src="imgs/' .$listaProdotti[$i]. '" alt=""/><ul class="propProdotto"><li>' . $info['descrizione'].'</li>';
+        // echo '<li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';
         if($info['sconto']!=""){
-            echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';
+            echo '<li>Prodotto scontato del '.$info['sconto'].'%</li>';
         }
         echo '<li>';
         if($info['sconto']!=""){
@@ -59,7 +49,7 @@ function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
         echo '</li>';
         if($info['sconto']!=""){
             echo '<li>';
-            echo $aux=$info['prezzo']-$info['sconto']/100*$info['prezzo'];
+            echo $aux = $info['prezzo']-$info['sconto']/100*$info['prezzo'];
             echo '</li>';
         } 
         echo '</ul></a></li>';
@@ -182,5 +172,17 @@ function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
        }
     }
     return false;
+}
+
+function ultimeNovita() {
+	$db = new DBAccess();
+	$connection = $db->openDbConnection();
+	$query = "select codArticolo from prodotto where novita = 1 order by rand() limit 3";
+	$res = mysqli_query($connection, $query);
+	$to_return = array();
+	while($prod = mysqli_fetch_row($res)[0]) {
+		array_push($to_return, $prod);
+	}
+	return $to_return;
 }
 ?>
