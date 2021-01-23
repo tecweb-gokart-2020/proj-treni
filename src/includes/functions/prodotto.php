@@ -114,9 +114,9 @@ function queryProdotti($categoria, $marca ="Nessuna selezione", $disponibile =""
     else if($disponibile == "disponibile") $query .= " AND quantita > 0";
     else if($offerta == "offerta") $query .= " AND sconto > 0";
     if($ordine != "Nessuna selezione"){
-        if($ordine == "Alfabetico [A-Z]") $query .= " ORDER BY descrizione";
-        else if($ordine == "Prezzo crescente") $query .= " ORDER BY prezzo ASC";
-        else if($ordine == "Prezzo decrescente") $query .= " ORDER BY prezzo DESC";
+        if($ordine == "alfabetico") $query .= " ORDER BY descrizione";
+        else if($ordine == "prezzoCrescente") $query .= " ORDER BY prezzo ASC";
+        else if($ordine == "prezzoDecrescente") $query .= " ORDER BY prezzo DESC";
     }
     $queryResult = mysqli_query($connection, $query);
     $prodotti = array();
