@@ -28,6 +28,7 @@ $info=getInfoFromProdotto($prodottoAttuale);
 $pagetitle = $info['marca']." ".$info['codArticolo']." - trenene";
 $pagedescription = "Pagina".$info['marca']." ".$listaProdotti[$index]." di trenene.it";
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
+include __DIR__ . DIRECTORY_SEPARATOR . "template/breadcrumb.php";
     
 echo '<main id="content">
     <div id="paginaSingoloProdotto">
