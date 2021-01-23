@@ -1,42 +1,48 @@
     /*----------------GENERALE------------------*/
+    
     @import url('https://fonts.googleapis.com/css2?family=Lato&family=Mukta+Vaani&display=swap');
     html {
         font-family: 'Mukta Vaani', 'Lato', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 1em;
-        color:white;
+        color: white;
     }
     
     body {
         margin: 0em;
         background-color: #333;
     }
-    :link{color:rgb(255, 196, 0);}
-    :visited{color:darkorange;}
+    
+     :link {
+        color: rgb(255, 196, 0);
+    }
+    
+     :visited {
+        color: darkorange;
+    }
+    
     #aiuti {
-        position:absolute;
+        position: absolute;
         height: 1px;
         width: 1px;
         overflow: hidden;
-        clip: rect(1px,1px,1px,1px);
+        clip: rect(1px, 1px, 1px, 1px);
     }
-
+    
     input[type="submit"] {
-    	border-width: 0;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+        border-width: 0;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
     }
     
     button {
-    	border-width: 0;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
- 	display: block;
- 	margin: 30px auto;
- 	padding: 0;
-
- 	overflow: hidden;
-
- 	border-width: 0;
- 	outline: none;
- 	border-radius: 2px;
+        border-width: 0;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+        display: block;
+        margin: 30px auto;
+        padding: 0;
+        overflow: hidden;
+        border-width: 0;
+        outline: none;
+        border-radius: 2px;
     }
     /*----------------HEADER------------------*/
     
@@ -53,25 +59,11 @@
     header h1 {
         float: left;
         color: darkorange;
-        
         position: relative;
         text-align: center;
-/*<<<<<<< HEAD
-        width: 8em;
-        height: 1.1em;
-<<<<<<< HEAD
-        right: 40%;
-        float: right;
-        border: 1px solid red;
-=======
-        right: 41%;
-        float: right;
->>>>>>> f4a0f339ec963f9bd95443b25092a1f8734c9e4b
-======= */
         width: 100%;
         margin-top: 0.3em;
         height: auto;
-/* >>>>>>> eb44a4773844f49420d0ff167407d404ad812417 */
     }
     
     header a {
@@ -81,27 +73,26 @@
     header h1 a {
         text-decoration: none;
     }
-
+    
     header form#ricercaHeader {
         float: left;
         position: absolute;
         margin-left: 1em;
         margin-top: 1.4em;
-	width: 20%;
+        width: 20%;
     }
     
     header form#ricercaHeader input {
         position: relative;
         float: left;
     }
-
-    header form#ricercaHeader input[type=submit]{
-	background-color: darkorange;
-	font-weight: bold;
-	font-size: 0.9em;
-	margin-left: 0.5%;
-	border-radius: 5px;
-	
+    
+    header form#ricercaHeader input[type=submit] {
+        background-color: darkorange;
+        font-weight: bold;
+        font-size: 1em;
+        margin-left: 0.5%;
+        border-radius: 5px;
     }
     
     header nav {
@@ -114,8 +105,9 @@
     header ul#icons li:last-child {
         margin-right: 10%;
     }
-    header ul#icons li:first-child{
-	margin-left:0;
+    
+    header ul#icons li:first-child {
+        margin-left: 0;
     }
     
     header ul#pagine {
@@ -141,8 +133,9 @@
     }
     
     header label {
-    	display: none;
+        display: none;
     }
+    
     header ul#icons {
         float: right;
         margin: 0;
@@ -160,7 +153,7 @@
         display: inline;
         margin-left: 10%;
         margin-right: 10%;
-	vertical-align: middle;
+        vertical-align: middle;
         top: 0.5em;
     }
     
@@ -186,8 +179,8 @@
     }
     
     .current_link {
-	border-bottom: 3px solid white;
-	padding: .2em;
+        border-bottom: 3px solid white;
+        padding: .2em;
     }
     /*------------------CONTENUTO--------------------*/
     
@@ -195,7 +188,7 @@
         padding-left: 1%;
         padding-right: 1%;
         z-index: 0;
-	margin-bottom: 3%;
+        margin-bottom: 3%;
     }
     
     div#chiSiamo {
@@ -234,7 +227,7 @@
     div#percorso {
         position: relative;
         top: -1em;
-        margin-bottom:-1em;
+        margin-bottom: -1em;
         background-color: #222;
         /*Colore solo per test, NON DEFINITIVO*/
         height: 2.5em;
@@ -262,7 +255,7 @@
         padding: 0.5em;
         font-size: 2.5em;
         border: 3px solid darkorange;
-        color:white;
+        color: white;
         background-color: #333;
         /*Colori solo per test, NON DEFINITIVI*/
         margin: 1%;
@@ -287,7 +280,7 @@
         padding: 0.5em;
         font-size: 1.2em;
         margin: 0;
-	font-weight: bold;
+        font-weight: bold;
         border-radius: 7px;
     }
     
@@ -315,51 +308,57 @@
         max-width: 25em;
         min-width: 13em;
     }
+    
     .prodottoLista img {
-    	width: min(10em, 100%);
-    	height: min(7em, 100%);
-	object-fit: cover;
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
     }
-
-    .prodottoLista a:link, .prodottoLista a:visited {
+    
+    .prodottoLista a:link,
+    .prodottoLista a:visited {
         text-decoration: none;
         color: darkorange;
     }
-
+    
     main .cards h2 {
         text-align: center;
     }
-
+    
     nav#ap_navbar {
-	float: left;
-	margin-right: 3%;
+        float: left;
+        margin-right: 3%;
     }
-    nav#ap_navbar li{
-	margin-bottom: 1.3em;
-    }
-    main div#areaPersonale{
-	position: relative;
-	border-left: 1px solid darkorange;
-	margin-left: 16%;
-	padding-left: 4%;
-	padding-right: 3%;
-	padding-bottom: 2%;
-    }
-    main div#areaPersonale input{
-	margin-right: 1%;
-    }
-    main div#areaPersonale button[type=submit]{
-	background-color: darkorange;
-	border-radius: 7px;
-	font-weight: bold;
-	font-size: 1em;
-	margin: 1% 0;
-    }
-    main div#areaPersonale h1{
-	margin-top: 1%;
-    } 
     
+    nav#ap_navbar li {
+        margin-bottom: 1.3em;
+    }
     
+    main div#areaPersonale {
+        position: relative;
+        border-left: 1px solid darkorange;
+        margin-left: 16%;
+        padding-left: 4%;
+        padding-right: 3%;
+        padding-bottom: 2%;
+    }
+    
+    main div#areaPersonale input {
+        margin-right: 1%;
+    }
+    
+    main div#areaPersonale button[type=submit] {
+        background-color: darkorange;
+        padding: 0.3em;
+        border-radius: 7px;
+        font-weight: bold;
+        font-size: 1em;
+        margin: 1% 0;
+    }
+    
+    main div#areaPersonale h1 {
+        margin-top: 1%;
+    }
     /*-------------------FOOTER------------------*/
     
     footer {
@@ -370,8 +369,8 @@
         background-color: #222;
         /*Colore solo per test, NON DEFINITIVO*/
         text-align: center;
-	bottom: -9em;
-	padding-top: 1em;
+        bottom: -9em;
+        padding-top: 1em;
     }
     
     footer #indirizzi {
