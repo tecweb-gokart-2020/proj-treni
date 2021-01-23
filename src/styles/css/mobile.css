@@ -1,0 +1,138 @@
+/*---------------------HEADER-----------------------*/
+
+header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    height: 6em;
+    background-color: #333;
+    /*Colore solo per test, NON DEFINITIVO*/
+    z-index: 1;
+}
+
+header h1 {
+    float: left;
+    color: darkorange;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin-top: 0.3em;
+    height: auto;
+}
+
+header a {
+    position: relative;
+}
+
+header h1 a {
+    text-decoration: none;
+}
+
+header form#ricercaHeader {
+    float: none;
+    position: relative;
+    margin-left: 1em;
+    margin-top: 1.4em;
+    width: 20%;
+}
+
+header form#ricercaHeader input {
+    position: relative;
+    float: left;
+}
+
+header form#ricercaHeader input[type=submit] {
+    background-color: darkorange;
+    font-weight: bold;
+    font-size: 1em;
+    margin-left: 0.5%;
+    border-radius: 5px;
+}
+
+header nav {
+    position: relative;
+    /* top: 4em; */
+    top: 3.5em;
+    margin: 0em;
+}
+
+header ul#icons li:last-child {
+    margin-right: 10%;
+}
+
+header ul#icons li:first-child {
+    margin-left: 0;
+}
+
+header ul#pagine {
+    float: left;
+    margin: 0;
+    position: absolute;
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    top: 0.4em;
+}
+
+header ul#pagine li {
+    position: relative;
+    display: inline;
+    margin-left: 4em;
+    margin-right: 4em;
+    /* top: 4.4em; */
+    margin: 0em;
+    margin-left: 7%;
+    margin-right: 10%;
+}
+
+header label {
+    display: none;
+}
+
+header ul#icons {
+    float: right;
+    margin: 0;
+    position: absolute;
+    padding: 0px;
+    text-align: right;
+    width: 20%;
+    height: 3em;
+    top: -3em;
+    right: 0;
+}
+
+header ul#icons li {
+    position: relative;
+    display: inline;
+    margin-left: 10%;
+    margin-right: 10%;
+    vertical-align: middle;
+    top: 0.5em;
+}
+
+.fa-shopping-cart,
+.fa-user {
+    position: relative;
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+}
+
+header #counter {
+    position: absolute;
+    color: #222;
+    font-weight: bold;
+    /*Colore solo per test, NON DEFINITIVO*/
+    font-size: 0.9em;
+    width: 2em;
+    height: auto;
+    top: -0.87em;
+    text-align: center;
+    left: 0.35em;
+}
+
+.current_link {
+    border-bottom: 3px solid white;
+    padding: .2em;
+}
