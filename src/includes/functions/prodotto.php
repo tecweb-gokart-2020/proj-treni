@@ -36,7 +36,7 @@ function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
         echo '<li class="prodottoLista"><a href="paginaSingoloProdotto.php?codArticolo=' . $listaProdotti[$i].
                                                                    '"><h2>'.$info['marca'].' '.
                                                                    $listaProdotti[$i].
-                                                                   '</h2><img src="imgs/'
+                                                                   '</h2><img src="../imgs/'
                                                                    .$listaProdotti[$i].
                                                                    '" alt=""/><ul><li>'.
                                                                    $info['tipo'].'</li>';
