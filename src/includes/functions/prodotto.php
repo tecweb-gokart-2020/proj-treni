@@ -69,17 +69,17 @@ function getMarche(){
     return $marche;
 }
 
-function queryProdotti($categoria, $marca ="Nessuna selezione", $disponibile ="", $offerta ="", $prezzoMin ="", $prezzoMax ="", $ordine ="Nessuna selezione"){
+function queryProdotti($categoria, $marca ="", $disponibile ="", $offerta ="", $prezzoMin ="", $prezzoMax ="", $ordine =""){
     $dbAccess = new DBAccess();
     $connection = $dbAccess->openDbConnection();
     $query = "SELECT codArticolo FROM prodotto WHERE 1";
     $and = "";
-    if($categoria != "Nessuna selezione"){
+    if($categoria != ""){
         $query = str_replace("1","",$query);
         $query .= "tipo = \"$categoria\"";
         $and = " AND ";
     }
-    if($marca != "Nessuna selezione"){
+    if($marca != ""){
         if($and == ""){
             $query = str_replace("1","",$query);
         }
