@@ -59,13 +59,6 @@
         position: relative;
     }
     
-    header form {
-        position: relative;
-        margin: 1em;
-        margin-left: 1em;
-        margin-top: 1.7em;
-        text-align: left;
-}
     header h1 a {
         text-decoration: none;
     }
@@ -75,11 +68,21 @@
         position: absolute;
         margin-left: 1em;
         margin-top: 1.4em;
+	width: 20%;
     }
     
-    header form input[type=search] {
+    header form#ricercaHeader input {
         position: relative;
         float: left;
+    }
+
+    header form#ricercaHeader input[type=submit]{
+	background-color: darkorange;
+	font-weight: bold;
+	font-size: 0.9em;
+	margin-left: 0.5%;
+	border-radius: 5px;
+	
     }
     
     header nav {
