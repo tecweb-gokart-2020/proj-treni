@@ -82,6 +82,7 @@ main div#areaPersonale{
 }
 main div#areaPersonale input{
     width: 95%;
+    height: 3em;
     margin-bottom: 1em;
 }
 
