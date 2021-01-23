@@ -32,7 +32,7 @@ function getInfoFromProdotto($cod_articolo){
 function stampaProdotti($listaProdotti){
     for($i=0; $i<count($listaProdotti); $i++){
         $info=getInfoFromProdotto($listaProdotti[$i]);
-        echo '<li><a href="paginaSingoloProdotto.php?codArticolo='.$listaProdotti[$i].'"><h2>'.$info['marca'].' '.$listaProdotti[$i].'</h2><img href="img/'.$listaProdotti[$i].'" alt=""/>
+        echo '<li class="prodottoLista"><a href="paginaSingoloProdotto.php?codArticolo='.$listaProdotti[$i].'"><h2>'.$info['marca'].' '.$listaProdotti[$i].'</h2><img href="img/'.$listaProdotti[$i].'" alt=""/>
         <ul>
         <li>'.$info['tipo'].'</li>
         <li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';

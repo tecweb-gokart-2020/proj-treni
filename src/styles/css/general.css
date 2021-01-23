@@ -246,7 +246,7 @@
         flex-wrap: wrap;
     }
     
-    main .cards>li {
+    .prodottoLista {
         border: 4px solid darkorange;
         margin: 0 1em 2em 1em;
         padding: 1em;
@@ -256,11 +256,8 @@
         min-width: 13em;
     }
 
-    main .cards>li>a {
+    .prodottoLista a:link, .prodottoLista a:visited {
         text-decoration: none;
-    }
-    
-    main .cards li>a:link{
         color: darkorange;
     }
 
