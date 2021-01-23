@@ -53,6 +53,34 @@ div#servizi{
     left: 0;
 }
 
+div#percorso{
+    top: -2em;
+    height: 3em;
+    padding-top: 0;
+    padding: 1em;
+}
+
+main#content{
+    padding: 1em;
+}
+
+nav#ap_navbar{
+    text-align: center;
+    float: none;
+}
+nav#ap_navbar ul{
+    padding-left: 0;
+    list-style-type: none;  
+}
+main div#areaPersonale{
+    margin-left: 0;
+    border: none;
+}
+main div#areaPersonale input{
+    width: 95%;
+    margin-bottom: 1em;
+}
+
 /*------------FOOTER------------*/
 
 footer{
