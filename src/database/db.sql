@@ -29,6 +29,7 @@ CREATE TABLE prodotto(
        marca varchar(20),
        tipo ENUM ('locomotiva', 'carrozza', 'carro', 'accessorio', 'binario'),
        quantita int DEFAULT 1,
+       novita bool DEFAULT 1,
 
        FOREIGN KEY (marca) REFERENCES marca(nome)
 )Engine=InnoDB;

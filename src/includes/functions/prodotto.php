@@ -183,4 +183,16 @@ function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
     }
     return false;
 }
+
+function ultimeNovita() {
+	$db = new DBAccess();
+	$connection = $db->openDbConnection();
+	$query = "select codArticolo from prodotto where novita = 1 order by rand() limit 3";
+	$res = mysqli_query($connection, $query);
+	$to_return = array();
+	while($prod = mysqli_fetch_row($res)[0]) {
+		array_push($to_return, $prod);
+	}
+	return $to_return;
+}
 ?>

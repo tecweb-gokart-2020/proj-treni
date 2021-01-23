@@ -2,6 +2,8 @@
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
 use function ACCOUNT\getCartFromAccount;
 use function CARRELLO\getNewCarrello;
+use function PRODOTTO\ultimeNovita;
+use function PRODOTTO\getInfoFromProdotto;
 
 session_start();
 // debug
@@ -41,12 +43,21 @@ echo '<div id="chiSiamo">
     <div id="news">
         <h2>NOVITÀ</h2>';
 //mettere immagini prodotti con flag(da aggiungere) novità
+$new = ultimeNovita();
+foreach($new as $prodotto) {
+	echo '<img class="imgNovita" src="imgs/'. $prodotto . '">';
+	$info = getInfoFromProdotto($prodotto);
+	echo '<figcaption><a href="paginaSingoloProdotto.php?codArticolo='.$info['codArticolo'].'" class="middle">'. 
+		$info['marca'] .' '. 
+		$info['codArticolo'].'</a></figcaption> ';
+}
 
-echo '</div>
-    <div id="prodottiInHome">
-	<h2>I NOSTRI PRODOTTI</h2>
-        <a href="prodotti.html">Cerca nel catalogo</a>
-    </div>';
+echo '</div>';
+	// non è ridondante?
+    // '<div id="prodottiInHome">
+    //     <h2>I NOSTRI PRODOTTI</h2>
+    //     <a href="prodotti.html">Cerca nel catalogo</a>
+    // </div>';
 echo '</main>';
 
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
