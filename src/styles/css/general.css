@@ -227,6 +227,10 @@
         height: auto;
     }
     
+    .imgNovita {
+    	width: min(100%, 50em);
+    	height: min(100%, 20em);
+    }
     div#percorso {
         position: relative;
         top: -1em;

@@ -45,11 +45,11 @@ echo '<div id="chiSiamo">
 //mettere immagini prodotti con flag(da aggiungere) novità
 $new = ultimeNovita();
 foreach($new as $prodotto) {
-	echo '<img class="imgNovita" src="imgs/'. $prodotto . '">';
+	echo '<div class="imgNovitaContainer"><img class="imgNovita" src="imgs/'. $prodotto . '">';
 	$info = getInfoFromProdotto($prodotto);
 	echo '<figcaption><a href="paginaSingoloProdotto.php?codArticolo='.$info['codArticolo'].'" class="middle">'. 
 		$info['marca'] .' '. 
-		$info['codArticolo'].'</a></figcaption> ';
+		$info['codArticolo'].'</a></figcaption></div>';
 }
 
 echo '</div>';
