@@ -3,7 +3,7 @@
  		<address><!-- informazioni di contatto e sul negozio -->
 			<strong>Vieni a trovarci!</strong> 
 			<ul>
-				<li> Esposizione in via fasulla, 123 - 80091 Springfield (USA)</li>
+				<li> Esposizione in via fasulla, 123 - Padova (ITA)</li>
 			</ul>
 		</address>
 	</div>

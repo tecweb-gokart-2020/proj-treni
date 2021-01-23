@@ -29,7 +29,7 @@ function stampaProdotto($prodotto){
         echo '<li><a href="paginaSingoloProdotto.php?codArticolo=' . $prodotto["codArticolo"] .
                                                                    '"><h2>'.$info['marca'].' '.
                                                                    $prodotto["codArticolo"].
-                                                                   '</h2></a><img src="img/'
+                                                                   '</h2></a><img src="imgs/'
                                                                    .$prodotto["codArticolo"].
                                                                    '" alt=""/><ul><li>'.
                                                                    $info['tipo'].'</li>';

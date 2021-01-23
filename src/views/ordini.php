@@ -54,7 +54,7 @@ function printOrder($orderID) {
         //stampa prodotti spediti a quell'indirizzo
         foreach($ship as $prodotto) {
             echo '<ul class="prodotto_item">' . PHP_EOL;
-            echo '<li class="image"><img src="img/' . $prodotto["productID"]. '"/></li>'. PHP_EOL;
+            echo '<li class="image"><img src="imgs/' . $prodotto["productID"]. '"/></li>'. PHP_EOL;
             echo '<li class="productID">'. $prodotto["productID"] ."</li>". PHP_EOL;
             //if($prodotto["shippingID"]){
             //echo '<li class="shippingID">'. $prodotto["shippingID"] ."</li>". PHP_EOL;

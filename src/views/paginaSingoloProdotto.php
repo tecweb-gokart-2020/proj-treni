@@ -32,7 +32,7 @@ include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 echo '<main id="content">
     <div id="paginaSingoloProdotto">
     <h2>'.$info['marca'].' '.$prodottoAttuale.'</h2>
-    <img src="img/'.$info['codArticolo'].'" alt=""/>
+    <img src="imgs/'.$info['codArticolo'].'" alt=""/>
     <ul>
     <li>Categoria: '.$info['tipo'].'</li>
     <li><p>'.$info['descrizione'].'</p></li>';
