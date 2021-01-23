@@ -287,11 +287,12 @@
     footer {
         position: absolute;
         width: 100%;
-        height: 9em;
+        height: 7em;
         font-size: 0.8em;
         background-color: #222;
         /*Colore solo per test, NON DEFINITIVO*/
         text-align: center;
+	padding-top: 1em;
     }
     
     footer #indirizzi {
@@ -334,7 +335,7 @@
     
     footer #quellaRigaSotto {
         position: absolute;
-        top: 6em;
+        top: 4.5em;
         left: 0em;
         width: 100%;
     }
