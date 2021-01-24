@@ -29,8 +29,17 @@
     }
     
     input[type="submit"] {
-        border-width: 0;
         box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+        display: block;
+        margin: 30px auto;
+        padding: 5px;
+        overflow: hidden;
+        border-width: 0;
+        outline: none;
+        border-radius: 2px;
+        background-color: darkorange;
+        font-weight: bold;
+        font-size: 1em;
     }
     
     button {
@@ -38,7 +47,7 @@
         box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
         display: block;
         margin: 30px auto;
-        padding: 0;
+        padding: 5px;
         overflow: hidden;
         border-width: 0;
         outline: none;
@@ -91,11 +100,10 @@
     }
     
     header form#ricercaHeader input[type=submit] {
-        background-color: darkorange;
-        font-weight: bold;
         font-size: 1em;
-        margin-left: 0.5%;
-        border-radius: 5px;
+	margin: auto;
+        padding: 7px;
+        margin-left: 1%;
     }
     
     header nav {
