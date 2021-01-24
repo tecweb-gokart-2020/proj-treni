@@ -49,7 +49,7 @@ foreach($new as $prodotto) {
 	echo '<figure class="imgNovitaContainer"><img class="imgNovita" src="imgs/'. $prodotto . '" alt="'. $info['marca'].' '.$prodotto.'">';
 	echo '<figcaption><a href="paginaSingoloProdotto.php?codArticolo='.$info['codArticolo'].'" class="middle">'. 
 		$info['marca'] .' '. 
-		$info['codArticolo'].'</a></figcaption></div>';
+		$info['codArticolo'].'</a></figcaption></figure>';
 }
 
 echo '</div>';
