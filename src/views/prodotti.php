@@ -68,7 +68,7 @@ echo '<div id="filtroProdotti">
         <form id="formFiltro" novalidate>
             <label id="labelCategoria" for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
-		<option value="" disabled="disabled" selected="selected">categoria</option>';
+		<option value="" disabled="disabled"'; if(!$_GET["categorie"] && !$_GET['categoriaSelezionata']){echo ' selected="selected"';} echo '>categoria</option>';
                 echo '<option value="locomotiva"'; if($_GET["categorie"]=="locomotiva" || $_GET['categoriaSelezionata']=="Locomotive"){echo ' selected="selected"';} echo '>Locomotive</option>';
                 echo '<option value="carrozza"'; if($_GET["categorie"]=="carrozza" || $_GET['categoriaSelezionata']=="Carrozze"){echo ' selected="selected"';} echo '>Carrozze</option>';
                 echo '<option value="carro"'; if($_GET["categorie"]=="carro" || $_GET['categoriaSelezionata']=="Carri"){echo ' selected="selected"';} echo '>Carri</option>';
