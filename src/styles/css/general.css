@@ -211,7 +211,7 @@ header #counter {
     padding: .2em;
 }
 
-#login {
+#login, #register {
     box-shadow: 0 1px 4px var(--viola);
 	background-color: var(--blu);
 	color: white;
@@ -219,13 +219,17 @@ header #counter {
 	border-radius: 5px;
 }
 
-#register {
-    box-shadow: 0 1px 4px var(--viola);
+#logout {
+	padding: 1em;
 	background-color: var(--blu);
 	color: white;
-	padding: .7em;
-	border-radius: 5px;
 }
+
+#logoutContainer {
+	text-align: right;
+	padding: 1em;
+}
+
 /*------------------CONTENUTO--------------------*/
 
 main#content {
@@ -435,13 +439,20 @@ li {
 	list-style: none;
 }
 
+main input {
+	margin: 10px;
+	border: 0;
+    	box-shadow: 0 1px 4px var(--viola);
+	padding: 5px;
+}
+
 .ordine {
 	border: 3px solid var(--blu);
 	padding: 5px;
 	padding: 0.5em;
 	/* font-size: 2.5em; */
-	color: white;
-	background-color: #222;
+	color: black;
+	background-color: var(--base);
 	border-radius: 10px;
 	margin: 10px;
 	margin-left: -2em;
@@ -450,7 +461,7 @@ li {
 .prodotto_item {
 	/* border-bottom: 3px solid darkorange; */
 	background-color: var(--blu);
-	color: black;
+	color: white;
 	border-radius: 10px;
 	margin: 10px;
 	text-align: center;

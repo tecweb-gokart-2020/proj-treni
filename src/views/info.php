@@ -17,7 +17,7 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
 
-    $tag_info = "<span class=\"current_link\">";
+    $tag_info = "";
     $pagetitle = "trenene - Area personale";
     $pagedescription = "Area dove è possibile gestire i propri dati";
     include "template/header.php";
@@ -54,29 +54,29 @@ if(isset($_SESSION["username"])) {
         . PHP_EOL .
         '<label for="oldMail">vecchia mail:</label>'
         . PHP_EOL .
-	'<input name="oldMail" id="oldMail" maxlength="50"/>'
+	'<input name="oldMail" id="oldMail" maxlength="50"/><br/>'
 	. PHP_EOL .
         '<label for="newMail">nuova mail:</label>'
         . PHP_EOL .
-	'<input name="newMail" id="newMail" maxlength="50"/>'
+	'<input name="newMail" id="newMail" maxlength="50"/><br/>'
 	. PHP_EOL .
         '<label for="reMail">conferma mail:</label>'
         . PHP_EOL .
-	'<input name="reMail" id="reMail" maxlength="50"/>'
+	'<input name="reMail" id="reMail" maxlength="50"/><br/>'
 	. PHP_EOL .
 	'<button type="submit" name="edit" id="editEmail" value="email">modifica email</button></fieldset>'
         . PHP_EOL .
         '<fieldset><legend>Password</legend>'
         . PHP_EOL .
-        '<label for="oldPassword">vecchia password:</label><input type="password" name="oldPassword" id="oldPassword" maxlength="50"/>'
+        '<label for="oldPassword">vecchia password:</label><input type="password" name="oldPassword" id="oldPassword" maxlength="50"/><br/>'
         . PHP_EOL .
-        '<label for="newPassword">nuova password:</label><input type="password" name="newPassword" id="newPassword" maxlength="50"/>'
+        '<label for="newPassword">nuova password:</label><input type="password" name="newPassword" id="newPassword" maxlength="50"/><br/>'
         . PHP_EOL .
-        '<label for="rePassword">conferma password:</label><input type="password" name="rePassword" id="rePassword" maxlength="50"/>'
+        '<label for="rePassword">conferma password:</label><input type="password" name="rePassword" id="rePassword" maxlength="50"/><br/>'
         . PHP_EOL .
         '<button type="submit" name="edit" id="editPw" value="password">modifica password</button>'
         . PHP_EOL .
-        '</fieldset></form>'
+        '</fieldset></form><div id="logoutContainer"><a id="logout" href="logout.php">Logout</a></div>'
         . PHP_EOL;
 
     if(isset($emailDone)) {
