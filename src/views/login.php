@@ -5,14 +5,17 @@ session_start();
 echo '<main id="content">
 <div id="loginContainer" class="container">
 	<p><h1>Benvenuto!</h1>Accedi al tuo account</p>
-	<form name="login" action="loginAct.php" method="post">
+	<form id="formLogin" name="login" action="loginAct.php" method="post" novalidate="true" aria-live="assertive">
 		<label> <strong>Nome utente o Email</strong>
-			<input type="text" name="nomeUtente" id="loginUtente" maxlength="30"  autocomplete="on" required />
+			<input type="text" name="nomeUtente" id="loginUtente" maxlength="30"  autocomplete="on" aria-errormessage="errorUsername" aria-invalid="false" required />
 		</label>
+		<div id="errorUsername" class="errore" >Per favore inserisci nome utente o email</div>
 		<label> <strong>Password</strong>
-			<input type="password" name="password" id="loginPassword" maxlength="10" autocomplete="on" required  />
+			<input type="password" name="password" id="loginPassword" maxlength="10" autocomplete="on" aria-errormessage="errorPassword" aria-invalid="false" required  />
 		</label>
-            <input type="submit" id="loginInvio" value="Accedi" >
+		<div id="errorPassword" class="errore" >Per favore inserisci la password</div>
+		<label><input id="mostraPassword" type="checkbox">Mostra password</label>
+        <input type="submit" id="loginInvio" value="Accedi" >
 	</form>
 	<div id="loginToRegistr" class="container">
 		<p>Prima volta sul sito? <a href="register.php"><strong>Registrati!</strong></a></p>
@@ -24,7 +27,8 @@ if(isset($_SESSION["loginErr"])){
     unset($_SESSION["loginErr"]);
 }
 
-echo '</main>';
+echo '</main>
+<script type="text/javascript" src="' . __DIR__ . DIRECTORY_SEPARATOR . '../styles/js/login.js"></script>';
 include __DIR__ . DIRECTORY_SEPARATOR . 'template/footer.php';
 ?>
 
