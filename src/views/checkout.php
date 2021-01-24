@@ -116,6 +116,7 @@ if($checkout) {
     }
 }
 
+$js = '<script type="text/javascript" src="js/checkout.js"></script>';
 $pagedescription = "Contenuto del carrello";
 $pagetitle = "carrello";
 include "template/header.php";
@@ -124,42 +125,43 @@ $current_page = "<a href=\"carrello.php\">carrello</a> >> checkout";
 include "template/breadcrumb.php";
 
 echo '<main id="content">' . PHP_EOL;
-echo '<form method="post"><fieldset><legend>Indirizzo di spedizione</legend>
+echo '<form method="post" id="formCheckout" novalidate aria-live="assertive"><fieldset><legend>Indirizzo di spedizione</legend>
 				<label>Nome *
-					<input type="text" name="nome" id="nome" maxlength="50" required/>
+					<input type="text" name="nome" id="nome" maxlength="50" required autocomplete="on" aria-errormessage="errorNome" aria-invalid="false"/>
 				</label><br/>
-
+                <div id="errorNome" class="errore" >Per favore inserisci un nome valido</div>
 				<label>Cognome *
-					<input type="text" name="cognome" id="cognome" maxlength="50" required/>
+					<input type="text" name="cognome" id="cognome" maxlength="50" required autocomplete="on" aria-errormessage="errorCognome" aria-invalid="false"/>
 				</label><br/>
-
+                <div id="errorCognome" class="errore" >Per favore inserisci un cognome valido</div>
 				<label>Via *
-					<input type="text" name="via" id="via" maxlength="50" required/>
+					<input type="text" name="via" id="via" maxlength="50" required autocomplete="on" aria-errormessage="errorVia" aria-invalid="false"/>
 				</label><br/>
-				
+				<div id="errorVia" class="errore" >Per favore inserisci un indirizzo valido</div>
 				<label>Numero civico *
-					<input type="text" name="civico" id="civico" maxlength="50" required/>
+					<input type="text" name="civico" id="civico" maxlength="50" required autocomplete="on" aria-errormessage="errorCivico" aria-invalid="false"/>
 				</label><br/>
-
+                <div id="errorCivico" class="errore" >Per favore inserisci un numero civico valido</div>
 				<label>Città *
-					<input type="text" name="citta" id="citta" maxlength="50" required/>
+					<input type="text" name="citta" id="citta" maxlength="50" required autocomplete="on" aria-errormessage="errorCitta" aria-invalid="false"/>
 				</label><br/>
-				
+				<div id="errorCitta" class="errore" >Per favore inserisci una città valida</div>
 				<label>Provincia *
-					<input type="text" name="provincia" id="provincia" maxlength="50" required/>
+					<input type="text" name="provincia" id="provincia" maxlength="50" required autocomplete="on" aria-errormessage="errorProvincia" aria-invalid="false"/>
 				</label><br/>
-				
+				<div id="errorProvincia" class="errore" >Per favore inserisci una provincia valida</div>
 				<label> <abbr title="Codice Avviamento Postale">CAP</abbr> *
-					<input type="text" name="cap" id="cap" maxlength="5" required/>
+					<input type="text" name="cap" id="cap" maxlength="5" required autocomplete="on" aria-errormessage="errorCap" aria-invalid="false"/>
 				</label><br/>
-
+                <div id="errorCap" class="errore" >Per favore inserisci un CAP valido</div>
 				<label>Stato *
-					<input type="text" name="stato" id="stato" maxlength="50" value="Italia" required/>
+					<input type="text" name="stato" id="stato" maxlength="50" value="Italia" required autocomplete="on" aria-errormessage="errorStato" aria-invalid="false"/>
 				</label><br/>
-
-				<label>Telefono
-					<input type="text" name="telefono" id="telefono" maxlength="20" />
+                <div id="errorStato" class="errore" >Per favore inserisci uno stato valido</div>
+				<label>Telefono</br><em>Solo numeri italiani</em>
+					<input type="text" name="telefono" id="telefono" maxlength="20" autocomplete="on" aria-errormessage="errorTelefono" aria-invalid="false"/>
 				</label><br/>
+                <div id="errorTelefono" class="errore" >Il numero inserito non è valido</div>
 </fieldset>
 <button type="submit" name="checkout" id="checkout" value="checkout">Procedi all\'acquisto</button>
 </form><a href="carrello.php">Torna al carrello</a>';
