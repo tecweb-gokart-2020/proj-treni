@@ -12,7 +12,7 @@ if($_SESSION["username"]) {
 	exit();
 }
 
-echo '<main id="contenuto">
+echo '<main id="content">
 	<div id="registrContainer" class="container">
 		<div class="container">
 			<p><h1>Crea account</h1>Inserisci i dati per registrarti su trenene.it. I campi contrassegnati con * sono obbligatori.</p>
