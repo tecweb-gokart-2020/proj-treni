@@ -7,10 +7,11 @@ else
     views_dir=$(echo $(pwd)/src/views)
     css_dir=$(echo $(pwd)/src/styles/css)
     img_dir=$(echo $(pwd)/imgs)
-    js_dir=$(echo $(pwd)/style/js)
+    js_dir=$(echo $(pwd)/src/style/js)
     public_path=$1
     
     rm -rf $public_path/*
+    rm -rf $public_path/.htaccess
     cd $public_path
     for file in `ls $views_dir`; do
 	ln -s $views_dir/$file
@@ -18,6 +19,7 @@ else
     ln -s $css_dir css
     ln -s $img_dir imgs
     ln -s $js_dir js
+    ln -s $views_dir/.htaccess
     rm -f template;
     rm -f home_statica.html;
 fi
