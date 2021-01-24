@@ -17,7 +17,7 @@ echo '<main id="content">
 		<div class="container">
 			<p><h1>Crea account</h1>Inserisci i dati per registrarti su trenene.it. I campi contrassegnati con * sono obbligatori.</p>
 
-			<form id="formRegistr" name="registr" action="registerAct.php" method="post"  novalidate="true" aria-live="assertive">
+			<form id="formRegistr" name="registr" action="registerAct.php" method="post" novalidate="true" aria-live="assertive">
 				<label>Email *</br>
 						<input type="email" name="email" id="registrEmail" maxlength="100" autocomplete="on" aria-errormessage="errorEmail" aria-invalid="false" required />
 					</label>
@@ -26,12 +26,12 @@ echo '<main id="content">
 						<input type="text" name="nomeUtente" id="registrUtente" maxlength="20" aria-errormessage="errorUsername" aria-invalid="false" required/>
 					</label>
 					<div id="errorUsername" class="errore" >Per favore inserisci un nome utente valido</div>
-					<label>Password * <div>Massimo 10 caratteri e questi /\,.:;\'>< non sono consentiti</div>
-						<input type="password" name="password" id="registrPassword" maxlength="10" aria-errormessage="errorPassword" aria-invalid="false" required/>
+					<label>Password * <div>Questi simboli /\,.:;\'>< non sono consentiti</div>
+						<input type="password" name="password" id="registrPassword" maxlength="50" aria-errormessage="errorPassword" aria-invalid="false" required/>
 					</label>
 					<div id="errorPassword" class="errore" >Per favore inserisci una password valida</div>
 					<label>Conferma password *</br>
-						<input type="password" name="password2" id="registrPassword2" maxlength="10" aria-errormessage="errorPassword2" aria-invalid="false" required/>
+						<input type="password" name="password2" id="registrPassword2" maxlength="50" aria-errormessage="errorPassword2" aria-invalid="false" required/>
 					</label>
 					<div id="errorPassword2" class="errore" >Le due password non coincidono</div>
 					<label><input id="mostraPassword" type="checkbox">Mostra password</label>
