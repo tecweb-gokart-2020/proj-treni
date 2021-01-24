@@ -320,7 +320,7 @@ main div#filtroProdotti {
     position: sticky;
     background-color: var(--blu);
     /*Colori solo per test, NON DEFINITIVI*/
-    padding: 0.7em 0em;
+    padding: 0.7em 0.1em;
     top: 6em;
     text-align: center;
     margin-left: -1%;
@@ -387,7 +387,7 @@ nav#ap_navbar {
 
 nav#ap_navbar li {
     margin-bottom: 1.3em;
-    list-type: none;
+    list-style-type: none;
 }
 
 main div#areaPersonale {
@@ -422,7 +422,7 @@ main div#areaPersonale img {
     object-fit: cover;
 }
 main div#cart {
-	list-type: none;
+	list-style-type: none;
 }
 
 main ul#cart img{
