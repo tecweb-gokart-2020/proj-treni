@@ -15,11 +15,15 @@ html {
     font-family: 'Mukta Vaani', 'Lato', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1em;
     color: black;
+    height: 100%;
 }
 
 body {
     margin: 0em;
+    padding: 0em;
     background-color: var(--base);
+    min-height: 100%;
+    position: relative;
 }
 
 :link {
@@ -232,11 +236,14 @@ header #counter {
 
 /*------------------CONTENUTO--------------------*/
 
+main {
+	padding-bottom: 7em;
+    min-height: 100%;
+}
 main#content {
     padding-left: 1%;
     padding-right: 1%;
     z-index: 0;
-    margin-bottom: 3%;
 }
 
 div#chiSiamo {
@@ -565,7 +572,7 @@ main input {
 /*-------------------FOOTER------------------*/
 
 footer {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 7em;
     font-size: 0.8em;
@@ -573,7 +580,7 @@ footer {
     color: black;
     /*Colore solo per test, NON DEFINITIVO*/
     text-align: center;
-    bottom: -9em;
+    bottom: 0;
     padding-top: 1em;
 }
 
