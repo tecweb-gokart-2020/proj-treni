@@ -78,7 +78,7 @@ if(isset($_SESSION["username"])) {
      * richiede la pagina direttamente da url, invece che dalla home
      * dopo il login) */
 
-    $tag_info = "<span class=\"current_link\">";
+    $tag_info = "";
     include "template/header.php";
 
     $current_page = "area personale >> i miei ordini";

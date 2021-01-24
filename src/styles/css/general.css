@@ -469,7 +469,7 @@ main input {
 }
 
 .display-address {
-	border: 3px solid darkorange;
+	border: 3px solid var(--giallo);
 	border-radius: 10px;
 	padding: .5em;
 }
