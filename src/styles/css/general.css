@@ -300,7 +300,7 @@ main div#filtroProdotti {
     position: sticky;
     background-color: #222;
     /*Colori solo per test, NON DEFINITIVI*/
-    padding: 0.7em 0em;
+    padding: 0.7em 0.1em;
     top: 6em;
     text-align: center;
 }
@@ -322,7 +322,7 @@ main div#filtroProdotti input[type=number] {
 
 main div#filtroProdotti form input,
 main div#filtroProdotti form select {
-    margin-right: 1.5em;
+    margin-right: 2em;
 }
 
 main .cards {
