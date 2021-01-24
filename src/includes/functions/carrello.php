@@ -4,6 +4,8 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
 use mysqli;
 use Exception;
 use DB\DBAccess;
+
+use function ORDINE\getProdottiFromOrder;
 use function UTILITIES\isValidID;
 use function ORDINE\makeNewOrdine;
 use function PRODOTTO\ordina;
@@ -82,7 +84,7 @@ function checkout($cartID, $addressID) {
     $totale = 0;
     foreach($prodotti as $prodotto) {
         $prezzo = getInfoFromProdotto($prodotto["codArticolo"])["prezzo"];
-        $qta = getInfoFromProdotto($prodotto["codArticolo"])["quantita"];
+        $qta = getProdottiFromCarrello($prodotto["codArticolo"])["quantita"];
         $totale+=($prezzo*$qta);
     }
     $orderID = makeNewOrdine($account, $totale);
