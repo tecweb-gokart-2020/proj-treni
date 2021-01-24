@@ -141,9 +141,9 @@ function setQuantityInCart($cart, $product, $quantity){
 			$cart = cleanUp($cart);
 			$product = cleanUp($product);
 			$quantity = cleanUp($quantity);
-			var_dump($quantity);
-			var_dump($cart);
-			var_dump($product);
+			// var_dump($quantity);
+			// var_dump($cart);
+			// var_dump($product);
 			$query = "UPDATE contenuto_carrello SET quantita=$quantity WHERE cartID=$cart AND codArticolo=$product";
 			$res = mysqli_query($connection, $query);
 			return mysqli_affected_rows($connection);
