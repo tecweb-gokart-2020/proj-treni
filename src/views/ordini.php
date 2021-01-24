@@ -6,6 +6,7 @@ use function ORDINE\getTotalFromOrder;
 use function ORDINE\getDateFromOrder;
 use function INDIRIZZO\getInfoFromAddress;
 use function SPEDIZIONE\getAddressFromShipping;
+use function PRODOTTO\getInfoFromProdotto;
 
 function printAddress($addressID) {
     $addr = getInfoFromAddress($addressID);
@@ -54,16 +55,17 @@ function printOrder($orderID) {
         printAddress(getAddressFromShipping($ship[0]["shippingID"]));
         //stampa prodotti spediti a quell'indirizzo
         foreach($ship as $prodotto) {
+	    $info = getInfoFromProdotto($prodotto["productID"]);
             echo '<a href="paginaSingoloProdotto.php?codArticolo='.$prodotto["productID"].'"><ul class="prodotto_item">' . PHP_EOL;
-            echo '<li class="image"><img src="imgs/' . $prodotto["productID"]. '"/></li>'. PHP_EOL;
+            echo '<li class="image"><img src="imgs/' . $prodotto["productID"]. '" alt="'.$info["marca"].' '.$prodotto["productID"].'"/></li>'. PHP_EOL;
             echo '<li class="productID"> ID: '. $prodotto["productID"] ."</li>". PHP_EOL;
             //if($prodotto["shippingID"]){
             //echo '<li class="shippingID">'. $prodotto["shippingID"] ."</li>". PHP_EOL;
             //}
             echo '<li class="quantita">Quantità: '. $prodotto["quantita"] ."</li>". PHP_EOL;
             echo '<li class="stato">Stato: '. $prodotto["stato"] ."</li>". PHP_EOL;
-            echo '<li class="prezzo">Prezzo: '. $prodotto["prezzo"] ."</li>". PHP_EOL;
-            echo "</ul>" . PHP_EOL;
+            echo '<li class="prezzo">Prezzo: '. $prodotto["prezzo"] ." €</li>". PHP_EOL;
+            echo "</ul></a>" . PHP_EOL;
         }
     }
     echo "</li></ul>" . PHP_EOL;
@@ -79,6 +81,8 @@ if(isset($_SESSION["username"])) {
      * dopo il login) */
 
     $tag_info = "";
+    $pagetitle="Trenene - ordini";
+    $pagedescription = "Pagina area personale contenente gli ordini effettuati, gli articoli sono divisi per ordine e indirizzo di spedizione";
     include "template/header.php";
 
     $current_page = "area personale >> i miei ordini";
