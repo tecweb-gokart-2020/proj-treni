@@ -5,6 +5,7 @@ use function PRODOTTO\getMarche;
 use function PRODOTTO\stampaProdotti;
 use function PRODOTTO\searchProdotti;
 
+$js = '<script type="text/javascript" src="js/prodotti.js"></script>';
 $pagetitle = "Prodotti - trenene";
 $pagedescription = "Pagina Prodotti di trenene.it";
 $tag_prodotti = '<span class="current_link">';
@@ -58,7 +59,7 @@ if(!isset($_GET['categorie']) && !isset($_GET['categoriaSelezionata']) && !isset
 }
 //FILTRO PRODOTTI
 echo '<div id="filtroProdotti">
-        <form>
+        <form id="formFiltro" novalidate>
             <label id="labelCategoria" for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
 		<option value="" disabled="disabled" selected="selected">categoria</option>';
@@ -85,9 +86,9 @@ echo '</select>
             echo '<label id="labelOfferta" for="filtroInOfferta">In Offerta</label>';
             echo '<input name="offerta" id="filtroInOfferta" type="checkbox" value="offerta"'; if($_GET["offerta"]=="offerta"){echo 'checked=checked';} echo '/>';
             echo '<label id="labelMin" for="filtroPrezzoMin">Prezzo minimo</label>';
-            echo '<input name="prezzoMin" id="filtroPrezzoMin" type="number" value="';if(isset($_GET["prezzoMin"])){echo $_GET["prezzoMin"];} echo'" min="0" step="5" />';
+            echo '<input name="prezzoMin" id="filtroPrezzoMin" type="number" value="';if(isset($_GET["prezzoMin"])){echo $_GET["prezzoMin"];} echo'" min="0" step="5" aria-errormessage="erroreFiltro" aria-invalid="false"/>';
             echo '<label id="labelMax" for="filtroPrezzoMax">Prezzo massimo</label>
-            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="';if(isset($_GET["prezzoMax"])){echo $_GET["prezzoMax"];}echo '" min="0" step="5" />
+            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="';if(isset($_GET["prezzoMax"])){echo $_GET["prezzoMax"];}echo '" min="0" step="5" aria-errormessage="erroreFiltro" aria-invalid="false"/>
             <label id="labelOrdinamento" for="filrtoOrdinamento">Ordinamento</label>
             <select name="ordinamento" id="filrtoOrdinamento">
 		<option value="" disabled="disabled"'; 
@@ -97,7 +98,8 @@ echo '</select>
                 echo '<option value="prezzoCrescente"'; if($_GET["ordinamento"]=="prezzoCrescente"){echo 'selected=selected';} echo '>Prezzo crescente</option>';
                 echo '<option value="prezzoDecrescente"'; if($_GET["ordinamento"]=="prezzoDecrescente"){echo 'selected=selected';} echo '>Prezzo decrescente</option>';
             echo '</select>
-            <input id="filtroSubmit" type="submit" name="submit" value="Applica filtri" />
+            <input id="filtroSubmit" type="submit" name="submit" value="Applica filtri"/>
+            <div class="errore" id="erroreFiltro" aria-live="assertive"></div>
         </form>';
 
 // PRODOTTI TROVATI
