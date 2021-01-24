@@ -45,7 +45,13 @@ if(isset($_GET['search'])){
 }
 
 // BOTTONI CON LE CATEGORIE DI PRODOTTI
-if(!isset($_GET['categorie']) && !isset($_GET['categoriaSelezionata']) && !isset($_GET['searchQuery'])){
+if(!isset($_GET['categorie']) and
+	!isset($_GET['categoriaSelezionata']) and
+	!isset($_GET['prezzoMin']) and
+	!isset($_GET['prezzoMax']) and
+	!isset($_GET['marche']) and
+	!isset($_GET['ordinamento']) and
+	!isset($_GET['searchQuery'])){
     echo('<div id="categorie">
             <form>
                 <input type="submit" name="categoriaSelezionata" value="Locomotive"/>
