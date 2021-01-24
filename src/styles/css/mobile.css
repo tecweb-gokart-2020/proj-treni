@@ -25,12 +25,12 @@ header form#ricercaHeader {
 }
 
 header form#ricercaHeader input[type="search"] {
-	position: relative;
-	width: 80%;
-	height: auto;
-	font-size: 1.7em;
-	box-shadow: 0 1px 4px var(--viola);
-	border: 0;
+    position: relative;
+    width: 80%;
+    height: auto;
+    font-size: 1.7em;
+    box-shadow: 0 1px 4px var(--viola);
+    border: 0;
 }
 
 header form#ricercaHeader input[type=submit]{
@@ -102,43 +102,43 @@ main div#areaPersonale input{
 }
 
 #paginaSingoloProdotto ul {
-	text-align: center;
-	padding-left: 0;
+    text-align: center;
+    padding-left: 0;
 }
 
 #labelCategoria {
-	display: none;
+    display: none;
 }
 
 #labelMarche {
-	display: none;
+    display: none;
 }
 
 #labelOrdinamento {
-	display: none;
+    display: none;
 }
 
 #filtroDisponibile, #filtroInOfferta {
-	width: 5vw;
-	height: 5vw;
+    width: 5vw;
+    height: 5vw;
 }
 #filtroMarche, #filtroCategorie, #filtroOrdinamento {
-	height: 5vw;
-	text-align: center;
+    height: 5vw;
+    text-align: center;
 }
 
 main div#categorie input[type="submit"] {
-	padding: 0.5em;
-	font-size: 3.3vw;
-	color: white;
-	background-color: var(--blu);
-	border-radius: 10px;
-	flex: 1 0 25%;
-	margin: 10px;
+    padding: 0.5em;
+    font-size: 3.3vw;
+    color: white;
+    background-color: var(--blu);
+    border-radius: 10px;
+    flex: 1 0 25%;
+    margin: 10px;
 }
 
 main div#categorie *{
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 li {
@@ -146,43 +146,43 @@ li {
 }
 
 main img {
-	width: 95%;
+    width: 95%;
 }
 
 main h2{
-	text-align: center;
+    text-align: center;
 }
 
 #formFiltro {
-	grid-template-columns: auto auto;
-	text-align: center;
-	justify-content: center;
-	column-gap: 30px;
+    grid-template-columns: auto auto;
+    text-align: center;
+    justify-content: center;
+    column-gap: 30px;
 }
 
 #formFiltro label {
-	justify-self: right;
-	align-self: center;
+    justify-self: right;
+    align-self: center;
 }
 
 #formFiltro select, input {
-	justify-self: left;
-	align-self: center;
+    justify-self: left;
+    align-self: center;
 }
 
 #formFiltro input[type=number] {
-	width: 100%;
-	font-size: 3.3vw;
+    width: 100%;
+    font-size: 3.3vw;
 }
 
 #formFiltro select {
-	width: 100%;
-	font-size: 3.3vw;
+    width: 100%;
+    font-size: 3.3vw;
 }
 
 .imgNovita {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -197,7 +197,7 @@ footer #indirizzi {
     float: none;
     height: 6em;
 }
-    
+
 footer #contatti {
     float: none;
     height: 6em;

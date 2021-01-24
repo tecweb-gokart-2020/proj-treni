@@ -1,15 +1,15 @@
 /*----------------GENERALE------------------*/
 
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Mukta+Vaani&display=swap');
+
 :root{
-	--base: #ffffff;
+    --base: #ffffff;
     --blu: #016fb9; 
     --giallo: #f9c80e;
     --viola: #0e103d;
     --scuro: #0d0221;
 
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Mukta+Vaani&display=swap');
 
 html {
     font-family: 'Mukta Vaani', 'Lato', Calibri, 'Trebuchet MS', sans-serif;
@@ -22,11 +22,11 @@ body {
     background-color: var(--base);
 }
 
- :link {
+:link {
     color: var(--blu);
 }
 
- :visited {
+:visited {
     color: var(--viola);
 }
 
@@ -213,21 +213,21 @@ header #counter {
 
 #login, #register {
     box-shadow: 0 1px 4px var(--viola);
-	background-color: var(--blu);
-	color: white;
-	padding: .7em;
-	border-radius: 5px;
+    background-color: var(--blu);
+    color: white;
+    padding: .7em;
+    border-radius: 5px;
 }
 
 #logout {
-	padding: 1em;
-	background-color: var(--blu);
-	color: white;
+    padding: 1em;
+    background-color: var(--blu);
+    color: white;
 }
 
 #logoutContainer {
-	text-align: right;
-	padding: 1em;
+    text-align: right;
+    padding: 1em;
 }
 
 /*------------------CONTENUTO--------------------*/
@@ -284,10 +284,10 @@ div#percorso p {
 }
 
 div#categorie {
-    	display: flex;
-    	width: 100%;
-  	height: auto;
-  	flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
 }
 
 div#categorie form {
@@ -314,7 +314,7 @@ div#categorie input[type=submit] {
 }
 
 main {
-	margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
     width: 66%;
 }
@@ -424,7 +424,7 @@ main div#areaPersonale img {
     object-fit: cover;
 }
 main div#cart {
-	list-style-type: none;
+    list-style-type: none;
 }
 
 main ul#cart img{
@@ -432,56 +432,56 @@ main ul#cart img{
     object-fit: scale-down;
 }
 main ul#cart{
-	padding-left: 0;
+    padding-left: 0;
 }
 
 .prodottoCart {
-	border-radius: 10px;
-	border: 0;
-    	box-shadow: 0 1px 4px var(--viola);
-	padding: 15px;
-	margin: 20px;
-	text-align: center;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 0 1px 4px var(--viola);
+    padding: 15px;
+    margin: 20px;
+    text-align: center;
 }
 
 
 li {
-	list-style: none;
+    list-style: none;
 }
 
 main input {
-	margin: 10px;
-	border: 0;
-    	box-shadow: 0 1px 4px var(--viola);
-	padding: 5px;
+    margin: 10px;
+    border: 0;
+    box-shadow: 0 1px 4px var(--viola);
+    padding: 5px;
 }
 
 .ordine {
-	border: 3px solid var(--blu);
-	padding: 5px;
-	padding: 0.5em;
-	/* font-size: 2.5em; */
-	color: black;
-	background-color: var(--base);
-	border-radius: 10px;
-	margin: 10px;
-	margin-left: -2em;
+    border: 3px solid var(--blu);
+    padding: 5px;
+    padding: 0.5em;
+    /* font-size: 2.5em; */
+    color: black;
+    background-color: var(--base);
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: -2em;
 }
 
 .prodotto_item {
-	/* border-bottom: 3px solid darkorange; */
-	background-color: var(--blu);
-	color: white;
-	border-radius: 10px;
-	margin: 10px;
-	text-align: center;
-	padding: 10px;
+    /* border-bottom: 3px solid darkorange; */
+    background-color: var(--blu);
+    color: white;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
 }
 
 .display-address {
-	border: 3px solid var(--giallo);
-	border-radius: 10px;
-	padding: .5em;
+    border: 3px solid var(--giallo);
+    border-radius: 10px;
+    padding: .5em;
 }
 
 .imgNovitaContainer {
@@ -492,8 +492,8 @@ main input {
     position: relative;
 }
 .imgNovita {
-	width: 500px;
-	height: 300px;
+    width: 500px;
+    height: 300px;
     object-fit: cover;
 }
 
@@ -511,31 +511,31 @@ main input {
 }
 
 #formFiltro {
-	display: grid;
-	grid-template-columns: auto auto auto auto;
-	text-align: center;
-	justify-content: center;
-	column-gap: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+    justify-content: center;
+    column-gap: 30px;
 }
 
 #formFiltro label {
-	justify-self: right;
-	align-self: center;
+    justify-self: right;
+    align-self: center;
 }
 
 #formFiltro select, input {
-	justify-self: left;
-	align-self: center;
-	margin-left: 0;
-	background-color: #ffffff;
-	border: 0;
-	border-radius: 5px;
-	font-size: 1vw;
-    	box-shadow: 0 1px 4px var(--viola);
+    justify-self: left;
+    align-self: center;
+    margin-left: 0;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+    font-size: 1vw;
+    box-shadow: 0 1px 4px var(--viola);
 }
 
 #formFiltro input[type=number] {
-	width: 100%;
+    width: 100%;
 }
 
 
@@ -554,7 +554,7 @@ main input {
 }
 
 .imgNovitaContainer:hover figcaption {
-	opacity: 1;
+    opacity: 1;
 }
 /*-------------------FOOTER------------------*/
 
