@@ -66,7 +66,7 @@ div#percorso{
 }
 
 main#content{
-    width: 100%;
+    width: 90%;
 }
 
 nav#ap_navbar{
@@ -108,8 +108,41 @@ div#categorie input[type="submit"] {
 	flex: 1 0 25%;
 	margin: 10px;
 }
+
 select {
     font-size: 1em;
+}
+
+li {
+    list-style: none;
+}
+
+.ordine {
+	border: 3px solid darkorange;
+	padding: 5px;
+	padding: 0.5em;
+	/* font-size: 2.5em; */
+	color: white;
+	background-color: #222;
+	border-radius: 10px;
+	margin: 10px;
+	margin-left: -2em;
+}
+
+.prodotto_item {
+	/* border-bottom: 3px solid darkorange; */
+	background-color: darkorange;
+	color: black;
+	border-radius: 10px;
+	margin: 10px;
+	text-align: center;
+	padding: 10px;
+}
+
+.display-address {
+	border: 3px solid darkorange;
+	border-radius: 10px;
+	padding: .5em;
 }
 /*------------FOOTER------------*/
 
