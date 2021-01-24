@@ -320,15 +320,13 @@ main {
 }
 
 main div#filtroProdotti {
-    position: -webkit-sticky;
-    position: sticky;
-    background-color: var(--blu);
+    background-color: var(--base);
     /*Colori solo per test, NON DEFINITIVI*/
     padding: 0.7em 0.1em;
     top: 6em;
     text-align: center;
     margin-left: -1%;
-    width: 102%;
+    width: 100%;
 }
 
 main div#filtroProdotti input[type=submit] {
@@ -494,8 +492,8 @@ main input {
     position: relative;
 }
 .imgNovita {
-	width: min(500px, 50em);
-	height: min(300px, 20em);
+	width: 500px;
+	height: 300px;
     object-fit: cover;
 }
 
@@ -514,12 +512,32 @@ main input {
 
 #formFiltro {
 	display: grid;
-	grid-template-columns: auto auto;
-	color: white;
+	grid-template-columns: auto auto auto auto;
 	text-align: center;
 	justify-content: center;
 	column-gap: 30px;
 }
+
+#formFiltro label {
+	justify-self: right;
+	align-self: center;
+}
+
+#formFiltro select, input {
+	justify-self: left;
+	align-self: center;
+	margin-left: 0;
+	background-color: #ffffff;
+	border: 0;
+	border-radius: 5px;
+	font-size: 1vw;
+    	box-shadow: 0 1px 4px var(--viola);
+}
+
+#formFiltro input[type=number] {
+	width: 100%;
+}
+
 
 .imgNovitaContainer figcaption {
     position: absolute;

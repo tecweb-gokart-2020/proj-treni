@@ -16,6 +16,7 @@ echo '<!DOCTYPE html>
     <head>
 	<title>'. $pagetitle . '</title>
 	<meta name="description" content="'.$pagedescription.'"/>
+	<meta name="viewport" content="width=device-width">
   	<link rel="stylesheet" type="text/css" href="css/general.css" media="screen"/>
   	<link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-device-width:640px), only screen and (max-width:640px)" />
 	'. $js .'

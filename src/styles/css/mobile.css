@@ -144,12 +144,46 @@ main div#categorie *{
 li {
     list-style: none;
 }
+
 main img {
 	width: 95%;
 }
 
 main h2{
 	text-align: center;
+}
+
+#formFiltro {
+	grid-template-columns: auto auto;
+	text-align: center;
+	justify-content: center;
+	column-gap: 30px;
+}
+
+#formFiltro label {
+	justify-self: right;
+	align-self: center;
+}
+
+#formFiltro select, input {
+	justify-self: left;
+	align-self: center;
+}
+
+#formFiltro input[type=number] {
+	width: 100%;
+	font-size: 3.3vw;
+}
+
+#formFiltro select {
+	width: 100%;
+	font-size: 3.3vw;
+}
+
+.imgNovita {
+	width: 100%;
+	height: 100%;
+    object-fit: cover;
 }
 
 /*------------FOOTER------------*/
