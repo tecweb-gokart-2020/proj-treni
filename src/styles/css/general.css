@@ -245,6 +245,9 @@ main#content {
     padding-right: 1%;
     z-index: 0;
 }
+main img{
+	width: 100%;
+}
 
 div#chiSiamo {
     float: left;

@@ -81,6 +81,9 @@ div#percorso {
     padding: 1em;
 }
 
+main {
+	padding-bottom: 15em;
+}
 main#content {
     width: 90%;
 }
