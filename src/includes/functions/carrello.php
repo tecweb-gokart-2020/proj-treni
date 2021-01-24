@@ -9,6 +9,7 @@ use function ORDINE\makeNewOrdine;
 use function PRODOTTO\ordina;
 use function SPEDIZIONE\makeNewSpedizione;
 use function PRODOTTO\getInfoFromProdotto;
+use function UTILITIES\cleanUp;
 
 // Ritorna un array associativo di prodotti presenti in un carrello, null se non c'è alcun prodotto
 function getProdottiFromCarrello($cart_id){
@@ -80,7 +81,7 @@ function checkout($cartID, $addressID) {
     $account = getAccountFromCarrello($cartID);
     $totale = 0;
     foreach($prodotti as $prodotto) {
-        $totale += getInfoFromProdotto($prodotto["codArticolo"])["prezzo"];
+        $totale += getInfoFromProdotto($prodotto["codArticolo"])["prezzo"]*getInfoFromProdotto($prodotto["codArticolo"])["quantita"];
     }
     $orderID = makeNewOrdine($account, $totale);
     $ship = makeNewSpedizione($orderID, $addressID, 'Processing');
@@ -123,7 +124,7 @@ function addToCart($cartID, $articolo) {
         $res = mysqli_query($connection, $query);
         return mysqli_affected_rows($connection);
     } else {
-    	throw Exception("Oh oh...");
+    	throw new Exception("Oh oh...");
     }
 }
 
