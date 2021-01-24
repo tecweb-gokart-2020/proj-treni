@@ -102,6 +102,12 @@ main div#areaPersonale input{
 }
 main input{
 	font-size: 1.7em;
+	width: 95%;
+}
+
+#paginaSingoloProdotto ul {
+	text-align: center;
+	padding-left: 0;
 }
 
 #labelCategoria {

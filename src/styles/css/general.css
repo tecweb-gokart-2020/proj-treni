@@ -511,6 +511,14 @@ main input {
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 }
+
+#formFiltro {
+	display: grid;
+	grid-template-columns: auto auto;
+	color: white;
+	text-align: center;
+}
+
 .imgNovitaContainer figcaption {
     position: absolute;
     top: 0;
