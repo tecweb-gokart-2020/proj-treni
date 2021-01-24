@@ -7,7 +7,7 @@ use function CARRELLO\removeFromCart;
 
 function stampaProdotto($prodotto){
         $info=getInfoFromProdotto($prodotto["codArticolo"]);
-        echo '<li><a href="paginaSingoloProdotto.php?codArticolo=' . $prodotto["codArticolo"] .
+        echo '<li class="prodottoCart"><a href="paginaSingoloProdotto.php?codArticolo=' . $prodotto["codArticolo"] .
                                                                    '"><h2>'.$info['marca'].' '.
                                                                    $prodotto["codArticolo"].
                                                                    '</h2></a><img src="imgs/'
