@@ -47,10 +47,12 @@ function togglePassword(){
 	}
 }
 
-form = document.getElementById('formLogin');
-user = document.getElementById('loginUtente');
-password = document.getElementById('loginPassword');
-checkbox = document.getElementById('mostraPassword');
+window.onload = function() {
+	form = document.getElementById('formLogin');
+	user = document.getElementById('loginUtente');
+	password = document.getElementById('loginPassword');
+	checkbox = document.getElementById('mostraPassword');
 
-checkbox.setAttribute("onclick", "togglePassword()");
-form.setAttribute("onsubmit", "return validateLogin()");	
+	checkbox.setAttribute("onclick", "togglePassword()");
+	form.setAttribute("onsubmit", "return validateLogin()");
+}	

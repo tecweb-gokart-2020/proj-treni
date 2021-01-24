@@ -66,12 +66,14 @@ function togglePassword(){
 	}
 }
 
-form = document.getElementById('formRegistr');
-email = document.getElementById('registrEmail');
-user = document.getElementById('registrUtente');
-password = document.getElementById('registrPassword');
-password2 = document.getElementById('registrPassword2');
-checkbox = document.getElementById('mostraPassword');
+window.onload = function () {
+	form = document.getElementById('formRegistr');
+	email = document.getElementById('registrEmail');
+	user = document.getElementById('registrUtente');
+	password = document.getElementById('registrPassword');
+	password2 = document.getElementById('registrPassword2');
+	checkbox = document.getElementById('mostraPassword');
 
-checkbox.setAttribute("onclick", "togglePassword()");
-form.setAttribute("onsubmit", "return validateRegister()");
+	checkbox.setAttribute("onclick", "togglePassword()");
+	form.setAttribute("onsubmit", "return validateRegister()");
+}
