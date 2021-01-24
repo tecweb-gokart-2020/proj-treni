@@ -43,6 +43,19 @@ if(isset($_GET['search'])){
     $listaProdotti = searchProdotti($searchString);
 }
 
+// BOTTONI CON LE CATEGORIE DI PRODOTTI
+if(!isset($_GET['categorie']) && !isset($_GET['categoriaSelezionata']) && !isset($_GET['searchQuery'])){
+    echo('<div id="categorie">
+            <form>
+                <input type="submit" name="categoriaSelezionata" value="Locomotive"/>
+                <input type="submit" name="categoriaSelezionata" value="Carrozze"/>
+                <input type="submit" name="categoriaSelezionata" value="Carri"/>
+                <input type="submit" name="categoriaSelezionata" value="Binari"/>
+                <input type="submit" name="categoriaSelezionata" value="Accessori"/>
+                <input type="submit" name="categoriaSelezionata" value="Tutti i prodotti"/>
+            </form>
+        </div>');
+}
 //FILTRO PRODOTTI
 echo '<div id="filtroProdotti">
         <form>
@@ -87,21 +100,6 @@ echo '</select>
             <input id="filtroSubmit" type="submit" name="submit" value="Applica filtri" />
         </form>';
 
-// BOTTONI CON TUTTI I PRODOTTI
-if(!isset($_GET['categorie']) && !isset($_GET['categoriaSelezionata']) && !isset($_GET['searchQuery'])){
-    echo('<div id="categorie">
-            <form>
-                <ul>
-                    <li><input type="submit" name="categoriaSelezionata" value="Locomotive"/></li>
-                    <li><input type="submit" name="categoriaSelezionata" value="Carrozze"/></li>
-                    <li><input type="submit" name="categoriaSelezionata" value="Carri"/></li>
-                    <li><input type="submit" name="categoriaSelezionata" value="Binari"/></li>
-                    <li><input type="submit" name="categoriaSelezionata" value="Accessori"/></li>
-                    <li><input type="submit" name="categoriaSelezionata" value="Tutti i prodotti"/></li>
-                </ul>
-            </form>
-        </div>');
-}
 // PRODOTTI TROVATI
 if(isset($_GET['submit'])){
     $categoria = $_GET['categorie'];
