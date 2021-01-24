@@ -36,9 +36,11 @@ function filtroOk() {
 	}
 }
 
-min = document.getElementById('filtroPrezzoMin');
-max = document.getElementById('filtroPrezzoMax');
-form = document.getElementById('formFiltro');
-err = document.getElementById('erroreFiltro');
-
-form.setAttribute('onsubmit', 'return filtroOk()');
+window.onload = function () {
+	min = document.getElementById('filtroPrezzoMin');
+	max = document.getElementById('filtroPrezzoMax');
+	form = document.getElementById('formFiltro');
+	err = document.getElementById('erroreFiltro');
+	
+	form.setAttribute('onsubmit', 'return filtroOk()');
+}
