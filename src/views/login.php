@@ -1,4 +1,7 @@
 <?php 
+$js = '<script type="text/javascript" src="js/login.js"></script>';
+$pagetitle = "Trenene - Login";
+$pagedescription = "pagina di login per il sito trenene.it";
 include __DIR__ . DIRECTORY_SEPARATOR . 'template/header.php';
 session_start();
 
@@ -27,8 +30,7 @@ if(isset($_SESSION["loginErr"])){
     unset($_SESSION["loginErr"]);
 }
 
-echo '</main>
-<script type="text/javascript" src="' . __DIR__ . DIRECTORY_SEPARATOR . '../styles/js/login.js"></script>';
+echo '</main>';
 include __DIR__ . DIRECTORY_SEPARATOR . 'template/footer.php';
 ?>
 

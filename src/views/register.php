@@ -2,6 +2,7 @@
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 $pagetitle = "trenene - Registrazione";
 $pagedescription = "Registrazione al sito trenene.it";
+$js = '<script type="text/javascript" src="js/register.js"></script>';
 include 'template/header.php';
 
 session_start();
