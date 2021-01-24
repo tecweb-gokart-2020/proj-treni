@@ -11,13 +11,13 @@ function printAddress($addressID) {
     $addr = getInfoFromAddress($addressID);
     if($addr){
         echo '<ul class="display-address">' . PHP_EOL;
-        echo '<li class="nome">' . $addr["nome"] . "</li>" . PHP_EOL;
-        echo '<li class="via">' . $addr["via"] . "</li>" . PHP_EOL;
-        echo '<li class="numero">' . $addr["numero"] . "</li>" . PHP_EOL;
-        echo '<li class="citta">' . $addr["citta"] . "</li>" . PHP_EOL;
-        echo '<li class="stato">' . $addr["stato"] . "</li>" . PHP_EOL;
-        echo '<li class="telefono">' . $addr["telefono"] . "</li>" . PHP_EOL;
-        echo '<li class="cap">' . $addr["cap"] . "</li>" . PHP_EOL;
+        echo '<li class="nome">Nome: ' . $addr["nome"] . "</li>" . PHP_EOL;
+        echo '<li class="via">Via: ' . $addr["via"] . "</li>" . PHP_EOL;
+        echo '<li class="numero">Civico: ' . $addr["numero"] . "</li>" . PHP_EOL;
+        echo '<li class="citta">Città: ' . $addr["citta"] . "</li>" . PHP_EOL;
+        echo '<li class="stato">Stato: ' . $addr["stato"] . "</li>" . PHP_EOL;
+        echo '<li class="telefono">Telefono: ' . $addr["telefono"] . "</li>" . PHP_EOL;
+        echo '<li class="cap"><abbr title="Codice Avviamento Postale">CAP</abbr>: ' . $addr["cap"] . "</li>" . PHP_EOL;
         echo '</ul>' . PHP_EOL;
     }
     else {
