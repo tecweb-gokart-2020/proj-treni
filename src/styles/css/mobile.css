@@ -100,6 +100,9 @@ main div#areaPersonale input{
     height: 3em;
     margin-bottom: 1em;
 }
+main input{
+	font-size: 1.7em;
+}
 
 #labelCategoria {
 	display: none;

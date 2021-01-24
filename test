@@ -7,6 +7,7 @@ else
     views_dir=$(echo $(pwd)/src/views)
     css_dir=$(echo $(pwd)/src/styles/css)
     img_dir=$(echo $(pwd)/imgs)
+    js_dir=$(echo $(pwd)/style/js)
     public_path=$1
     
     rm -rf $public_path/*
@@ -16,6 +17,7 @@ else
     done
     ln -s $css_dir css
     ln -s $img_dir imgs
+    ln -s $js_dir js
     rm -f template;
     rm -f home_statica.html;
 fi
