@@ -57,10 +57,10 @@ if(isset($_SESSION["username"])) {
     echo '</li><li id="logout"><a href="logout.php">Logout</a>';
 }
 else {
-    echo '<a href="login.php">Entra</a>' . PHP_EOL;
+    echo '<a id="login" href="login.php">Entra</a>' . PHP_EOL;
     echo '</li>' . PHP_EOL;
     echo '<li>' . PHP_EOL;
-    echo '<a href="register.php">Registrati</a>' . PHP_EOL;
+    echo '<a id="register" href="register.php">Registrati</a>' . PHP_EOL;
 }
 
 echo '</li>

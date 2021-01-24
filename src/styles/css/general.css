@@ -1,35 +1,45 @@
     /*----------------GENERALE------------------*/
     
+    :root{
+    	--base: #ffffff;
+	--blu: #016fb9; 
+	--giallo: #f9c80e;
+	--viola: #0e103d;
+	--scuro: #0d0221;
+
+    }
+
     @import url('https://fonts.googleapis.com/css2?family=Lato&family=Mukta+Vaani&display=swap');
+    
     html {
         font-family: 'Mukta Vaani', 'Lato', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 1em;
-        color: white;
+        color: black;
     }
     
     body {
         margin: 0em;
-        background-color: #333;
+        background-color: var(--base);
     }
     
      :link {
-        color: rgb(255, 196, 0);
+        color: var(--blu);
     }
     
      :visited {
-        color: darkorange;
+        color: var(--viola);
     }
     
     #aiuti {
         position: absolute;
-        height: 1px;
-        width: 1px;
+        height: 0px;
+        width: 0px;
         overflow: hidden;
-        clip: rect(1px, 1px, 1px, 1px);
+        clip: rect(0px, 0px, 0px, 0px);
     }
     
     input[type="submit"] {
-        box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+        box-shadow: 0 1px 4px var(--viola);
         display: block;
         margin: 30px auto;
         padding: .5em;
@@ -37,14 +47,15 @@
         border-width: 0;
         outline: none;
         border-radius: 2px;
-        background-color: darkorange;
+        background-color: var(--blu);
+	color: white;
         font-weight: bold;
         font-size: 1em;
     }
     
     button {
         /* border-width: 0; */
-        box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+        box-shadow: 0 1px 4px var(--viola);
         display: block;
         margin: 30px auto;
         padding: .5em;
@@ -52,9 +63,10 @@
         border-width: 0;
         outline: none;
         border-radius: 2px;
-        background-color: darkorange;
+        background-color: var(--blu);
         font-weight: bold;
         font-size: 1em;
+	color: white;
     }
     /*----------------HEADER------------------*/
     
@@ -63,14 +75,15 @@
         position: sticky;
         top: 0px;
         height: 6em;
-        background-color: #333;
+        background-color: var(--base);
         /*Colore solo per test, NON DEFINITIVO*/
+	box-shadow: 0 1px 4px var(--viola);
         z-index: 1;
     }
     
     header h1 {
         float: left;
-        color: darkorange;
+        color: var(--blu);
         position: relative;
         text-align: center;
         width: 100%;
@@ -104,6 +117,7 @@
 	margin: auto;
         padding: 7px;
         margin-left: 1%;
+	color: white;
     }
     
     header nav {
@@ -174,24 +188,39 @@
         width: 2em;
         height: 2em;
         display: inline-block;
+	top: .7em;
     }
     
     header #counter {
         position: absolute;
-        color: #222;
         font-weight: bold;
         /*Colore solo per test, NON DEFINITIVO*/
         font-size: 0.9em;
         width: 2em;
         height: auto;
-        top: -0.87em;
+        top: 0;
         text-align: center;
-        left: 0.35em;
     }
     
     .current_link {
-        border-bottom: 3px solid white;
+        border-bottom: 3px solid var(--giallo);
         padding: .2em;
+    }
+    
+    #login {
+	box-shadow: 0 1px 4px var(--viola);
+    	background-color: var(--blu);
+    	color: white;
+    	padding: .7em;
+    	border-radius: 5px;
+    }
+    
+    #register {
+	box-shadow: 0 1px 4px var(--viola);
+    	background-color: var(--blu);
+    	color: white;
+    	padding: .7em;
+    	border-radius: 5px;
     }
     /*------------------CONTENUTO--------------------*/
     
@@ -231,15 +260,11 @@
         height: auto;
     }
     
-    .imgNovita {
-    	width: min(100%, 50em);
-    	height: min(100%, 20em);
-    }
     div#percorso {
         position: relative;
         top: -1em;
         margin-bottom: -1em;
-        background-color: #222;
+        background-color: var(--giallo);
         /*Colore solo per test, NON DEFINITIVO*/
         height: 2.5em;
     }
@@ -272,8 +297,8 @@
     div#categorie input[type=submit] {
         padding: 0.5em;
         font-size: 2.5em;
-        color: black;
-        background-color: darkorange;
+        color: var(--base);
+        background-color: var(--blu);
         /*Colori solo per test, NON DEFINITIVI*/
         border-radius: 10px;
 	flex: 1 0 25%;
@@ -289,7 +314,7 @@
     main div#filtroProdotti {
         position: -webkit-sticky;
         position: sticky;
-        background-color: #222;
+        background-color: var(--blu);
         /*Colori solo per test, NON DEFINITIVI*/
         padding: 0.7em 0em;
         top: 6em;
@@ -299,7 +324,8 @@
     }
     
     main div#filtroProdotti input[type=submit] {
-        background-color: darkorange;
+        background-color: var(--giallo);
+	color: black;
         /*Colori solo per test, NON DEFINITIVI*/
         padding: 0.5em;
         font-size: 1.2em;
@@ -325,7 +351,7 @@
     }
     
     .prodottoLista {
-        border: 4px solid darkorange;
+        border: 4px solid var(--giallo);
         margin: 0 1em 2em 1em;
         padding: 1em;
         border-radius: 7px;
@@ -343,7 +369,7 @@
     .prodottoLista a:link,
     .prodottoLista a:visited {
         text-decoration: none;
-        color: darkorange;
+        color: var(--viola);
     }
     
     main .cards h2 {
@@ -362,7 +388,7 @@
     
     main div#areaPersonale {
         position: relative;
-        border-left: 1px solid darkorange;
+        border-left: 1px solid var(--viola);
         margin-left: 16%;
         padding-left: 4%;
         padding-right: 3%;
@@ -374,7 +400,7 @@
     }
     
     main div#areaPersonale button[type=submit] {
-        background-color: darkorange;
+        background-color: var(--giallo);
         padding: 0.3em;
         border-radius: 7px;
         font-weight: bold;
@@ -406,7 +432,7 @@
     }
     
     .ordine {
-    	border: 3px solid darkorange;
+    	border: 3px solid var(--blu);
     	padding: 5px;
     	padding: 0.5em;
     	/* font-size: 2.5em; */
@@ -419,7 +445,7 @@
     
     .prodotto_item {
     	/* border-bottom: 3px solid darkorange; */
-    	background-color: darkorange;
+    	background-color: var(--blu);
     	color: black;
     	border-radius: 10px;
     	margin: 10px;
@@ -432,6 +458,49 @@
     	border-radius: 10px;
     	padding: .5em;
     }
+ 
+    .imgNovitaContainer {
+	box-shadow: 0 1px 4px var(--viola);
+	border-radius: 5px;
+	padding: 3em;
+	margin: 10px;
+	position: relative;
+    }
+    .imgNovita {
+    	width: min(500px, 50em);
+    	height: min(300px, 20em);
+	object-fit: cover;
+    }
+    
+    .middle {
+	padding: 1em;
+	border-radius: 5px;
+	background-color: var(--giallo);
+	text-align: center;
+	font-size: 2em;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+    }
+    .imgNovitaContainer figcaption {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: var(--blu);
+	/* color: var(--viola); */
+    }
+    
+    .imgNovitaContainer:hover figcaption {
+    	opacity: 1;
+    }
     /*-------------------FOOTER------------------*/
     
     footer {
@@ -439,7 +508,8 @@
         width: 100%;
         height: 7em;
         font-size: 0.8em;
-        background-color: #222;
+        background-color: var(--giallo);
+	color: black;
         /*Colore solo per test, NON DEFINITIVO*/
         text-align: center;
         bottom: -9em;
