@@ -107,20 +107,21 @@ function checkout($cartID, $addressID) {
 
 /* cartID e codice articolo ben formati, controlla che siano id validi
  * e poi aggiunge al carrello cartID l'articolo $articolo */
-function addToCart($cartID, $articolo) {
+function addToCart($cartID, $articolo, $qty) {
     if(isValidID($cartID) and isValidID($articolo)) {
-        $db = new DBAccess();
-        $connection = $db->openDbConnection();
-        $query = 'SELECT quantita FROM contenuto_carrello WHERE cartID='. $cartID.
-               ' AND codArticolo=' . $articolo;
-        $quantita = mysqli_query($connection, $query);
-        $quantita = mysqli_fetch_row($quantita)[0];
+	$db = new DBAccess();
+	$connection = $db->openDbConnection();
+	$query = 'SELECT quantita FROM contenuto_carrello WHERE cartID='. $cartID.
+	       ' AND codArticolo=' . $articolo;
+	$quantita = mysqli_query($connection, $query);
+	$quantita = mysqli_fetch_row($quantita)[0];
 	if($quantita > 0){
-        	$query = "UPDATE contenuto_carrello SET quantita = quantita + 1 WHERE cartID = $cartID AND codArticolo = $articolo";
+		$query = "UPDATE contenuto_carrello SET quantita = quantita + $qty WHERE cartID = $cartID AND codArticolo = $articolo";
 	} else {
-        	$query = "INSERT INTO contenuto_carrello(cartID, codArticolo) VALUES ($cartID, $articolo)";
+		$query = "INSERT INTO contenuto_carrello(cartID, codArticolo, quantita) VALUES ($cartID, $articolo, $qty)";
 	}
-        $res = mysqli_query($connection, $query);
+	// var_dump($query);
+	$res = mysqli_query($connection, $query);
         return mysqli_affected_rows($connection);
     } else {
     	throw Exception("Oh oh...");

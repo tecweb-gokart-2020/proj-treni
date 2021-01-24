@@ -17,7 +17,9 @@ if(!isset($_GET['codArticolo'])){
 
 if($_POST["add"] == "add") {
 	try{
-		$aggiunto = addToCart($_SESSION["cartID"], $_GET["codArticolo"]);
+		if(addToCart($_SESSION["cartID"], $_GET["codArticolo"], $_POST["quantita"])){
+			$aggiunto = "Articolo aggiunto al carrello";
+		}
 	} catch(Exception $e) {
 		$aggiunto = $e->getMessage();
 	}
@@ -43,16 +45,14 @@ if($info['sconto']!=""){echo '<li>Si applica uno sconto del '.$info['sconto'].'%
 echo '<li>Prezzo: '; if($info['sconto']!=""){echo '<del>';} echo $info['prezzo'].' €'; if($info['sconto']!=""){echo '</del>';} echo '</li>';
 if($info['sconto']!=""){echo '<li>'; echo $aux=$info['prezzo']-$info['sconto']/100*$info['prezzo'].' €</li>
     </ul>';}
-echo '<ul id="formAcquisto">
-    <li>Prezzo: '.$aux.'</li>
-    <li>Disponibili all\'acquisto: '.$info['quantita'].'</li>
-    <form method="post">
+echo '<form method="post">
+            <label id="labelQuantita" for="quantita">Quantità</label>
+            <input name="quantita" id="quantita" type="number" value="1" min="0" max="'. $info['quantita'] .'" step="1"/>
         <button type="submit" id="add" name="add" value="add">Aggiungi al carrello</button>
     </form>
-    </ul>
     </div>';
 if($aggiunto) {
-    echo '<div id="confirm">Articolo aggiunto al carrello</div>';
+    echo '<div id="confirm">'.$aggiunto.'</div>';
 }
 echo '</main>';
 
