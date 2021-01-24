@@ -38,7 +38,7 @@ CREATE TABLE utente(
        username varchar(20) PRIMARY KEY,
        cartID int not null,
        email varchar(100) not null,
-       password varchar(10) not null,
+       password varchar(50) not null,
        
        FOREIGN KEY (cartID) REFERENCES carrello(cartID)
 )Engine=InnoDB;

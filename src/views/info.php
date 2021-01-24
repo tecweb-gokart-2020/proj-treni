@@ -20,6 +20,7 @@ if(isset($_SESSION["username"])) {
     $tag_info = "";
     $pagetitle = "trenene - Area personale";
     $pagedescription = "Area dove è possibile gestire i propri dati";
+    $js = '<script type="text/javascript" src="js/info.js"></script>';
     include "template/header.php";
 
     $current_page = "area personale >> email e password";
@@ -50,31 +51,45 @@ if(isset($_SESSION["username"])) {
     $password =  getPasswordOfAccount($user);
     echo '<div id="areaPersonale"><h1>Benvenuto '. $user.'!</h2>'
         . PHP_EOL .
-        '<form action="info.php" method="post"><fieldset><legend>Email</legend>'
+        '<form id="form" action="info.php" method="post" novalidate aria-live="assertive"><fieldset><legend>Email</legend>'
         . PHP_EOL .
-        '<label for="oldMail">vecchia mail:</label>'
+        '<label for="oldMail">Vecchia mail:</label>'
         . PHP_EOL .
-	'<input name="oldMail" id="oldMail" maxlength="50"/><br/>'
+	'<input name="oldMail" id="oldMail" maxlength="50" autocomplete="on" aria-errormessage="errorOldEmail" aria-invalid="false" required/><br/>'
+    . PHP_EOL .
+    '<div id="errorOldEmail" class="errore" >Per cambiare indirizzo email, inserisci quello attuale</div>'
 	. PHP_EOL .
-        '<label for="newMail">nuova mail:</label>'
+        '<label for="newMail">Nuova mail:</label>'
         . PHP_EOL .
-	'<input name="newMail" id="newMail" maxlength="50"/><br/>'
+	'<input name="newMail" id="newMail" maxlength="50" autocomplete="on" aria-errormessage="errorNewEmail" aria-invalid="false" required/><br/>'
+    . PHP_EOL .
+    '<div id="errorNewEmail" class="errore" >Inserisci un indirizzo email valido e diverso da quello attuale</div>'
 	. PHP_EOL .
-        '<label for="reMail">conferma mail:</label>'
+        '<label for="reMail">Conferma mail:</label>'
         . PHP_EOL .
-	'<input name="reMail" id="reMail" maxlength="50"/><br/>'
+	'<input name="reMail" id="reMail" maxlength="50" autocomplete="on" aria-errormessage="errorReEmail" aria-invalid="false" required/><br/>'
+    . PHP_EOL .
+    '<div id="errorReEmail" class="errore" >Gli indirizzi email non coincidono</div>'
 	. PHP_EOL .
 	'<button type="submit" name="edit" id="editEmail" value="email">modifica email</button></fieldset>'
         . PHP_EOL .
         '<fieldset><legend>Password</legend>'
         . PHP_EOL .
-        '<label for="oldPassword">vecchia password:</label><input type="password" name="oldPassword" id="oldPassword" maxlength="50"/><br/>'
+        '<label for="oldPassword">Vecchia password:</label><input type="password" name="oldPassword" id="oldPassword" maxlength="50" autocomplete="on" aria-errormessage="errorOldPassword" aria-invalid="false" required/><br/>'
         . PHP_EOL .
-        '<label for="newPassword">nuova password:</label><input type="password" name="newPassword" id="newPassword" maxlength="50"/><br/>'
+    '<div id="errorOldPassword" class="errore" >Per cambiare password, inserisci quella attuale</div>'
         . PHP_EOL .
-        '<label for="rePassword">conferma password:</label><input type="password" name="rePassword" id="rePassword" maxlength="50"/><br/>'
+        '<label for="newPassword">Nuova password :</label><input type="password" name="newPassword" id="newPassword" maxlength="50" aria-errormessage="errorNewPassword" aria-invalid="false" required/><span> <em>non usare</em> /\,.:;\'><</span><br/>'
         . PHP_EOL .
-        '<button type="submit" name="edit" id="editPw" value="password">modifica password</button>'
+    '<div id="errorNewPassword" class="errore" >Inserisci una password valida e diversa da quella attuale</div>'
+        . PHP_EOL .
+        '<label for="rePassword">Conferma password:</label><input type="password" name="rePassword" id="rePassword" maxlength="50" aria-errormessage="errorRePassword" aria-invalid="false" required/><br/>'
+        . PHP_EOL .
+    '<div id="errorRePassword" class="errore" >Le password non coincidono</div>'
+        . PHP_EOL .
+        '<label><input id="mostraPassword" type="checkbox">Mostra password</label><br/>'
+        . PHP_EOL .
+        '<button type="submit" name="edit" id="editPw" value="password">Modifica password</button>'
         . PHP_EOL .
         '</fieldset></form><div id="logoutContainer"><a id="logout" href="logout.php">Logout</a></div>'
         . PHP_EOL;
