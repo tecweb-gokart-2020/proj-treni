@@ -93,7 +93,7 @@ function checkout($cartID, $addressID) {
     // var_dump($account);
     // var_dump($totale);
     // var_dump($orderID);
-    var_dump($ship);
+    // var_dump($ship);
     $response = true;
     foreach($prodotti as $prodotto){
 	    if($response){
