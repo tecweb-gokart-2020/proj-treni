@@ -1,5 +1,5 @@
 html{
-    font-size: 2em;
+    font-size: 3.3vw;
 }
 
 /*---------------------HEADER-----------------------*/
@@ -122,14 +122,18 @@ main input{
 	display: none;
 }
 
-div#categorie input[type="submit"] {
+main div#categorie input[type="submit"] {
 	padding: 0.5em;
-	font-size: 1em;
+	font-size: 3.3vw;
 	color: white;
 	background-color: var(--blu);
 	border-radius: 10px;
 	flex: 1 0 25%;
 	margin: 10px;
+}
+
+main div#categorie *{
+	vertical-align: middle;
 }
 
 select {

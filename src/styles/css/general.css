@@ -108,7 +108,7 @@ header form#ricercaHeader {
     position: absolute;
     margin-left: 1em;
     margin-top: 1.4em;
-    width: 20%;
+    width: 30%;
 }
 
 header form#ricercaHeader input {
@@ -171,7 +171,7 @@ header ul#icons {
     position: absolute;
     padding: 0px;
     text-align: right;
-    width: 20%;
+    width: 30%;
     height: 3em;
     top: -3em;
     right: 0;
@@ -181,7 +181,7 @@ header ul#icons li {
     position: relative;
     display: inline;
     margin-left: 10%;
-    margin-right: 10%;
+    margin-right: auto;
     vertical-align: middle;
     top: 0.5em;
 }
@@ -304,7 +304,7 @@ div#categorie form {
 
 div#categorie input[type=submit] {
     padding: 0.5em;
-    font-size: 2.5em;
+    font-size: 2vw;
     color: var(--base);
     background-color: var(--blu);
     /*Colori solo per test, NON DEFINITIVI*/
