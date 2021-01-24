@@ -86,6 +86,18 @@ main div#areaPersonale input{
     margin-bottom: 1em;
 }
 
+#labelCategoria {
+	display: none;
+}
+
+#labelMarche {
+	display: none;
+}
+
+#labelOrdinamento {
+	display: none;
+}
+
 /*------------FOOTER------------*/
 
 footer{

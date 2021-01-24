@@ -16,6 +16,6 @@ else
     done
     ln -s $css_dir css
     ln -s $img_dir imgs
-    rm template;
-    rm home_statica.html;
+    rm -f template;
+    rm -f home_statica.html;
 fi

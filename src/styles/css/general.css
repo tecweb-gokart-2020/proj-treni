@@ -29,20 +29,32 @@
     }
     
     input[type="submit"] {
-        border-width: 0;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
-    }
-    
-    button {
-        border-width: 0;
         box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
         display: block;
         margin: 30px auto;
-        padding: 0;
+        padding: 5px;
         overflow: hidden;
         border-width: 0;
         outline: none;
         border-radius: 2px;
+        background-color: darkorange;
+        font-weight: bold;
+        font-size: 1em;
+    }
+    
+    button {
+        /* border-width: 0; */
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+        display: block;
+        margin: 30px auto;
+        padding: 5px;
+        overflow: hidden;
+        border-width: 0;
+        outline: none;
+        border-radius: 2px;
+        background-color: darkorange;
+        font-weight: bold;
+        font-size: 1em;
     }
     /*----------------HEADER------------------*/
     
@@ -88,11 +100,10 @@
     }
     
     header form#ricercaHeader input[type=submit] {
-        background-color: darkorange;
-        font-weight: bold;
         font-size: 1em;
-        margin-left: 0.5%;
-        border-radius: 5px;
+	margin: auto;
+        padding: 7px;
+        margin-left: 1%;
     }
     
     header nav {
@@ -332,6 +343,7 @@
     
     nav#ap_navbar li {
         margin-bottom: 1.3em;
+	list-type: none;
     }
     
     main div#areaPersonale {
@@ -359,6 +371,22 @@
     main div#areaPersonale h1 {
         margin-top: 1%;
     }
+
+    main div#areaPersonale img {
+	width: 300px;
+	height: 200px;
+	object-fit: cover;
+    }
+    main div#cart {
+    	list-type: none;
+    }
+
+    main ul#cart img{
+	width: 300px;
+	height: 200px;
+	object-fit: cover;
+    }
+
     /*-------------------FOOTER------------------*/
     
     footer {
@@ -410,4 +438,3 @@
     footer #indirizzi ul li:first-child {
         padding-right: 0em;
     }
-    
