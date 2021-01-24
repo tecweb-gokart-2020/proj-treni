@@ -14,7 +14,7 @@ echo '<main id="content">
 		</label>
 		<div id="errorUsername" class="errore" >Per favore inserisci nome utente o email</div>
 		<label> <strong>Password</strong>
-			<input type="password" name="password" id="loginPassword" maxlength="10" autocomplete="on" aria-errormessage="errorPassword" aria-invalid="false" required  />
+			<input type="password" name="password" id="loginPassword" maxlength="50" autocomplete="on" aria-errormessage="errorPassword" aria-invalid="false" required  />
 		</label>
 		<div id="errorPassword" class="errore" >Per favore inserisci la password</div>
 		<label><input id="mostraPassword" type="checkbox">Mostra password</label>
