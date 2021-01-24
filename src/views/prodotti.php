@@ -69,16 +69,16 @@ echo '<div id="filtroProdotti">
             <label id="labelCategoria" for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
 		<option value="" disabled="disabled" selected="selected">categoria</option>';
-                echo '<option value="locomotiva"'; if($_GET["categorie"]=="locomotiva" || $_GET['categoriaSelezionata']=="Locomotive"){echo 'selected=selected';} echo '>Locomotive</option>';
-                echo '<option value="carrozza"'; if($_GET["categorie"]=="carrozza" || $_GET['categoriaSelezionata']=="Carrozze"){echo 'selected=selected';} echo '>Carrozze</option>';
-                echo '<option value="carro"'; if($_GET["categorie"]=="carro" || $_GET['categoriaSelezionata']=="Carri"){echo 'selected=selected';} echo '>Carri</option>';
-                echo '<option value="accessorio"'; if($_GET["categorie"]=="accessorio" || $_GET['categoriaSelezionata']=="Accessori"){echo 'selected=selected';} echo '>Accessori</option>';
-                echo '<option value="binario"'; if($_GET["categorie"]=="binario" || $_GET['categoriaSelezionata']=="Binari"){echo 'selected=selected';} echo '>Binari</option>';
+                echo '<option value="locomotiva"'; if($_GET["categorie"]=="locomotiva" || $_GET['categoriaSelezionata']=="Locomotive"){echo ' selected="selected"';} echo '>Locomotive</option>';
+                echo '<option value="carrozza"'; if($_GET["categorie"]=="carrozza" || $_GET['categoriaSelezionata']=="Carrozze"){echo ' selected="selected"';} echo '>Carrozze</option>';
+                echo '<option value="carro"'; if($_GET["categorie"]=="carro" || $_GET['categoriaSelezionata']=="Carri"){echo ' selected="selected"';} echo '>Carri</option>';
+                echo '<option value="accessorio"'; if($_GET["categorie"]=="accessorio" || $_GET['categoriaSelezionata']=="Accessori"){echo ' selected="selected"';} echo '>Accessori</option>';
+                echo '<option value="binario"'; if($_GET["categorie"]=="binario" || $_GET['categoriaSelezionata']=="Binari"){echo ' selected="selected"';} echo '>Binari</option>';
             echo '</select>
             <label id="labelMarche" for="filtroMarche">Marca</label>
             <select name="marche" id="filtroMarche">
 		<option value="" disabled="disabled" '; 
-		if(!$_GET["marche"]){ echo 'selected="selected"';}
+		if(!$_GET["marche"]){ echo ' selected="selected"';}
 		echo '>marca</option>';
             $marche = getMarche();
             for($i = 0;$i < count($marche);$i++){
@@ -88,9 +88,9 @@ echo '<div id="filtroProdotti">
             }
 echo '</select>
             <label id="labelDisponibile" for="filtroDisponibile">Disponibile</label>';
-            echo '<input name="disponibile" id="filtroDisponibile" type="checkbox" value="disponibile"'; if($_GET["disponibile"]=="disponibile"){echo 'checked=checked';} echo '/>';
+            echo '<input name="disponibile" id="filtroDisponibile" type="checkbox" value="disponibile"'; if($_GET["disponibile"]=="disponibile"){echo ' checked="checked"';} echo '/>';
             echo '<label id="labelOfferta" for="filtroInOfferta">In Offerta</label>';
-            echo '<input name="offerta" id="filtroInOfferta" type="checkbox" value="offerta"'; if($_GET["offerta"]=="offerta"){echo 'checked=checked';} echo '/>';
+            echo '<input name="offerta" id="filtroInOfferta" type="checkbox" value="offerta"'; if($_GET["offerta"]=="offerta"){echo ' checked="checked"';} echo '/>';
             echo '<label id="labelMin" for="filtroPrezzoMin">Prezzo minimo</label>';
             echo '<input name="prezzoMin" id="filtroPrezzoMin" type="number" value="';if(isset($_GET["prezzoMin"])){echo $_GET["prezzoMin"];} echo'" min="0" step="5" aria-errormessage="erroreFiltro" aria-invalid="false"/>';
             echo '<label id="labelMax" for="filtroPrezzoMax">Prezzo massimo</label>
@@ -100,9 +100,9 @@ echo '</select>
 		<option value="" disabled="disabled"'; 
 	if(!$_GET['ordinamento']){echo ' selected="selected"';} 
 	echo '>ordine</option>';
-		echo '<option value="alfabetico"'; if($_GET["ordinamento"]=="alfabetico"){echo 'selected=selected';} echo '>Alfabetico [A-Z]</option>';
-                echo '<option value="prezzoCrescente"'; if($_GET["ordinamento"]=="prezzoCrescente"){echo 'selected=selected';} echo '>Prezzo crescente</option>';
-                echo '<option value="prezzoDecrescente"'; if($_GET["ordinamento"]=="prezzoDecrescente"){echo 'selected=selected';} echo '>Prezzo decrescente</option>';
+		echo '<option value="alfabetico"'; if($_GET["ordinamento"]=="alfabetico"){echo ' selected="selected"';} echo '>Alfabetico [A-Z]</option>';
+                echo '<option value="prezzoCrescente"'; if($_GET["ordinamento"]=="prezzoCrescente"){echo ' selected="selected"';} echo '>Prezzo crescente</option>';
+                echo '<option value="prezzoDecrescente"'; if($_GET["ordinamento"]=="prezzoDecrescente"){echo ' selected=selected';} echo '>Prezzo decrescente</option>';
             echo '</select>
             <input id="filtroSubmit" type="submit" name="submit" value="Applica filtri"/>
             <div class="errore" id="erroreFiltro" aria-live="assertive"></div>
