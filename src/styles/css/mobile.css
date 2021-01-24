@@ -130,6 +130,9 @@ select {
 li {
     list-style: none;
 }
+main img {
+	width: 95%;
+}
 
 main h2{
 	text-align: center;
