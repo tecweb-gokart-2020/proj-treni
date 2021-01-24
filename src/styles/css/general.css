@@ -517,6 +517,8 @@ main input {
 	grid-template-columns: auto auto;
 	color: white;
 	text-align: center;
+	justify-content: center;
+	column-gap: 30px;
 }
 
 .imgNovitaContainer figcaption {

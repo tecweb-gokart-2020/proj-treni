@@ -100,10 +100,6 @@ main div#areaPersonale input{
     height: 3em;
     margin-bottom: 1em;
 }
-main input{
-	font-size: 1.7em;
-	width: 95%;
-}
 
 #paginaSingoloProdotto ul {
 	text-align: center;
@@ -122,6 +118,15 @@ main input{
 	display: none;
 }
 
+#filtroDisponibile, #filtroInOfferta {
+	width: 5vw;
+	height: 5vw;
+}
+#filtroMarche, #filtroCategorie, #filtroOrdinamento {
+	height: 5vw;
+	text-align: center;
+}
+
 main div#categorie input[type="submit"] {
 	padding: 0.5em;
 	font-size: 3.3vw;
@@ -134,10 +139,6 @@ main div#categorie input[type="submit"] {
 
 main div#categorie *{
 	vertical-align: middle;
-}
-
-select {
-    font-size: 1em;
 }
 
 li {
