@@ -39,8 +39,8 @@ function printOrder($orderID) {
     $totale = getTotalFromOrder($orderID);
     $data = getDateFromOrder($orderID);
     echo '<li class="ordine"><ul>';
-    echo '<li class="order_date">'. ($data ? $data : "Errore: impossibile ricavare la data dell'ordine") . PHP_EOL;
-    echo '<li class="order_total">'. ($totale ? $totale : "Errore: impossibile ricavare il totale dell'ordine") . PHP_EOL;
+    echo '<li class="order_date"> Data ordine: '. ($data ? $data : "Errore: impossibile ricavare la data dell'ordine") . PHP_EOL;
+    echo '<li class="order_total"> Totale: '. ($totale ? $totale : "Errore: impossibile ricavare il totale dell'ordine") . PHP_EOL;
     echo '<li class="prodotti_container">' . PHP_EOL;
     foreach ($g_prod as $ship) {
         // Stampa indirizzo
@@ -56,13 +56,13 @@ function printOrder($orderID) {
         foreach($ship as $prodotto) {
             echo '<ul class="prodotto_item">' . PHP_EOL;
             echo '<li class="image"><img src="imgs/' . $prodotto["productID"]. '"/></li>'. PHP_EOL;
-            echo '<li class="productID">'. $prodotto["productID"] ."</li>". PHP_EOL;
+            echo '<li class="productID"> ID: '. $prodotto["productID"] ."</li>". PHP_EOL;
             //if($prodotto["shippingID"]){
             //echo '<li class="shippingID">'. $prodotto["shippingID"] ."</li>". PHP_EOL;
             //}
-            echo '<li class="quantita">'. $prodotto["quantita"] ."</li>". PHP_EOL;
-            echo '<li class="stato">'. $prodotto["stato"] ."</li>". PHP_EOL;
-            echo '<li class="prezzo">'. $prodotto["prezzo"] ."</li>". PHP_EOL;
+            echo '<li class="quantita">Quantità: '. $prodotto["quantita"] ."</li>". PHP_EOL;
+            echo '<li class="stato">Stato: '. $prodotto["stato"] ."</li>". PHP_EOL;
+            echo '<li class="prezzo">Prezzo: '. $prodotto["prezzo"] ."</li>". PHP_EOL;
             echo "</ul>" . PHP_EOL;
         }
     }
