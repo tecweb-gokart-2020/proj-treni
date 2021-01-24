@@ -46,7 +46,7 @@ function stampaProdotto($prodotto){
         if($info['sconto']!=""){
             echo '<del>';
         }
-        echo $info['prezzo'] ' €';
+        echo $info['prezzo']. ' €';
         if($info['sconto']!=""){
             echo '</del>';
         }

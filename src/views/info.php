@@ -79,7 +79,7 @@ if(isset($_SESSION["username"])) {
         . PHP_EOL .
     '<div id="errorOldPassword" class="errore" >Per cambiare password, inserisci quella attuale</div>'
         . PHP_EOL .
-        '<label for="newPassword">Nuova password :</label><input type="password" name="newPassword" id="newPassword" maxlength="50" aria-errormessage="errorNewPassword" aria-invalid="false" required/><span> <em>non usare</em> /\,.:;\'><</span><br/>'
+	'<label for="newPassword">Nuova password :</label><input type="password" name="newPassword" id="newPassword" maxlength="50" aria-errormessage="errorNewPassword" aria-invalid="false" required/><span> <em>non usare</em> / \ , . : ; \' &gt &lt </span><br/>'
         . PHP_EOL .
     '<div id="errorNewPassword" class="errore" >Inserisci una password valida e diversa da quella attuale</div>'
         . PHP_EOL .
