@@ -4,6 +4,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
 use mysqli;
 use DB\DBAccess;
 use function UTILITIES\isValidID;
+use function UTILITIES\removeWhitespaces;
 
 // Ritorna l'ID dell'account associato ad un indirizzo, null se non esiste
 function getAccountFromAddress($address_id){
@@ -119,7 +120,7 @@ function newAddress($username, $nome, $cognome, $via, $civico, $citta, $provinci
     $valid_cap = preg_match("/^\d{5}$/", $cap);
     //prefisso internaz opzionale, fisso(prefisso 0123 numero, max 10 cifre tot) | cell(3... max 10 cifre); importante che non ci siano spazi
     //solo italici numeri, ho deciso. Così è meno generica
-    $telefono = UTILITIES\removeWhitespaces($telefono);
+    $telefono = removeWhitespaces($telefono);
     $valid_telefono = preg_match("/^((00|\+)39)?(0\d{5,9}|3\d{9})$/", $telefono);
 
     //connetti...
