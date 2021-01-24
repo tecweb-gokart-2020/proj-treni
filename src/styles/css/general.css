@@ -56,10 +56,10 @@
         font-weight: bold;
         font-size: 1em;
     }
-    .errore{  
-	visibility: hidden;
-    }
     
+    .errore {
+        visibility: hidden;
+    }
     /*----------------HEADER------------------*/
     
     header {

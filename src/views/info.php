@@ -64,7 +64,7 @@ if(isset($_SESSION["username"])) {
         . PHP_EOL .
 	'<input name="reMail" id="reMail" maxlength="50"/>'
 	. PHP_EOL .
-	'<button type="submit" name="edit" id="edit" value="email">modifica email</button></fieldset>'
+	'<button type="submit" name="edit" id="editEmail" value="email">modifica email</button></fieldset>'
         . PHP_EOL .
         '<fieldset><legend>Password</legend>'
         . PHP_EOL .
@@ -74,7 +74,7 @@ if(isset($_SESSION["username"])) {
         . PHP_EOL .
         '<label for="rePassword">conferma password:</label><input type="password" name="rePassword" id="rePassword" maxlength="50"/>'
         . PHP_EOL .
-        '<button type="submit" name="edit" id="edit" value="password">modifica password</button>'
+        '<button type="submit" name="edit" id="editPw" value="password">modifica password</button>'
         . PHP_EOL .
         '</fieldset></form>'
         . PHP_EOL;
