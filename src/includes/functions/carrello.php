@@ -81,7 +81,9 @@ function checkout($cartID, $addressID) {
     $account = getAccountFromCarrello($cartID);
     $totale = 0;
     foreach($prodotti as $prodotto) {
-        $totale += getInfoFromProdotto($prodotto["codArticolo"])["prezzo"]*getInfoFromProdotto($prodotto["codArticolo"])["quantita"];
+        $prezzo = getInfoFromProdotto($prodotto["codArticolo"])["prezzo"];
+        $qta = getInfoFromProdotto($prodotto["codArticolo"])["quantita"];
+        $totale+=($prezzo*$qta);
     }
     $orderID = makeNewOrdine($account, $totale);
     $ship = makeNewSpedizione($orderID, $addressID, 'Processing');
