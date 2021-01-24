@@ -27,7 +27,7 @@ echo '<p><strong>Trenene</strong> è una piccola azienda nata nel 1999 tra l\'ar
             <li><strong><span xml:lang="en" lang="en">MOBILE</span></strong>: 555 1234 555</li>
 	</ul>
 	</div>
-	<div id="indirizzi">
+	<div id="indirizzo">
 	<address><!-- informazioni di contatto e sul negozio -->
 		<strong>Vieni a trovarci!</strong> 
 		<ul>
