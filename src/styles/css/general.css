@@ -32,7 +32,7 @@
         box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
         display: block;
         margin: 30px auto;
-        padding: 5px;
+        padding: .5em;
         overflow: hidden;
         border-width: 0;
         outline: none;
@@ -47,7 +47,7 @@
         box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
         display: block;
         margin: 30px auto;
-        padding: 5px;
+        padding: .5em;
         overflow: hidden;
         border-width: 0;
         outline: none;
@@ -250,27 +250,40 @@
         padding-left: 1%;
     }
     
-    div#categorie ul {
+    div#categorie {
+    	display: flex;
+    	width: 100%;
+  	height: auto;
+  	flex-wrap: wrap;
+  }
+    
+    div#categorie form {
+	width: 100%;
         position: relative;
-        top: -1em;
+        /* top: -1em; */
         text-align: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
     }
     
-    div#categorie ul li {
-        display: inline;
-    }
-    
-    div#categorie ul li input[type=submit] {
-        width: 25%;
-        height: 20%;
+    div#categorie input[type=submit] {
         padding: 0.5em;
         font-size: 2.5em;
-        border: 3px solid darkorange;
-        color: white;
-        background-color: #333;
+        color: black;
+        background-color: darkorange;
         /*Colori solo per test, NON DEFINITIVI*/
-        margin: 1%;
         border-radius: 10px;
+	flex: 1 0 25%;
+	margin: 10px;
+    }
+    
+    main {
+    	margin-left: auto;
+	margin-right: auto;
+	width: 66%;
     }
     
     main div#filtroProdotti {
@@ -290,7 +303,8 @@
         /*Colori solo per test, NON DEFINITIVI*/
         padding: 0.5em;
         font-size: 1.2em;
-        margin: 0;
+        margin: auto;
+	margin-top: .5em;
         font-weight: bold;
         border-radius: 7px;
     }
