@@ -457,8 +457,10 @@ main input {
 }
 
 .ordine {
-	border: 3px solid var(--blu);
+	/* border: 3px solid var(--blu);*/
+    	box-shadow: 0 1px 4px var(--viola);
 	padding: 5px;
+	padding-left:0;
 	padding: 0.5em;
 	/* font-size: 2.5em; */
 	color: black;
@@ -466,6 +468,12 @@ main input {
 	border-radius: 10px;
 	margin: 10px;
 	margin-left: -2em;
+}
+
+.image img{
+	
+	border-radius: 10px;
+    	box-shadow: 0 1px 4px var(--viola);
 }
 
 .prodotto_item {
