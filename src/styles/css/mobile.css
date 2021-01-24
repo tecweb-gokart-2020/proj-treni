@@ -6,6 +6,7 @@ html{
 
 header{
     height: 9em;
+    width: 100%;
 }
 
 header h1 {
@@ -65,7 +66,6 @@ div#percorso{
 }
 
 main#content{
-    padding: 1em;
     width: 100%;
 }
 
@@ -99,10 +99,23 @@ main div#areaPersonale input{
 	display: none;
 }
 
+div#categorie input[type="submit"] {
+	padding: 0.5em;
+	font-size: 1em;
+	color: black;
+	background-color: darkorange;
+	border-radius: 10px;
+	flex: 1 0 25%;
+	margin: 10px;
+}
+select {
+    font-size: 1em;
+}
 /*------------FOOTER------------*/
 
 footer{
     height: 15em;
+    width: 100%;
 }
 
 footer #indirizzi {

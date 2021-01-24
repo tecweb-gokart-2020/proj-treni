@@ -65,7 +65,7 @@ function makeNewSpedizione($orderID, $addressID, $status = null, $date = "NOW()"
         	$addressID . ', "' .
         	$status . '", ' .
         	$date . ')';
-	var_dump($query);
+	// var_dump($query);
         $queryResult = mysqli_query($connection, $query);
         $n = mysqli_affected_rows($connection);
         $db->closeDbConnection();
