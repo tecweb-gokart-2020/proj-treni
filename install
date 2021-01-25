@@ -19,7 +19,5 @@ else
     ln -s $css_dir css
     ln -s $img_dir imgs
     ln -s $js_dir js
-    ln -s $views_dir/.htaccess
     rm -f template;
-    rm -f home_statica.html;
 fi
