@@ -371,9 +371,6 @@ main input {
     margin: 10px;
     text-align: center;
     padding: 10px;
-}
-
-a li:link, a li:visited{
     text-decoration: none;
 }
 
