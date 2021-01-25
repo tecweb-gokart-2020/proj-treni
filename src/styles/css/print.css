@@ -385,16 +385,10 @@ main input {
 }
 
 .imgNovitaContainer {
-    box-shadow: 0 1px 4px var(--viola);
-    border-radius: 5px;
-    padding: 3em;
-    margin: 10px;
-    position: relative;
+    display:none;
 }
 .imgNovita {
-    width: 500px;
-    height: 300px;
-    object-fit: cover;
+    display:none;
 }
 
 .middle {
