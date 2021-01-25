@@ -29,7 +29,7 @@ header form#ricercaHeader input[type="search"] {
     position: relative;
     width: 80%;
     height: auto;
-    font-size: 1.7em;
+    font-size: 1em;
     box-shadow: 0 1px 4px var(--viola);
     border: 0;
 }

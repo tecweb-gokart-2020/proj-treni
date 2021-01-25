@@ -125,6 +125,11 @@ header form#ricercaHeader input {
     position: relative;
     float: left;
 }
+header input#searchQuery{
+    font-size: 1em;
+    width: 74%;
+    padding: 0.4em 0;
+}
 
 header form#ricercaHeader input[type=submit] {
     font-size: 1em;
@@ -201,6 +206,7 @@ header ul#icons li {
     position: relative;
     width: 2em;
     height: 2em;
+    color: var(--blu);
     display: inline-block;
     top: .7em;
 }
@@ -217,8 +223,8 @@ header #counter {
 }
 
 .current_link {
-    border-bottom: 3px solid var(--giallo);
-    padding: .2em;
+    border-bottom: 3px solid var(--blu);
+    padding: .1em;
 }
 
 #login, #register {
