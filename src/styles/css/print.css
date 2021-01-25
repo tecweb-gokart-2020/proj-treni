@@ -155,12 +155,11 @@ div#servizi {
     left: 0;
 }
 
-div#servizi h2 {
+div#servizi h2, #chiSiamo h2{
     text-align: center;
 }
 
-div#news,
-div#prodottiInHome {
+div#news {
     position: relative;
     top: 2em;
     text-align: center;
