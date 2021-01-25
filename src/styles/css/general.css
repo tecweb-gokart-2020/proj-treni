@@ -76,6 +76,11 @@ button {
 .errore {
     visibility: hidden;
 }
+
+#erroreFiltro {
+    visibility: visible;
+}
+
 /*----------------HEADER------------------*/
 
 header {
