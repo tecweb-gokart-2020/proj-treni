@@ -3,8 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Mukta+Vaani&display=swap');
 
 :root{
-    --base: #fff;
-    --blu: #01568f; 
+    --base: #ffffff;
+    --blu: #016fb9; 
     --giallo: #f9c80e;
     --viola: #0e103d;
     --scuro: #0d0221;
@@ -16,6 +16,7 @@ html {
     font-size: 1em;
     color: black;
     height: 100%;
+    width:auto;
 }
 
 body {
@@ -35,52 +36,21 @@ body {
 }
 
 #aiuti {
-    position: absolute;
-    height: 0px;
-    width: 0px;
-    overflow: hidden;
-    clip: rect(0px, 0px, 0px, 0px);
+    display: none;
 }
 
 input[type="submit"] {
-    box-shadow: 0 1px 4px var(--viola);
-    display: block;
-    margin: 30px auto;
-    padding: .5em;
-    overflow: hidden;
-    border-width: 0;
-    outline: none;
-    border-radius: 2px;
-    background-color: var(--blu);
-    color: white;
-    font-weight: bold;
-    font-size: 1em;
+    display: none;
 }
 
 button {
     /* border-width: 0; */
-    box-shadow: 0 1px 4px var(--viola);
-    display: block;
-    margin: 30px auto;
-    padding: .5em;
-    overflow: hidden;
-    border-width: 0;
-    outline: none;
-    border-radius: 2px;
-    background-color: var(--blu);
-    font-weight: bold;
-    font-size: 1em;
-    color: white;
+    display: none;
 }
 
 .errore {
     visibility: hidden;
 }
-
-#erroreFiltro {
-    visibility: visible;
-}
-
 /*----------------HEADER------------------*/
 
 header {
@@ -104,75 +74,28 @@ header h1 {
     height: auto;
 }
 
-header a {
-    position: relative;
-}
-
 header h1 a {
     text-decoration: none;
 }
 
 header form#ricercaHeader {
-    float: left;
-    position: absolute;
-    margin-left: 1em;
-    margin-top: 1.4em;
-    width: 30%;
+    display: none;
 }
 
 header form#ricercaHeader input {
-    position: relative;
-    float: left;
-}
-header input#searchQuery{
-    font-size: 1em;
-    width: 74%;
-    padding: 0.4em 0;
+    display: none;
 }
 
 header form#ricercaHeader input[type=submit] {
-    font-size: 1em;
-    margin: auto;
-    padding: 7px;
-    margin-left: 1%;
-    color: white;
+    display: none;
 }
 
 header nav {
-    position: relative;
-    /* top: 4em; */
-    top: 3.5em;
-    margin: 0em;
-}
-
-header ul#icons li:last-child {
-    margin-right: 10%;
-}
-
-header ul#icons li:first-child {
-    margin-left: 0;
+    display: none;
 }
 
 header ul#pagine {
-    float: left;
-    margin: 0;
-    position: absolute;
-    padding: 0px;
-    text-align: center;
-    width: 100%;
-    height: auto;
-    top: 0.4em;
-}
-
-header ul#pagine li {
-    position: relative;
-    display: inline;
-    margin-left: 4em;
-    margin-right: 4em;
-    /* top: 4.4em; */
-    margin: 0em;
-    margin-left: 7%;
-    margin-right: 10%;
+    display: none;
 }
 
 header label {
@@ -180,69 +103,24 @@ header label {
 }
 
 header ul#icons {
-    float: right;
-    margin: 0;
-    position: absolute;
-    padding: 0px;
-    text-align: right;
-    width: 30%;
-    height: 3em;
-    top: -3em;
-    right: 0;
-}
-
-header ul#icons li {
-    position: relative;
-    display: inline;
-    margin-left: 10%;
-    margin-right: auto;
-    vertical-align: middle;
-    top: 0.5em;
+    display: none;
 }
 
 .fa-shopping-cart,
 .fa-user {
-    position: relative;
-    width: 2em;
-    height: 2em;
-    color: var(--blu);
-    display: inline-block;
-    top: .7em;
+    display: none;
 }
 
 header #counter {
-    position: absolute;
-    font-weight: bold;
-    /*Colore solo per test, NON DEFINITIVO*/
-    font-size: 0.9em;
-    width: 2em;
-    height: auto;
-    top: 0;
-    text-align: center;
-}
-
-.current_link {
-    border-bottom: 3px solid var(--blu);
-    padding: .1em;
+    display: none;
 }
 
 #login, #register {
-    box-shadow: 0 1px 4px var(--viola);
-    background-color: var(--blu);
-    color: white;
-    padding: .7em;
-    border-radius: 5px;
+    display: none;
 }
 
 #logout {
-    padding: 1em;
-    background-color: var(--blu);
-    color: white;
-}
-
-#logoutContainer {
-    text-align: right;
-    padding: 1em;
+    display: none;
 }
 
 /*------------------CONTENUTO--------------------*/
@@ -316,15 +194,7 @@ div#categorie {
 }
 
 div#categorie form {
-    width: 100%;
-    position: relative;
-    /* top: -1em; */
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
+    display: none;
 }
 
 div#categorie input[type=submit] {
@@ -337,6 +207,7 @@ div#categorie input[type=submit] {
     flex: 1 0 25%;
     margin: 10px;
 }
+
 
 
 main div#filtroProdotti {
@@ -377,7 +248,7 @@ main .cards {
 }
 
 .prodottoLista {
-    border: 4px solid var(--giallo);
+    border: 1px solid black;
     margin: 0 1em 2em 1em;
     padding: 1em;
     border-radius: 7px;
@@ -427,7 +298,6 @@ main div#areaPersonale input {
 
 main div#areaPersonale button[type=submit] {
     background-color: var(--giallo);
-    color:black;
     padding: 0.3em;
     border-radius: 7px;
     font-weight: bold;
@@ -510,7 +380,7 @@ main input {
 }
 
 .display-address {
-    border: 3px solid var(--giallo);
+    border: 1px solid black;
     border-radius: 10px;
     padding: .5em;
 }
