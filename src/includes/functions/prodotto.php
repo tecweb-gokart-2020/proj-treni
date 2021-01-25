@@ -33,14 +33,14 @@ function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
         if($info['sconto']!=""){
             echo '<del>';
         }
-        echo $info['prezzo'];
+        echo "Prezzo: ".$info['prezzo']." €";
         if($info['sconto']!=""){
             echo '</del>';
         }
         echo '</li>';
         if($info['sconto']!=""){
             echo '<li>';
-            echo $aux = $info['prezzo']-$info['sconto']/100*$info['prezzo'];
+            echo "Prezzo: ".$info['prezzo']-$info['sconto']/100*$info['prezzo']." €";
             echo '</li>';
         } 
         echo '</ul></a></li>';
