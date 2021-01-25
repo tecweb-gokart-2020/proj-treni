@@ -24,7 +24,7 @@ echo '<!DOCTYPE html>
 
     </head>
     <body>
-        <nav id="aiuti">
+        <nav id="aiuti" aria-label="aiuti alla navigazione">
             <ul>
                 <li><a href="#content">Vai al contenuto della pagina</a>
             </ul>
