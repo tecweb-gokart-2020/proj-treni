@@ -5,7 +5,7 @@ use function UTILITIES\init_tag;
 init_tag($tag_info, '<a href="info.php">', $tag_info_close);
 init_tag($tag_ordini, '<a href="ordini.php">', $tag_ordini_close);
 
-echo '<nav id="ap_navbar">
+echo '<nav id="ap_navbar" aria-label="area personale">
     <ul>
              <li>
             '. $tag_info .'
