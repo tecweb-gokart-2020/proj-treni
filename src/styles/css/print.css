@@ -53,7 +53,7 @@ button {
     visibility: hidden;
 }
 
-#erroreFiltro {
+.visibile {
     visibility: visible;
 }
 /*----------------HEADER------------------*/

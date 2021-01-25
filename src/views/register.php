@@ -39,7 +39,7 @@ echo '<main id="content">
 			</form>';
 
 if(isset($_SESSION["registerErr"])){
-    echo '<span class="errore">' . $_SESSION["registerErr"] . '</span>';
+    echo '<div class="errore visibile" aria-live="assertive">' . $_SESSION["registerErr"] . '</div>';
     unset($_SESSION["registerErr"]);
 }
 echo '<div id="RegistrToLogin" class="container">

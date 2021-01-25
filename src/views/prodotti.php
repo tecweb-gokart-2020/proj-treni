@@ -105,7 +105,7 @@ echo '</select>
                 echo '<option value="prezzoDecrescente"'; if($_GET["ordinamento"]=="prezzoDecrescente"){echo ' selected=selected';} echo '>Prezzo decrescente</option>';
             echo '</select>
             <input id="filtroSubmit" type="submit" name="submit" value="Applica filtri"/>
-            <div class="errore" id="erroreFiltro" aria-live="assertive"></div>
+            <div class="errore visibile" id="erroreFiltro" aria-live="assertive"></div>
         </form>';
 
 // PRODOTTI TROVATI
