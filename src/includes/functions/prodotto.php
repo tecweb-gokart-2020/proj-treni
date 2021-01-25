@@ -25,7 +25,6 @@ function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
     for($i=0; $i<count($listaProdotti); $i++){
         $info=getInfoFromProdotto($listaProdotti[$i]);
 	echo '<li class="prodottoLista"><a href="paginaSingoloProdotto.php?codArticolo=' . $listaProdotti[$i]. '"><h2>'.$info['marca'].' '. $listaProdotti[$i]. '</h2><img src="imgs/' .$listaProdotti[$i]. '" alt=""/><ul class="propProdotto"><li>' . $info['descrizione'].'</li>';
-        // echo '<li>Disponibili all\'acquisto: '.$info['quantita'].'</li>';
         if($info['sconto']!=""){
             echo '<li>Prodotto scontato del '.$info['sconto'].'%</li>';
         }

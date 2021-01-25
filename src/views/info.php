@@ -18,7 +18,7 @@ if(isset($_SESSION["username"])) {
      * dopo il login) */
 
     $tag_info = "";
-    $pagetitle = "trenene - Area personale";
+    $pagetitle = "Area personale - Trenene";
     $pagedescription = "Area dove è possibile gestire i propri dati";
     $js = '<script type="text/javascript" src="js/info.js"></script>';
     include "template/header.php";

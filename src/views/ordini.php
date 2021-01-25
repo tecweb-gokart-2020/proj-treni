@@ -59,9 +59,6 @@ function printOrder($orderID) {
             echo '<a href="paginaSingoloProdotto.php?codArticolo='.$prodotto["productID"].'"><ul class="prodotto_item">' . PHP_EOL;
             echo '<li class="image"><img src="imgs/' . $prodotto["productID"]. '" alt="'.$info["marca"].' '.$prodotto["productID"].'"/></li>'. PHP_EOL;
             echo '<li class="productID"> ID: '. $prodotto["productID"] ."</li>". PHP_EOL;
-            //if($prodotto["shippingID"]){
-            //echo '<li class="shippingID">'. $prodotto["shippingID"] ."</li>". PHP_EOL;
-            //}
             echo '<li class="quantita">Quantità: '. $prodotto["quantita"] ."</li>". PHP_EOL;
             echo '<li class="stato">Stato: '. $prodotto["stato"] ."</li>". PHP_EOL;
             echo '<li class="prezzo">Prezzo: '. $prodotto["prezzo"] ." €</li>". PHP_EOL;
@@ -72,8 +69,7 @@ function printOrder($orderID) {
 }
 
 session_start();
-// $_SESSION["username"] = "user";
-// $_SESSION["cartID"] = 2;
+
 if(isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente
@@ -81,7 +77,7 @@ if(isset($_SESSION["username"])) {
      * dopo il login) */
 
     $tag_info = "";
-    $pagetitle="Trenene - ordini";
+    $pagetitle="Ordini - Trenene";
     $pagedescription = "Pagina area personale contenente gli ordini effettuati, gli articoli sono divisi per ordine e indirizzo di spedizione";
     include "template/header.php";
 

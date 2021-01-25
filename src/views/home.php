@@ -7,7 +7,6 @@ use function PRODOTTO\getInfoFromProdotto;
 
 session_start();
 // debug
-// $_SESSION["username"] = "user";
 if(isset($_SESSION["username"])) {
     $_SESSION["cartID"] = getCartFromAccount($_SESSION["username"]);
 }
@@ -42,7 +41,6 @@ echo '<div id="chiSiamo">
     </div>
     <div id="news">
         <h2>NOVITÀ</h2>';
-//mettere immagini prodotti con flag(da aggiungere) novità
 $new = ultimeNovita();
 foreach($new as $prodotto) {
 	$info = getInfoFromProdotto($prodotto);
@@ -53,11 +51,6 @@ foreach($new as $prodotto) {
 }
 
 echo '</div>';
-	// non è ridondante?
-    // '<div id="prodottiInHome">
-    //     <h2>I NOSTRI PRODOTTI</h2>
-    //     <a href="prodotti.html">Cerca nel catalogo</a>
-    // </div>';
 echo '</main>';
 
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";

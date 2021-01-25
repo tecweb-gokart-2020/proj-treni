@@ -38,9 +38,6 @@ function stampaProdotto($prodotto){
 }
 
 session_start();
-//debug 
-// $_SESSION["username"] = 'user';
-// $_SESSION["cartID"] = 2;
 if(!isset($_SESSION["cartID"])) {
     $newcart = getNewCarrello();
     if($newcart) {
@@ -56,9 +53,9 @@ if($_GET["remove"]) {
 	removeFromCart($_SESSION["cartID"], $_GET["remove"]);
 }
 
-// cartID correttamente impostato
+// cartID correttamente impostatoz
 $pagedescription = "Contenuto del carrello";
-$pagetitle = "carrello";
+$pagetitle = "Carrello - Trenene";
 $tag_cart = "";
 include "template/header.php";
 

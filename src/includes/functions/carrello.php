@@ -89,11 +89,6 @@ function checkout($cartID, $addressID) {
     }
     $orderID = makeNewOrdine($account, $totale);
     $ship = makeNewSpedizione($orderID, $addressID, 'Processing');
-    // var_dump($prodotti);
-    // var_dump($account);
-    // var_dump($totale);
-    // var_dump($orderID);
-    var_dump($ship);
     $response = true;
     foreach($prodotti as $prodotto){
 	    if($response){
@@ -125,7 +120,6 @@ function addToCart($cartID, $articolo, $qty) {
 	} else {
 		$query = "INSERT INTO contenuto_carrello(cartID, codArticolo, quantita) VALUES ($cartID, $articolo, $qty)";
 	}
-	// var_dump($query);
 	$res = mysqli_query($connection, $query);
         return mysqli_affected_rows($connection);
     } else {
@@ -141,9 +135,6 @@ function setQuantityInCart($cart, $product, $quantity){
 			$cart = cleanUp($cart);
 			$product = cleanUp($product);
 			$quantity = cleanUp($quantity);
-			// var_dump($quantity);
-			// var_dump($cart);
-			// var_dump($product);
 			$query = "UPDATE contenuto_carrello SET quantita=$quantity WHERE cartID=$cart AND codArticolo=$product";
 			$res = mysqli_query($connection, $query);
 			return mysqli_affected_rows($connection);

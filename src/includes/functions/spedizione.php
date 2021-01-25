@@ -65,13 +65,11 @@ function makeNewSpedizione($orderID, $addressID, $status = null, $date = "NOW()"
         	$addressID . ', "' .
         	$status . '", ' .
         	$date . ')';
-	// var_dump($query);
         $queryResult = mysqli_query($connection, $query);
         $n = mysqli_affected_rows($connection);
         $db->closeDbConnection();
 	if($n) {
-		// var_dump($shippingID);
-        	return $shippingID;
+        return $shippingID;
 	} else return false;
     }
 }

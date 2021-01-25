@@ -73,7 +73,6 @@ function getAddress($address, $user){
         $query = "SELECT addressID FROM indirizzo ORDER BY addressID DESC LIMIT 1";
         $queryResult = mysqli_query($connection, $query);
         $addressID = mysqli_fetch_row($queryResult)[0] + 1;
-        //mamma mia che casino
 	$query = 'INSERT INTO indirizzo(username, nome, cognome, via, numero, citta, provincia, cap, stato, telefono) VALUES ("'.
                $user . '", "' .
                $address["nome"] . '", "' .
@@ -122,11 +121,5 @@ function newAddress($username, $nome, $cognome, $via, $civico, $citta, $provinci
     //solo italici numeri, ho deciso. Così è meno generica
     $telefono = removeWhitespaces($telefono);
     $valid_telefono = preg_match("/^((00|\+)39)?(0\d{5,9}|3\d{9})$/", $telefono);
-
-    //connetti...
-
-    //...ficca dentro...
-
-    //...e disconnetti
 }
 ?>

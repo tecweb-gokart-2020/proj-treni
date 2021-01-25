@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
-$pagetitle = "trenene - Contatti";
+$pagetitle = "Contatti - Trenene";
 $pagedescription = "Pagina Contatti di trenene.it";
 
 $tag_contatti = '<span class="current_link">';

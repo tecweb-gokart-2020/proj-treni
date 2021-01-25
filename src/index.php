@@ -5,7 +5,7 @@ use function ACCOUNT\getCartFromAccount;
 use function CARRELLO\getNewCarrello;
 
 // variabili riferite alla singola pagina
-$pagetitle = "Homepage";
+$pagetitle = "Homepage - Trenene";
 $pagedescription = "Descrizione della homepage";
 
 // per testare finchè non è completata la funzione di login

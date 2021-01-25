@@ -138,7 +138,7 @@ function login($UUID, $password) {
     
     $db = new DBAccess();
     $connection = $db->openDbConnection();
-    // non molto elegante
+    
     if ($connection->connect_error) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     } 
@@ -155,7 +155,7 @@ function login($UUID, $password) {
 function edit_mail($user, $oldMail, $newMail, $reMail) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
-    // non molto elegante
+    
     if ($connection->connect_error) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     } 
@@ -182,7 +182,7 @@ function edit_mail($user, $oldMail, $newMail, $reMail) {
 function edit_pw($user, $oldPw, $newPw, $rePw) {
     $db = new DBAccess();
     $connection = $db->openDbConnection();
-    // non molto elegante
+    
     if ($connection->connect_error) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     } 

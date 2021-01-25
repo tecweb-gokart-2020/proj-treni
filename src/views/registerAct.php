@@ -29,10 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	try{
 		// perdonami Ranzato perchè ho peccato
 		if($rePassword == $password){
-			// var_dump($email);
-			// var_dump($nomeUtente);
-			// var_dump($password);
-			// var_dump($_SESSION["cartID"]);
 			$newUser = register($email, $nomeUtente, $password, $_SESSION["cartID"]);
 		} else throw new Exception("le password non coincidono");
 
@@ -41,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	}
 	if(!$error and $newUser){
 		//mostrare conferma registrazione
-		$pagetitle = "trenene - Registrazione";
+		$pagetitle = "Trenene - Registrazione";
 		$pagedescription = "Conferma della registrazione avvenuta su trenene.it";
 		include __DIR__ . DIRECTORY_SEPARATOR. "template/header.php";
 		echo '<main id="content"><div class="container" id="confermaRegistr"><p><em>Registrazione avvenuta con successo</em></p>

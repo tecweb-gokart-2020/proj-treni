@@ -6,7 +6,7 @@ use function PRODOTTO\stampaProdotti;
 use function PRODOTTO\searchProdotti;
 
 $js = '<script type="text/javascript" src="js/prodotti.js"></script>';
-$pagetitle = "Prodotti - trenene";
+$pagetitle = "Prodotti - Trenene";
 $pagedescription = "Pagina Prodotti di trenene.it";
 $tag_prodotti = '<span class="current_link">';
 include "template/header.php";

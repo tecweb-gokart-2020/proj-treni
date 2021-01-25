@@ -10,20 +10,7 @@ use function CARRELLO\removeFromCart;
 use function PRODOTTO\getInfoFromProdotto;
 
 session_start();
-// $_SESSION["cartID"] = '2';
-// $_SESSION["username"] = 'user';
 
-// $_POST["nome"] = "Luca";
-// $_POST["cognome"] = "Zaninotto";
-// $_POST["via"] = "bosco dell'arneret";
-// $_POST["civico"] = "11";
-// $_POST["citta"] = "Fiume Veneto";
-// $_POST["provincia"] = "Pordenone";
-// $_POST["cap"] = "33080";
-// $_POST["stato"] = "Italia";
-// $_POST["telefono"] = "3479054568";
-
-// $_POST["checkout"] = true;
 function stampaProdotto($prodotto){
         $info=getInfoFromProdotto($prodotto["codArticolo"]);
         echo '<li><a href="paginaSingoloProdotto.php?codArticolo=' . $prodotto["codArticolo"] .
@@ -90,7 +77,6 @@ if($checkout) {
         "telefono" => $_POST["telefono"]
     );
     $addressID = getAddress($address, $_SESSION["username"]);
-    // var_dump($addressID);
     try {
         $result = checkout($_SESSION["cartID"], $addressID);
     } catch (Exception $e) {
@@ -118,7 +104,7 @@ if($checkout) {
 
 $js = '<script type="text/javascript" src="js/checkout.js"></script>';
 $pagedescription = "Contenuto del carrello";
-$pagetitle = "carrello";
+$pagetitle = "Carrello - Trenene";
 include "template/header.php";
 
 $current_page = "<a href=\"carrello.php\">carrello</a> >> checkout";

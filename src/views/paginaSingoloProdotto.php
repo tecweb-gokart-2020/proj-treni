@@ -4,10 +4,6 @@ use function PRODOTTO\getInfoFromProdotto;
 use function CARRELLO\addToCart;
 
 session_start();
-// debug
-// $_SESSION["cartID"] = 2;
-// $_POST["add"] = "add";
-// $_GET['codArticolo'] = 60052;
 
 if(!isset($_GET['codArticolo'])){
     // se non è selezionato un prodotto probabilmente vuole vedere
@@ -27,7 +23,7 @@ if($_POST["add"] == "add") {
 
 $prodottoAttuale = $_GET['codArticolo'];
 $info=getInfoFromProdotto($prodottoAttuale);
-$pagetitle = $info['marca']." ".$info['codArticolo']." - trenene";
+$pagetitle = $info['marca']." ".$info['codArticolo']." - Trenene";
 $pagedescription = "Pagina".$info['marca']." ".$listaProdotti[$index]." di trenene.it";
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     

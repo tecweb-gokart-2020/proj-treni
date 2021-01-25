@@ -4,9 +4,6 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
 use mysqli;
 
 class DBAccess {
-    /* Ci rinuncio definitivamente, metto le mie credenziali di
-     * default voi mettete le vostre per fare debug basta mi son
-     * rotto sincero */
     private const HOST_DB = "localhost";
     private const USERNAME = "lzaninot";
     private const DB_NAME = "lzaninot";

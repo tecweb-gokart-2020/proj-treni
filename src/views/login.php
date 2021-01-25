@@ -1,6 +1,6 @@
 <?php 
 $js = '<script type="text/javascript" src="js/login.js"></script>';
-$pagetitle = "Trenene - Login";
+$pagetitle = "Login - Trenene";
 $pagedescription = "pagina di login per il sito trenene.it";
 include __DIR__ . DIRECTORY_SEPARATOR . 'template/header.php';
 session_start();
