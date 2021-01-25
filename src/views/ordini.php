@@ -22,7 +22,6 @@ function printAddress($addressID) {
         echo '</ul>' . PHP_EOL;
     }
     else {
-	var_dump($addressID);
         echo "Indirizzo non valido, qualcosa è andato storto...";
     }
 }
@@ -55,7 +54,7 @@ function printOrder($orderID) {
         printAddress(getAddressFromShipping($ship[0]["shippingID"]));
         //stampa prodotti spediti a quell'indirizzo
         foreach($ship as $prodotto) {
-	    $info = getInfoFromProdotto($prodotto["productID"]);
+            $info = getInfoFromProdotto($prodotto["productID"]);
             echo '<a href="paginaSingoloProdotto.php?codArticolo='.$prodotto["productID"].'"><ul class="prodotto_item">' . PHP_EOL;
             echo '<li class="image"><img src="imgs/' . $prodotto["productID"]. '" alt="'.$info["marca"].' '.$prodotto["productID"].'"/></li>'. PHP_EOL;
             echo '<li class="productID"> ID: '. $prodotto["productID"] ."</li>". PHP_EOL;

@@ -27,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		}
 	}
 	try{
-		// perdonami Ranzato perchè ho peccato
 		if($rePassword == $password){
 			$newUser = register($email, $nomeUtente, $password, $_SESSION["cartID"]);
 		} else throw new Exception("le password non coincidono");

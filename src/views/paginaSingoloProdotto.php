@@ -6,8 +6,6 @@ use function CARRELLO\addToCart;
 session_start();
 
 if(!isset($_GET['codArticolo'])){
-    // se non è selezionato un prodotto probabilmente vuole vedere
-    // i prodotti
     header("Location: prodotti.php");
 }
 

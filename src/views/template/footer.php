@@ -1,13 +1,12 @@
 <footer>
 	<div id="indirizzi">
- 		<address><!-- informazioni di contatto e sul negozio -->
+ 		<address>
 			<strong>Vieni a trovarci!</strong> 
 			<ul>
 				<li> Esposizione in via fasulla, 123 - Padova (ITA)</li>
 			</ul>
 		</address>
 	</div>
-	<!-- tutti quei <br/> sono rimpiazzabili da line-height(?) in CSS -->
 	<div id="contatti">
 		<strong>Contattaci!</strong> 
 			<ul>

@@ -46,8 +46,7 @@ echo '<div id="RegistrToLogin" class="container">
 				<p>Già registrato? <a href="login.php"><strong>Accedi!</strong></a></p>
 			</div>	
 		</div>
-	</div></main>
-<script type="text/javascript" src="' . __DIR__ . DIRECTORY_SEPARATOR . '../styles/js/register.js"></script>';
+	</div></main>';
 
 include 'template/footer.php';
 ?>

@@ -12,38 +12,38 @@ use function PRODOTTO\getInfoFromProdotto;
 session_start();
 
 function stampaProdotto($prodotto){
-        $info=getInfoFromProdotto($prodotto["codArticolo"]);
-        echo '<li><a href="paginaSingoloProdotto.php?codArticolo=' . $prodotto["codArticolo"] .
-                                                                   '"><h2>'.$info['marca'].' '.
-                                                                   $prodotto["codArticolo"].
-                                                                   '</h2></a><img src="imgs/'
-                                                                   .$prodotto["codArticolo"].
-                                                                   '" alt=""/><ul><li>'.
-                                                                   $info['tipo'].'</li>';
+    $info=getInfoFromProdotto($prodotto["codArticolo"]);
+    echo '<li><a href="paginaSingoloProdotto.php?codArticolo=' . $prodotto["codArticolo"] .
+                                                               '"><h2>'.$info['marca'].' '.
+                                                               $prodotto["codArticolo"].
+                                                               '</h2></a><img src="imgs/'
+                                                               .$prodotto["codArticolo"].
+                                                               '" alt=""/><ul><li>'.
+                                                               $info['tipo'].'</li>';
 	echo '<li>';
 	echo 'quantità: ' . $prodotto["quantita"];
 	echo '</li>';
 	echo '<li>';
 	echo 'disponibili: ' . $info["quantita"];
 	echo '</li>';
-        if($info['sconto']!=""){
-            echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';
-        }
+    if($info['sconto']!=""){
+        echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';
+    }
+    echo '<li>';
+    if($info['sconto']!=""){
+        echo '<del>';
+    }
+    echo $info['prezzo']. ' €';
+    if($info['sconto']!=""){
+        echo '</del>';
+    }
+    echo '</li>';
+    if($info['sconto']!=""){
         echo '<li>';
-        if($info['sconto']!=""){
-            echo '<del>';
-        }
-        echo $info['prezzo']. ' €';
-        if($info['sconto']!=""){
-            echo '</del>';
-        }
+        echo $aux=$info['prezzo']-$info['sconto']/100*$info['prezzo'];
         echo '</li>';
-        if($info['sconto']!=""){
-            echo '<li>';
-            echo $aux=$info['prezzo']-$info['sconto']/100*$info['prezzo'];
-            echo '</li>';
-        } 
-        echo '</ul></li>';
+    } 
+    echo '</ul></li>';
 }
 
 if(!isset($_SESSION["cartID"])) {
