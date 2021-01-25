@@ -20,6 +20,8 @@ echo '<!DOCTYPE html>
   	<link rel="stylesheet" type="text/css" href="css/general.css" media="screen"/>
   	<link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-device-width:640px), only screen and (max-width:640px)" />
 	'. $js .'
+	<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+
     </head>
     <body>
         <nav id="aiuti">
