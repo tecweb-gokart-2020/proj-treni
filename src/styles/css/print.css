@@ -56,13 +56,7 @@ button {
 /*----------------HEADER------------------*/
 
 header {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0px;
     height: 6em;
-    background-color: var(--base);
-    /*Colore solo per test, NON DEFINITIVO*/
-    box-shadow: 0 1px 4px var(--viola);
     z-index: 1;
 }
 
