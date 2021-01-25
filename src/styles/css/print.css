@@ -373,7 +373,7 @@ main input {
     padding: 10px;
 }
 
-a:link, a:visited{
+.prodotto_item a:link, .prodotto_item a:visited{
     text-decoration: none;
 }
 
