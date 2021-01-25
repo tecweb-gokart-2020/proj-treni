@@ -478,6 +478,9 @@ main input {
     margin: 10px;
     margin-left: -2em;
 }
+.ordine ul {
+	padding-left: 5px;
+}
 
 .image img{
 	
