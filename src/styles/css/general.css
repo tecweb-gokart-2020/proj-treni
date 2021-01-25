@@ -467,6 +467,7 @@ main ul#cart{
     text-align: center;
 }
 
+.prodottoCart li{ margin-left:-2em}
 
 li {
     list-style: none;
