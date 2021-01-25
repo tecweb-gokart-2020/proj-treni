@@ -109,6 +109,12 @@ main div#areaPersonale input {
     margin-bottom: 1em;
 }
 
+main div#areaPersonale img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #paginaSingoloProdotto ul {
     text-align: center;
     padding-left: 0;
