@@ -71,7 +71,7 @@ header {
 
 header h1 {
     float: left;
-    color: var(--blu);
+    color: black;
     position: relative;
     text-align: center;
     width: 100%;
@@ -148,20 +148,14 @@ main img{
 }
 
 div#chiSiamo {
-    float: left;
-    position: relative;
-    width: 25%;
-    margin: 0;
-    text-align: center;
+    float: none;
+    width: 100%;
 }
 
 div#servizi {
-    display: block;
-    position: relative;
-    width: 25%;
-    margin: 0;
-    left: 50%;
-    overflow: auto;
+    float: none;
+    width: 100%;
+    left: 0;
 }
 
 div#servizi h2 {
