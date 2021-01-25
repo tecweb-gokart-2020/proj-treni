@@ -49,7 +49,12 @@ button {
 }
 
 .errore {
+    color: red;
     visibility: hidden;
+}
+
+#erroreFiltro {
+    visibility: visible;
 }
 /*----------------HEADER------------------*/
 

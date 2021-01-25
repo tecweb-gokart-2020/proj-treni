@@ -74,6 +74,7 @@ button {
 }
 
 .errore {
+    color: red;
     visibility: hidden;
 }
 
