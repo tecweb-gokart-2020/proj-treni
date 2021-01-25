@@ -12,7 +12,7 @@
 }
 
 html {
-    font-family: 'Mukta Vaani', 'Lato', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Mukta Vaani', 'Lato', Calibri, 'Trebuchet MS', serif;
     font-size: 1em;
     color: black;
     height: 100%;
@@ -20,12 +20,10 @@ html {
 }
 
 body {
-    margin: 0em;
-    padding: 0em;
-    background-color: var(--base);
-    min-height: 100%;
-    position: relative;
-}
+    background: white;
+    color: black;
+    font-size: 12px;
+  }
 
 :link {
     color: var(--blu);
