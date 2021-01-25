@@ -91,7 +91,7 @@ if(isset($_SESSION["username"])) {
         . PHP_EOL .
         '<button type="submit" name="edit" id="editPw" value="password">Modifica password</button>'
         . PHP_EOL .
-        '</fieldset></form><div id="logoutContainer"><a id="logout" href="logout.php">Logout</a></div>'
+        '</fieldset></form>'
         . PHP_EOL;
 
     if(isset($emailDone)) {
@@ -122,7 +122,7 @@ if(isset($_SESSION["username"])) {
         unset($pwDone);
     }
 
-    echo '</div></main>' . PHP_EOL;
+    echo '<div id="logoutContainer"><a id="logout" href="logout.php">Logout</a></div></div></main>' . PHP_EOL;
     include "template/footer.php";
 }
 else {

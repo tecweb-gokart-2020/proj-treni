@@ -5,9 +5,9 @@ if [ $# -eq 0 ]
     echo "help: ./test [PATH (relativa o assoluta) della cartella public_html]"
 else
     views_dir=$(echo $(pwd)/src/views)
-    css_dir=$(echo $(pwd)/src/styles/css)
-    img_dir=$(echo $(pwd)/imgs)
-    js_dir=$(echo $(pwd)/src/style/js)
+    css_dir=$(echo $(pwd)/src/styles/css/)
+    img_dir=$(echo $(pwd)/imgs/)
+    js_dir=$(echo $(pwd)/src/styles/js/)
     public_path=$1
     
     rm -rf $public_path/*
