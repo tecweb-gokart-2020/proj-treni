@@ -372,6 +372,7 @@ main input {
     margin: 10px;
     text-align: center;
     padding: 10px;
+    text-decoration: none;
 }
 
 .display-address {
