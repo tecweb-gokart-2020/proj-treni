@@ -95,30 +95,38 @@ function getAddress($address, $user){
     }
 }
 
-/*aggiunge un indirizzo, ritorna... qualcosa
-Tutto l'input deve essere sanificato. In particolare, civico dovrebbe poter tenere le / (e telefono non dovrebbe avere spazi ma di questo se ne occupa la funzione)*/
+/*aggiunge un indirizzo; tutto l'input deve essere sanificato. In
+particolare, civico dovrebbe poter tenere le / (e telefono non
+dovrebbe avere spazi ma di questo se ne occupa la funzione)*/
 function newAddress($username, $nome, $cognome, $via, $civico, $citta, $provincia, $cap, $telefono){
-    /*convalida input
-    sarei stato più permissivo sui nomi ma ci potrebbero essere problemi con la codifica dei caratteri speciali(òàùèé), quindi per ora va bene così.
-    tutte le regex testate (qui: https://www.phpliveregex.com/) e funzionanti secondo la descrizione
+    /*convalida input sarei stato più permissivo sui nomi ma ci
+    potrebbero essere problemi con la codifica dei caratteri
+    speciali(òàùèé), quindi per ora va bene così.  tutte le regex
+    testate (qui: https://www.phpliveregex.com/) e funzionanti secondo
+    la descrizione
     */
     $valid_username = preg_match("/^\w{3,}$/", $username);
     //se qualcuno usasse 2 nomi, ok
     $valid_nome = preg_match("/^[a-z]+( [a-z]+)*$/i", $nome);
-    //permette "cognome", "articolo cognome", "articolo'cognome", "ricco-nobile-meglio di te"
+    //permette "cognome", "articolo cognome", "articolo'cognome",
+    //"ricco-nobile-meglio di te"
     $valid_cognome = preg_match("/^[a-z]+(( |\'|\-)[a-z]+)*$/i", $cognome);
-    //"tipoDiVia qualcosaAncheNumeriAbbreviazioniSigle..." poi - come separatore va anche bene
+    //"tipoDiVia qualcosaAncheNumeriAbbreviazioniSigle..." poi - come
+    //separatore va anche bene
     $valid_via = preg_match("/^[a-z]+( [\w\.]+)*(( |\-)[\w\.]+)*$/i", $via);
-    //il numero civico potrebbe avere simboli, spazi, trattini, barre, lettere... in qualsiasi ordine! stripslashes farebbe male qui
+    //il numero civico potrebbe avere simboli, spazi, trattini, barre,
+    //lettere... in qualsiasi ordine! stripslashes farebbe male qui
     $valid_civico = preg_match("/^[\w \.\-\\]+$/", $cognome);
     //solo lettere e parole aggiuntive precedute da spazio
     $valid_citta = preg_match("/^[a-z]+( [a-z]+)*$/i", $citta);
-    //quando raggrupparono certe provincie, anni fa, presero i nomi e li separarono con -
+    //quando raggrupparono certe provincie, anni fa, presero i nomi e
+    //li separarono con -
     $valid_provincia = preg_match("/^[a-z]+(( |\-)[a-z]+)*$/i", $provincia);
     //5 cifre, ne più ne meno
     $valid_cap = preg_match("/^\d{5}$/", $cap);
-    //prefisso internaz opzionale, fisso(prefisso 0123 numero, max 10 cifre tot) | cell(3... max 10 cifre); importante che non ci siano spazi
-    //solo italici numeri, ho deciso. Così è meno generica
+    //prefisso internaz opzionale, fisso(prefisso 0123 numero, max 10
+    //cifre tot) | cell(3... max 10 cifre); importante che non ci
+    //siano spazi solo italici numeri, ho deciso. Così è meno generica
     $telefono = removeWhitespaces($telefono);
     $valid_telefono = preg_match("/^((00|\+)39)?(0\d{5,9}|3\d{9})$/", $telefono);
 }

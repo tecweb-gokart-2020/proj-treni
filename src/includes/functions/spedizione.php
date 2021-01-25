@@ -58,7 +58,6 @@ function makeNewSpedizione($orderID, $addressID, $status = null, $date = "NOW()"
         $query = "SELECT shippingID FROM spedizione ORDER BY shippingID DESC LIMIT 1";
         $queryResult = mysqli_query($connection, $query);
         $shippingID = mysqli_fetch_row($queryResult)[0] + 1;
-        /* Era meglio usare valori di default? probabilmente si */
         $query = 'INSERT INTO spedizione(shippingID, orderID, addressID, stato, data_prevista) VALUES (' .
 		$shippingID . ', ' .
         	$orderID . ', ' .
