@@ -205,6 +205,36 @@ input {
     object-fit: cover;
 }
 
+div#paginaSingoloProdotto img{
+    width: 100%;
+    height: 100%;
+    float: none;
+    margin-left: 1%;
+    margin-right: 2%;
+    margin-bottom: 1.5%;
+}
+
+div#paginaSingoloProdotto ul{
+    padding-top: 0%;
+    padding-bottom: 0%;
+}
+
+div#paginaSingoloProdotto h2{
+    margin-left: 0%;
+}
+
+main#contentSingoloProdotto{
+    width: 75%;
+}
+
+div#paginaSingoloProdotto button{
+    margin: 2% auto;
+}
+
+div#paginaSingoloProdotto form{
+    margin: 1%;
+}
+
 /*------------FOOTER------------*/
 
 footer {

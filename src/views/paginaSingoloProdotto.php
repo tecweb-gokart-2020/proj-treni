@@ -28,7 +28,7 @@ include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
 $current_page = '<a href="prodotti.php">prodotti</a>'." >> ".$info['marca']." ".$info['codArticolo'];
 include __DIR__ . DIRECTORY_SEPARATOR . "template/breadcrumb.php";
     
-echo '<main id="content">
+echo '<main id="contentSingoloProdotto">
     <div id="paginaSingoloProdotto">
     <h2>'.$info['marca'].' '.$prodottoAttuale.'</h2>
     <img src="imgs/'.$info['codArticolo'].'" alt=""/>
