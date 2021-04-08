@@ -639,12 +639,12 @@ footer {
 
 footer #indirizzi {
     float: left;
-    margin-left: 1em;
+    margin-left: 20%;
 }
 
 footer #contatti {
     float: right;
-    margin-right: 1em;
+    margin-right: 20%;
 }
 
 footer #contatti ul li {
