@@ -45,6 +45,7 @@ services:
       - ./logs/web:/var/log/apache2
     depends_on:
       - php
+      - db
 
   db:
     container_name: ${PROJECT_NAME}_db_${VERSION_ID}
