@@ -28,7 +28,7 @@ echo '<p><strong>Trenene</strong> è una piccola azienda nata nel 1999 tra l\'ar
 	</ul>
 	</div>
 	<div id="indirizzo">
-	<address><!-- informazioni di contatto e sul negozio -->
+	<address>
 		<strong>Vieni a trovarci!</strong> 
 		<ul>
 			<li> Esposizione in via fasulla, 123 - Padova (ITA)</li>

@@ -1,14 +1,12 @@
 /*----------------GENERALE------------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Mukta+Vaani&display=swap');
-
-:root{
+:root {
     --base: #fff;
-    --blu: #01568f; 
+    --blu: #01568f;
     --giallo: #f9c80e;
     --viola: #0e103d;
     --scuro: #0d0221;
-
 }
 
 html {
@@ -34,6 +32,13 @@ body {
     color: var(--viola);
 }
 
+a:hover {
+    background-color: var(--giallo);
+    color: black;
+    border: 0;
+    border-radius: 5px;
+}
+
 #aiuti {
     position: absolute;
     height: 0px;
@@ -42,7 +47,8 @@ body {
     clip: rect(0px, 0px, 0px, 0px);
 }
 
-input[type="submit"], button {
+input[type="submit"],
+button {
     box-shadow: 0 1px 4px var(--viola);
     display: block;
     margin: 30px auto;
@@ -54,7 +60,34 @@ input[type="submit"], button {
     background-color: var(--blu);
     color: white;
     font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--giallo);
+    color: var(--scuro);
+    cursor: pointer;
+}
+
+button {
+    /* border-width: 0; */
+    box-shadow: 0 1px 4px var(--viola);
+    display: block;
+    margin: 30px auto;
+    padding: .5em;
+    overflow: hidden;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: var(--blu);
+    font-weight: bold;
     font-size: 1em;
+    color: white;
+}
+
+button:hover {
+    background-color: var(--giallo);
+    color: var(--scuro);
+    cursor: pointer;
 }
 
 .errore {
@@ -65,6 +98,7 @@ input[type="submit"], button {
 .visibile {
     visibility: visible;
 }
+
 
 /*----------------HEADER------------------*/
 
@@ -109,18 +143,17 @@ header form#ricercaHeader input {
     position: relative;
     float: left;
 }
-header input#searchQuery{
+
+header input#searchQuery {
     font-size: 1em;
     width: 74%;
     padding: 0.4em 0;
 }
 
 header form#ricercaHeader input[type=submit] {
-    font-size: 1em;
     margin: auto;
     padding: 7px;
     margin-left: 1%;
-    color: white;
 }
 
 header nav {
@@ -185,6 +218,16 @@ header ul#icons li {
     top: 0.5em;
 }
 
+header a#cart-icon:hover .fa-shopping-cart {
+    background-color: var(--base);
+    color: var(--giallo);
+}
+
+header a#user-icon:hover .fa-user {
+    background-color: var(--base);
+    color: var(--giallo);
+}
+
 .fa-shopping-cart,
 .fa-user {
     position: relative;
@@ -198,7 +241,6 @@ header ul#icons li {
 header #counter {
     position: absolute;
     font-weight: bold;
-    /*Colore solo per test, NON DEFINITIVO*/
     font-size: 0.9em;
     width: 2em;
     height: auto;
@@ -211,12 +253,19 @@ header #counter {
     padding: .1em;
 }
 
-#login, #register {
+#login,
+#register {
     box-shadow: 0 1px 4px var(--viola);
     background-color: var(--blu);
     color: white;
     padding: .7em;
     border-radius: 5px;
+}
+
+#login:hover,
+#register:hover {
+    background-color: var(--giallo);
+    color: var(--scuro);
 }
 
 #logout {
@@ -226,19 +275,27 @@ header #counter {
     color: white;
 }
 
+#logout:hover {
+    background-color: var(--giallo);
+    color: black;
+}
+
 #logoutContainer {
     text-align: right;
     padding: 1em;
 }
 
+
 /*------------------CONTENUTO--------------------*/
 
 main {
-	padding-bottom: 7em;
+    /*importante il rapporto con l'altezza del footer, ora 7em. Impostare il footer a relative aiuta ma rimane il problema che il box delle novità esce
+      da quello del main. Se si risolvesse quello dovrebbe essere automatico. Ma funziona anche così*/
+    padding-bottom: 8.7em;
     min-height: 100%;
     margin-left: auto;
     margin-right: auto;
-    width: 66%;
+    width: 80%;
 }
 
 main#content {
@@ -246,25 +303,32 @@ main#content {
     padding-right: 1%;
     z-index: 0;
 }
-main img{
-	width: 100%;
+
+main img {
+    width: 100%;
 }
 
 div#chiSiamo {
     float: left;
     position: relative;
-    width: 25%;
-    margin: 0;
+    width: 40%;
+    margin-left: 5%;
     text-align: center;
 }
 
 div#servizi {
     display: block;
+    float: right;
     position: relative;
-    width: 25%;
-    margin: 0;
-    left: 50%;
-    overflow: auto;
+    width: 40%;
+    margin-right: 5%;
+    overflow: visible;
+    text-align: center;
+}
+
+div#servizi ul {
+    /*chrome metteva del suo e non era bello*/
+    padding-inline-start: 0px;
 }
 
 div#servizi h2 {
@@ -277,6 +341,7 @@ div#prodottiInHome {
     top: 2em;
     text-align: center;
     height: auto;
+    clear: both;
 }
 
 div#percorso {
@@ -294,6 +359,12 @@ div#percorso p {
     padding-left: 1%;
 }
 
+div#percorso p a:hover {
+    background-color: var(--blu);
+    color: var(--base);
+    border-radius: 5px;
+}
+
 div#categorie {
     display: flex;
     width: 100%;
@@ -304,7 +375,6 @@ div#categorie {
 div#categorie form {
     width: 100%;
     position: relative;
-    /* top: -1em; */
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -316,18 +386,13 @@ div#categorie form {
 div#categorie input[type=submit] {
     padding: 0.5em;
     font-size: 2vw;
-    color: var(--base);
-    background-color: var(--blu);
-    /*Colori solo per test, NON DEFINITIVI*/
     border-radius: 10px;
     flex: 1 0 25%;
     margin: 10px;
 }
 
-
 main div#filtroProdotti {
     background-color: var(--base);
-    /*Colori solo per test, NON DEFINITIVI*/
     padding: 0.7em 0.1em;
     top: 6em;
     text-align: center;
@@ -335,10 +400,7 @@ main div#filtroProdotti {
     width: 100%;
 }
 
-main div#filtroProdotti input[type=submit] {
-    background-color: var(--giallo);
-    color: black;
-    /*Colori solo per test, NON DEFINITIVI*/
+#filtroSubmit {
     padding: 0.5em;
     font-size: 1.2em;
     margin: auto;
@@ -349,6 +411,11 @@ main div#filtroProdotti input[type=submit] {
 
 main div#filtroProdotti input[type=number] {
     width: 3em;
+}
+
+#filtroProdotti select,
+input[type="checkbox"] {
+    cursor: pointer;
 }
 
 main div#filtroProdotti form input,
@@ -412,8 +479,6 @@ main div#areaPersonale input {
 }
 
 main div#areaPersonale button[type=submit] {
-    background-color: var(--giallo);
-    color:black;
     padding: 0.3em;
     border-radius: 7px;
     font-weight: bold;
@@ -430,15 +495,21 @@ main div#areaPersonale img {
     height: 200px;
     object-fit: cover;
 }
+
+main div#areaPersonale form:last-of-type {
+    margin-bottom: 10px;
+}
+
 main div#cart {
     list-style-type: none;
 }
 
-main ul#cart img{
+main ul#cart img {
     height: 200px;
     object-fit: scale-down;
 }
-main ul#cart{
+
+main ul#cart {
     padding-left: 0;
 }
 
@@ -451,7 +522,9 @@ main ul#cart{
     text-align: center;
 }
 
-.prodottoCart li{ margin-left:-2em}
+.prodottoCart li {
+    margin-left: -2em
+}
 
 li {
     list-style: none;
@@ -476,14 +549,14 @@ main input {
     margin: 10px;
     margin-left: -2em;
 }
+
 .ordine ul {
-	padding-left: 5px;
+    padding-left: 5px;
 }
 
-.image img{
-	
-	border-radius: 10px;
-    	box-shadow: 0 1px 4px var(--viola);
+.image img {
+    border-radius: 10px;
+    box-shadow: 0 1px 4px var(--viola);
 }
 
 .prodotto_item {
@@ -502,25 +575,52 @@ main input {
     padding: .5em;
 }
 
+#novitaContainer {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
 .imgNovitaContainer {
     box-shadow: 0 1px 4px var(--viola);
     border-radius: 5px;
-    padding: 3em;
-    margin: 10px;
+    padding: 1em;
+    margin: 5px;
     position: relative;
 }
+
 .imgNovita {
-    width: 500px;
-    height: 300px;
+    width: 360px;
+    height: 240px;
     object-fit: cover;
+}
+
+.imgNovitaContainer figcaption {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    border-radius: 5px;
+    transition: .5s ease;
+    background-color: rgba(249, 200, 14, 0.4);
+}
+
+.imgNovitaContainer:hover figcaption {
+    opacity: 1;
 }
 
 .middle {
     padding: 1em;
     border-radius: 5px;
-    background-color: var(--giallo);
+    background-color: var(--blu);
+    color: white;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -541,7 +641,8 @@ main input {
     align-self: center;
 }
 
-#formFiltro select, input {
+#formFiltro select,
+input {
     justify-self: left;
     align-self: center;
     margin-left: 0;
@@ -556,26 +657,7 @@ main input {
     width: 100%;
 }
 
-
-.imgNovitaContainer figcaption {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: var(--blu);
-    /* color: var(--viola); */
-}
-
-.imgNovitaContainer:hover figcaption {
-    opacity: 1;
-}
-
-div#paginaSingoloProdotto img{
+div#paginaSingoloProdotto img {
     width: 40%;
     height: 40%;
     float: left;
@@ -584,24 +666,24 @@ div#paginaSingoloProdotto img{
     margin-bottom: 1.5%;
 }
 
-div#paginaSingoloProdotto ul{
+div#paginaSingoloProdotto ul {
     padding-top: 3%;
     padding-bottom: 10%;
 }
 
-div#paginaSingoloProdotto h2{
+div#paginaSingoloProdotto h2 {
     margin-left: 1%;
 }
 
-main#contentSingoloProdotto{
+main#contentSingoloProdotto {
     width: 98%;
 }
 
-div#paginaSingoloProdotto button{
+div#paginaSingoloProdotto button {
     margin: 1%;
 }
 
-div#paginaSingoloProdotto form{
+div#paginaSingoloProdotto form {
     margin: 1%;
 }
 
@@ -615,7 +697,6 @@ footer {
     font-size: 0.8em;
     background-color: var(--giallo);
     color: black;
-    /*Colore solo per test, NON DEFINITIVO*/
     text-align: center;
     bottom: 0;
     padding-top: 1em;
@@ -623,12 +704,12 @@ footer {
 
 footer #indirizzi {
     float: left;
-    margin-left: 1em;
+    margin-left: 10%;
 }
 
 footer #contatti {
     float: right;
-    margin-right: 1em;
+    margin-right: 20%;
 }
 
 footer #contatti ul li {
@@ -640,6 +721,12 @@ footer #contatti ul li {
 
 footer #contatti ul li:first-child {
     padding-left: 0em;
+}
+
+footer #contatti ul li a:hover {
+    background-color: var(--blu);
+    color: var(--base);
+    border-radius: 5px;
 }
 
 footer #indirizzi p {

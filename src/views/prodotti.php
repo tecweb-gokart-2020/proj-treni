@@ -11,7 +11,7 @@ $pagedescription = "Pagina Prodotti di trenene.it";
 $tag_prodotti = '<span class="current_link">';
 include "template/header.php";
     
-$current_page = "prodotti";
+$current_page = "Prodotti";
 include "template/breadcrumb.php";
 
 echo '<main id="content">' . PHP_EOL;
