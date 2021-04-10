@@ -18,8 +18,7 @@ restart: stop start
 
 rebuild: stop remove install
 
-purge:
-	@docker-compose down
+purge: remove
 	@rm -rf ./db/*
 	@rm -rf ./logs/db/*
 	@rm -rf ./logs/php/*
