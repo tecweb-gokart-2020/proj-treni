@@ -42,7 +42,7 @@ body {
     clip: rect(0px, 0px, 0px, 0px);
 }
 
-input[type="submit"] {
+input[type="submit"], button {
     box-shadow: 0 1px 4px var(--viola);
     display: block;
     margin: 30px auto;
@@ -55,22 +55,6 @@ input[type="submit"] {
     color: white;
     font-weight: bold;
     font-size: 1em;
-}
-
-button {
-    /* border-width: 0; */
-    box-shadow: 0 1px 4px var(--viola);
-    display: block;
-    margin: 30px auto;
-    padding: .5em;
-    overflow: hidden;
-    border-width: 0;
-    outline: none;
-    border-radius: 2px;
-    background-color: var(--blu);
-    font-weight: bold;
-    font-size: 1em;
-    color: white;
 }
 
 .errore {
