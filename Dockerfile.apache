@@ -16,6 +16,6 @@ RUN apk add --no-cache bash
 RUN echo "Include /usr/local/apache2/conf/app.conf" \
     >> /usr/local/apache2/conf/httpd.conf
 
-# COPY ./src /src
-# RUN mkdir /app
-# RUN /bin/bash -c "/src/install /app"
+COPY ./src /src
+RUN mkdir /app
+RUN /bin/bash -c "/src/install /app"
