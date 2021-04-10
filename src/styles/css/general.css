@@ -61,7 +61,6 @@ input[type="submit"] {
     background-color: var(--blu);
     color: white;
     font-weight: bold;
-    font-size: 1em;    
 }
 
 input[type="submit"]:hover {
@@ -151,11 +150,9 @@ header input#searchQuery{
 }
 
 header form#ricercaHeader input[type=submit] {
-    font-size: 1em;
     margin: auto;
     padding: 7px;
     margin-left: 1%;
-    /*color: white;*/
 }
 
 header nav {
@@ -243,7 +240,6 @@ header a#user-icon:hover .fa-user {
 header #counter {
     position: absolute;
     font-weight: bold;
-    /*Colore solo per test, NON DEFINITIVO*/
     font-size: 0.9em;
     width: 2em;
     height: auto;
@@ -289,7 +285,7 @@ header #counter {
 /*------------------CONTENUTO--------------------*/
 
 main {
-	padding-bottom: 8em;
+    padding-bottom: 8em;
     min-height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -302,7 +298,7 @@ main#content {
     z-index: 0;
 }
 main img{
-	width: 100%;
+    width: 100%;
 }
 
 div#chiSiamo {
@@ -372,7 +368,6 @@ div#categorie {
 div#categorie form {
     width: 100%;
     position: relative;
-    /* top: -1em; */
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -384,9 +379,6 @@ div#categorie form {
 div#categorie input[type=submit] {
     padding: 0.5em;
     font-size: 2vw;
-    /*color: var(--base);
-    background-color: var(--blu);
-    /*Colori solo per test, NON DEFINITIVI*/
     border-radius: 10px;
     flex: 1 0 25%;
     margin: 10px;
@@ -395,7 +387,6 @@ div#categorie input[type=submit] {
 
 main div#filtroProdotti {
     background-color: var(--base);
-    /*Colori solo per test, NON DEFINITIVI*/
     padding: 0.7em 0.1em;
     top: 6em;
     text-align: center;
@@ -404,9 +395,6 @@ main div#filtroProdotti {
 }
 
 #filtroSubmit {
-    /*background-color: var(--blu);
-    color: white;
-    /*ho cambiato il colore per coerenza con gli altri bottoni ma ci stava anche giallo*/
     padding: 0.5em;
     font-size: 1.2em;
     margin: auto;
@@ -484,8 +472,6 @@ main div#areaPersonale input {
 }
 
 main div#areaPersonale button[type=submit] {
-    /*background-color: var(--giallo);
-    color:black;*/
     padding: 0.3em;
     border-radius: 7px;
     font-weight: bold;
@@ -554,13 +540,13 @@ main input {
     margin-left: -2em;
 }
 .ordine ul {
-	padding-left: 5px;
+    padding-left: 5px;
 }
 
 .image img{
-	
-	border-radius: 10px;
-    	box-shadow: 0 1px 4px var(--viola);
+    
+    border-radius: 10px;
+        box-shadow: 0 1px 4px var(--viola);
 }
 
 .prodotto_item {
@@ -611,9 +597,7 @@ main input {
     opacity: 0;
     border-radius: 5px;
     transition: .5s ease;
-    background-color: rgba(249, 200, 14, 0.4); /*--giallo*/
-    /*box-shadow: inset 0 0 50px 20px rgba(255, 255, 255, 1)
-    /* color: var(--viola); */
+    background-color: rgba(249, 200, 14, 0.4);
 }
 
 .imgNovitaContainer:hover figcaption {
@@ -698,11 +682,10 @@ div#paginaSingoloProdotto form{
 footer {
     position: absolute;
     width: 100%;
-    height: 6em;
+    height: 7em;
     font-size: 0.8em;
     background-color: var(--giallo);
     color: black;
-    /*Colore solo per test, NON DEFINITIVO*/
     text-align: center;
     bottom: 0;
     padding-top: 1em;
@@ -710,12 +693,12 @@ footer {
 
 footer #indirizzi {
     float: left;
-    margin-left: 1em;
+    margin-left: 10%;
 }
 
 footer #contatti {
     float: right;
-    margin-right: 1em;
+    margin-right: 20%;
 }
 
 footer #contatti ul li {
