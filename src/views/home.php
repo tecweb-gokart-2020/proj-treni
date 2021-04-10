@@ -51,7 +51,7 @@ foreach($new as $prodotto) {
                                                                       $info['codArticolo'].'</a></figcaption></figure>';
 }
 
-echo '</div>
+echo '  </div>
     </div>';
 echo '</main>';
 

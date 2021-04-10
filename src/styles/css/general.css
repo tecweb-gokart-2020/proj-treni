@@ -285,7 +285,9 @@ header #counter {
 /*------------------CONTENUTO--------------------*/
 
 main {
-    padding-bottom: 8em;
+    /*importante il rapporto con l'altezza del footer, ora 7em. Impostare il footer a relative aiuta ma rimane il problema che il box delle novità esce
+      da quello del main. Se si risolvesse quello dovrebbe essere automatico. Ma funziona anche così*/
+    padding-bottom: 8.7em;
     min-height: 100%;
     margin-left: auto;
     margin-right: auto;
