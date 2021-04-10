@@ -631,14 +631,14 @@ main input {
     align-self: center;
 }
 
-#formFiltro select, input {
+select, input {
     justify-self: left;
     align-self: center;
     margin-left: 0;
     background-color: #ffffff;
     border: 0;
+    font-size: 14px;
     border-radius: 5px;
-    font-size: 1vw;
     box-shadow: 0 1px 4px var(--viola);
 }
 
