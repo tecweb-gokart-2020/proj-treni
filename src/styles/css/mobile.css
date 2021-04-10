@@ -6,8 +6,12 @@ html {
 /*---------------------HEADER-----------------------*/
 
 header {
-    height: 11em;
+    height: 12em;
     width: 100%;
+}
+
+input {
+    font-size: 14px;
 }
 
 header h1 {
@@ -22,32 +26,29 @@ header form#ricercaHeader {
     position: relative;
     float: left;
     width: 95%;
-    margin-top: 0em;
+    margin-top: 10px;
 }
 
 header form#ricercaHeader input[type="search"] {
     position: relative;
     width: 80%;
     height: auto;
-    font-size: 1em;
     box-shadow: 0 1px 4px var(--viola);
     border: 0;
-}
-
-header form#ricercaHeader input[type=submit] {
-    height: 2em;
+    padding: 9px;
 }
 
 header ul#pagine {
     float: none;
     position: absolute;
     top: 4.5em;
+    margin-top: 20px;
 }
 
 header ul#icons {
-    width: 55%;
+    width: 60%;
     top: -4em;
-    margin-right: 0em;
+    margin-right: 0;
     margin-top: 15px;
 }
 
@@ -77,7 +78,6 @@ div#servizi {
 div#percorso {
     top: -2em;
     height: 3em;
-    padding-top: 0;
     padding: 1em;
 }
 
@@ -147,7 +147,6 @@ main div#areaPersonale img {
 
 main div#categorie input[type="submit"] {
     padding: 0.5em;
-    font-size: 3.3vw;
     color: white;
     background-color: var(--blu);
     border-radius: 10px;
@@ -191,12 +190,10 @@ input {
 
 #formFiltro input[type=number] {
     width: 100%;
-    font-size: 3.3vw;
 }
 
 #formFiltro select {
     width: 100%;
-    font-size: 3.3vw;
 }
 
 .imgNovita {
@@ -215,12 +212,12 @@ div#paginaSingoloProdotto img{
 }
 
 div#paginaSingoloProdotto ul{
-    padding-top: 0%;
-    padding-bottom: 0%;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 div#paginaSingoloProdotto h2{
-    margin-left: 0%;
+    margin-left: 0;
 }
 
 main#contentSingoloProdotto{
