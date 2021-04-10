@@ -1,4 +1,5 @@
-
+db/
+logs/
 src/includes/class/db.class - Copia.php
 src/styles/js/jstest.html
 .idea
