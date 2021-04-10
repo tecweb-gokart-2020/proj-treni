@@ -54,7 +54,6 @@ input[type="submit"] {
     background-color: var(--blu);
     color: white;
     font-weight: bold;
-    font-size: 1em;
 }
 
 button {
@@ -132,7 +131,6 @@ header input#searchQuery{
 }
 
 header form#ricercaHeader input[type=submit] {
-    font-size: 1em;
     margin: auto;
     padding: 7px;
     margin-left: 1%;
@@ -557,14 +555,14 @@ main input {
     align-self: center;
 }
 
-#formFiltro select, input {
+select, input {
     justify-self: left;
     align-self: center;
     margin-left: 0;
     background-color: #ffffff;
     border: 0;
+    font-size: 14px;
     border-radius: 5px;
-    font-size: 1vw;
     box-shadow: 0 1px 4px var(--viola);
 }
 
