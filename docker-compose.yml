@@ -23,8 +23,6 @@ services:
       DB_NAME: ${DB_NAME}
     depends_on:
       - db
-    links:
-      - db
       
   web:
     container_name: ${PROJECT_NAME}_web_${VERSION_ID}
@@ -46,8 +44,6 @@ services:
       - ./app.conf:/usr/local/apache2/conf/app.conf:ro
       - ./logs/web:/var/log/apache2
     depends_on:
-      - php
-    links:
       - php
 
   db:
