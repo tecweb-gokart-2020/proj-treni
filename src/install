@@ -1,13 +1,15 @@
-#!/bin/sh
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 if [ $# -eq 0 ]
   then
-    echo "help: ./test [PATH (relativa o assoluta) della cartella public_html]"
+    echo "help: ./install [PATH (relativa o assoluta) della cartella public_html]"
 else
-    views_dir=$(echo $(pwd)/src/views)
-    css_dir=$(echo $(pwd)/src/styles/css/)
-    img_dir=$(echo $(pwd)/imgs/)
-    js_dir=$(echo $(pwd)/src/styles/js/)
+    views_dir=$DIR/views
+    css_dir=$DIR/styles/css/
+    img_dir=$DIR/imgs/
+    js_dir=$DIR/styles/js/
     public_path=$1
     
     rm -rf $public_path/*
