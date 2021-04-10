@@ -68,7 +68,7 @@ if(isset($_SESSION["username"])) {
                                                  . PHP_EOL .
                                                  '<div id="errorReEmail" class="errore" >Gli indirizzi email non coincidono</div>'
                                                  . PHP_EOL .
-                                                 '<button type="submit" name="edit" id="editEmail" value="email">modifica email</button></fieldset></form>'
+                                                 '<button type="submit" name="edit" id="editEmail" value="email">Modifica email</button></fieldset></form>'
                                                  . PHP_EOL .
                                                  '<form action="info.php" method="post"><fieldset><legend>Password</legend>'
                                                  . PHP_EOL .

@@ -40,7 +40,8 @@ echo '<div id="chiSiamo">
         </ul>
     </div>
     <div id="news">
-        <h2>NOVITÀ</h2>';
+        <h2>NOVITÀ</h2>
+        <div id="novitaContainer">';
 $new = ultimeNovita();
 foreach($new as $prodotto) {
 	$info = getInfoFromProdotto($prodotto);
@@ -50,7 +51,8 @@ foreach($new as $prodotto) {
                                                                       $info['codArticolo'].'</a></figcaption></figure>';
 }
 
-echo '</div>';
+echo '</div>
+    </div>';
 echo '</main>';
 
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
