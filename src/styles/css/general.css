@@ -641,8 +641,8 @@ input {
     margin-left: 0;
     background-color: #ffffff;
     border: 0;
+    font-size: 14px;
     border-radius: 5px;
-    font-size: 1vw;
     box-shadow: 0 1px 4px var(--viola);
 }
 
@@ -736,5 +736,5 @@ footer #indirizzi ul li {
 }
 
 footer #indirizzi ul li:first-child {
-    padding-right: 0;
+    padding-right: 0em;
 }
