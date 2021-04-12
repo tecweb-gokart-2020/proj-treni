@@ -736,5 +736,5 @@ footer #indirizzi ul li {
 }
 
 footer #indirizzi ul li:first-child {
-    padding-right: 0em;
+    padding-right: 0;
 }
