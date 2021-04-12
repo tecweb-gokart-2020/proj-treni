@@ -17,8 +17,8 @@ html {
 }
 
 body {
-    margin: 0em;
-    padding: 0em;
+    margin: 0;
+    padding: 0;
     background-color: var(--base);
     min-height: 100%;
     position: relative;
@@ -41,8 +41,8 @@ a:hover {
 
 #aiuti {
     position: absolute;
-    height: 0px;
-    width: 0px;
+    height: 0;
+    width: 0;
     overflow: hidden;
     clip: rect(0px, 0px, 0px, 0px);
 }
@@ -105,7 +105,7 @@ button:hover {
 header {
     position: -webkit-sticky;
     position: sticky;
-    top: 0px;
+    top: 0;
     height: 6em;
     background-color: var(--base);
     /*Colore solo per test, NON DEFINITIVO*/
@@ -151,16 +151,15 @@ header input#searchQuery {
 }
 
 header form#ricercaHeader input[type=submit] {
-    margin: auto;
     padding: 7px;
-    margin-left: 1%;
+    margin: auto auto auto 1%;
 }
 
 header nav {
     position: relative;
     /* top: 4em; */
     top: 3.5em;
-    margin: 0em;
+    margin: 0;
 }
 
 header ul#icons li:last-child {
@@ -175,7 +174,7 @@ header ul#pagine {
     float: left;
     margin: 0;
     position: absolute;
-    padding: 0px;
+    padding: 0;
     text-align: center;
     width: 100%;
     height: auto;
@@ -185,12 +184,8 @@ header ul#pagine {
 header ul#pagine li {
     position: relative;
     display: inline;
-    margin-left: 4em;
-    margin-right: 4em;
     /* top: 4.4em; */
-    margin: 0em;
-    margin-left: 7%;
-    margin-right: 10%;
+    margin: 0 10% 0 7%;
 }
 
 header label {
@@ -201,7 +196,7 @@ header ul#icons {
     float: right;
     margin: 0;
     position: absolute;
-    padding: 0px;
+    padding: 0;
     text-align: right;
     width: 30%;
     height: 3em;
@@ -328,7 +323,7 @@ div#servizi {
 
 div#servizi ul {
     /*chrome metteva del suo e non era bello*/
-    padding-inline-start: 0px;
+    padding-inline-start: 0;
 }
 
 div#servizi h2 {
@@ -403,8 +398,7 @@ main div#filtroProdotti {
 #filtroSubmit {
     padding: 0.5em;
     font-size: 1.2em;
-    margin: auto;
-    margin-top: .5em;
+    margin: .5em auto auto;
     font-weight: bold;
     border-radius: 7px;
 }
@@ -541,13 +535,12 @@ main input {
     border: 0;
     box-shadow: 0 1px 4px var(--viola);
     padding: 5px;
-    padding: 0.5em;
+    /* padding: 0.5em; */
     /* font-size: 2.5em; */
     color: black;
     background-color: var(--base);
     border-radius: 10px;
-    margin: 10px;
-    margin-left: -2em;
+    margin: 10px 10px 10px -2em;
 }
 
 .ordine ul {
@@ -720,7 +713,7 @@ footer #contatti ul li {
 }
 
 footer #contatti ul li:first-child {
-    padding-left: 0em;
+    padding-left: 0;
 }
 
 footer #contatti ul li a:hover {
@@ -743,5 +736,5 @@ footer #indirizzi ul li {
 }
 
 footer #indirizzi ul li:first-child {
-    padding-right: 0em;
+    padding-right: 0;
 }
