@@ -242,9 +242,13 @@ footer {
 footer #indirizzi {
     float: none;
     height: 6em;
+    width: 100%;
+    margin: .5em 0;
 }
 
 footer #contatti {
     float: none;
     height: 6em;
+    width: 100%;
+    margin: .5em 0;
 }

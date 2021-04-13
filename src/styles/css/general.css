@@ -681,12 +681,12 @@ footer {
 
 footer #indirizzi {
     float: left;
-    margin-left: 10%;
+    width: 50%;
 }
 
 footer #contatti {
     float: right;
-    margin-right: 20%;
+    width: 50%;
 }
 
 footer #contatti ul li {
@@ -696,9 +696,9 @@ footer #contatti ul li {
     padding-right: 1em;
 }
 
-footer #contatti ul li:first-child {
+/*footer #contatti ul li:first-child {
     padding-left: 0;
-}
+}*/
 
 footer #contatti ul li a:hover {
     background-color: var(--blu);
@@ -708,17 +708,17 @@ footer #contatti ul li a:hover {
 
 footer #indirizzi p {
     position: relative;
-    left: -2em;
+    /*left: -2em;*/
 }
 
 footer #indirizzi ul li {
     position: relative;
-    left: -4em;
+    /*left: -4em;*/
     display: inline-block;
     padding-left: 2em;
     padding-right: 2em;
 }
 
-footer #indirizzi ul li:first-child {
+/*footer #indirizzi ul li:first-child {
     padding-right: 0;
-}
+}*/
