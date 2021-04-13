@@ -62,7 +62,8 @@ button {
     font-weight: bold;
 }
 
-input[type="submit"]:hover, button:hover {
+input[type="submit"]:hover,
+button:hover {
     background-color: var(--giallo);
     color: var(--scuro);
     cursor: pointer;
@@ -91,7 +92,7 @@ header {
     z-index: 1;
 }
 
-header h1 {
+#h1header {
     float: left;
     color: var(--blu);
     position: relative;
@@ -101,15 +102,15 @@ header h1 {
     height: auto;
 }
 
-header a {
+/*header a {
     position: relative;
-}
+}*/
 
-header h1 a {
+#tag-home-header {
     text-decoration: none;
 }
 
-header form#ricercaHeader {
+#ricercaHeader {
     float: left;
     position: absolute;
     margin-left: 1em;
@@ -117,18 +118,18 @@ header form#ricercaHeader {
     width: 30%;
 }
 
-header form#ricercaHeader input {
+.headerInputForm {
     position: relative;
     float: left;
 }
 
-header input#searchQuery {
+.headerInputForm#searchQuery {
     font-size: 1em;
     width: 74%;
     padding: 0.4em 0;
 }
 
-header form#ricercaHeader input[type=submit] {
+#ricercaHeader input[type=submit] {
     padding: 7px;
     margin: auto auto auto 1%;
 }
@@ -162,11 +163,10 @@ header ul#pagine {
 header ul#pagine li {
     position: relative;
     display: inline;
-    /* top: 4.4em; */
     margin: 0 10% 0 7%;
 }
 
-header label {
+#labelRicercaHeader {
     display: none;
 }
 
@@ -277,7 +277,7 @@ main#content {
     z-index: 0;
 }
 
-main img {
+main img { /*Migliorare?*/
     width: 100%;
 }
 
@@ -332,7 +332,7 @@ div#percorso p {
     padding-left: 1%;
 }
 
-div#percorso p a:hover {
+div#percorso .linkPercorso {
     background-color: var(--blu);
     color: var(--base);
     border-radius: 5px;
@@ -345,7 +345,7 @@ div#categorie {
     flex-wrap: wrap;
 }
 
-div#categorie form {
+#formCategorie {
     width: 100%;
     position: relative;
     text-align: center;
@@ -356,7 +356,7 @@ div#categorie form {
     justify-content: space-evenly;
 }
 
-div#categorie input[type=submit] {
+#formCategorie input[type=submit] {
     padding: 0.5em;
     font-size: 2vw;
     border-radius: 10px;
@@ -381,7 +381,8 @@ main div#filtroProdotti {
     border-radius: 7px;
 }
 
-main div#filtroProdotti input[type=number] {
+#filtroPrezzoMin,
+#filtroPrezzoMax {
     width: 3em;
 }
 
@@ -390,8 +391,8 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-main div#filtroProdotti form input,
-main div#filtroProdotti form select {
+main #formFiltro input,
+main #formFiltro select {
     margin-right: 1.5em;
 }
 
@@ -411,19 +412,19 @@ main .cards {
     min-width: 13em;
 }
 
-.prodottoLista img {
+.immaginiListaProdotti {
     width: 100%;
     height: 150px;
     object-fit: cover;
 }
 
-.prodottoLista a:link,
-.prodottoLista a:visited {
+.linkListaProdotti:link,
+.linkListaProdotti:visited {
     text-decoration: none;
     color: var(--viola);
 }
 
-main .cards h2 {
+.titoloProdottoListaProdotti {
     text-align: center;
 }
 

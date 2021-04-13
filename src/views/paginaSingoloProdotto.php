@@ -25,7 +25,7 @@ $pagetitle = $info['marca']." ".$info['codArticolo']." - Trenene";
 $pagedescription = "Pagina".$info['marca']." ".$listaProdotti[$index]." di trenene.it";
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     
-$current_page = '<a href="prodotti.php">prodotti</a>'." >> ".$info['marca']." ".$info['codArticolo'];
+$current_page = '<a class="linkPercorso" href="prodotti.php">prodotti</a>'." >> ".$info['marca']." ".$info['codArticolo'];
 include __DIR__ . DIRECTORY_SEPARATOR . "template/breadcrumb.php";
     
 echo '<main id="contentSingoloProdotto">
