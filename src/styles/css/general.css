@@ -62,13 +62,7 @@ button {
     font-weight: bold;
 }
 
-input[type="submit"]:hover {
-    background-color: var(--giallo);
-    color: var(--scuro);
-    cursor: pointer;
-}
-
-button:hover {
+input[type="submit"]:hover, button:hover {
     background-color: var(--giallo);
     color: var(--scuro);
     cursor: pointer;
