@@ -39,7 +39,7 @@ function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
         echo '</li>';
         if($info['sconto']!=""){
             echo '<li>';
-            echo "Prezzo: ".$info['prezzo']-$info['sconto']/100*$info['prezzo']." €";
+            echo "Prezzo: ".($info['prezzo']-$info['sconto']/100*$info['prezzo'])." €";
             echo '</li>';
         } 
         echo '</ul></a></li>';
