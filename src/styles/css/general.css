@@ -68,22 +68,6 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-button {
-    /* border-width: 0; */
-    box-shadow: 0 1px 4px var(--viola);
-    display: block;
-    margin: 30px auto;
-    padding: .5em;
-    overflow: hidden;
-    border-width: 0;
-    outline: none;
-    border-radius: 2px;
-    background-color: var(--blu);
-    font-weight: bold;
-    font-size: 1em;
-    color: white;
-}
-
 button:hover {
     background-color: var(--giallo);
     color: var(--scuro);
