@@ -78,6 +78,18 @@ button:hover {
     visibility: visible;
 }
 
+input {
+    margin: 10px;
+    border: 0;
+    box-shadow: 0 1px 4px var(--viola);
+    padding: 5px;
+    justify-self: left;
+    align-self: center;
+    background-color: #ffffff;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
 
 /*----------------HEADER------------------*/
 
@@ -502,18 +514,6 @@ main ul#cart {
 
 li {
     list-style: none;
-}
-
-input {
-    margin: 10px;
-    border: 0;
-    box-shadow: 0 1px 4px var(--viola);
-    padding: 5px;
-    justify-self: left;
-    align-self: center;
-    background-color: #ffffff;
-    font-size: 14px;
-    border-radius: 5px;
 }
 
 .ordine {

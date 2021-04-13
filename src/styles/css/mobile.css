@@ -14,7 +14,7 @@ input {
     font-size: 14px;
 }
 
-header h1 {
+#h1header {
     text-align: left;
     margin-top: .5em;
     margin-left: 0.5em;
@@ -22,14 +22,14 @@ header h1 {
     margin-bottom: 0.3em;
 }
 
-header form#ricercaHeader {
+#ricercaHeader {
     position: relative;
     float: left;
     width: 95%;
     margin-top: 10px;
 }
 
-header form#ricercaHeader input[type="search"] {
+header #searchQuery {
     position: relative;
     width: 80%;
     height: auto;
@@ -109,7 +109,7 @@ main div#areaPersonale input {
     margin-bottom: 1em;
 }
 
-main div#areaPersonale img {
+.immagineProdottoOrdini {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -145,7 +145,7 @@ main div#areaPersonale img {
     text-align: center;
 }
 
-main div#categorie input[type="submit"] {
+#formCategorie input[type="submit"] {
     padding: 0.5em;
     color: white;
     background-color: var(--blu);
