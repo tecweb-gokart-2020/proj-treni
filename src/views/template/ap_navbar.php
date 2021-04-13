@@ -1,4 +1,4 @@
-1<?php
+<?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../../includes/resources.php";
 use function UTILITIES\init_tag;
 
