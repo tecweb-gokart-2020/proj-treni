@@ -56,7 +56,7 @@ function printOrder($orderID) {
         foreach($ship as $prodotto) {
             $info = getInfoFromProdotto($prodotto["productID"]);
             echo '<a href="paginaSingoloProdotto.php?codArticolo='.$prodotto["productID"].'"><ul class="prodotto_item">' . PHP_EOL;
-            echo '<li class="image"><img src="imgs/' . $prodotto["productID"]. '" alt="'.$info["marca"].' '.$prodotto["productID"].'"/></li>'. PHP_EOL;
+            echo '<li class="image"><img class="immagineProdottoOrdini" src="imgs/' . $prodotto["productID"]. '" alt="'.$info["marca"].' '.$prodotto["productID"].'"/></li>'. PHP_EOL;
             echo '<li class="productID"> ID: '. $prodotto["productID"] ."</li>". PHP_EOL;
             echo '<li class="quantita">Quantità: '. $prodotto["quantita"] ."</li>". PHP_EOL;
             echo '<li class="stato">Stato: '. $prodotto["stato"] ."</li>". PHP_EOL;
