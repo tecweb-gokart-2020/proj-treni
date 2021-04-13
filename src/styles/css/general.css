@@ -332,7 +332,7 @@ div#percorso p {
     padding-left: 1%;
 }
 
-div#percorso .linkPercorso {
+div#percorso .linkPercorso:hover {
     background-color: var(--blu);
     color: var(--base);
     border-radius: 5px;
