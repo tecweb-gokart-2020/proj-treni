@@ -679,6 +679,10 @@ footer {
     padding-top: 1em;
 }
 
+footer ul{
+    padding: 0;
+}
+
 footer #indirizzi {
     float: left;
     width: 50%;
