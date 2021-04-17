@@ -175,4 +175,51 @@ function ultimeNovita() {
 	}
 	return $to_return;
 }
+
+/* Ritorna il codice dell'articolo inserito se l'inserimento è andato a buon fine, ritorna null altrimenti */
+function insertProdotto($prodotto) {
+    $db = new DbAccess();
+    $connection = $db->openDbConnection();
+    $query = "insert into prodotto(codArticolo, quantita, descrizione, amministrazione, scala, prezzo, sconto, tipo, marca, novita) values ("
+        . $prodotto['codArticolo']
+        . ", " . $prodotto['quantita']
+        . ", " . $prodotto['descrizione']
+        . ", " . $prodotto['amministrazione']
+        . ", " . $prodotto['scala']
+        . ", " . $prodotto['prezzo']
+        . ", " . $prodotto['sconto']
+        . ", " . $prodotto['tipo']
+        . ", " . $prodotto['marca']
+        . ", " . 1
+        . ")";
+    $res = mysqli_query($connection, $query);
+    return (mysqli_affected_rows($res) == 1) ? $prodotto['codArticolo'] : NULL;
+}
+
+function editProdotto($prodotto) {
+    $db = new DbAccess();
+    $connection = $db->openDbConnection();
+    $query = "update prodotto set "
+    . $prodotto['quantita'] ? ", quantita=" . $prodotto['quantita'] : ""
+    . $prodotto['descrizione'] ? ", descrizione=" . $prodotto['descrizione'] : ""
+    . $prodotto['amministrazione'] ? ", amministrazione=" . $prodotto['amministrazione'] : ""
+    . $prodotto['scala'] ? ", scala=" . $prodotto['scala'] : ""
+    . $prodotto['prezzo'] ? ", prezzo=" . $prodotto['prezzo'] : ""
+    . $prodotto['sconto'] ? ", sconto=" . $prodotto['sconto'] : ""
+    . $prodotto['tipo'] ? ", tipo=" . $prodotto['tipo'] : ""
+    . $prodotto['marca'] ? ", marca=" . $prodotto['marca'] : ""
+    . $prodotto['novita'] ? ", novita=" . $prodotto['novita'] : ""
+        . " where codArticolo=\"" . $prodotto['codAticolo'] . "\")";
+    $res = mysqli_query($connection, $query);
+    return (mysqli_affected_rows($res) == 1) ? $prodotto['codArticolo'] : NULL;
+}
+
+/* Prodotto in questo caso è direttamente l'id del prodotto da eliminare */
+function deleteProdotto($prodotto) {
+    $db = new DbAccess();
+    $connection = $db->openDbConnection();
+    $query = "delete from prodotto where codArticolo=\"$prodotto\"";
+    $res = mysqli_query($connection, $query);
+    return mysqli_affected_rows($res) == 1;
+}
 ?>
