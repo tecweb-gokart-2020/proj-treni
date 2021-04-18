@@ -51,7 +51,7 @@ if(isset($_SESSION["username"])) {
             <input type="reset" value="Reset">
             <input type="submit" value="Inserisci">
         </fieldset>
-    </form>';
+    </form></main>';
     include 'template/footer.php';
 }
 ?>
