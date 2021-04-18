@@ -112,10 +112,10 @@ echo '</select>
 if(isset($_GET['submit'])){
     $categoria = $_GET['categorie'];
     $marca = $_GET['marche'];
-    $disponibile = isset($_GET['disponibile']) ? $_GET['disponibile'] : "";
-    $offerta = isset($_GET['offerta']) ? $_GET['offerta'] : "";
-    $prezzoMin = isset($_GET['prezzoMin']) ? $_GET['prezzoMin'] : "";
-    $prezzoMax = isset($_GET['prezzoMax']) ? $_GET['prezzoMax'] : "";
+    $disponibile = $_GET['disponibile'] ?? "";
+    $offerta = $_GET['offerta'] ?? "";
+    $prezzoMin = $_GET['prezzoMin'] ?? "";
+    $prezzoMax = $_GET['prezzoMax'] ?? "";
     $ordine = $_GET['ordinamento'];
     if($prezzoMax != "" && $prezzoMin != ""){
         if($prezzoMax < $prezzoMin) {echo "Il prezzo massimo è stato impostato al prezzo minimo"; 
