@@ -640,12 +640,7 @@ div#paginaSingoloProdotto img {
     float: left;
     margin-left: 1%;
     margin-right: 2%;
-    margin-bottom: 1.5%;
-}
-
-div#paginaSingoloProdotto ul {
-    padding-top: 3%;
-    padding-bottom: 10%;
+    margin-bottom: 10%;
 }
 
 div#paginaSingoloProdotto h2 {
@@ -662,6 +657,22 @@ div#paginaSingoloProdotto button {
 
 div#paginaSingoloProdotto form {
     margin: 1%;
+}
+li.speditoA{
+    text-align: center;
+    background-color: var(--giallo);
+    border-radius: 5px;
+    box-shadow: 0 1px 4px var(--viola);
+}
+div.infoOrdiniProdotto{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+ul.prodotto_item {
+    padding: 1em;
 }
 
 
