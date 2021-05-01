@@ -37,7 +37,7 @@ function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
             echo '</del>';
         }
         echo '</li>';
-        if($info['sconto']!=""){
+        if($info['sconto']!="" and $info['sconto'] != "0"){
             echo '<li>';
             echo "Prezzo: ".$info['prezzo']-$info['sconto']/100*$info['prezzo']." €";
             echo '</li>';
@@ -196,22 +196,31 @@ function insertProdotto($prodotto) {
     return (mysqli_affected_rows($res) == 1) ? $prodotto['codArticolo'] : NULL;
 }
 
+function specifyEditQuery($name, $value) {
+    if ($value == "") return 'update prodotto set ' . $name . '=NULL';
+    return 'update prodotto set ' . $name . '="' . $value . '"';
+}
+
 function editProdotto($prodotto) {
     $db = new DbAccess();
     $connection = $db->openDbConnection();
-    $query = "update prodotto set "
-    . $prodotto['quantita'] ? ", quantita=" . $prodotto['quantita'] : ""
-    . $prodotto['descrizione'] ? ", descrizione=" . $prodotto['descrizione'] : ""
-    . $prodotto['amministrazione'] ? ", amministrazione=" . $prodotto['amministrazione'] : ""
-    . $prodotto['scala'] ? ", scala=" . $prodotto['scala'] : ""
-    . $prodotto['prezzo'] ? ", prezzo=" . $prodotto['prezzo'] : ""
-    . $prodotto['sconto'] ? ", sconto=" . $prodotto['sconto'] : ""
-    . $prodotto['tipo'] ? ", tipo=" . $prodotto['tipo'] : ""
-    . $prodotto['marca'] ? ", marca=" . $prodotto['marca'] : ""
-    . $prodotto['novita'] ? ", novita=" . $prodotto['novita'] : ""
-        . " where codArticolo=\"" . $prodotto['codAticolo'] . "\")";
-    $res = mysqli_query($connection, $query);
-    return (mysqli_affected_rows($res) == 1) ? $prodotto['codArticolo'] : NULL;
+    $result = true;
+    mysqli_begin_transaction($connection);
+    foreach ($prodotto as $key => $property){
+        if ($key != "codArticolo") {
+            $query = specifyEditQuery($key, $property) . ' where codArticolo="' . $prodotto['codArticolo'] . '"';
+            $res = mysqli_query($connection, $query);
+            $result = ($result and $res);
+        }
+    }
+    if ($result){
+        mysqli_commit($connection);
+    } else {
+        mysqli_rollback($connection);
+    }
+    mysqli_close($connection);
+    $db->closeDbConnection();
+    return $result;
 }
 
 /* Prodotto in questo caso è direttamente l'id del prodotto da eliminare */

@@ -13,7 +13,7 @@ if(isset($_SESSION["username"])) {
     $current_page = " >> Amministrazione";
     include "template/breadcrumb.php";
     echo '<main id="content">
-    <form id="insProd" name="insProd" action="admin/adminAdd.php" method="post" novalidate="true">
+    <form id="insProd" name="insProd" action="adminAdd.php" method="post" novalidate="true">
         <fieldset><legend>Inserimento</legend>
             <label>Codice articolo
                 <input type="number" name="codice" required="true">

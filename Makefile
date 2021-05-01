@@ -16,7 +16,7 @@ remove:
 
 restart: stop start
 
-rebuild: stop remove install
+rebuild: stop purge install
 
 purge: remove
 	@rm -rf ./db/*
