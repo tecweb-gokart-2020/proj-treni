@@ -30,8 +30,6 @@ if($_SESSION["username"] == "admin") {
             "quantita" => $_POST["quantita"],
             "marca" => $_POST["marca"]
         ];
-        if($_FILES["immagine"])
-            move_uploaded_file($_FILES["immagine"]['tmp_name'], '../img/' . $prodotto['codArticolo']);
         if(editProdotto($prodotto)){
             echo '<main id="content"><h2>Modifica avvenuta con successo</h2>L\'articolo '
                 . $prodotto['codArticolo'] .
@@ -45,7 +43,7 @@ if($_SESSION["username"] == "admin") {
     else {
         $prodotto = getInfoFromProdotto($_GET["codArticolo"]);
         if ($prodotto) {
-            echo '<form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="true">
+            echo '<form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="true" enctype="multipart/form-data">
         <fieldset><legend>Modifica ' . $prodotto["codArticolo"] . '</legend>
             <label>Tipo
                 <select name="tipo" >
@@ -81,7 +79,7 @@ if($_SESSION["username"] == "admin") {
                 <input type="checkbox" name="novita" value="'. $prodotto['novita'] .'">
             </label>
             <label>Immagine
-            <input type="file" name="immagine">
+                <input type="file" name="immagine">
             </label>
             <input type="reset" value="Reset">
             <input type="submit" value="Elimina">
