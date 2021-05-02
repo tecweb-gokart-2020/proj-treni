@@ -35,7 +35,7 @@ if($_SESSION["username"] == "admin") {
         if(editProdotto($prodotto)){
             echo '<main id="content"><h2>Modifica avvenuta con successo</h2>L\'articolo '
                 . $prodotto['codArticolo'] .
-                ' è stato modificato con successo, è possibile vedere le modifiche nella <a href="../paginaSingoloProdotto.php?codArticolo='
+                ' è stato modificato con successo, è possibile vedere le modifiche nella <a href="paginaSingoloProdotto.php?codArticolo='
                 . $prodotto['codArticolo'] .
                 '">pagina relativa</a></main>';
         } else {
