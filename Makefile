@@ -3,6 +3,8 @@ install:
 	@mkdir -p ./logs/db
 	@mkdir -p ./logs/php
 	@mkdir -p ./logs/web
+	@mkdir -p ./cimgs/web
+	@mkdir -p ./cimgs/php
 	@docker-compose up -d --build
 
 start:
@@ -23,6 +25,8 @@ purge: remove
 	@rm -rf ./logs/db/*
 	@rm -rf ./logs/php/*
 	@rm -rf ./logs/web/*
+	@rm -rf ./cimgs/web/*
+	@rm -rf ./cimgs/php/*
 
 validate:
 	@docker-compose config

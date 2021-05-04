@@ -30,8 +30,25 @@ if($_SESSION["username"] == "admin") {
             "quantita" => $_POST["quantita"],
             "marca" => $_POST["marca"]
         ];
-        if($_FILES["immagine"])
-            move_uploaded_file($_FILES["immagine"]['tmp_name'], '../img/' . $prodotto['codArticolo']);
+        if($_POST["immagine"]){
+            $target_dir = "../../img/";
+            $target_file = $target_dir . $prodotto["codArticolo"];
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+            if(isset($_POST["submit"])) {
+                $check = getimagesize($_FILES["immagine"]["tmp_name"]);
+                if($check !== false) {
+                    echo "File is an image - " . $check["mime"] . ".";
+                    $uploadOk = 1;
+                } else {
+                    echo "File is not an image.";
+                    $uploadOk = 0;
+                }
+            }
+            if($uploadOk == 1) {
+                move_uploaded_file($_FILES["immagine"]["tmp_name"], $target_file);
+            }
+        }
         if(editProdotto($prodotto)){
             echo '<main id="content"><h2>Modifica avvenuta con successo</h2>L\'articolo '
                 . $prodotto['codArticolo'] .
