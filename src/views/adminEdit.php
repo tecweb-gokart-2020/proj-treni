@@ -30,11 +30,10 @@ if($_SESSION["username"] == "admin") {
             "quantita" => $_POST["quantita"],
             "marca" => $_POST["marca"]
         ];
-        if($_POST["immagine"]){
-            $target_dir = "./img/";
+        if($_FILES["immagine"]){
+            $target_dir = "./imgs/";
             $target_file = $target_dir . $prodotto["codArticolo"];
             $uploadOk = true;
-            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             if(isset($_POST["submit"])) {
                 $check = getimagesize($_FILES["immagine"]["tmp_name"]);
                 if($check !== false) {
@@ -46,7 +45,7 @@ if($_SESSION["username"] == "admin") {
                 }
             }
             if($uploadOk) {
-                move_uploaded_file($_FILES["immagine"]["tmp_name"], $target_file);
+                $moveOk = move_uploaded_file($_FILES["immagine"]["tmp_name"], $target_file);
             }
         }
 
