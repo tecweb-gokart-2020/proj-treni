@@ -62,12 +62,15 @@ if($info['sconto']!=""){
 
 echo '<form method="post">
             <label id="labelQuantita" for="quantita">Quantità</label>
-            <input name="quantita" id="quantita" type="number" value="1" min="0" max="'
-. $info['quantita'] .
-    '" step="1"/>
-        <button type="submit" id="add" name="add" value="add">Aggiungi al carrello</button>
-    </form>
-    </div>';
+            <input name="quantita" id="quantita" type="number" value="1" min="0" max="' . $info['quantita'] . '" step="1"/>
+            <button type="submit" id="add" name="add" value="add">Aggiungi al carrello</button>
+      </form>';
+
+if($_SESSION["username"] == "admin") {
+    echo '<a href="adminEdit.php?codArticolo='. $info['codArticolo'] .'">Modifica</a>';
+}
+
+echo '</div>';
 
 if($aggiunto) {
     echo '<div id="confirm">'.$aggiunto.'</div>';
