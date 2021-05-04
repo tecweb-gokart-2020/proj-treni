@@ -31,28 +31,29 @@ if($_SESSION["username"] == "admin") {
             "marca" => $_POST["marca"]
         ];
         if($_POST["immagine"]){
-            $target_dir = "../../img/";
+            $target_dir = "./img/";
             $target_file = $target_dir . $prodotto["codArticolo"];
-            $uploadOk = 1;
+            $uploadOk = true;
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             if(isset($_POST["submit"])) {
                 $check = getimagesize($_FILES["immagine"]["tmp_name"]);
                 if($check !== false) {
                     echo "File is an image - " . $check["mime"] . ".";
-                    $uploadOk = 1;
+                    $uploadOk = true;
                 } else {
                     echo "File is not an image.";
-                    $uploadOk = 0;
+                    $uploadOk = false;
                 }
             }
-            if($uploadOk == 1) {
+            if($uploadOk) {
                 move_uploaded_file($_FILES["immagine"]["tmp_name"], $target_file);
             }
         }
+
         if(editProdotto($prodotto)){
             echo '<main id="content"><h2>Modifica avvenuta con successo</h2>L\'articolo '
                 . $prodotto['codArticolo'] .
-                ' è stato modificato con successo, è possibile vedere le modifiche nella <a href="../paginaSingoloProdotto.php?codArticolo='
+                ' è stato modificato con successo, è possibile vedere le modifiche nella <a href="paginaSingoloProdotto.php?codArticolo='
                 . $prodotto['codArticolo'] .
                 '">pagina relativa</a></main>';
         } else {
@@ -62,7 +63,7 @@ if($_SESSION["username"] == "admin") {
     else {
         $prodotto = getInfoFromProdotto($_GET["codArticolo"]);
         if ($prodotto) {
-            echo '<form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="true">
+            echo '<form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="true" enctype="multipart/form-data">
         <fieldset><legend>Modifica ' . $prodotto["codArticolo"] . '</legend>
             <label>Tipo
                 <select name="tipo" >
@@ -98,7 +99,7 @@ if($_SESSION["username"] == "admin") {
                 <input type="checkbox" name="novita" value="'. $prodotto['novita'] .'">
             </label>
             <label>Immagine
-            <input type="file" name="immagine">
+                <input type="file" name="immagine">
             </label>
             <input type="reset" value="Reset">
             <input type="submit" value="Elimina">
