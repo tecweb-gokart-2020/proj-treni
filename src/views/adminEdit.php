@@ -16,7 +16,7 @@ if($_SESSION["username"] == "admin") {
 
     $current_page = " >> Amministrazione >> Modifica";
     include "template/breadcrumb.php";
-
+    
     if ($_POST) {
         $prodotto = [
             "codArticolo" => $_GET["codArticolo"],
