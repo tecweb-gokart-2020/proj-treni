@@ -16,22 +16,18 @@ remove:
 
 restart: stop start
 
-rebuild: stop remove install
+rebuild: stop purge install
 
 purge: remove
 	@rm -rf ./db/*
 	@rm -rf ./logs/db/*
 	@rm -rf ./logs/php/*
 	@rm -rf ./logs/web/*
-
 validate:
 	@docker-compose config
 
 bash-db:
 	@docker-compose exec db bash
-
-bash-php:
-	@docker-compose exec php bash
 
 bash-web:
 	@docker-compose exec web bash

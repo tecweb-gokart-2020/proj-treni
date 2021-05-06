@@ -35,19 +35,47 @@ echo '<main id="contentSingoloProdotto">
     <ul>
     <li>Categoria: '.$info['tipo'].'</li>
     <li><p>'.$info['descrizione'].'</p></li>';
-if($info['sconto']!=""){echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';}
-echo '<li>Prezzo: '; if($info['sconto']!=""){echo '<del>';} echo $info['prezzo'].' €'; if($info['sconto']!=""){echo '</del>';} echo '</li>';
-if($info['sconto']!=""){echo '<li>'; echo $aux=$info['prezzo']-$info['sconto']/100*$info['prezzo'].' €</li>
-    </ul>';}
+
+// Le informazioni riportano uno sconto, va applicato
+if($info['sconto']!=""){
+    echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';
+}
+
+echo '<li>Prezzo: ';
+
+if($info['sconto']!=""){
+    echo '<del>';
+}
+
+echo $info['prezzo'].' €';
+
+if($info['sconto']!=""){
+    echo '</del>';
+}
+
+echo '</li>';
+
+if($info['sconto']!=""){
+    echo '<li>';
+    echo $aux = $info['prezzo']-$info['sconto']/100*$info['prezzo'].' €</li></ul>';
+}
+
 echo '<form method="post">
             <label id="labelQuantita" for="quantita">Quantità</label>
-            <input name="quantita" id="quantita" type="number" value="1" min="1" max="'. $info['quantita'] .'" step="1"/>
-        <button type="submit" id="add" name="add" value="add">Aggiungi al carrello</button>
-    </form>
-    </div>';
+            <input name="quantita" id="quantita" type="number" value="1" min="1" max="' . $info['quantita'] . '" step="1"/>
+            <button type="submit" id="add" name="add" value="add">Aggiungi al carrello</button>
+      </form>';
+
+if($_SESSION["username"] == "admin") {
+    echo '<a href="adminEdit.php?codArticolo='. $info['codArticolo'] .'">Modifica</a>';
+}
+
+echo '</div>';
+
 if($aggiunto) {
     echo '<div id="confirm">'.$aggiunto.'</div>';
 }
+
 echo '</main>';
 
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";

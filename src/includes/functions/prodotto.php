@@ -37,7 +37,7 @@ function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
             echo '</del>';
         }
         echo '</li>';
-        if($info['sconto']!=""){
+        if($info['sconto']!="" and $info['sconto'] != "0"){
             echo '<li>';
             echo "Prezzo: ".($info['prezzo']-$info['sconto']/100*$info['prezzo'])." €";
             echo '</li>';
@@ -142,12 +142,12 @@ function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
     if(isValidID($prodotto) and 
        isValidID($ordine) and 
        isValidID($spedizione)) { 
-       if(thereAreEnoughOf($prodotto, $quantita)) {
-		// Inserisce tra i prodotti ordinati
+        if(thereAreEnoughOf($prodotto, $quantita)) {
+            // Inserisce tra i prodotti ordinati
         	$dbAccess = new DBAccess();
         	$connection = $dbAccess->openDbConnection();
         	$query = "INSERT INTO prodotto_ordinato(codArticolo, quantita, prezzo_netto, orderID, shippingID) VALUES ".
-			"(". $prodotto .", ". $quantita .", ". $prezzo .", ". $ordine .", ". $spedizione .")";
+                   "(". $prodotto .", ". $quantita .", ". $prezzo .", ". $ordine .", ". $spedizione .")";
         	$queryResult = mysqli_query($connection, $query);
         	$res1 = mysqli_affected_rows($connection);
         
@@ -157,9 +157,9 @@ function ordina($prodotto, $quantita, $prezzo, $ordine, $spedizione) {
        	 	$res2 = mysqli_affected_rows($connection);
        	 	$dbAccess->closeDbConnection();
         	return $res1 * $res2;
-       } else {
+        } else {
        		throw new Exception("Quantità non disponibile");
-       }
+        }
     }
     return false;
 }
@@ -177,41 +177,78 @@ function ultimeNovita() {
 }
 
 /* Ritorna il codice dell'articolo inserito se l'inserimento è andato a buon fine, ritorna null altrimenti */
-function insertProdotto($prodotto) {
+function insertProdotto($prodotto, $image) {
     $db = new DbAccess();
     $connection = $db->openDbConnection();
+    $insertion = true;
+    mysqli_begin_transaction($connection);
     $query = "insert into prodotto(codArticolo, quantita, descrizione, amministrazione, scala, prezzo, sconto, tipo, marca, novita) values ("
-        . $prodotto['codArticolo']
-        . ", " . $prodotto['quantita']
-        . ", " . $prodotto['descrizione']
-        . ", " . $prodotto['amministrazione']
-        . ", " . $prodotto['scala']
-        . ", " . $prodotto['prezzo']
-        . ", " . $prodotto['sconto']
-        . ", " . $prodotto['tipo']
-        . ", " . $prodotto['marca']
-        . ", " . 1
-        . ")";
+           . $prodotto['codArticolo']
+           . ", " . $prodotto['quantita']
+           . ", " . $prodotto['descrizione']
+           . ", " . $prodotto['amministrazione']
+           . ", " . $prodotto['scala']
+           . ", " . $prodotto['prezzo']
+           . ", " . $prodotto['sconto']
+           . ", " . $prodotto['tipo']
+           . ", " . $prodotto['marca']
+           . ", " . 1
+           . ")";
     $res = mysqli_query($connection, $query);
-    return (mysqli_affected_rows($res) == 1) ? $prodotto['codArticolo'] : NULL;
+    if($res == false) {
+        mysqli_rollback($connection);
+        return false;
+    }
+    $target_dir = "./imgs/";
+    $target_file = $target_dir . $prodotto["codArticolo"];
+    $uploadOk = true;
+
+    $check = getimagesize($image["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = true;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = false;
+    }
+    
+    if($uploadOk) {
+        $moveOk = move_uploaded_file($image["tmp_name"], $target_file);
+        if($moveOk) {
+            mysqli_commit($connection);
+            return true;
+        }
+    }
+
+    mysqli_rollback($connection);
+    return false;
+}
+
+function specifyEditQuery($name, $value) {
+    if ($value == "") return 'update prodotto set ' . $name . '=NULL';
+    return 'update prodotto set ' . $name . '="' . $value . '"';
 }
 
 function editProdotto($prodotto) {
     $db = new DbAccess();
     $connection = $db->openDbConnection();
-    $query = "update prodotto set "
-    . $prodotto['quantita'] ? ", quantita=" . $prodotto['quantita'] : ""
-    . $prodotto['descrizione'] ? ", descrizione=" . $prodotto['descrizione'] : ""
-    . $prodotto['amministrazione'] ? ", amministrazione=" . $prodotto['amministrazione'] : ""
-    . $prodotto['scala'] ? ", scala=" . $prodotto['scala'] : ""
-    . $prodotto['prezzo'] ? ", prezzo=" . $prodotto['prezzo'] : ""
-    . $prodotto['sconto'] ? ", sconto=" . $prodotto['sconto'] : ""
-    . $prodotto['tipo'] ? ", tipo=" . $prodotto['tipo'] : ""
-    . $prodotto['marca'] ? ", marca=" . $prodotto['marca'] : ""
-    . $prodotto['novita'] ? ", novita=" . $prodotto['novita'] : ""
-        . " where codArticolo=\"" . $prodotto['codAticolo'] . "\")";
-    $res = mysqli_query($connection, $query);
-    return (mysqli_affected_rows($res) == 1) ? $prodotto['codArticolo'] : NULL;
+    $result = true;
+    mysqli_begin_transaction($connection);
+    foreach ($prodotto as $key => $property){
+        if ($key != "codArticolo") {
+            $query = specifyEditQuery($key, $property) . ' where codArticolo="' . $prodotto['codArticolo'] . '"';
+            $res = mysqli_query($connection, $query);
+            $result = ($result and $res);
+        }
+    }
+    if ($result){
+        mysqli_commit($connection);
+    } else {
+        mysqli_rollback($connection);
+    }
+    mysqli_close($connection);
+    $db->closeDbConnection();
+    return $result;
 }
 
 /* Prodotto in questo caso è direttamente l'id del prodotto da eliminare */
