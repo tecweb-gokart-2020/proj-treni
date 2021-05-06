@@ -41,7 +41,7 @@ if($info['sconto']!=""){echo '<li>'; echo $aux=$info['prezzo']-$info['sconto']/1
     </ul>';}
 echo '<form method="post">
             <label id="labelQuantita" for="quantita">Quantità</label>
-            <input name="quantita" id="quantita" type="number" value="1" min="0" max="'. $info['quantita'] .'" step="1"/>
+            <input name="quantita" id="quantita" type="number" value="1" min="1" max="'. $info['quantita'] .'" step="1"/>
         <button type="submit" id="add" name="add" value="add">Aggiungi al carrello</button>
     </form>
     </div>';

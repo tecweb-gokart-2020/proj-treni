@@ -421,19 +421,25 @@ main .cards {
 }
 
 .prodottoLista {
-    border: 4px solid var(--giallo);
     margin: 0 1em 2em 1em;
     padding: 0 2em 2em 0;
     border-radius: 10px;
     flex: 1 1 200px;
     max-width: 25em;
     min-width: 13em;
+    box-shadow: 0 1px 4px var(--viola);
+    background-color: var(--blu);
+}
+
+ul.propProdotto{
+    padding-inline-start: 1em;
 }
 
 .immaginiListaProdotti {
     width: 100%;
     height: 150px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 .linkListaProdotti:link,
@@ -444,6 +450,13 @@ main .cards {
     width: 100%;
     height: 100%;
     padding: 1em;
+    color: white;
+}
+
+a.linkListaProdotti:hover{
+    color: black;
+    background-color: var(--giallo);
+    border-radius: 10px;
 }
 
 .titoloProdottoListaProdotti {
@@ -486,7 +499,7 @@ main div#areaPersonale button[type=submit] {
 }*/
 
 .immagineProdottoOrdini {
-    width: 300px;
+    width: 100%;
     height: 200px;
     object-fit: cover;
 }
@@ -553,7 +566,6 @@ li {
     border-radius: 10px;
     margin: 10px;
     text-align: center;
-    padding: 10px;
 }
 
 .display-address {
@@ -645,7 +657,10 @@ div#paginaSingoloProdotto img {
     float: left;
     margin-left: 1%;
     margin-right: 2%;
-    margin-bottom: 10%;
+    margin-bottom: 3%;
+    border-radius: 10px;
+    max-width: 500px;
+    max-height: 450px;
 }
 
 div#paginaSingoloProdotto h2 {
@@ -669,15 +684,23 @@ li.speditoA{
     border-radius: 5px;
     box-shadow: 0 1px 4px var(--viola);
 }
+
 div.infoOrdiniProdotto{
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
     justify-content: center;
+    padding: .5em;
 }
 
 ul.prodotto_item {
-    padding: 1em;
+    padding: 1.3em;
+}
+
+a.itemOrdiniProdotto {
+    flex: 1 1 200px;
+    min-width: 250px;
+    max-width: 400px;
 }
 
 
