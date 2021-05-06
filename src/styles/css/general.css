@@ -203,18 +203,14 @@ header ul#icons li {
     vertical-align: middle;
 }
 
-header a#cart-icon:hover .fa-shopping-cart {
+header a#cart-icon:hover .fa-shopping-cart,
+header a#user-icon:hover .fa-user,
+header a#admin-add-icon:hover .fa-plus{
     background-color: var(--base);
     color: var(--giallo);
 }
 
-header a#user-icon:hover .fa-user {
-    background-color: var(--base);
-    color: var(--giallo);
-}
-
-.fa-shopping-cart,
-.fa-user {
+.svg-inline--fa {
     position: relative;
     width: 2em;
     height: 2em;
