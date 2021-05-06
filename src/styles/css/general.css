@@ -700,6 +700,12 @@ a.itemOrdiniProdotto {
     flex: 1 1 200px;
     min-width: 250px;
     max-width: 400px;
+    background-color: var(--base);
+}
+
+ul.prodotto_item:hover {
+    color: var(--scuro);
+    background-color: var(--giallo);
 }
 
 
