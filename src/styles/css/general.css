@@ -214,9 +214,12 @@ header a#admin-add-icon:hover .fa-plus{
     position: relative;
     width: 2em;
     height: 2em;
-    color: var(--blu);
+    color: var(--giallo);
     display: inline-block;
     top: .7em;
+}
+a .svg-inline--fa{
+    color: var(--blu);
 }
 
 header #counter {
