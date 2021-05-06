@@ -12,7 +12,7 @@ if($_SESSION["username"] == "admin") {
     $js = '<script type="text/javascript" src="js/.js"></script>';
     include "template/header.php";
 
-    $current_page = " >> Amministrazione";
+    $current_page = "Amministrazione";
     include "template/breadcrumb.php";
 
     if(isset($_POST["codArticolo"])){

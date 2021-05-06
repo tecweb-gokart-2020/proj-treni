@@ -8,13 +8,12 @@ session_start();
 
 if($_SESSION["username"] == "admin") {
 
-    $tag_info = "";
     $pagetitle = "Amministrazione";
     $pagedescription = "Pagina per la modifica dell'articolo " . $_GET['codArticolo'];
     $js = '<script type="text/javascript" src="js/.js"></script>';
     include "template/header.php";
 
-    $current_page = " >> Amministrazione >> Modifica";
+    $current_page = "Amministrazione >> Modifica";
     include "template/breadcrumb.php";
     
     if ($_POST) {
@@ -62,7 +61,7 @@ if($_SESSION["username"] == "admin") {
     else {
         $prodotto = getInfoFromProdotto($_GET["codArticolo"]);
         if ($prodotto) {
-            echo '<form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="true" enctype="multipart/form-data">
+            echo '<main id="content"><form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="true" enctype="multipart/form-data">
         <fieldset><legend>Modifica ' . $prodotto["codArticolo"] . '</legend>
             <label>Tipo
                 <select name="tipo" >
@@ -104,7 +103,7 @@ if($_SESSION["username"] == "admin") {
             <input type="submit" value="Elimina">
             <input type="submit" value="Modifica">
         </fieldset>
-    </form>';
+    </form></main>';
         } else {
             echo '<main><h2>404</h2>L\'articolo selezionato non esiste</main>';
         }
