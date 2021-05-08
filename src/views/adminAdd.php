@@ -17,7 +17,7 @@ if($_SESSION["username"] == "admin") {
 
     if(isset($_POST["codArticolo"])){
         $prodotto = [
-            "codArticolo" => $_GET["codArticolo"],
+            "codArticolo" => $_POST["codArticolo"],
             "tipo" => $_POST["tipo"],
             "descrizione" => $_POST["descrizione"],
             "scala" => $_POST["scala"],
@@ -36,8 +36,9 @@ if($_SESSION["username"] == "admin") {
             $err .= "Articolo già presente";
         if($err != "") {
             $_SESSION["addError"] = $err;
-            header("Location: admin.php");
-            exit();
+            echo $err;
+            // header("Location: adminAdd.php");
+            // exit();
         } else {
             if(insertProdotto($prodotto, $_FILES["immagine"])) {
                 echo '<main id="content"><h1>Inserimento completato</h1><p>Inserimento andato a buon fine, è possibile vedere il nuovo prodotto nella

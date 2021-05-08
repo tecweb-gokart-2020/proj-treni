@@ -1,7 +1,6 @@
 install:
 	@mkdir -p ./db
 	@mkdir -p ./logs/db
-	@mkdir -p ./logs/php
 	@mkdir -p ./logs/web
 	@docker-compose up -d --build
 
@@ -21,7 +20,6 @@ rebuild: stop purge install
 purge: remove
 	@rm -rf ./db/*
 	@rm -rf ./logs/db/*
-	@rm -rf ./logs/php/*
 	@rm -rf ./logs/web/*
 validate:
 	@docker-compose config
