@@ -95,13 +95,13 @@ if(isset($_SESSION["username"])) {
         if($emailDone === true) {
             echo '<h3><span xml:lang="en" lang="en">Email</span> modificata con successo</h3>';
         }
-        else if($emailDOne === 0){
+        else if($emailDone === 0){
             echo '<h3><span xml:lang="en" lang="en">Email</span> non valida o già in memoria</h3>';
         }
-        else if($emailDOne === 2){
+        else if($emailDone === 2){
             echo '<h3>vecchia <span xml:lang="en" lang="en">email</span> sbagliata</h3>';
         }
-        else if($emailDOne === 3){
+        else if($emailDone === 3){
             echo '<h3>Le <span xml:lang="en" lang="en">email</span> non coincidono</h3>';
         }
         unset($emailDone);
