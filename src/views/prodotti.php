@@ -53,7 +53,7 @@ if(!isset($_GET['categorie']) and
    !isset($_GET['ordinamento']) and
    !isset($_GET['searchQuery'])){
     echo('<div id="categorie">
-            <form>
+            <form id="formCategorie">
                 <input type="submit" name="categoriaSelezionata" value="Locomotive"/>
                 <input type="submit" name="categoriaSelezionata" value="Carrozze"/>
                 <input type="submit" name="categoriaSelezionata" value="Carri"/>

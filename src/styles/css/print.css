@@ -215,8 +215,7 @@ main div#filtroProdotti input[type=submit] {
     /*Colori solo per test, NON DEFINITIVI*/
     padding: 0.5em;
     font-size: 1.2em;
-    margin: auto;
-    margin-top: .5em;
+    margin: .5em auto auto;
     font-weight: bold;
     border-radius: 7px;
 }
@@ -334,19 +333,19 @@ main input {
     border: 0;
     box-shadow: 0 1px 4px var(--viola);
     padding: 5px;
+
 }
 
 .ordine {
     border: 0;
     box-shadow: 0 1px 4px var(--viola);
     padding: 5px;
-    padding: 0.5em;
+    /*padding: 0.5em;*/
     /* font-size: 2.5em; */
     color: black;
     background-color: var(--base);
     border-radius: 10px;
-    margin: 10px;
-    margin-left: -2em;
+    margin: 10px 10px 10px -2em;
 }
 .ordine ul {
 	padding-left: 5px;
@@ -377,18 +376,6 @@ main input {
 #news{
     display: none;
 }
-.middle {
-    padding: 1em;
-    border-radius: 5px;
-    background-color: var(--giallo);
-    text-align: center;
-    font-size: 2em;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-}
 
 #formFiltro {
     display: grid;
@@ -416,21 +403,6 @@ main input {
 
 #formFiltro input[type=number] {
     width: 100%;
-}
-
-
-.imgNovitaContainer figcaption {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: var(--blu);
-    /* color: var(--viola); */
 }
 
 .imgNovitaContainer:hover figcaption {
@@ -469,7 +441,7 @@ footer #contatti ul li {
 }
 
 footer #contatti ul li:first-child {
-    padding-left: 0em;
+    padding-left: 0;
 }
 
 footer #indirizzi p {
@@ -486,5 +458,5 @@ footer #indirizzi ul li {
 }
 
 footer #indirizzi ul li:first-child {
-    padding-right: 0em;
+    padding-right: 0;
 }

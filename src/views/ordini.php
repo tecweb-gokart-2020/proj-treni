@@ -12,6 +12,7 @@ function printAddress($addressID) {
     $addr = getInfoFromAddress($addressID);
     if($addr){
         echo '<ul class="display-address">' . PHP_EOL;
+        echo '<li class="speditoA">Spedito a:</li>'. PHP_EOL;
         echo '<li class="nome">Nome: ' . $addr["nome"] . "</li>" . PHP_EOL;
         echo '<li class="via">Via: ' . $addr["via"] . "</li>" . PHP_EOL;
         echo '<li class="numero">Civico: ' . $addr["numero"] . "</li>" . PHP_EOL;
@@ -39,9 +40,9 @@ function printOrder($orderID) {
     $totale = getTotalFromOrder($orderID);
     $data = getDateFromOrder($orderID);
     echo '<li class="ordine"><ul>';
-    echo '<li class="order_date"> Data ordine: '. ($data ? $data : "Errore: impossibile ricavare la data dell'ordine") . PHP_EOL;
-    echo '<li class="order_total"> Totale: '. ($totale ? $totale : "Errore: impossibile ricavare il totale dell'ordine") . PHP_EOL;
-    echo '<li class="prodotti_container">' . PHP_EOL;
+    echo '<li class="order_date"> Data ordine: '. ($data ? $data : "Errore: impossibile ricavare la data dell'ordine") .'</li>'. PHP_EOL;
+    echo '<li class="order_total"> Totale: '. ($totale ? $totale : "Errore: impossibile ricavare il totale dell'ordine") .'€'.'</li>'. PHP_EOL;
+    echo '<li class="prodotti_container">' .'</li>'. PHP_EOL;
     foreach ($g_prod as $ship) {
         // Stampa indirizzo
         /* ogni elemento di g_prod è una mappa, che contiene i dati
@@ -53,16 +54,18 @@ function printOrder($orderID) {
          * di ship, che è proprio lo shippingID dell'indirizzo */
         printAddress(getAddressFromShipping($ship[0]["shippingID"]));
         //stampa prodotti spediti a quell'indirizzo
+        echo '<div class="infoOrdiniProdotto">'. PHP_EOL;
         foreach($ship as $prodotto) {
             $info = getInfoFromProdotto($prodotto["productID"]);
-            echo '<a href="paginaSingoloProdotto.php?codArticolo='.$prodotto["productID"].'"><ul class="prodotto_item">' . PHP_EOL;
-            echo '<li class="image"><img src="imgs/' . $prodotto["productID"]. '" alt="'.$info["marca"].' '.$prodotto["productID"].'"/></li>'. PHP_EOL;
+            echo '<a class="itemOrdiniProdotto" href="paginaSingoloProdotto.php?codArticolo='.$prodotto["productID"].'"><ul class="prodotto_item">' . PHP_EOL;
+            echo '<li class="image"><img class="immagineProdottoOrdini" src="imgs/' . $prodotto["productID"]. '" alt="'.$info["marca"].' '.$prodotto["productID"].'"/></li>'. PHP_EOL;
             echo '<li class="productID"> ID: '. $prodotto["productID"] ."</li>". PHP_EOL;
             echo '<li class="quantita">Quantità: '. $prodotto["quantita"] ."</li>". PHP_EOL;
             echo '<li class="stato">Stato: '. $prodotto["stato"] ."</li>". PHP_EOL;
             echo '<li class="prezzo">Prezzo: '. $prodotto["prezzo"] ." €</li>". PHP_EOL;
             echo "</ul></a>" . PHP_EOL;
         }
+        echo '</div>' . PHP_EOL;
     }
     echo "</li></ul>" . PHP_EOL;
 }

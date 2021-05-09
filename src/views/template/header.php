@@ -4,7 +4,7 @@ use function PRODOTTO\searchProdotti;
 use function CARRELLO\getProdottiFromCarrello;
 use function UTILITIES\init_tag;
 
-init_tag($tag_home, '<a href="home.php">', $tag_home_close);
+init_tag($tag_home, '<a id="tag-home-header" href="home.php">', $tag_home_close);
 init_tag($tag_novita, '<a href="prodotti.php?novita">', $tag_novita_close);
 init_tag($tag_prodotti, '<a href="prodotti.php">', $tag_prodotti_close);
 init_tag($tag_contatti, '<a href="contatti.php">', $tag_contatti_close);
@@ -31,12 +31,12 @@ echo '<!DOCTYPE html>
         </nav>
 	<header>
 	    <!-- Logo -->
-	    <h1>'. $tag_home .'TRENENE'. $tag_home_close .'</h1>
+	    <h1 id="h1header">'. $tag_home .'TRENENE'. $tag_home_close .'</h1>
 	    <!-- Ricerca -->
 	    <form id="ricercaHeader" action="prodotti.php" method="get">
-		<label for="searchQuery">Ricerca prodotti</label>
-		<input type="search" id="searchQuery" name="searchQuery" placeholder="Cerca nei prodotti" maxlength="40"/>
-		<input type="submit" name="search" value="Cerca"/>';
+		<label id="labelRicercaHeader" for="searchQuery">Ricerca prodotti</label>
+		<input class="headerInputForm" type="search" id="searchQuery" name="searchQuery" placeholder="Cerca nei prodotti" maxlength="40"/>
+		<input class="headerInputForm" type="submit" name="search" value="Cerca"/>';
 		if(isset($_GET['search'])){
 			$searchString = $_GET['searchQuery'];
 			$listaProdotti = searchProdotti($searchString);
@@ -56,7 +56,9 @@ echo '<nav>
 if(isset($_SESSION["username"])) {
     // mostra icona di aggiunta di un prodotto se l'utente è admin
     if($_SESSION["username"] == "admin"){
-        echo '<a href="adminAdd.php"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></a>';
+        init_tag($tag_add, '<a href="adminAdd.php" id="admin-add-icon">', $tag_add_close);
+        echo $tag_add . '<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>' .$tag_add_close;
+        echo '</li><li>';
     }
     // mostra l'icona utente
     $personal_page = '<a href="info.php" id="user-icon">';

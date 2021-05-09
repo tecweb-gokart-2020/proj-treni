@@ -107,7 +107,7 @@ $pagedescription = "Contenuto del carrello";
 $pagetitle = "Carrello - Trenene";
 include "template/header.php";
 
-$current_page = "<a href=\"carrello.php\">carrello</a> >> checkout";
+$current_page = '<a class="linkPercorso" href="carrello.php">carrello</a> >> checkout';
 include "template/breadcrumb.php";
 
 echo '<main id="content">' . PHP_EOL;

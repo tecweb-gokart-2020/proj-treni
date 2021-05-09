@@ -8,13 +8,12 @@ session_start();
 
 if($_SESSION["username"] == "admin") {
 
-    $tag_info = "";
     $pagetitle = "Amministrazione";
     $pagedescription = "Pagina per la modifica dell'articolo " . $_GET['codArticolo'];
     $js = '<script type="text/javascript" src="js/.js"></script>';
     include "template/header.php";
 
-    $current_page = " >> Amministrazione >> Modifica";
+    $current_page = "Amministrazione >> Modifica";
     include "template/breadcrumb.php";
 
     $tag_info = "<span class=\"current_link\">";

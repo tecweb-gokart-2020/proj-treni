@@ -24,7 +24,7 @@ function getInfoFromProdotto($cod_articolo){
 function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
     for($i=0; $i<count($listaProdotti); $i++){
         $info=getInfoFromProdotto($listaProdotti[$i]);
-        echo '<li class="prodottoLista"><a href="paginaSingoloProdotto.php?codArticolo=' . $listaProdotti[$i]. '"><h2>'.$info['marca'].' '. $listaProdotti[$i]. '</h2><img src="imgs/' .$listaProdotti[$i]. '" alt=""/><ul class="propProdotto"><li>' . $info['descrizione'].'</li>';
+	echo '<li class="prodottoLista"><a class="linkListaProdotti" href="paginaSingoloProdotto.php?codArticolo=' . $listaProdotti[$i]. '"><h2 class="titoloProdottoListaProdotti">'.$info['marca'].' '. $listaProdotti[$i]. '</h2><img class="immaginiListaProdotti" src="imgs/' .$listaProdotti[$i]. '" alt=""/><ul class="propProdotto"><li>' . $info['descrizione'].'</li>';
         if($info['sconto']!=""){
             echo '<li>Prodotto scontato del '.$info['sconto'].'%</li>';
         }
@@ -39,7 +39,7 @@ function stampaProdotti($listaProdotti, $printQuantity = false, $qty=null){
         echo '</li>';
         if($info['sconto']!="" and $info['sconto'] != "0"){
             echo '<li>';
-            echo "Prezzo: ".$info['prezzo']-$info['sconto']/100*$info['prezzo']." €";
+            echo "Prezzo: ".($info['prezzo']-$info['sconto']/100*$info['prezzo'])." €";
             echo '</li>';
         } 
         echo '</ul></a></li>';

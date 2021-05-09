@@ -6,13 +6,13 @@ use function UTILITIES\isValidID;
 
 session_start();
 if($_SESSION["username"] == "admin") {
-    $tag_info = "";
+    $tag_add = "";
     $pagetitle = "Amministrazione";
     $pagedescription = "Area dove è possibile aggiungere un prodotto al catalogo";
     $js = '<script type="text/javascript" src="js/.js"></script>';
     include "template/header.php";
 
-    $current_page = " >> Amministrazione";
+    $current_page = "Amministrazione";
     include "template/breadcrumb.php";
 
     $tag_info = "<span class=\"current_link\">";
