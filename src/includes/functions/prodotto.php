@@ -180,46 +180,55 @@ function ultimeNovita() {
 function insertProdotto($prodotto, $image) {
     $db = new DbAccess();
     $connection = $db->openDbConnection();
-    $insertion = true;
     mysqli_begin_transaction($connection);
+    if($prodotto['sconto'] == "") $prodotto['sconto'] = "NULL";
     $query = "insert into prodotto(codArticolo, quantita, descrizione, amministrazione, scala, prezzo, sconto, tipo, marca, novita) values ("
            . $prodotto['codArticolo']
            . ", " . $prodotto['quantita']
-           . ", " . $prodotto['descrizione']
-           . ", " . $prodotto['amministrazione']
-           . ", " . $prodotto['scala']
+           . ", \"" . $prodotto['descrizione'] .'"'
+           . ", \"" . $prodotto['amministrazione'] . '"'
+           . ", \"" . $prodotto['scala'] . '"'
            . ", " . $prodotto['prezzo']
            . ", " . $prodotto['sconto']
-           . ", " . $prodotto['tipo']
-           . ", " . $prodotto['marca']
+           . ", \"" . $prodotto['tipo'] . '"'
+           . ", \"" . $prodotto['marca'] . '"'
            . ", " . 1
            . ")";
     $res = mysqli_query($connection, $query);
     if($res == false) {
+        echo 'res risulta' . $res . HTML_EOL;
+        echo 'prodotto è ';
+        print_r($prodotto);
+        echo HTML_EOL . 'la query invece è ' . $query;
         mysqli_rollback($connection);
         return false;
     }
     $target_dir = "./imgs/";
     $target_file = $target_dir . $prodotto["codArticolo"];
-    $uploadOk = true;
 
     $check = getimagesize($image["tmp_name"]);
     if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = true;
     } else {
-        echo "File is not an image.";
         $uploadOk = false;
     }
     
     if($uploadOk) {
         $moveOk = move_uploaded_file($image["tmp_name"], $target_file);
         if($moveOk) {
+            echo 'res risulta' . $res . HTML_EOL;
+            echo 'prodotto è ';
+            print_r($prodotto);
+            echo HTML_EOL . 'la query invece è ' . $query;
             mysqli_commit($connection);
             return true;
         }
     }
-
+    echo 'uploadOk: ' . $uploadOk .HTML_EOL;
+    echo 'res risulta' . $res . HTML_EOL;
+    echo 'prodotto è ';
+    print_r($prodotto);
+    echo HTML_EOL . 'la query invece è ' . $query;
     mysqli_rollback($connection);
     return false;
 }

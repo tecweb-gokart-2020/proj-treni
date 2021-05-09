@@ -21,7 +21,6 @@ services:
       - ./app.conf:/usr/local/apache2/conf/app.conf:ro
       - ./logs/web:/var/log/apache2
       - ./www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
-      - ./logs/php:/usr/local/etc/php/logs
     depends_on:
       # - php
       - db
