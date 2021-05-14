@@ -16,9 +16,6 @@ if($_SESSION["username"] == "admin") {
     $current_page = "Amministrazione >> Modifica";
     include "template/breadcrumb.php";
 
-    $tag_info = "<span class=\"current_link\">";
-    include "template/admin_navbar.php";
-    
     if ($_POST) {
         $prodotto = [
             "codArticolo" => $_GET["codArticolo"],
