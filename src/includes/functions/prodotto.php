@@ -264,6 +264,8 @@ function editProdotto($prodotto) {
 function deleteProdotto($prodotto) {
     $db = new DbAccess();
     $connection = $db->openDbConnection();
+    $query = "delete from contenuto_carrello where codArticolo=\"$prodotto\"";
+    mysqli_query($connection, $query);
     $query = "delete from prodotto where codArticolo=\"$prodotto\"";
     $res = mysqli_query($connection, $query);
     return mysqli_affected_rows($res) == 1;

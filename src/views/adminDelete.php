@@ -21,13 +21,18 @@ if(isset($_SESSION["username"])) {
 
         $info = getInfoFromProdotto($_GET['codArticolo']);
 
-        if($info) {
+        print_r($info);
+
+        if($info !== false) {
             if(isset($_GET['confirm'])) {
-                $prodotto = deleteProdotto($_GET['codArticolo']);
-                echo '<h2>Prodtto eliminato con successo</h2><p>L\'articolo '. $_GET['codArticolo'] .' è stato eliminato con successo</p>';
+                if(deleteProdotto($_GET['codArticolo'])){
+                    echo '<h2>Prodtto eliminato con successo</h2><p>L\'articolo '. $_GET['codArticolo'] .' è stato eliminato con successo</p>';
+                } else {
+                    echo '<h2>Impossibile eliminare il prodotto</h2>';
+                }
             } else {
                 echo '<h2>Eliminazione '. $_GET['codArticolo'] .'</h2>';
-                echo '<a id="link-conferma" href="adminDelete.php?codArticolo='. $_GET['codArticolo'] .'&confirm">Procedere con l\'eliminazione dell\'articolo</a>';
+                echo '<a id="link-conferma" href="adminDelete.php?codArticolo='. $_GET['codArticolo'] .'&confirm=true">Procedere con l\'eliminazione dell\'articolo</a>';
             }
         } else {
             echo '<h2>404</h2><p class="errore">Prodotto non troavto</p>';
