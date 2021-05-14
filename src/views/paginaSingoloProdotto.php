@@ -20,9 +20,9 @@ if($_POST["add"] == "add") {
 }
 
 $prodottoAttuale = $_GET['codArticolo'];
-$info=getInfoFromProdotto($prodottoAttuale);
+$info = getInfoFromProdotto($prodottoAttuale);
 $pagetitle = $info['marca']." ".$info['codArticolo']." - Trenene";
-$pagedescription = "Pagina".$info['marca']." ".$listaProdotti[$index]." di trenene.it";
+$pagedescription = "Informazioni dettagliate sul prodotto ". $info['codArticolo'] .": comprendono marca, descrizione e prezzo";
 include __DIR__ . DIRECTORY_SEPARATOR . "template/header.php";
     
 $current_page = '<a class="linkPercorso" href="prodotti.php">prodotti</a>'." >> ".$info['marca']." ".$info['codArticolo'];
@@ -67,7 +67,8 @@ echo '<form method="post">
       </form>';
 
 if($_SESSION["username"] == "admin") {
-    echo '<a href="adminEdit.php?codArticolo='. $info['codArticolo'] .'">Modifica</a>';
+    echo '<a class="adminButton" href="adminEdit.php?codArticolo='. $info['codArticolo'] .'">Modifica</a>';
+    echo '<a class="adminButton" href="adminDelete.php?codArticolo='. $info['codArticolo'] .'">Elimina</a>';
 }
 
 echo '</div>';

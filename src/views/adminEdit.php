@@ -4,8 +4,6 @@ use function PRODOTTO\editProdotto;
 use function PRODOTTO\getInfoFromProdotto;
 
 session_start();
-
-
 if($_SESSION["username"] == "admin") {
 
     $pagetitle = "Amministrazione";
@@ -29,33 +27,36 @@ if($_SESSION["username"] == "admin") {
             "quantita" => $_POST["quantita"],
             "marca" => $_POST["marca"]
         ];
-        if($_FILES["immagine"]){
-            $target_dir = "./imgs/";
-            $target_file = $target_dir . $prodotto["codArticolo"];
-            $uploadOk = true;
-            if(isset($_POST["submit"])) {
-                $check = getimagesize($_FILES["immagine"]["tmp_name"]);
-                if($check !== false) {
-                    echo "File is an image - " . $check["mime"] . ".";
-                    $uploadOk = true;
-                } else {
-                    echo "File is not an image.";
-                    $uploadOk = false;
-                }
-            }
-            if($uploadOk) {
-                $moveOk = move_uploaded_file($_FILES["immagine"]["tmp_name"], $target_file);
-            }
-        }
 
         if(editProdotto($prodotto)){
+            if($_FILES["immagine"]){
+                $target_dir = "./imgs/";
+                $target_file = $target_dir . $prodotto["codArticolo"];
+                $uploadOk = true;
+                if(isset($_POST["submit"])) {
+                    $check = getimagesize($_FILES["immagine"]["tmp_name"]);
+                    if($check !== false) {
+                        echo "File is an image - " . $check["mime"] . ".";
+                        $uploadOk = true;
+                    } else {
+                        echo "File is not an image.";
+                        $uploadOk = false;
+                    }
+                }
+                if($uploadOk) {
+                    $moveOk = move_uploaded_file($_FILES["immagine"]["tmp_name"], $target_file);
+                }
+            }
             echo '<main id="content"><h2>Modifica avvenuta con successo</h2>L\'articolo '
                 . $prodotto['codArticolo'] .
                 ' è stato modificato con successo, è possibile vedere le modifiche nella <a href="paginaSingoloProdotto.php?codArticolo='
                 . $prodotto['codArticolo'] .
                 '">pagina relativa</a></main>';
         } else {
-            echo '<main id="content"><h2>LOOOOOL Non funziona</h2></main>';
+            echo '<main id="content">
+                    <h2>Modifica non effettuata</h2>
+                    <p>Non è stato possibile soddisfare la richiesta, riprovare più tardi</p>
+                  </main>';
         }
     }
     else {
