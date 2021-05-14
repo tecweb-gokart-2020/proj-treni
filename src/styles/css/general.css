@@ -708,6 +708,10 @@ ul.prodotto_item:hover {
     background-color: var(--giallo);
 }
 
+.adminButton {
+    margin-right: 15px;
+}
+
 
 /*-------------------FOOTER------------------*/
 

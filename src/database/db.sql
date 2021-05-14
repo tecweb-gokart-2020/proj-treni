@@ -98,7 +98,6 @@ CREATE TABLE prodotto_ordinato(
        prezzo_netto int,
 
        PRIMARY KEY(codArticolo, orderID),
-       FOREIGN KEY (codArticolo) REFERENCES prodotto(codArticolo),
        FOREIGN KEY (orderID) REFERENCES ordine(orderID),
        FOREIGN KEY (shippingID) REFERENCES spedizione(shippingID)
 )Engine=InnoDB;
