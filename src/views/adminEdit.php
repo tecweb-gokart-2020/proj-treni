@@ -75,7 +75,7 @@ if($_SESSION["username"] == "admin") {
                     </select>
                 </label>
                 <label>Descrizione
-                    <input type="textarea" name="descrizione" value="' . $prodotto["descrizione"] . '" maxlength="100">
+                    <textarea name="descrizione" maxlength="100">' . $prodotto["descrizione"] . '</textarea>
                 </label>
                 <label>Scala
                     <input type="text" name="scala" value="' . $prodotto["scala"] . '" maxlength="3">
@@ -99,9 +99,10 @@ if($_SESSION["username"] == "admin") {
                     <label>Novità</label>
                     <input type="checkbox" name="novita" value="'. $prodotto['novita'] .'">
                 </div>
-                <label>Immagine
-                    <input type="file" name="immagine">
-                </label>
+                <div class="half-group">
+                  <label>Immagine</label>
+                  <input type="file" name="immagine">
+                </div>
                 <div class="button-pair">
                   <input type="reset" value="Reset">                
                   <input type="submit" value="Modifica">

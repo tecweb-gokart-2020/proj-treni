@@ -6,7 +6,9 @@ use function UTILITIES\isValidID;
 
 session_start();
 if($_SESSION["username"] == "admin") {
-    $tag_add = "";
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+	$tag_add = "";
+    }
     $pagetitle = "Amministrazione";
     $pagedescription = "Area dove è possibile aggiungere un prodotto al catalogo";
     $js = '<script type="text/javascript" src="js/.js"></script>';
@@ -14,6 +16,16 @@ if($_SESSION["username"] == "admin") {
 
     $current_page = "Amministrazione";
     include "template/breadcrumb.php";
+
+    $phpFileUploadErrors = array(
+         1 => 'Dimensione del file troppo grande, la dimensione massima è 2MB',
+         2 => 'file troppo grande, dimensione massima 2MB',
+         3 => 'File uploadato solo parzialmente, riprovare',
+         4 => 'File non ricevuto correttamente, riprovare',
+         6 => 'Nessuna cartella temporanea, contattare il gestore del servizio',
+         7 => 'Impossibile scrivere sul disco, contattare il gestore del servizio',
+         8 => 'Un\'estensione ha annullato il caricamento del file, riprovare più tardi',
+     );
 
     if(isset($_POST["codArticolo"])){
         $prodotto = [
@@ -31,25 +43,22 @@ if($_SESSION["username"] == "admin") {
         unset($err);
         $err = "";
         if(!isValidID($_POST["codArticolo"]))
-            $err .= "codArticolo non valido ";
+            $err .= "codice articolo non valido";
         if(getInfoFromProdotto($_POST["codArticolo"]) != null)
-            $err .= "Articolo già presente";
+            $err .= "articolo già presente";
         if($err != "") {
-            $_SESSION["addError"] = $err;
-            echo $err;
-            // header("Location: adminAdd.php");
-            // exit();
+          echo '<main id="content"><h1>Inserimento errato</h1><p>Non è stato possibile inserire l\'articolo descritto: '. $err .'</p></main>';
         } else {
-            if(insertProdotto($prodotto, $_FILES["immagine"])) {
+            if($_FILES["immagine"]["error"] === 0 && insertProdotto($prodotto, $_FILES["immagine"])) {
                 echo '<main id="content"><h1>Inserimento completato</h1><p>Inserimento andato a buon fine, è possibile vedere il nuovo prodotto nella
                      <a href="paginaSingoloProdotto.php?codArticolo=' . $_POST["codArticolo"] . '">pagina</a> corrispondente</p></main>';
             } else {
-                echo '<main id="content"><h1>Inserimento errato</h1><p>Il prodotto non è stato inserito, ispezionare i log per capire cosa è successo</p></main>';
+                echo '<main id="content"><h1>Inserimento errato</h1><p>Non è stato possibile inserire l\'articolo descritto: '. $phpFileUploadErrors[$_FILES["immagine"]["error"]].'</p></main>';
             }
         }
    } else {
         echo '<main id="content">
-    <form id="insProd" name="insProd" action="adminAdd.php" method="post" novalidate="true">
+    <form enctype="multipart/form-data" id="insProd" name="insProd" action="adminAdd.php" method="post" novalidate="true">
         <fieldset><legend>Inserimento</legend>
             <label>Codice articolo
                 <input type="number" name="codArticolo" required="required">
@@ -84,7 +93,7 @@ if($_SESSION["username"] == "admin") {
             <label>Marca
                 <input type="text" name="marca">
             </label>
-            <label>Immagine
+            <label>Immagine (dimanesione massima: 2MB)
                 <input type="file" name="immagine" required="required">
             </label>
             <div class="button-pair">
