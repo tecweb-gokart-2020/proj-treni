@@ -64,7 +64,7 @@ if($_SESSION["username"] == "admin") {
                 </select>
             </label>
             <label>Descrizione
-                <input type="text" name="descrizione" maxlength="100">
+                <textarea name="descrizione" maxlength="500"></textarea>
             </label>
             <label>Scala
                 <input type="text" name="scala" maxlength="3">
@@ -87,8 +87,10 @@ if($_SESSION["username"] == "admin") {
             <label>Immagine
                 <input type="file" name="immagine" required="required">
             </label>
-            <input type="reset" value="Reset">
-            <input type="submit" value="Inserisci">
+            <div class="button-pair">
+              <input type="reset" value="Reset">
+              <input id="new-item-insert-button" type="submit" value="Inserisci">
+            </div>
         </fieldset>
     </form></main>';
     }

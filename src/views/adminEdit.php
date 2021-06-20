@@ -62,8 +62,9 @@ if($_SESSION["username"] == "admin") {
     else {
         $prodotto = getInfoFromProdotto($_GET["codArticolo"]);
         if ($prodotto) {
-            echo '<form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="true" enctype="multipart/form-data">
-            <fieldset><legend>Modifica ' . $prodotto["codArticolo"] . '</legend>
+            echo '<main id="content">
+                     <form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="true" enctype="multipart/form-data">
+            	  	<fieldset><legend>Modifica ' . $prodotto["codArticolo"] . '</legend>
                 <label>Tipo
                     <select name="tipo" >
                         <option value="locomotiva"' . ($prodotto["tipo"] == "locomotiva" ? 'selected="selected"' : "") . '>Locomotiva</option>
@@ -94,16 +95,19 @@ if($_SESSION["username"] == "admin") {
                 <label>Marca
                     <input type="text" name="marca" value="' . $prodotto["marca"] . '">
                 </label>
-                <label>Novità
+                <div class="half-group">
+                    <label>Novità</label>
                     <input type="checkbox" name="novita" value="'. $prodotto['novita'] .'">
-                </label>
+                </div>
                 <label>Immagine
                     <input type="file" name="immagine">
                 </label>
-                <input type="reset" value="Reset">                
-                <input type="submit" value="Modifica">
+                <div class="button-pair">
+                  <input type="reset" value="Reset">                
+                  <input type="submit" value="Modifica">
+                </div>
             </fieldset>
-        </form>';
+        </form></main>';
         } else {
             echo '<main><h2>404</h2>L\'articolo selezionato non esiste</main>';
         }

@@ -17,11 +17,11 @@ echo '<!DOCTYPE html>
 	<title>'. $pagetitle . '</title>
 	<meta name="description" content="'.$pagedescription.'"/>
 	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   	<link rel="stylesheet" type="text/css" href="css/general.css" media="screen"/>
   	<link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-device-width:640px), only screen and (max-width:640px)" />
 	'. $js .'
 	<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
-
     </head>
     <body>
         <nav id="aiuti" aria-label="aiuti alla navigazione">
@@ -57,13 +57,13 @@ if(isset($_SESSION["username"])) {
     // mostra icona di aggiunta di un prodotto se l'utente è admin
     if($_SESSION["username"] == "admin"){
         init_tag($tag_add, '<a href="adminAdd.php" id="admin-add-icon">', $tag_add_close);
-        echo $tag_add . '<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>' .$tag_add_close;
+        echo $tag_add . '<i class="fa fa-plus"></i>' .$tag_add_close;
         echo '</li><li>';
     }
     // mostra l'icona utente
     $personal_page = '<a href="info.php" id="user-icon">';
     init_tag($tag_info, $personal_page, $tag_info_close);
-    echo $tag_info . '<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg>' . $tag_info_close;
+    echo $tag_info . '<i class="fa fa-user"></i>' . $tag_info_close;
 }
 else {
     echo '<a id="login" href="login.php">Entra</a>' . PHP_EOL;
@@ -81,12 +81,11 @@ if(isset($_SESSION["cartID"])) {
     init_tag($tag_cart, '<a href="carrello.php" id="cart-icon">', $tag_cart_close);
     $carrello = getProdottiFromCarrello($_SESSION["cartID"]);
     $count = $carrello ? count($carrello) : 0;
-    echo $tag_cart . '<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg><span id="counter">'. $count . '</span>' . $tag_cart_close;
+    echo $tag_cart . '<i class="fa fa-shopping-cart"></i>'. $count . '</span>' . $tag_cart_close;
 }
 else {
     /* Non si dovrebbe mai arrivare qui, vorrebbe dire che si può
      * accedere ad un punto senza cart inizializzato */
-    error_log("Qualcosa è andato storto.... debuggare forte");
     die();
 }
 
