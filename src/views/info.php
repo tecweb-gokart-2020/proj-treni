@@ -84,7 +84,7 @@ if(isset($_SESSION["username"])) {
                                                  . PHP_EOL .
                                                  '<div id="errorRePassword" class="errore" >Le password non coincidono</div>'
                                                  . PHP_EOL .
-                                                 '<label><input id="mostraPassword" type="checkbox">Mostra password</label><br/>'
+                                                 '<div class="half-group"><label>Mostra password</label><input id="mostraPassword" type="checkbox"><br/></div>'
                                                  . PHP_EOL .
                                                  '<button type="submit" name="edit" id="editPw" value="password">Modifica password</button>'
                                                  . PHP_EOL .
