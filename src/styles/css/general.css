@@ -147,11 +147,11 @@ select {
 .half-group {
   float: left;
   width: 100%;
-  margin: 12px 20px;
 }
 
 .half-group * {
-  width: 10%;
+  width: max-content;
+  padding: 10px;
 }
 
 .button-pair {

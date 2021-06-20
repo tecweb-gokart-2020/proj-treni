@@ -188,47 +188,28 @@ function insertProdotto($prodotto, $image) {
            . ", \"" . $prodotto['descrizione'] .'"'
            . ", \"" . $prodotto['amministrazione'] . '"'
            . ", \"" . $prodotto['scala'] . '"'
-           . ", " . $prodotto['prezzo']
-           . ", " . $prodotto['sconto']
+           . ", \"" . $prodotto['prezzo'] . '"'
+           . ", \"" . $prodotto['sconto'] . '"'
            . ", \"" . $prodotto['tipo'] . '"'
            . ", \"" . $prodotto['marca'] . '"'
            . ", " . 1
            . ")";
+    echo $query;
     $res = mysqli_query($connection, $query);
     if($res == false) {
-        echo 'res risulta' . $res . HTML_EOL;
-        echo 'prodotto è ';
-        print_r($prodotto);
-        echo HTML_EOL . 'la query invece è ' . $query;
         mysqli_rollback($connection);
         return false;
     }
     $target_dir = "./imgs/";
     $target_file = $target_dir . $prodotto["codArticolo"];
-
     $check = getimagesize($image["tmp_name"]);
     if($check !== false) {
-        $uploadOk = true;
-    } else {
-        $uploadOk = false;
-    }
-    
-    if($uploadOk) {
         $moveOk = move_uploaded_file($image["tmp_name"], $target_file);
         if($moveOk) {
-            echo 'res risulta' . $res . HTML_EOL;
-            echo 'prodotto è ';
-            print_r($prodotto);
-            echo HTML_EOL . 'la query invece è ' . $query;
             mysqli_commit($connection);
             return true;
         }
     }
-    echo 'uploadOk: ' . $uploadOk .HTML_EOL;
-    echo 'res risulta' . $res . HTML_EOL;
-    echo 'prodotto è ';
-    print_r($prodotto);
-    echo HTML_EOL . 'la query invece è ' . $query;
     mysqli_rollback($connection);
     return false;
 }

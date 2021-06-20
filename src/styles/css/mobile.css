@@ -232,6 +232,10 @@ div#paginaSingoloProdotto form{
     margin: 1%;
 }
 
+.button-pair * {
+    width: 49%;
+}
+
 /*------------FOOTER------------*/
 
 footer {
