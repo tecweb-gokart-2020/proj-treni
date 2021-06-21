@@ -150,8 +150,10 @@ main div#areaPersonale input {
     color: white;
     background-color: var(--blu);
     border-radius: 10px;
-    flex: 1 0 25%;
+    flex: 1 0 30%;
     margin: 10px;
+    height: 4em;
+    font-size: 1em;
 }
 
 main div#categorie * {
