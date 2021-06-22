@@ -19,7 +19,7 @@ echo '<!DOCTYPE html>
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   	<link rel="stylesheet" type="text/css" href="css/general.css" media="screen"/>
-  	<link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-device-width:640px), only screen and (max-width:640px)" />
+  	<link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-device-width:768px), only screen and (max-width:768px)" />
 	'. $js .'
 	<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
     </head>
@@ -30,9 +30,8 @@ echo '<!DOCTYPE html>
             </ul>
         </nav>
 	<header>
-	    <!-- Logo -->
 	    <h1 id="h1header">'. $tag_home .'TRENENE'. $tag_home_close .'</h1>
-	    <!-- Ricerca -->
+            <div id="header-nav-tools">
 	    <form id="ricercaHeader" action="prodotti.php" method="get">
 		<label id="labelRicercaHeader" for="searchQuery">Ricerca prodotti</label>
 		<input class="headerInputForm" type="search" id="searchQuery" name="searchQuery" placeholder="Cerca nei prodotti" maxlength="40"/>
@@ -43,14 +42,6 @@ echo '<!DOCTYPE html>
 		}		
 echo '</form>';	    
 echo '<nav>
-		<ul id="pagine">
-		    <li>
-			' . $tag_prodotti . 'Prodotti'. $tag_prodotti_close .'
-		    </li>				
-		    <li>
-			' . $tag_contatti . 'Contatti'. $tag_contatti_close .'
-			</li>
-		</ul>
 		<ul id="icons">
 			<li>' . PHP_EOL;
 if(isset($_SESSION["username"])) {
@@ -91,7 +82,19 @@ else {
 
 echo '</li>
 		</ul>
+
+		<ul id="pagine">
+		    <li>
+			' . $tag_prodotti . 'Prodotti'. $tag_prodotti_close .'
+		    </li>				
+		    <li>
+			' . $tag_contatti . 'Contatti'. $tag_contatti_close .'
+			</li>
+		</ul>
 	    </nav>
+	  </div>
+	<script src="js/hamburger.js"></script>
+            <i class="fa fa-bars" id="hamburger-icon" aria-hidden="true" onclick="displayNav()"></i>
 	</header>';
 
 unset($tag_home);

@@ -85,4 +85,19 @@ function cleanUp_keepSlashes($input){
 function removeWhitespaces($input){
     return preg_replace("/\s+/", "", $input);
 }
+
+function check_cart() {
+    session_start();
+    if(isset($_SESSION["username"])) {
+        $_SESSION["cartID"] = getCartFromAccount($_SESSION["username"]);
+    }
+    else {
+        $_SESSION["cartID"] = getNewCarrello();
+        if(!$_SESSION["cartID"]) {
+            error_log("Qualcosa è andato storto... nuovo carrello impossibile da creare");
+            die();
+        }
+    }
+}
+
 ?>

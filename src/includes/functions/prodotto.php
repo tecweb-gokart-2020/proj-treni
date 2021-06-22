@@ -182,6 +182,7 @@ function insertProdotto($prodotto, $image) {
     $connection = $db->openDbConnection();
     mysqli_begin_transaction($connection);
     if($prodotto['sconto'] == "") $prodotto['sconto'] = "NULL";
+    mysqli_query($connection, "insert into marca(nome) values (\"" . strtolower($prodotto['marca']) . "\")");
     $query = "insert into prodotto(codArticolo, quantita, descrizione, amministrazione, scala, prezzo, sconto, tipo, marca, novita) values ("
            . $prodotto['codArticolo']
            . ", " . $prodotto['quantita']
@@ -194,7 +195,6 @@ function insertProdotto($prodotto, $image) {
            . ", \"" . $prodotto['marca'] . '"'
            . ", " . 1
            . ")";
-    echo $query;
     $res = mysqli_query($connection, $query);
     if($res == false) {
         mysqli_rollback($connection);
