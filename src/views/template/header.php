@@ -47,12 +47,12 @@ echo '<nav>
 if(isset($_SESSION["username"])) {
     // mostra icona di aggiunta di un prodotto se l'utente è admin
     if($_SESSION["username"] == "admin"){
-        init_tag($tag_add, '<a href="adminAdd.php" id="admin-add-icon">', $tag_add_close);
+        init_tag($tag_add, '<a href="adminAdd.php" id="admin-add-icon" title="Aggiungi un prodotto al catalogo">', $tag_add_close);
         echo $tag_add . '<i class="fa fa-plus"></i>' .$tag_add_close;
         echo '</li><li>';
     }
     // mostra l'icona utente
-    $personal_page = '<a href="info.php" id="user-icon">';
+    $personal_page = '<a href="info.php" id="user-icon" title="area personale">';
     init_tag($tag_info, $personal_page, $tag_info_close);
     echo $tag_info . '<i class="fa fa-user"></i>' . $tag_info_close;
 }
@@ -69,7 +69,7 @@ echo '</li>
 
 if(isset($_SESSION["cartID"])) {
     // mostra icona cart con count degli item dentro
-    init_tag($tag_cart, '<a href="carrello.php" id="cart-icon">', $tag_cart_close);
+    init_tag($tag_cart, '<a href="carrello.php" id="cart-icon" title="carrello">', $tag_cart_close);
     $carrello = getProdottiFromCarrello($_SESSION["cartID"]);
     $count = $carrello ? count($carrello) : 0;
     echo $tag_cart . '<i class="fa fa-shopping-cart"></i>'. $count . '</span>' . $tag_cart_close;
