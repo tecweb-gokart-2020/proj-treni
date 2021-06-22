@@ -728,6 +728,27 @@ ul.prodotto_item:hover {
     margin-right: 15px;
 }
 
+input#quantita{
+    width: fit-content;
+    margin: 1em;
+}
+
+input#filtroPrezzoMin, input#filtroPrezzoMax{
+    width: fit-content;
+}
+
+input#filtroInOfferta, input#filtroDisponibile{
+    height: 1.5em;
+}
+
+select#filtroCategorie, select#filtroMarche{
+    height: fit-content;
+}
+
+input#mostraPassword{
+    width: fit-content;
+    margin: 0 1em 2em 0;
+}
 
 /*-------------------FOOTER------------------*/
 
