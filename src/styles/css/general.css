@@ -419,11 +419,13 @@ div#categorie {
     justify-content: center;
 }
 
-#formCategorie input[type=submit] {
-    padding: 0.5em;
-    border-radius: 10px;
-    flex: 1 0 25%;
-    margin: 10px;
+#formCategorie input[type="submit"] {
+	border-radius: 10px;
+	flex: 1 0 25%;
+	margin: 10px;
+	font-size: 40px;
+	overflow: clip;
+	font-weight: bold;
 }
 
 #filtroSubmit {
@@ -435,7 +437,7 @@ div#categorie {
 }
 
 #contenutoPagina {
-	margin-left: 75px;
+	margin-left: 140px;
 }
 
 #filtroPrezzoMin,
