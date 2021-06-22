@@ -1,12 +1,7 @@
-html {
-    font-size: 4vw;
-}
-
-
 /*---------------------HEADER-----------------------*/
 
 header {
-    height: 12em;
+    height: 60px;
     width: 100%;
 }
 
@@ -16,10 +11,8 @@ input {
 
 #h1header {
     text-align: left;
-    margin-top: .5em;
     margin-left: 0.5em;
-    width: 30%;
-    margin-bottom: 0.3em;
+    margin-bottom: 0;
 }
 
 #ricercaHeader {
@@ -39,30 +32,49 @@ header #searchQuery {
 }
 
 header ul#pagine {
-    float: none;
     position: absolute;
-    top: 4.5em;
-    margin-top: 20px;
+    top: 30px;
 }
 
 header ul#icons {
-    width: 60%;
-    top: -4em;
-    margin-right: 0;
-    margin-top: 15px;
+    width: 90%;
+    float: none;
+    display: flex;
+    flex-flow: row;
+    top: -30px;
+    justify-content: space-between;
 }
 
 header ul#icons li {
-    position: relative;
     display: inline;
-    margin-left: 20px;
+    margin-left: 30px;
     margin-right: 0;
     vertical-align: middle;
-    top: 0.5em;
 }
 
+header nav {
+	position: relative;
+	top: 160px;
+}
+
+#header-nav-tools {
+    display: none;
+}
+
+#hamburger-icon {
+	position: absolute;
+	display: inline;
+	float: right;
+	right: 20px;
+	top: 10px;
+	color: var(--blu);
+}
 
 /*------------CONTENUTO-------------*/
+
+.fa {
+	top: 0;
+}
 
 div#chiSiamo {
     float: none;
@@ -76,9 +88,16 @@ div#servizi {
 }
 
 div#percorso {
-    top: -2em;
-    height: 3em;
-    padding: 1em;
+    top: -14px;
+}
+
+div#percorso p {
+	position: absolute;
+	top: 0;
+}
+
+#contenutoPagina {
+	margin-left: 0;
 }
 
 main {
@@ -101,12 +120,6 @@ nav#ap_navbar ul {
 main div#areaPersonale {
     margin-left: 0;
     border: none;
-}
-
-main div#areaPersonale input {
-    width: 95%;
-    height: 3em;
-    margin-bottom: 1em;
 }
 
 .immagineProdottoOrdini {
@@ -132,30 +145,6 @@ main div#areaPersonale input {
     display: none;
 }
 
-#filtroDisponibile,
-#filtroInOfferta {
-    width: 5vw;
-    height: 5vw;
-}
-
-#filtroMarche,
-#filtroCategorie,
-#filtroOrdinamento {
-    height: 5vw;
-    text-align: center;
-}
-
-#formCategorie input[type="submit"] {
-    padding: 0.5em;
-    color: white;
-    background-color: var(--blu);
-    border-radius: 10px;
-    flex: 1 0 30%;
-    margin: 10px;
-    height: 4em;
-    font-size: 1em;
-}
-
 main div#categorie * {
     vertical-align: middle;
 }
@@ -173,10 +162,9 @@ main h2 {
 }
 
 #formFiltro {
-    grid-template-columns: auto auto;
     text-align: center;
-    justify-content: center;
-    column-gap: 30px;
+    position: inherit;
+    width: 100%;
 }
 
 #formFiltro label {

@@ -62,7 +62,7 @@ if(!isset($_GET['categorie']) and
                 <input type="submit" name="categoriaSelezionata" value="Tutti i prodotti"/>
             </form>
         </div>');
-}
+} else {
 //FILTRO PRODOTTI
 echo '<div id="filtroProdotti">
         <form id="formFiltro" novalidate="novalidate">
@@ -87,14 +87,14 @@ for($i = 0;$i < count($marche);$i++){
     echo'>'.$marche[$i].'</option>';
 }
 echo '</select>
-            <label id="labelDisponibile" for="filtroDisponibile">Disponibile</label>';
-echo '<input name="disponibile" id="filtroDisponibile" type="checkbox" value="disponibile"'; if($_GET["disponibile"]=="disponibile"){echo ' checked="checked"';} echo '/>';
-echo '<label id="labelOfferta" for="filtroInOfferta">In Offerta</label>';
-echo '<input name="offerta" id="filtroInOfferta" type="checkbox" value="offerta"'; if($_GET["offerta"]=="offerta"){echo ' checked="checked"';} echo '/>';
-echo '<label id="labelMin" for="filtroPrezzoMin">Prezzo minimo</label>';
-echo '<input name="prezzoMin" id="filtroPrezzoMin" type="number" value="';if(isset($_GET["prezzoMin"])){echo $_GET["prezzoMin"];} echo'" min="0" step="5" aria-errormessage="erroreFiltro" aria-invalid="false"/>';
-echo '<label id="labelMax" for="filtroPrezzoMax">Prezzo massimo</label>
-            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="';if(isset($_GET["prezzoMax"])){echo $_GET["prezzoMax"];}echo '" min="0" step="5" aria-errormessage="erroreFiltro" aria-invalid="false"/>
+            <div class="half-group"><label id="labelDisponibile" for="filtroDisponibile">Disponibile</label>';
+echo '<input name="disponibile" id="filtroDisponibile" type="checkbox" value="disponibile"'; if($_GET["disponibile"]=="disponibile"){echo ' checked="checked"';} echo '/></div>';
+echo '<div class="half-group"><label id="labelOfferta" for="filtroInOfferta">In Offerta</label>';
+echo '<input name="offerta" id="filtroInOfferta" type="checkbox" value="offerta"'; if($_GET["offerta"]=="offerta"){echo ' checked="checked"';} echo '/></div>';
+echo '<div class="half-group"><label id="labelMin" for="filtroPrezzoMin">Prezzo minimo</label>';
+echo '<input name="prezzoMin" id="filtroPrezzoMin" type="number" value="';if(isset($_GET["prezzoMin"])){echo $_GET["prezzoMin"];} echo'" min="0" step="5" aria-errormessage="erroreFiltro" aria-invalid="false"/></div>';
+echo '<div class="half-group"><label id="labelMax" for="filtroPrezzoMax">Prezzo massimo</label>
+            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="';if(isset($_GET["prezzoMax"])){echo $_GET["prezzoMax"];}echo '" min="0" step="5" aria-errormessage="erroreFiltro" aria-invalid="false"/></div>
             <label id="labelOrdinamento" for="filrtoOrdinamento">Ordinamento</label>
             <select name="ordinamento" id="filrtoOrdinamento">
 		<option value="" disabled="disabled"'; 
@@ -107,7 +107,7 @@ echo '</select>
             <input id="filtroSubmit" type="submit" name="submit" value="Applica filtri"/>
             <div class="errore visibile" id="erroreFiltro" aria-live="assertive"></div>
         </form>';
-
+}
 // PRODOTTI TROVATI
 if(isset($_GET['submit'])){
     $categoria = $_GET['categorie'];
