@@ -2,6 +2,7 @@
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
 use function PRODOTTO\searchProdotti;
 use function CARRELLO\getProdottiFromCarrello;
+use function CARRELLO\getNewCarrello;
 use function UTILITIES\init_tag;
 
 init_tag($tag_home, '<a id="tag-home-header" href="home.php">', $tag_home_close);
@@ -10,6 +11,19 @@ init_tag($tag_prodotti, '<a href="prodotti.php">', $tag_prodotti_close);
 init_tag($tag_contatti, '<a href="contatti.php">', $tag_contatti_close);
 
 session_start();
+
+if(!isset($_SESSION["cartID"])){
+	if(isset($_SESSION["username"])) {
+	    $_SESSION["cartID"] = getCartFromAccount($_SESSION["username"]);
+	}
+	else {
+	    $_SESSION["cartID"] = getNewCarrello();
+	    if(!$_SESSION["cartID"]) {
+	        error_log("Qualcosa è andato storto... nuovo carrello impossibile da creare");
+	        die();
+	    }
+	}
+}
 
 echo '<!DOCTYPE html>
 <html lang="it">
@@ -65,8 +79,7 @@ else {
 }
 
 echo '</li>
-	    <li>
-		<!-- Test -->' . PHP_EOL;
+	    <li>' . PHP_EOL;
 
 if(isset($_SESSION["cartID"])) {
     // mostra icona cart con count degli item dentro
