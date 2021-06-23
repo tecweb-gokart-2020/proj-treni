@@ -22,6 +22,7 @@ echo '<!DOCTYPE html>
   	<link rel="stylesheet" type="text/css" href="css/mobile.css" media="handheld, screen and (max-device-width:768px), only screen and (max-width:768px)" />
 	'. $js .'
 	<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+	<link rel="icon" href="favicon.ico"/>
     </head>
     <body>
         <nav id="aiuti" aria-label="aiuti alla navigazione">

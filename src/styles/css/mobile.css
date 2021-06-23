@@ -23,6 +23,17 @@ input {
     margin-top: 10px;
 }
 
+#ricercaHeader input[type="submit"]{
+	margin: auto;
+	height: 37px;
+	margin-left: 35px;
+}
+
+.headerInputForm#searchQuery{
+	font-size: initial;
+	padding: 10px;
+}
+
 header #searchQuery {
     position: relative;
     width: 80%;
@@ -80,6 +91,7 @@ header nav {
 div#chiSiamo {
     float: none;
     width: 100%;
+    margin-left: 0;
 }
 
 div#servizi {
@@ -191,6 +203,11 @@ input {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+#formCategorie input[type="submit"] {
+	flex: auto;
+	font-size: 30px;
 }
 
 div#paginaSingoloProdotto img{
