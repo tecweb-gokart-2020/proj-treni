@@ -60,8 +60,7 @@ if(!isset($_GET['categorie']) and
                 <input type="submit" name="categoriaSelezionata" value="Binari"/>
                 <input type="submit" name="categoriaSelezionata" value="Accessori"/>
                 <input type="submit" name="categoriaSelezionata" value="Tutti i prodotti"/>
-            </form>
-        </div>');
+            </form>');
 } else {
 //FILTRO PRODOTTI
 echo '<div id="filtroProdotti">
