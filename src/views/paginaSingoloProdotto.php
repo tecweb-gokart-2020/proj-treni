@@ -57,8 +57,10 @@ echo '</li>';
 
 if($info['sconto']!=""){
     echo '<li>';
-    echo $aux = $info['prezzo']-$info['sconto']/100*$info['prezzo'].' €</li></ul>';
+    echo $aux = $info['prezzo']-$info['sconto']/100*$info['prezzo'].' €</li>';
 }
+
+echo '</ul>';
 
 echo '<form method="post">
             <label id="labelQuantita" for="quantita">Quantità</label>
