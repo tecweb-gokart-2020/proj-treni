@@ -769,6 +769,10 @@ footer ul{
     padding: 0;
 }
 
+footer strong {
+    font-size: 18px;
+}
+
 footer #indirizzi {
     float: left;
     width: 50%;
