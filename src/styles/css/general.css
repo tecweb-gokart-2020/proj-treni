@@ -424,7 +424,6 @@ div#categorie {
 	flex: 1 0 25%;
 	margin: 10px;
 	font-size: 40px;
-	overflow: clip;
 	font-weight: bold;
 }
 
