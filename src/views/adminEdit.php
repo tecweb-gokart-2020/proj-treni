@@ -63,7 +63,7 @@ if($_SESSION["username"] == "admin") {
         $prodotto = getInfoFromProdotto($_GET["codArticolo"]);
         if ($prodotto) {
             echo '<main id="content">
-                     <form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="true" enctype="multipart/form-data">
+                     <form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="novalidate" enctype="multipart/form-data">
             	  	<fieldset><legend>Modifica ' . $prodotto["codArticolo"] . '</legend>
                 <label>Tipo
                     <select name="tipo" >

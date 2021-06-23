@@ -17,7 +17,7 @@ echo '<main id="content">
 		<div class="container">
 			<p><h1>Crea account</h1>Inserisci i dati per registrarti su trenene.it. I campi contrassegnati con * sono obbligatori.</p>
 
-			<form id="formRegistr" name="registr" action="registerAct.php" method="post" novalidate="true" aria-live="assertive">
+			<form id="formRegistr" name="registr" action="registerAct.php" method="post" novalidate="novalidate" aria-live="assertive">
 				<label>Email *</br>
 						<input type="email" name="email" id="registrEmail" maxlength="100" autocomplete="on" aria-errormessage="errorEmail" aria-invalid="false" required />
 					</label>

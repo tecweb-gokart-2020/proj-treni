@@ -58,7 +58,7 @@ if($_SESSION["username"] == "admin") {
         }
    } else {
         echo '<main id="content">
-    <form enctype="multipart/form-data" id="insProd" name="insProd" action="adminAdd.php" method="post" novalidate="true">
+    <form enctype="multipart/form-data" id="insProd" name="insProd" action="adminAdd.php" method="post" novalidate="novalidate">
         <fieldset><legend>Inserimento</legend>
             <label>Codice articolo
                 <input type="number" name="codArticolo" required="required">

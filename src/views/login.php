@@ -8,8 +8,8 @@ include __DIR__ . DIRECTORY_SEPARATOR . 'template/header.php';
 
 echo '<main id="content">
 <div id="loginContainer" class="container">
-	<p><h1>Benvenuto!</h1>Accedi al tuo account</p>
-	<form id="formLogin" name="login" action="loginAct.php" method="post" novalidate="true" aria-live="assertive">
+	<h1>Benvenuto!</h1><p>Accedi al tuo account</p>
+	<form id="formLogin" name="login" action="loginAct.php" method="post" novalidate="novalidate" aria-live="assertive">
 		<label> <strong>Nome utente o Email</strong>
 			<input type="text" name="nomeUtente" id="loginUtente" maxlength="30"  autocomplete="on" aria-errormessage="errorUsername" aria-invalid="false" required />
 		</label>
