@@ -86,7 +86,7 @@ if(isset($_SESSION["cartID"])) {
     init_tag($tag_cart, '<a href="carrello.php" id="cart-icon" title="carrello">', $tag_cart_close);
     $carrello = getProdottiFromCarrello($_SESSION["cartID"]);
     $count = $carrello ? count($carrello) : 0;
-    echo $tag_cart . '<i class="fa fa-shopping-cart"></i>'. $count . '</span>' . $tag_cart_close;
+    echo $tag_cart . '<i class="fa fa-shopping-cart"></i><span id="counter">'. $count . '</span>' . $tag_cart_close;
 }
 else {
     /* Non si dovrebbe mai arrivare qui, vorrebbe dire che si può
