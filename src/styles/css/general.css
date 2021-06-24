@@ -735,7 +735,7 @@ input#quantita{
 }
 
 input#filtroPrezzoMin, input#filtroPrezzoMax{
-    width: fit-content;
+    width: 100%;
 }
 
 input#filtroInOfferta, input#filtroDisponibile{
