@@ -91,11 +91,15 @@ if(isset($_SESSION["username"])) {
 
     echo '<main id="content"><div id="areaPersonale">' . PHP_EOL;
     $orders = getOrdersFromAccount($_SESSION["username"]);
-    echo '<ul id="ordini">' . PHP_EOL;
-    foreach($orders as $order) {
-        printOrder($order);
+    if($orders) {
+        echo '<ul id="ordini">' . PHP_EOL;
+        foreach ($orders as $order) {
+            printOrder($order);
+        }
+        echo '</ul>' . PHP_EOL;
+    }else{
+        echo'<h3>Non è presente alcun ordine effettuato</h3>';
     }
-    echo '</ul>' . PHP_EOL;
     echo '</div></main>' . PHP_EOL;
     
     include "template/footer.php";
