@@ -6,7 +6,7 @@ use function PRODOTTO\getInfoFromProdotto;
 session_start();
 if($_SESSION["username"] == "admin") {
 
-    $pagetitle = "Amministrazione";
+    $pagetitle = "Modifica prodotto - Amministrazione";
     $pagedescription = "Pagina per la modifica dell'articolo " . $_GET['codArticolo'];
     $js = '<script type="text/javascript" src="js/.js"></script>';
     include "template/header.php";

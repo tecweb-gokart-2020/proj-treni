@@ -9,7 +9,7 @@ if($_SESSION["username"] == "admin") {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 	$tag_add = "";
     }
-    $pagetitle = "Amministrazione";
+    $pagetitle = "Aggiungi prodotto - Amministrazione";
     $pagedescription = "Area dove è possibile aggiungere un prodotto al catalogo";
     $js = '<script type="text/javascript" src="js/.js"></script>';
     include "template/header.php";
@@ -93,7 +93,7 @@ if($_SESSION["username"] == "admin") {
             <label>Marca
                 <input type="text" name="marca">
             </label>
-            <label>Immagine (dimanesione massima: 2MB)
+            <label>Immagine (dimensione massima: 2MB)
                 <input type="file" name="immagine" required="required">
             </label>
             <div class="button-pair">

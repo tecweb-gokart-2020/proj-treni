@@ -28,10 +28,10 @@ if(isset($_SESSION["username"])) {
             } else {
                 echo '<h2>Eliminazione '. $_GET['codArticolo'] .'</h2>';
                 echo '<p>Se si è sicuri è possibile ';
-                echo '<a id="link-conferma" href="adminDelete.php?codArticolo='. $_GET['codArticolo'] .'&confirm=true">Procedere con l\'eliminazione dell\'articolo</a></p>';
+                echo '<a id="link-conferma" href="adminDelete.php?codArticolo='. $_GET['codArticolo'] .'&confirm=true">procedere con l\'eliminazione dell\'articolo</a></p>';
             }
         } else {
-            echo '<h2>404</h2><p class="errore">Prodotto non troavto</p>';
+            echo '<h2>404</h2><p class="errore">Prodotto non trovato</p>';
         }
 
         echo '</main>';
