@@ -450,11 +450,6 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-main #formFiltro input,
-main #formFiltro select {
-    margin-right: 1.5em;
-}
-
 main .cards {
     list-style: none;
     display: flex;
@@ -738,8 +733,8 @@ input#filtroPrezzoMin, input#filtroPrezzoMax{
     width: 100%;
 }
 
-input#filtroInOfferta, input#filtroDisponibile{
-    height: 1.5em;
+input#filtroDisponibile{
+    margin-top: 2em;
 }
 
 select#filtroCategorie, select#filtroMarche{
