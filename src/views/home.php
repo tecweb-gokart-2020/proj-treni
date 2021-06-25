@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
 use function ACCOUNT\getCartFromAccount;
 use function PRODOTTO\ultimeNovita;
@@ -32,11 +33,11 @@ echo '<div id="chiSiamo">
         <h2>NOVITÀ</h2>
         <div id="novitaContainer">';
 $new = ultimeNovita();
-foreach($new as $prodotto) {
-	$info = getInfoFromProdotto($prodotto);
-	echo '<figure class="imgNovitaContainer"><img class="imgNovita" src="imgs/'. $prodotto . '" alt="'. $info['marca'].' '.$prodotto.'">';
-	echo '<figcaption><a href="paginaSingoloProdotto.php?codArticolo='.$info['codArticolo'].'" class="middle">'. 
-                                                                      $info['marca'] .' '. 
+foreach ($new as $prodotto) {
+    $info = getInfoFromProdotto($prodotto);
+    echo '<figure class="imgNovitaContainer"><img class="imgNovita" src="imgs/'. $prodotto . '" alt="'. $info['marca'].' '.$prodotto.'">';
+    echo '<figcaption><a href="paginaSingoloProdotto.php?codArticolo='.$info['codArticolo'].'" class="middle">'.
+                                                                      $info['marca'] .' '.
                                                                       $info['codArticolo'].'</a></figcaption></figure>';
 }
 
@@ -45,4 +46,3 @@ echo '  </div>
 echo '</main>';
 
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
-?>

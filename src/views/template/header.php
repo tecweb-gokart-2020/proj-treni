@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../../includes/resources.php';
 use function PRODOTTO\searchProdotti;
 use function CARRELLO\getProdottiFromCarrello;
@@ -12,17 +13,16 @@ init_tag($tag_contatti, '<a href="contatti.php">', $tag_contatti_close);
 
 session_start();
 
-if(!isset($_SESSION["cartID"])){
-	if(isset($_SESSION["username"])) {
-	    $_SESSION["cartID"] = getCartFromAccount($_SESSION["username"]);
-	}
-	else {
-	    $_SESSION["cartID"] = getNewCarrello();
-	    if(!$_SESSION["cartID"]) {
-	        error_log("Qualcosa è andato storto... nuovo carrello impossibile da creare");
-	        die();
-	    }
-	}
+if (!isset($_SESSION["cartID"])) {
+    if (isset($_SESSION["username"])) {
+        $_SESSION["cartID"] = getCartFromAccount($_SESSION["username"]);
+    } else {
+        $_SESSION["cartID"] = getNewCarrello();
+        if (!$_SESSION["cartID"]) {
+            error_log("Qualcosa è andato storto... nuovo carrello impossibile da creare");
+            die();
+        }
+    }
 }
 
 echo '<!DOCTYPE html>
@@ -51,17 +51,17 @@ echo '<!DOCTYPE html>
 		<label id="labelRicercaHeader" for="searchQuery">Ricerca prodotti</label>
 		<input class="headerInputForm" type="search" id="searchQuery" name="searchQuery" placeholder="Cerca nei prodotti" maxlength="40"/>
 		<input class="headerInputForm" type="submit" name="search" value="Cerca"/>';
-		if(isset($_GET['search'])){
-			$searchString = $_GET['searchQuery'];
-			$listaProdotti = searchProdotti($searchString);
-		}		
-echo '</form>';	    
+        if (isset($_GET['search'])) {
+            $searchString = $_GET['searchQuery'];
+            $listaProdotti = searchProdotti($searchString);
+        }
+echo '</form>';
 echo '<nav>
 		<ul id="icons">
 			<li>' . PHP_EOL;
-if(isset($_SESSION["username"])) {
+if (isset($_SESSION["username"])) {
     // mostra icona di aggiunta di un prodotto se l'utente è admin
-    if($_SESSION["username"] == "admin"){
+    if ($_SESSION["username"] == "admin") {
         init_tag($tag_add, '<a href="adminAdd.php" id="admin-add-icon" title="Aggiungi un prodotto al catalogo">', $tag_add_close);
         echo $tag_add . '<i class="fa fa-plus"></i>' .$tag_add_close;
         echo '</li><li>';
@@ -70,8 +70,7 @@ if(isset($_SESSION["username"])) {
     $personal_page = '<a href="info.php" id="user-icon" title="area personale">';
     init_tag($tag_info, $personal_page, $tag_info_close);
     echo $tag_info . '<i class="fa fa-user"></i>' . $tag_info_close;
-}
-else {
+} else {
     echo '<a id="login" href="login.php">Entra</a>' . PHP_EOL;
     echo '</li>' . PHP_EOL;
     echo '<li>' . PHP_EOL;
@@ -81,14 +80,13 @@ else {
 echo '</li>
 	    <li>' . PHP_EOL;
 
-if(isset($_SESSION["cartID"])) {
+if (isset($_SESSION["cartID"])) {
     // mostra icona cart con count degli item dentro
     init_tag($tag_cart, '<a href="carrello.php" id="cart-icon" title="carrello">', $tag_cart_close);
     $carrello = getProdottiFromCarrello($_SESSION["cartID"]);
     $count = $carrello ? count($carrello) : 0;
     echo $tag_cart . '<i class="fa fa-shopping-cart"></i><span id="counter">'. $count . '</span>' . $tag_cart_close;
-}
-else {
+} else {
     /* Non si dovrebbe mai arrivare qui, vorrebbe dire che si può
      * accedere ad un punto senza cart inizializzato */
     die();
@@ -125,4 +123,3 @@ unset($tag_novita_close);
 unset($tag_prodotti_close);
 unset($tag_contatti_close);
 unset($tag_cart_close);
-?>

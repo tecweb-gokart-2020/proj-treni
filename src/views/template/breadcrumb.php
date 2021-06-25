@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../../includes/resources.php";
 use function UTILITIES\init_tag;
 
@@ -9,4 +10,3 @@ use function UTILITIES\init_tag;
 echo '<div id="percorso">
 	<p><a class="linkPercorso" id="linkHome" href="home.php" xml:lang="en" lang="en">Home</a> >> '. $current_page .'</p>
 	</div>';
-?>

@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 $pagetitle = "Registrazione - Trenene";
 $pagedescription = "Registrazione al sito trenene.it";
@@ -6,10 +7,10 @@ $js = '<script type="text/javascript" src="js/register.js"></script>';
 include 'template/header.php';
 
 session_start();
-if($_SESSION["username"]) {
-	// se ci arriva per vie traverse va reindirizzato alla home
-	header("Location: home.php");
-	exit();
+if ($_SESSION["username"]) {
+    // se ci arriva per vie traverse va reindirizzato alla home
+    header("Location: home.php");
+    exit();
 }
 
 echo '<main id="content">
@@ -38,7 +39,7 @@ echo '<main id="content">
                     <input type="submit" value="Registrati"/>
 			</form>';
 
-if(isset($_SESSION["registerErr"])){
+if (isset($_SESSION["registerErr"])) {
     echo '<div class="errore visibile" aria-live="assertive">' . $_SESSION["registerErr"] . '</div>';
     unset($_SESSION["registerErr"]);
 }
@@ -49,4 +50,3 @@ echo '<div id="RegistrToLogin" class="container">
 	</div></main>';
 
 include 'template/footer.php';
-?>

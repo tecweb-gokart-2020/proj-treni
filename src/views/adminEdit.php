@@ -1,12 +1,12 @@
 <?php
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 use function PRODOTTO\editProdotto;
 use function PRODOTTO\getInfoFromProdotto;
 
 session_start();
-if(isset($_SESSION["username"])){
-    if($_SESSION["username"] == "admin") {
-
+if (isset($_SESSION["username"])) {
+    if ($_SESSION["username"] == "admin") {
         $pagetitle = "Modifica prodotto - Amministrazione";
         $pagedescription = "Pagina per la modifica dell'articolo " . $_GET['codArticolo'];
         $js = '<script type="text/javascript" src="js/.js"></script>';
@@ -29,14 +29,14 @@ if(isset($_SESSION["username"])){
                 "marca" => $_POST["marca"]
             ];
 
-            if(editProdotto($prodotto)){
-                if($_FILES["immagine"]){
+            if (editProdotto($prodotto)) {
+                if ($_FILES["immagine"]) {
                     $target_dir = "./imgs/";
                     $target_file = $target_dir . $prodotto["codArticolo"];
                     $uploadOk = true;
-                    if(isset($_POST["submit"])) {
+                    if (isset($_POST["submit"])) {
                         $check = getimagesize($_FILES["immagine"]["tmp_name"]);
-                        if($check !== false) {
+                        if ($check !== false) {
                             echo "File is an image - " . $check["mime"] . ".";
                             $uploadOk = true;
                         } else {
@@ -44,7 +44,7 @@ if(isset($_SESSION["username"])){
                             $uploadOk = false;
                         }
                     }
-                    if($uploadOk) {
+                    if ($uploadOk) {
                         $moveOk = move_uploaded_file($_FILES["immagine"]["tmp_name"], $target_file);
                     }
                 }
@@ -59,8 +59,7 @@ if(isset($_SESSION["username"])){
                         <p>Non è stato possibile soddisfare la richiesta, riprovare più tardi</p>
                       </main>';
             }
-        }
-        else {
+        } else {
             $prodotto = getInfoFromProdotto($_GET["codArticolo"]);
             if ($prodotto) {
                 echo '<main id="content">
@@ -129,4 +128,3 @@ if(isset($_SESSION["username"])){
     header("Location: http://$host$uri/$extra");
     exit();
 }
-?>

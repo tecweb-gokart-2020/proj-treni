@@ -1,5 +1,7 @@
 <?php
+
 namespace INDIRIZZO;
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../resources.php';
 use mysqli;
 use DB\DBAccess;
@@ -7,8 +9,9 @@ use function UTILITIES\isValidID;
 use function UTILITIES\removeWhitespaces;
 
 // Ritorna l'ID dell'account associato ad un indirizzo, null se non esiste
-function getAccountFromAddress($address_id){
-    if(isValidID($address_id)){
+function getAccountFromAddress($address_id)
+{
+    if (isValidID($address_id)) {
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT username FROM indirizzo WHERE addressID = \"$address_id\"";
@@ -16,14 +19,15 @@ function getAccountFromAddress($address_id){
         $dbAccess->closeDbConnection();
         $account_id = mysqli_fetch_row($queryResult);
         return $account_id;
-    }else{
+    } else {
         return false;
     }
 }
 
 // Ritorna un array associativo con i campi presenti in un indirizzo, null se non c'è alcun indirizzo
-function getInfoFromAddress($address_id){
-    if(isValidID($address_id)){
+function getInfoFromAddress($address_id)
+{
+    if (isValidID($address_id)) {
         $dbAccess = new DBAccess();
         $connection = $dbAccess->openDbConnection();
         $query = "SELECT nome, via, numero, citta, stato, provincia, cap, telefono
@@ -32,27 +36,28 @@ function getInfoFromAddress($address_id){
         $infoIndirizzo = mysqli_fetch_assoc($queryResult);
         $dbAccess->closeDbConnection();
         return $infoIndirizzo;
-    }else{
+    } else {
         return false;
     }
 }
 
 /* address mappa che rappresenta un indirizzo, se l'indirizzo è
  * presente nel db va tornato l'id, false altrimenti */
-function address_exists($address) {
+function address_exists($address)
+{
     $db = new DBAccess();
     $connection = $db->openDbConnection();
-    $query = 'SELECT addresID FROM indirizzo WHERE nome="'. $address["nome"] . 
-           '", cognome="'. $address["cognome"] . 
-           '", via="'. $address["via"] . 
-           '", civico="'. $address["numero"] . 
-           '", citta="'. $address["citta"] . 
-           '", provincia="'. $address["provincia"] . 
-           '", cap="'. $address["cap"] . 
-           '", stato="'. $address["stato"] . 
+    $query = 'SELECT addresID FROM indirizzo WHERE nome="'. $address["nome"] .
+           '", cognome="'. $address["cognome"] .
+           '", via="'. $address["via"] .
+           '", civico="'. $address["numero"] .
+           '", citta="'. $address["citta"] .
+           '", provincia="'. $address["provincia"] .
+           '", cap="'. $address["cap"] .
+           '", stato="'. $address["stato"] .
            '", telefono="'. $address["telefono"] . '"';
     $res = mysqli_query($connection, $query);
-    if($res){
+    if ($res) {
         return mysqli_affected_rows($res);
     }
     return false;
@@ -63,9 +68,10 @@ function address_exists($address) {
  * questo già esiste ritorna l'id, altrimenti lo inserisce e ne
  * ritorna l'id. ritorna false se la mappa è errata (campi non
  * validi) */
-function getAddress($address, $user){
+function getAddress($address, $user)
+{
     $ID = address_exists($address);
-    if($ID){
+    if ($ID) {
         return $ID;
     } else {
         $db = new DBAccess();
@@ -73,7 +79,7 @@ function getAddress($address, $user){
         $query = "SELECT addressID FROM indirizzo ORDER BY addressID DESC LIMIT 1";
         $queryResult = mysqli_query($connection, $query);
         $addressID = mysqli_fetch_row($queryResult)[0] + 1;
-	$query = 'INSERT INTO indirizzo(username, nome, cognome, via, numero, citta, provincia, cap, stato, telefono) VALUES ("'.
+        $query = 'INSERT INTO indirizzo(username, nome, cognome, via, numero, citta, provincia, cap, stato, telefono) VALUES ("'.
                $user . '", "' .
                $address["nome"] . '", "' .
                $address["cognome"] . '", "' .
@@ -86,10 +92,9 @@ function getAddress($address, $user){
                $address["telefono"] . '")';
         $queryResult = mysqli_query($connection, $query);
         $db->closeDbConnection();
-        if($queryResult) {
+        if ($queryResult) {
             return '' . $addressID;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -98,7 +103,8 @@ function getAddress($address, $user){
 /*aggiunge un indirizzo; tutto l'input deve essere sanificato. In
 particolare, civico dovrebbe poter tenere le / (e telefono non
 dovrebbe avere spazi ma di questo se ne occupa la funzione)*/
-function newAddress($username, $nome, $cognome, $via, $civico, $citta, $provincia, $cap, $telefono){
+function newAddress($username, $nome, $cognome, $via, $civico, $citta, $provincia, $cap, $telefono)
+{
     /*convalida input sarei stato più permissivo sui nomi ma ci
     potrebbero essere problemi con la codifica dei caratteri
     speciali(òàùèé), quindi per ora va bene così.  tutte le regex
@@ -130,4 +136,3 @@ function newAddress($username, $nome, $cognome, $via, $civico, $citta, $provinci
     $telefono = removeWhitespaces($telefono);
     $valid_telefono = preg_match("/^((00|\+)39)?(0\d{5,9}|3\d{9})$/", $telefono);
 }
-?>

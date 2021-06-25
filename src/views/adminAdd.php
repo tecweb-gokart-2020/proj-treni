@@ -5,10 +5,10 @@ use function PRODOTTO\insertProdotto;
 use function UTILITIES\isValidID;
 
 session_start();
-if(isset($_SESSION["username"])){
-    if($_SESSION["username"] == "admin") {
+if (isset($_SESSION["username"])) {
+    if ($_SESSION["username"] == "admin") {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    	$tag_add = "";
+            $tag_add = "";
         }
         $pagetitle = "Aggiungi prodotto - Amministrazione";
         $pagedescription = "Area dove è possibile aggiungere un prodotto al catalogo";
@@ -28,7 +28,7 @@ if(isset($_SESSION["username"])){
              8 => 'Un\'estensione ha annullato il caricamento del file, riprovare più tardi',
          );
 
-        if(isset($_POST["codArticolo"])){
+        if (isset($_POST["codArticolo"])) {
             $prodotto = [
                 "codArticolo" => $_POST["codArticolo"],
                 "tipo" => $_POST["tipo"],
@@ -43,21 +43,23 @@ if(isset($_SESSION["username"])){
             ];
             unset($err);
             $err = "";
-            if(!isValidID($_POST["codArticolo"]))
+            if (!isValidID($_POST["codArticolo"])) {
                 $err .= "codice articolo non valido";
-            if(getInfoFromProdotto($_POST["codArticolo"]) != null)
+            }
+            if (getInfoFromProdotto($_POST["codArticolo"]) != null) {
                 $err .= "articolo già presente";
-            if($err != "") {
-              echo '<main id="content"><h1>Inserimento errato</h1><p>Non è stato possibile inserire l\'articolo descritto: '. $err .'</p></main>';
+            }
+            if ($err != "") {
+                echo '<main id="content"><h1>Inserimento errato</h1><p>Non è stato possibile inserire l\'articolo descritto: '. $err .'</p></main>';
             } else {
-                if($_FILES["immagine"]["error"] === 0 && insertProdotto($prodotto, $_FILES["immagine"])) {
+                if ($_FILES["immagine"]["error"] === 0 && insertProdotto($prodotto, $_FILES["immagine"])) {
                     echo '<main id="content"><h1>Inserimento completato</h1><p>Inserimento andato a buon fine, è possibile vedere il nuovo prodotto nella
                          <a href="paginaSingoloProdotto.php?codArticolo=' . $_POST["codArticolo"] . '">pagina</a> corrispondente</p></main>';
                 } else {
                     echo '<main id="content"><h1>Inserimento errato</h1><p>Non è stato possibile inserire l\'articolo descritto: '. $phpFileUploadErrors[$_FILES["immagine"]["error"]].'</p></main>';
                 }
             }
-       } else {
+        } else {
             echo '<main id="content">
         <form enctype="multipart/form-data" id="insProd" name="insProd" action="adminAdd.php" method="post" novalidate="novalidate">
             <fieldset><legend>Inserimento</legend>
@@ -119,4 +121,3 @@ if(isset($_SESSION["username"])){
     header("Location: http://$host$uri/$extra");
     exit();
 }
-?>

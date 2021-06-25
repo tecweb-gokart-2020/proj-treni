@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 use DB\DBAccess;
 use function ACCOUNT\getEmailOfAccount;
@@ -8,7 +9,7 @@ use function ACCOUNT\edit_pw;
 use function ACCOUNT\edit_mail;
 
 session_start();
-if(isset($_SESSION["username"])) {
+if (isset($_SESSION["username"])) {
     /* Se l'utente è autenticato mostrerà la pagina giusta, farà
      * invece un redirect alla home se non lo è (caso in cui l'utente
      * richiede la pagina direttamente da url, invece che dalla home
@@ -22,7 +23,7 @@ if(isset($_SESSION["username"])) {
 
     $current_page = "area personale >> email e password";
     include "template/breadcrumb.php";
-    
+
     $tag_info = "<span class=\"current_link\">";
     include "template/ap_navbar.php";
 
@@ -33,12 +34,12 @@ if(isset($_SESSION["username"])) {
     $newPw = &$_POST["newPassword"];
     $rePw = &$_POST["rePassword"];
     $oldPw = &$_POST["oldPassword"];
-    
-    if(isset($_SESSION["username"])) {
-        if($_POST["edit"] == "email" and isset($newMail) and isset($oldMail) and isset($reMail)) {
+
+    if (isset($_SESSION["username"])) {
+        if ($_POST["edit"] == "email" and isset($newMail) and isset($oldMail) and isset($reMail)) {
             $emailDone = edit_mail($_SESSION["username"], $oldMail, $newMail, $reMail);
         }
-        if($_POST["edit"] == "password" and isset($newPw) and isset($oldPw) and isset($rePw)) {
+        if ($_POST["edit"] == "password" and isset($newPw) and isset($oldPw) and isset($rePw)) {
             $pwDone = edit_pw($_SESSION["username"], $oldPw, $newPw, $rePw);
         }
     }
@@ -91,29 +92,24 @@ if(isset($_SESSION["username"])) {
                                                  '</fieldset></form>'
                                                  . PHP_EOL;
 
-    if(isset($emailDone)) {
-        if($emailDone === true) {
+    if (isset($emailDone)) {
+        if ($emailDone === true) {
             echo '<h3><span xml:lang="en" lang="en">Email</span> modificata con successo</h3>';
-        }
-        else if($emailDone === 0){
+        } elseif ($emailDone === 0) {
             echo '<h3><span xml:lang="en" lang="en">Email</span> non valida o già in memoria</h3>';
-        }
-        else if($emailDone === 2){
+        } elseif ($emailDone === 2) {
             echo '<h3>vecchia <span xml:lang="en" lang="en">email</span> sbagliata</h3>';
-        }
-        else if($emailDone === 3){
+        } elseif ($emailDone === 3) {
             echo '<h3>Le <span xml:lang="en" lang="en">email</span> non coincidono</h3>';
         }
         unset($emailDone);
     }
-    if(isset($pwDone)) {
-        if($pwDone === true) {
+    if (isset($pwDone)) {
+        if ($pwDone === true) {
             echo '<h3><span xml:lang="en" lang="en">Password</span> modificata con successo</h3>';
-        }
-        else if($pwDone === 0){
+        } elseif ($pwDone === 0) {
             echo '<h3><span xml:lang="en" lang="en">Password</span> non valida, vecchia password errata</h3>';
-        }
-        else if($pwDone === 2){
+        } elseif ($pwDone === 2) {
             echo '<h3><span xml:lang="en" lang="en">Password</span> non valida, le password non coincidono</h3>';
         }
         unset($pwDone);
@@ -121,8 +117,7 @@ if(isset($_SESSION["username"])) {
 
     echo '<div id="logoutContainer"><a id="logout" href="logout.php">Logout</a></div></div></main>' . PHP_EOL;
     include "template/footer.php";
-}
-else {
+} else {
     /* Se l'utente non è impostato -> l'utente deve loggarsi ->
      * redirect alla pagina di login */
     $host  = $_SERVER['HTTP_HOST'];
@@ -131,4 +126,3 @@ else {
     header("Location: http://$host$uri/$extra");
     exit();
 }
-?>

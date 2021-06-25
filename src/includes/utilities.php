@@ -1,30 +1,35 @@
 <?php
+
 namespace UTILITIES;
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'resources.php';
 use mysqli;
 use DB\DBAccess;
 
-function isValidID($id){
+function isValidID($id)
+{
     $reg_expr = "/^\d+$/";
-    $res = preg_match($reg_expr,$id);
-    if($res != false or $res === 0){
+    $res = preg_match($reg_expr, $id);
+    if ($res != false or $res === 0) {
         return true;
-    }else{
-	    error_log("ERROR: " . $id . " Must be a valid ID");
-	    return false;
+    } else {
+        error_log("ERROR: " . $id . " Must be a valid ID");
+        return false;
     }
 }
 /* Filtro per validare email, combinazione di FILTER_VALIDATE_EMAIL e
  * una regexp un po'più stringente */
-function check_email($email) {
-    if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+function check_email($email)
+{
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return preg_match("/^\w+[+.\w-]*@([\w-]+.)*\w+[\w-]*.([a-z]{2,4}|d+)$/i", $email);
     }
     return false;
 }
 
 /* true se esiste, false altrimenti */
-function email_exists($email) {
+function email_exists($email)
+{
     $db = new DBAccess();
     $connection = $db->openDbConnection();
     cleanUp($email);
@@ -36,7 +41,8 @@ function email_exists($email) {
 }
 
 /* true se esiste, false se non esiste */
-function username_exists($username) {
+function username_exists($username)
+{
     $db = new DBAccess();
     $connection = $db->openDbConnection();
 
@@ -49,23 +55,24 @@ function username_exists($username) {
 
 /* Sta roba prende il tag definito da quello sopra e imposta quello di
 chiusura */
-function init_tag(&$tag, $default, &$tag_close) {
-    if(!isset($tag)) {
+function init_tag(&$tag, $default, &$tag_close)
+{
+    if (!isset($tag)) {
         $tag = $default;
     }
-    if($tag != ""){
+    if ($tag != "") {
         preg_match('/^<\w{1,}/', $tag, $tmp);
         preg_match('/\w{1,}/', $tmp[0], $tmp);
         $tag_close = "</" . $tmp[0] . ">";
-    }
-    else {
+    } else {
         $tag_close = "";
     }
 }
 
 //pulizia base
 //toglie spazi vuoti in eccesso, slash e tag
-function cleanUp($input){
+function cleanUp($input)
+{
     $input = trim($input);
     $input = stripslashes($input);
     $input = strip_tags($input);
@@ -74,7 +81,8 @@ function cleanUp($input){
 }
 
 //come sopra ma lascia gli slash (es. per il numero civico)
-function cleanUp_keepSlashes($input){
+function cleanUp_keepSlashes($input)
+{
     $input = trim($input);
     $input = strip_tags($input);
     $input = preg_replace("/\s+/", " ", $input);
@@ -82,22 +90,21 @@ function cleanUp_keepSlashes($input){
 }
 
 //compatta l'input
-function removeWhitespaces($input){
+function removeWhitespaces($input)
+{
     return preg_replace("/\s+/", "", $input);
 }
 
-function check_cart() {
+function check_cart()
+{
     session_start();
-    if(isset($_SESSION["username"])) {
+    if (isset($_SESSION["username"])) {
         $_SESSION["cartID"] = getCartFromAccount($_SESSION["username"]);
-    }
-    else {
+    } else {
         $_SESSION["cartID"] = getNewCarrello();
-        if(!$_SESSION["cartID"]) {
+        if (!$_SESSION["cartID"]) {
             error_log("Qualcosa è andato storto... nuovo carrello impossibile da creare");
             die();
         }
     }
 }
-
-?>

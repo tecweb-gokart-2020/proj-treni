@@ -26,7 +26,7 @@ echo '<main id="content">
 	</div>
 </div>';
 
-if(isset($_SESSION["loginErr"])){
+if (isset($_SESSION["loginErr"])) {
     echo '<div class="errore visibile" aria-live="assertive">' . $_SESSION["loginErr"] . '</div>';
     unset($_SESSION["loginErr"]);
 }

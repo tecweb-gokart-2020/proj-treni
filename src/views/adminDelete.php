@@ -1,11 +1,12 @@
 <?php
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 use function PRODOTTO\deleteProdotto;
 use function PRODOTTO\getInfoFromProdotto;
 
 session_start();
-if(isset($_SESSION["username"])){
-    if($_SESSION["username"] == "admin") {
+if (isset($_SESSION["username"])) {
+    if ($_SESSION["username"] == "admin") {
         $pagetitle = "Elimina prodotto - Amministrazione";
         $pagedescription = "Interfaccia per la gestione dei prodotti del negozio";
         $js = '<script type="text/javascript" src="js/.js"></script>';
@@ -19,8 +20,8 @@ if(isset($_SESSION["username"])){
 
             $info = getInfoFromProdotto($_GET['codArticolo']);
 
-            if($info !== false) {
-                if(isset($_GET['confirm'])) {
+            if ($info !== false) {
+                if (isset($_GET['confirm'])) {
                     if (deleteProdotto($_GET['codArticolo'])) {
                         echo '<h2>Prodotto eliminato con successo</h2><p>L\'articolo '. $_GET['codArticolo'] .' è stato eliminato con successo</p>';
                     } else {
@@ -52,4 +53,3 @@ if(isset($_SESSION["username"])){
     header("Location: http://$host$uri/$extra");
     exit();
 }
-?>

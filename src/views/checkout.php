@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . "../includes/resources.php";
 use Exception;
 use function PRODOTTO\stampaProdotti;
@@ -11,7 +12,8 @@ use function PRODOTTO\getInfoFromProdotto;
 
 session_start();
 
-function stampaProdotto($prodotto){
+function stampaProdotto($prodotto)
+{
     $info=getInfoFromProdotto($prodotto["codArticolo"]);
     echo '<li><a href="paginaSingoloProdotto.php?codArticolo=' . $prodotto["codArticolo"] .
                                                                '"><h2>'.$info['marca'].' '.
@@ -20,52 +22,52 @@ function stampaProdotto($prodotto){
                                                                .$prodotto["codArticolo"].
                                                                '" alt=""/><ul><li>'.
                                                                $info['tipo'].'</li>';
-	echo '<li>';
-	echo 'quantità: ' . $prodotto["quantita"];
-	echo '</li>';
-	echo '<li>';
-	echo 'disponibili: ' . $info["quantita"];
-	echo '</li>';
-    if($info['sconto']!=""){
+    echo '<li>';
+    echo 'quantità: ' . $prodotto["quantita"];
+    echo '</li>';
+    echo '<li>';
+    echo 'disponibili: ' . $info["quantita"];
+    echo '</li>';
+    if ($info['sconto']!="") {
         echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';
     }
     echo '<li>';
-    if($info['sconto']!=""){
+    if ($info['sconto']!="") {
         echo '<del>';
     }
     echo $info['prezzo']. ' €';
-    if($info['sconto']!=""){
+    if ($info['sconto']!="") {
         echo '</del>';
     }
     echo '</li>';
-    if($info['sconto']!=""){
+    if ($info['sconto']!="") {
         echo '<li>';
         echo $aux=$info['prezzo']-$info['sconto']/100*$info['prezzo'];
         echo '</li>';
-    } 
+    }
     echo '</ul></li>';
 }
 
-if(!isset($_SESSION["cartID"])) {
+if (!isset($_SESSION["cartID"])) {
     header("Location: carrello.php");
     exit();
 }
 
-if(!isset($_SESSION["username"])) {
+if (!isset($_SESSION["username"])) {
     header("Location: login.php");
     exit();
 }
 
-$checkout = &$_POST["checkout"];                  	
-$back = &$_POST["back"];                          	
-                                                  	
-                                                  	
-if($back) {                                       	
-    header("Location: carrello.php");             	
-    exit();                                       
-}                                                 	
-if($checkout) {                                   	
-    $address = array(                             	
+$checkout = &$_POST["checkout"];
+$back = &$_POST["back"];
+
+
+if ($back) {
+    header("Location: carrello.php");
+    exit();
+}
+if ($checkout) {
+    $address = array(
         "nome" => $_POST["nome"],
         "cognome" => $_POST["cognome"],
         "via" => $_POST["via"],
@@ -83,14 +85,14 @@ if($checkout) {
         $pagedescription = "Error: trenene - carrello";
         $pagetitle = "errore checkout";
         include "template/header.php";
-	
+
         $current_page = "<a href=\"carrello.php\">carrello</a> >> checkout >> errore";
         include "template/breadcrumb.php";
         echo '<div id="errore">Qualcosa è andato storto durante l\'ordine del tuo acquisto: '. $e->getMessage() .' </div>';
         include 'template/footer.php';
         exit();
     }
-    if($result) {
+    if ($result) {
         $pagetitle = 'trenene - conferma acquisto';
         $pagedescription = 'Conferma acquisto avvenuto su trenene.it';
         include 'template/header.php';
@@ -152,15 +154,14 @@ echo '<form method="post" id="formCheckout" novalidate aria-live="assertive"><fi
 <button type="submit" name="checkout" id="checkout" value="checkout">Procedi all\'acquisto</button>
 </form><a href="carrello.php">Torna al carrello</a>';
 $prodotti = getProdottiFromCarrello($_SESSION["cartID"]);
-if($prodotti) {
+if ($prodotti) {
     echo "<h2>Riepilogo carrello:</h2>" . PHP_EOL;
     echo "<ul id=\"cart\">" . PHP_EOL;
-    foreach($prodotti as $prodotto){
-	    stampaProdotto($prodotto);
+    foreach ($prodotti as $prodotto) {
+        stampaProdotto($prodotto);
     }
     echo "</ul>" . PHP_EOL;
 }
 echo '</main>' . PHP_EOL;
 
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
-?>

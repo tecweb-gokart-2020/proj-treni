@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../includes/resources.php';
 use function PRODOTTO\queryProdotti;
 use function PRODOTTO\getMarche;
@@ -10,13 +11,13 @@ $pagetitle = "Prodotti - Trenene";
 $pagedescription = "Pagina Prodotti di trenene.it";
 $tag_prodotti = '<span class="current_link">';
 include "template/header.php";
-    
+
 $current_page = "Prodotti";
 include "template/breadcrumb.php";
 
 echo '<main id="content">' . PHP_EOL;
-if(isset($_GET['categoriaSelezionata'])){
-    switch($_GET['categoriaSelezionata']){
+if (isset($_GET['categoriaSelezionata'])) {
+    switch ($_GET['categoriaSelezionata']) {
     case "Locomotive":
         $listaProdotti=queryProdotti("locomotiva");
         break;
@@ -33,25 +34,25 @@ if(isset($_GET['categoriaSelezionata'])){
         $listaProdotti=queryProdotti("accessorio");
         break;
     default:
-    	$listaProdotti=queryProdotti("");
+        $listaProdotti=queryProdotti("");
         break;
 
     }
 }
-    
-if(isset($_GET['search'])){
+
+if (isset($_GET['search'])) {
     $searchString = $_GET['searchQuery'];
     $listaProdotti = searchProdotti($searchString);
 }
 
 // BOTTONI CON LE CATEGORIE DI PRODOTTI
-if(!isset($_GET['categorie']) and
+if (!isset($_GET['categorie']) and
    !isset($_GET['categoriaSelezionata']) and
    !isset($_GET['prezzoMin']) and
    !isset($_GET['prezzoMax']) and
    !isset($_GET['marche']) and
    !isset($_GET['ordinamento']) and
-   !isset($_GET['searchQuery'])){
+   !isset($_GET['searchQuery'])) {
     echo('<div id="categorie">
             <form id="formCategorie">
                 <input type="submit" name="categoriaSelezionata" value="Locomotive"/>
@@ -62,53 +63,111 @@ if(!isset($_GET['categorie']) and
                 <input type="submit" name="categoriaSelezionata" value="Tutti i prodotti"/>
             </form>');
 } else {
-//FILTRO PRODOTTI
-echo '<div id="filtroProdotti">
+    //FILTRO PRODOTTI
+    echo '<div id="filtroProdotti">
         <form id="formFiltro" novalidate="novalidate">
             <label id="labelCategoria" for="filtroCategorie">Categoria</label>
             <select name="categorie" id="filtroCategorie">
-		<option value="" disabled="disabled"'; if(!$_GET["categorie"] && !$_GET['categoriaSelezionata']){echo ' selected="selected"';} echo '>categoria</option>';
-echo '<option value="locomotiva"'; if($_GET["categorie"]=="locomotiva" || $_GET['categoriaSelezionata']=="Locomotive"){echo ' selected="selected"';} echo '>Locomotive</option>';
-echo '<option value="carrozza"'; if($_GET["categorie"]=="carrozza" || $_GET['categoriaSelezionata']=="Carrozze"){echo ' selected="selected"';} echo '>Carrozze</option>';
-echo '<option value="carro"'; if($_GET["categorie"]=="carro" || $_GET['categoriaSelezionata']=="Carri"){echo ' selected="selected"';} echo '>Carri</option>';
-echo '<option value="accessorio"'; if($_GET["categorie"]=="accessorio" || $_GET['categoriaSelezionata']=="Accessori"){echo ' selected="selected"';} echo '>Accessori</option>';
-echo '<option value="binario"'; if($_GET["categorie"]=="binario" || $_GET['categoriaSelezionata']=="Binari"){echo ' selected="selected"';} echo '>Binari</option>';
-echo '</select>
+		<option value="" disabled="disabled"';
+    if (!$_GET["categorie"] && !$_GET['categoriaSelezionata']) {
+        echo ' selected="selected"';
+    }
+    echo '>categoria</option>';
+    echo '<option value="locomotiva"';
+    if ($_GET["categorie"]=="locomotiva" || $_GET['categoriaSelezionata']=="Locomotive") {
+        echo ' selected="selected"';
+    }
+    echo '>Locomotive</option>';
+    echo '<option value="carrozza"';
+    if ($_GET["categorie"]=="carrozza" || $_GET['categoriaSelezionata']=="Carrozze") {
+        echo ' selected="selected"';
+    }
+    echo '>Carrozze</option>';
+    echo '<option value="carro"';
+    if ($_GET["categorie"]=="carro" || $_GET['categoriaSelezionata']=="Carri") {
+        echo ' selected="selected"';
+    }
+    echo '>Carri</option>';
+    echo '<option value="accessorio"';
+    if ($_GET["categorie"]=="accessorio" || $_GET['categoriaSelezionata']=="Accessori") {
+        echo ' selected="selected"';
+    }
+    echo '>Accessori</option>';
+    echo '<option value="binario"';
+    if ($_GET["categorie"]=="binario" || $_GET['categoriaSelezionata']=="Binari") {
+        echo ' selected="selected"';
+    }
+    echo '>Binari</option>';
+    echo '</select>
             <label id="labelMarche" for="filtroMarche">Marca</label>
             <select name="marche" id="filtroMarche">
-		<option value="" disabled="disabled" '; 
-if(!$_GET["marche"]){ echo ' selected="selected"';}
-echo '>marca</option>';
-$marche = getMarche();
-for($i = 0;$i < count($marche);$i++){
-    echo'<option';
-    if($_GET['marche']==$marche[$i]){echo ' selected="selected"';}
-    echo'>'.$marche[$i].'</option>';
-}
-echo '</select>
+		<option value="" disabled="disabled" ';
+    if (!$_GET["marche"]) {
+        echo ' selected="selected"';
+    }
+    echo '>marca</option>';
+    $marche = getMarche();
+    for ($i = 0;$i < count($marche);$i++) {
+        echo'<option';
+        if ($_GET['marche']==$marche[$i]) {
+            echo ' selected="selected"';
+        }
+        echo'>'.$marche[$i].'</option>';
+    }
+    echo '</select>
             <div class="half-group"><label id="labelDisponibile" for="filtroDisponibile">Disponibile</label>';
-echo '<input name="disponibile" id="filtroDisponibile" type="checkbox" value="disponibile"'; if($_GET["disponibile"]=="disponibile"){echo ' checked="checked"';} echo '/></div>';
-echo '<div class="half-group"><label id="labelOfferta" for="filtroInOfferta">In Offerta</label>';
-echo '<input name="offerta" id="filtroInOfferta" type="checkbox" value="offerta"'; if($_GET["offerta"]=="offerta"){echo ' checked="checked"';} echo '/></div>';
-echo '<div class="half-group"><label id="labelMin" for="filtroPrezzoMin">Prezzo minimo</label>';
-echo '<input name="prezzoMin" id="filtroPrezzoMin" type="number" value="';if(isset($_GET["prezzoMin"])){echo $_GET["prezzoMin"];} echo'" min="0" step="5" aria-errormessage="erroreFiltro" aria-invalid="false"/></div>';
-echo '<div class="half-group"><label id="labelMax" for="filtroPrezzoMax">Prezzo massimo</label>
-            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="';if(isset($_GET["prezzoMax"])){echo $_GET["prezzoMax"];}echo '" min="0" step="5" aria-errormessage="erroreFiltro" aria-invalid="false"/></div>
+    echo '<input name="disponibile" id="filtroDisponibile" type="checkbox" value="disponibile"';
+    if ($_GET["disponibile"]=="disponibile") {
+        echo ' checked="checked"';
+    }
+    echo '/></div>';
+    echo '<div class="half-group"><label id="labelOfferta" for="filtroInOfferta">In Offerta</label>';
+    echo '<input name="offerta" id="filtroInOfferta" type="checkbox" value="offerta"';
+    if ($_GET["offerta"]=="offerta") {
+        echo ' checked="checked"';
+    }
+    echo '/></div>';
+    echo '<div class="half-group"><label id="labelMin" for="filtroPrezzoMin">Prezzo minimo</label>';
+    echo '<input name="prezzoMin" id="filtroPrezzoMin" type="number" value="';
+    if (isset($_GET["prezzoMin"])) {
+        echo $_GET["prezzoMin"];
+    }
+    echo'" min="0" step="5" aria-errormessage="erroreFiltro" aria-invalid="false"/></div>';
+    echo '<div class="half-group"><label id="labelMax" for="filtroPrezzoMax">Prezzo massimo</label>
+            <input name="prezzoMax" id="filtroPrezzoMax" type="number" value="';
+    if (isset($_GET["prezzoMax"])) {
+        echo $_GET["prezzoMax"];
+    }
+    echo '" min="0" step="5" aria-errormessage="erroreFiltro" aria-invalid="false"/></div>
             <label id="labelOrdinamento" for="filrtoOrdinamento">Ordinamento</label>
             <select name="ordinamento" id="filrtoOrdinamento">
-		<option value="" disabled="disabled"'; 
-if(!$_GET['ordinamento']){echo ' selected="selected"';} 
-echo '>ordine</option>';
-echo '<option value="alfabetico"'; if($_GET["ordinamento"]=="alfabetico"){echo ' selected="selected"';} echo '>Alfabetico [A-Z]</option>';
-echo '<option value="prezzoCrescente"'; if($_GET["ordinamento"]=="prezzoCrescente"){echo ' selected="selected"';} echo '>Prezzo crescente</option>';
-echo '<option value="prezzoDecrescente"'; if($_GET["ordinamento"]=="prezzoDecrescente"){echo ' selected=selected';} echo '>Prezzo decrescente</option>';
-echo '</select>
+		<option value="" disabled="disabled"';
+    if (!$_GET['ordinamento']) {
+        echo ' selected="selected"';
+    }
+    echo '>ordine</option>';
+    echo '<option value="alfabetico"';
+    if ($_GET["ordinamento"]=="alfabetico") {
+        echo ' selected="selected"';
+    }
+    echo '>Alfabetico [A-Z]</option>';
+    echo '<option value="prezzoCrescente"';
+    if ($_GET["ordinamento"]=="prezzoCrescente") {
+        echo ' selected="selected"';
+    }
+    echo '>Prezzo crescente</option>';
+    echo '<option value="prezzoDecrescente"';
+    if ($_GET["ordinamento"]=="prezzoDecrescente") {
+        echo ' selected=selected';
+    }
+    echo '>Prezzo decrescente</option>';
+    echo '</select>
             <input id="filtroSubmit" type="submit" name="submit" value="Applica filtri"/>
             <div class="errore visibile" id="erroreFiltro" aria-live="assertive"></div>
         </form>';
 }
 // PRODOTTI TROVATI
-if(isset($_GET['submit'])){
+if (isset($_GET['submit'])) {
     $categoria = $_GET['categorie'];
     $marca = $_GET['marche'];
     $disponibile = $_GET['disponibile'] ?? "";
@@ -116,22 +175,24 @@ if(isset($_GET['submit'])){
     $prezzoMin = $_GET['prezzoMin'] ?? "";
     $prezzoMax = $_GET['prezzoMax'] ?? "";
     $ordine = $_GET['ordinamento'];
-    if($prezzoMax != "" && $prezzoMin != ""){
-        if($prezzoMax < $prezzoMin) {echo "Il prezzo massimo è stato impostato al prezzo minimo"; 
+    if ($prezzoMax != "" && $prezzoMin != "") {
+        if ($prezzoMax < $prezzoMin) {
+            echo "Il prezzo massimo è stato impostato al prezzo minimo";
             $prezzoMax=$prezzoMin;
         }
     }
     $listaProdotti = queryProdotti($categoria, $marca, $disponibile, $offerta, $prezzoMin, $prezzoMax, $ordine);
 }
 
-echo ('</div>
+echo('</div>
     <div id="contenutoPagina">');
-if($listaProdotti){
-	echo('<ul class="cards">');
-	stampaProdotti($listaProdotti);
-	echo('</ul>');
-} else if(isset($_GET['submit']) || isset($_GET['categoriaSelezionata']) || isset($_GET['search'])) echo '<h3>Nessun prodotto trovato corrispondente alla chiave di ricerca</h3>';
-echo ('</div>');
+if ($listaProdotti) {
+    echo('<ul class="cards">');
+    stampaProdotti($listaProdotti);
+    echo('</ul>');
+} elseif (isset($_GET['submit']) || isset($_GET['categoriaSelezionata']) || isset($_GET['search'])) {
+    echo '<h3>Nessun prodotto trovato corrispondente alla chiave di ricerca</h3>';
+}
+echo('</div>');
 echo '</main>';
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
-?>
