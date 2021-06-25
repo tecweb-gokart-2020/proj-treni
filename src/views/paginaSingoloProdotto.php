@@ -37,25 +37,30 @@ echo '<main id="contentSingoloProdotto">
     <li><p>'.$info['descrizione'].'</p></li>';
 
 // Le informazioni riportano uno sconto, va applicato
-if($info['sconto']!=""){
+$inSconto = false;
+
+if($info['sconto']>0)
+    $inSconto = true;
+
+if($inSconto){
     echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';
 }
 
 echo '<li>Prezzo: ';
 
-if($info['sconto']!=""){
+if($inSconto){
     echo '<del>';
 }
 
 echo $info['prezzo'].' €';
 
-if($info['sconto']!=""){
+if($inSconto){
     echo '</del>';
 }
 
 echo '</li>';
 
-if($info['sconto']!=""){
+if($inSconto){
     echo '<li>';
     echo $aux = $info['prezzo']-$info['sconto']/100*$info['prezzo'].' €</li>';
 }
