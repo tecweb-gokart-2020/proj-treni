@@ -93,8 +93,8 @@ if (isset($_SESSION["username"])) {
                     <label>Quantità
                         <input type="number" name="quantita" value="' . $prodotto["quantita"] . '">
                     </label>
-                    <label>Marca
-                        <input type="text" id="modProdMarca" name="marca" required="required" aria-errormessage="errorMarca" aria-invalid="false">
+                    <label>Marca*
+                        <input type="text" id="modProdMarca" name="marca" value="' . $prodotto["marca"] . '" required="required" aria-errormessage="errorMarca" aria-invalid="false">
                     </label>
                     <div id="errorMarca" class="errore nascosto" >Questo campo è obbligatorio!</div>
                     <div class="half-group">
@@ -130,3 +130,4 @@ if (isset($_SESSION["username"])) {
     header("Location: http://$host$uri/$extra");
     exit();
 }
+?>
