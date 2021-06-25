@@ -9,7 +9,7 @@ if (isset($_SESSION["username"])) {
     if ($_SESSION["username"] == "admin") {
         $pagetitle = "Modifica prodotto - Amministrazione";
         $pagedescription = "Pagina per la modifica dell'articolo " . $_GET['codArticolo'];
-        $js = '<script type="text/javascript" src="js/.js"></script>';
+        $js = '<script type="text/javascript" src="js/adminEdit.js"></script>';
         include "template/header.php";
 
         $current_page = "Amministrazione >> Modifica";
@@ -63,7 +63,7 @@ if (isset($_SESSION["username"])) {
             $prodotto = getInfoFromProdotto($_GET["codArticolo"]);
             if ($prodotto) {
                 echo '<main id="content">
-                         <form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="novalidate" enctype="multipart/form-data">
+                         <form id="modProd" name="modProd" action="adminEdit.php?codArticolo='. $prodotto["codArticolo"] .'" method="post" novalidate="novalidate" enctype="multipart/form-data" aria-live="assertive">
                 	  	<fieldset><legend>Modifica ' . $prodotto["codArticolo"] . '</legend>
                     <label>Tipo
                         <select name="tipo" >
@@ -83,9 +83,10 @@ if (isset($_SESSION["username"])) {
                     <label>Amministrazione
                         <input type="text" name="amministrazione" value="' . $prodotto["amministrazione"] . '" maxlength="3">
                     </label>
-                    <label>Prezzo
-                        <input type="number" name="prezzo" value="' . $prodotto["prezzo"] . '">
+                    <label>Prezzo*
+                        <input type="number" id="modProdPrezzo" name="prezzo" value="' . $prodotto["prezzo"] . '" required="required" aria-errormessage="errorPrezzo" aria-invalid="false">
                     </label>
+                    <div id="errorPrezzo" class="errore nascosto" >Deve avere un prezzo!</div>
                     <label>Sconto
                         <input type="number" name="sconto" value="' . $prodotto["sconto"] . '">
                     </label>

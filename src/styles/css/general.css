@@ -76,6 +76,10 @@ button:hover {
     visibility: visible;
 }
 
+.nascosto {
+    display: none;
+}
+
 /*----------------HEADER------------------*/
 
 header {
