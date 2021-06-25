@@ -38,3 +38,5 @@ echo '<p><strong>Trenene</strong> è una piccola azienda nata nel 1999 tra l\'ar
 	</div>';
 echo '</main>';
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
+
+?>

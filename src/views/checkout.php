@@ -165,3 +165,5 @@ if ($prodotti) {
 echo '</main>' . PHP_EOL;
 
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
+
+?>

@@ -32,3 +32,5 @@ $contatti_link = "href=\"views/contatti.php\"";
 include __DIR__ . DIRECTORY_SEPARATOR . "views/template/header.php";
 
 include __DIR__ . DIRECTORY_SEPARATOR . "views/template/footer.php";
+
+?>

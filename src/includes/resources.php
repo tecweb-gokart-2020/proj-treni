@@ -15,3 +15,5 @@ require_once "functions/indirizzo.php";
 require_once "functions/spedizione.php";
 require_once "functions/ordine.php";
 require_once "functions/prodotto.php";
+
+?>

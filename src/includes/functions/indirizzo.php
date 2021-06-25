@@ -136,3 +136,5 @@ function newAddress($username, $nome, $cognome, $via, $civico, $citta, $provinci
     $telefono = removeWhitespaces($telefono);
     $valid_telefono = preg_match("/^((00|\+)39)?(0\d{5,9}|3\d{9})$/", $telefono);
 }
+
+?>

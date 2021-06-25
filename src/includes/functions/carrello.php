@@ -156,3 +156,5 @@ function setQuantityInCart($cart, $product, $quantity)
         throw new Exception("carrello non passa il check");
     }
 }
+
+?>

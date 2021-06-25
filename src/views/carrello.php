@@ -80,3 +80,5 @@ if ($prodotti) {
 
 echo '</main>';
 include "template/footer.php";
+
+?>

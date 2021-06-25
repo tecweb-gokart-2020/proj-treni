@@ -102,3 +102,5 @@ function makeNewOrdine($user, $total, $data = "NOW()")
         return false;
     }
 }
+
+?>

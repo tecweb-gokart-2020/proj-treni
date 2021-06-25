@@ -224,3 +224,5 @@ function edit_pw($user, $oldPw, $newPw, $rePw)
     }
     return false;
 }
+
+?>

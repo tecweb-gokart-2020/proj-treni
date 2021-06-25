@@ -283,3 +283,5 @@ function deleteProdotto($prodotto)
     $query = "delete from prodotto where codArticolo=$prodotto";
     return mysqli_query($connection, $query);
 }
+
+?>

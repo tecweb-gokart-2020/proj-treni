@@ -114,3 +114,5 @@ if (isset($_SESSION["username"])) {
     header("Location: http://$host$uri/$extra");
     exit();
 }
+
+?>

@@ -80,3 +80,5 @@ function makeNewSpedizione($orderID, $addressID, $status = null, $date = "NOW()"
         }
     }
 }
+
+?>

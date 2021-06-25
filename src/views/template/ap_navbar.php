@@ -20,3 +20,5 @@ echo '<nav id="ap_navbar" aria-label="area personale">
 	</li>
     </ul>
 </nav>';
+
+?>

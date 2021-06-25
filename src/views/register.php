@@ -50,3 +50,5 @@ echo '<div id="RegistrToLogin" class="container">
 	</div></main>';
 
 include 'template/footer.php';
+
+?>

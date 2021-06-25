@@ -46,3 +46,5 @@ echo '  </div>
 echo '</main>';
 
 include __DIR__ . DIRECTORY_SEPARATOR . "template/footer.php";
+
+?>

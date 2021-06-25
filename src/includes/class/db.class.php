@@ -48,3 +48,5 @@ class DBAccess
         $this->connection = null;
     }
 }
+
+?>

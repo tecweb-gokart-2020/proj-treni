@@ -29,3 +29,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     header("Location: home.php"); //se è arrivato per vie traverse, rimandiamolo alla home
 }
+
+?>

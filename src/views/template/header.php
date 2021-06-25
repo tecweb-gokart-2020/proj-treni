@@ -123,3 +123,5 @@ unset($tag_novita_close);
 unset($tag_prodotti_close);
 unset($tag_contatti_close);
 unset($tag_cart_close);
+
+?>
