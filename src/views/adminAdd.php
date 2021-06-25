@@ -12,7 +12,7 @@ if (isset($_SESSION["username"])) {
         }
         $pagetitle = "Aggiungi prodotto - Amministrazione";
         $pagedescription = "Area dove è possibile aggiungere un prodotto al catalogo";
-        $js = '<script type="text/javascript" src="js/.js"></script>';
+        $js = '<script type="text/javascript" src="js/adminAdd.js"></script>';
         include "template/header.php";
 
         $current_page = "Amministrazione";
@@ -61,11 +61,12 @@ if (isset($_SESSION["username"])) {
             }
         } else {
             echo '<main id="content">
-        <form enctype="multipart/form-data" id="insProd" name="insProd" action="adminAdd.php" method="post" novalidate="novalidate">
+        <form enctype="multipart/form-data" id="insProd" name="insProd" action="adminAdd.php" method="post" novalidate="novalidate" aria-live="assertive">
             <fieldset><legend>Inserimento</legend>
                 <label>Codice articolo*
-                    <input type="number" name="codArticolo" required="required">
+                    <input type="number" id="insProdCod" name="codArticolo" required="required" aria-errormessage="errorCodice" aria-invalid="false">
                 </label>
+                <div id="errorCodice" class="errore nascosto" >Questo campo è obbligatorio!</div>
                 <label>Tipo
                     <select name="tipo" required="required">
                         <option value="locomotiva">Locomotiva</option>
@@ -85,8 +86,9 @@ if (isset($_SESSION["username"])) {
                     <input type="text" name="amministrazione" maxlength="3">
                 </label>
                 <label>Prezzo*
-                    <input type="number" name="prezzo" required="required">
+                    <input type="number" id="insProdPrezzo" name="prezzo" required="required" aria-errormessage="errorPrezzo" aria-invalid="false">
                 </label>
+                <div id="errorPrezzo" class="errore nascosto" >Questo campo è obbligatorio!</div>
                 <label>Sconto
                     <input type="number" name="sconto" value="0">
                 </label>
@@ -97,8 +99,9 @@ if (isset($_SESSION["username"])) {
                     <input type="text" name="marca">
                 </label>
                 <label>Immagine* (dimensione massima: 2MB)
-                    <input type="file" name="immagine" required="required">
+                    <input type="file" id="insProdImg" name="immagine" required="required" aria-errormessage="errorImmagine" aria-invalid="false">
                 </label>
+                <div id="errorImmagine" class="errore nascosto" >Scegli un\'immagine da caricare</div>
                 <div class="button-pair">
                   <input type="reset" value="Reset">
                   <input id="new-item-insert-button" type="submit" value="Inserisci">
