@@ -207,6 +207,7 @@ function insertProdotto($prodotto, $image)
     if ($prodotto['sconto'] == "") {
         $prodotto['sconto'] = "NULL";
     }
+    $prodotto["marca"] = strtolower($prodotto['marca']);
     mysqli_query($connection, "insert into marca(nome) values (\"" . strtolower($prodotto['marca']) . "\")");
     $query = "insert into prodotto(codArticolo, quantita, descrizione, amministrazione, scala, prezzo, sconto, tipo, marca, novita) values ("
            . $prodotto['codArticolo']
@@ -253,6 +254,8 @@ function editProdotto($prodotto)
     $connection = $db->openDbConnection();
     $result = true;
     mysqli_begin_transaction($connection);
+    $prodotto["marca"] = strtolower($prodotto['marca']);
+    mysqli_query($connection, "insert into marca(nome) values (\"" . $prodotto['marca'] . "\")");
     foreach ($prodotto as $key => $property) {
         if ($key != "codArticolo") {
             $query = specifyEditQuery($key, $property) . ' where codArticolo="' . $prodotto['codArticolo'] . '"';
