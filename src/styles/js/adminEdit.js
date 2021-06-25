@@ -1,5 +1,6 @@
 var form;
 var prezzo;
+var marca;
 
 //riporta i messaggi di errore allo stato originale
 function reset(input){
@@ -26,17 +27,23 @@ function displayError(input){
 //gestisce la validazione del form di registrazione
 function validate(){
 	reset(prezzo);
+	reset(marca);
 
 	//gestisce gli errori uno alla volta, dall'alto al basso, se no lo screen reader non legge bene
 	if(prezzo.value == ""){
 		displayError(prezzo);
 		return false;	
 	}	
+	if(marca.value == ""){
+		displayError(marca);
+		return false;	
+	}
 }
 
 window.onload = function () {
 	form = document.getElementById('modProd');
 	prezzo = document.getElementById('modProdPrezzo');
+	marca = document.getElementById('modProdMarca');
 
 	form.setAttribute("onsubmit", "return validate()");
 }

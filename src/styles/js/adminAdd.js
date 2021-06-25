@@ -1,5 +1,6 @@
 var form;
 var codice;
+var marca;
 var prezzo;
 var immagine;
 
@@ -30,6 +31,7 @@ function validate(){
 	reset(codice);
 	reset(prezzo);
 	reset(immagine);
+	reset(marca);
 
 	//gestisce gli errori uno alla volta, dall'alto al basso, se no lo screen reader non legge bene
 	if(codice.value == ""){
@@ -38,6 +40,10 @@ function validate(){
 	}
 	if(prezzo.value == ""){
 		displayError(prezzo);
+		return false;	
+	}
+	if(marca.value == ""){
+		displayError(marca);
 		return false;	
 	}	
 	if(immagine.files.length == 0){
@@ -49,6 +55,7 @@ function validate(){
 window.onload = function () {
 	form = document.getElementById('insProd');
 	codice = document.getElementById('insProdCod');
+	marca = document.getElementById('insProdMarca');
 	prezzo = document.getElementById('insProdPrezzo');
 	immagine = document.getElementById('insProdImg');
 
