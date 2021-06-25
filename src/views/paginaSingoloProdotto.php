@@ -70,8 +70,9 @@ if ($inSconto) {
 echo '</ul>';
 
 echo '<form method="post">
-            <label id="labelQuantita" for="quantita">Quantità</label>
+            <div class="half-group"><label id="labelQuantita" for="quantita">Quantità</label>
             <input name="quantita" id="quantita" type="number" value="1" min="1" max="' . $info['quantita'] . '" step="1"/>
+            </div>
             <button type="submit" id="add" name="add" value="add">Aggiungi al carrello</button>
       </form>';
 
