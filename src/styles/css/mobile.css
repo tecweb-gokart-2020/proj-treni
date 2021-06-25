@@ -177,6 +177,9 @@ main h2 {
     text-align: center;
     position: inherit;
     width: 100%;
+    border-right: 0;
+    min-width: 0;
+    padding-right: auto;
 }
 
 #formFiltro label {

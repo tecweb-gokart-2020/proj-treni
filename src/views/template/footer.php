@@ -1,7 +1,7 @@
 <footer>
 	<div id="indirizzi">
- 		<address>
-			<strong>Vieni a trovarci!</strong> 
+		<strong>Vieni a trovarci!</strong>
+ 		<address>		
 			<ul>
 				<li> Esposizione in via Fasulla, 123 - Padova (ITA)</li>
 			</ul>

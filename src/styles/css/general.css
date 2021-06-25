@@ -406,6 +406,9 @@ div#categorie {
 	position: absolute;
 	width: 15%;
 	left: 1em;
+    border-right: 1px solid var(--viola);
+    min-width: 200px;
+    padding-right: 10px;
 }
 
 #formCategorie {
