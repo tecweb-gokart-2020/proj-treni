@@ -94,8 +94,9 @@ if (isset($_SESSION["username"])) {
                         <input type="number" name="quantita" value="' . $prodotto["quantita"] . '">
                     </label>
                     <label>Marca
-                        <input type="text" name="marca" value="' . $prodotto["marca"] . '">
+                        <input type="text" id="modProdMarca" name="marca" required="required" aria-errormessage="errorMarca" aria-invalid="false">
                     </label>
+                    <div id="errorMarca" class="errore nascosto" >Questo campo è obbligatorio!</div>
                     <div class="half-group">
                         <label>Novità</label>
                         <input type="checkbox" name="novita" value="'. $prodotto['novita'] .'">

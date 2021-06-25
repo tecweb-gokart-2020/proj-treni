@@ -95,9 +95,10 @@ if (isset($_SESSION["username"])) {
                 <label>Quantità
                     <input type="number" name="quantita" value="1" min="1">
                 </label>
-                <label>Marca
-                    <input type="text" name="marca">
+                <label>Marca*
+                    <input type="text" id="insProdMarca" name="marca" required="required" aria-errormessage="errorMarca" aria-invalid="false">
                 </label>
+                <div id="errorMarca" class="errore nascosto" >Questo campo è obbligatorio!</div>
                 <label>Immagine* (dimensione massima: 2MB)
                     <input type="file" id="insProdImg" name="immagine" required="required" aria-errormessage="errorImmagine" aria-invalid="false">
                 </label>
