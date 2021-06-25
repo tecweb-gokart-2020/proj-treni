@@ -1,7 +1,6 @@
 <?php
 
 // Configurazione php e variabili globali
-require_once "config.php";
 require_once "variables.php";
 
 // File `a oggetti'
