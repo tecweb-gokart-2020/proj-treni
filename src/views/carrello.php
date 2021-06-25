@@ -20,8 +20,9 @@ function stampaProdotto($prodotto)
     echo 'quantità: ' . $prodotto["quantita"];
     echo '</li>';
     $inSconto = false;
-    if ($info['sconto']>0)
-            $inSconto = true;
+    if ($info['sconto']>0) {
+        $inSconto = true;
+    }
 
     if ($inSconto) {
         echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';

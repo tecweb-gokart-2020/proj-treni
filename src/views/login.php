@@ -34,6 +34,3 @@ if (isset($_SESSION["loginErr"])) {
 echo '</main>';
 include __DIR__ . DIRECTORY_SEPARATOR . 'template/footer.php';
 ?>
-
-
-?>
