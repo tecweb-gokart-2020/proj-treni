@@ -19,19 +19,23 @@ function stampaProdotto($prodotto)
     echo '<li>';
     echo 'quantità: ' . $prodotto["quantita"];
     echo '</li>';
-    if ($info['sconto']!="") {
+    $inSconto = false;
+    if ($info['sconto']>0)
+            $inSconto = true;
+
+    if ($inSconto) {
         echo '<li>Si applica uno sconto del '.$info['sconto'].'%</li>';
     }
     echo '<li>';
-    if ($info['sconto']!="") {
+    if ($inSconto) {
         echo '<del>';
     }
     echo $info['prezzo'] . ' €';
-    if ($info['sconto']!="") {
+    if ($inSconto) {
         echo '</del>';
     }
     echo '</li>';
-    if ($info['sconto']!="") {
+    if ($inSconto) {
         echo '<li>';
         echo $aux=$info['prezzo']-$info['sconto']/100*$info['prezzo'];
         echo '</li>';
